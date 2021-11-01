@@ -1,6 +1,7 @@
 const { __ } = wp.i18n;
 import { MediaUpload } from "@wordpress/media-utils";
 import { Button } from "@wordpress/components";
+import { Fragment } from "react";
 const openSelect = (open) => {
     open();
 };
@@ -8,29 +9,27 @@ const CustomIcon = ({ onChange, value }) => {
     return (
         <div className=" kmt-upload-icon-container">
             <MediaUpload
-                title={__("Select Icon", "Kemet")}
+                title={__("Select Icon", "kemet")}
+                allowedTypes={["image/svg+xml"]}
+                value={value}
                 onSelect={(data) => {
                     onChange({
-
+                        ...value,
                         ...data,
-                        ...value
-                    });
+                    })
                 }}
-                allowedTypes={["image/svg+xml"]}
-                value={value.icon ? value.icon : ""}
                 render={({ open }) => (
-                    <>
+                    <Fragment>
                         {!value.url && (
                             <Button
                                 className="upload-button button-add-media"
-                                isDefault
                                 onClick={() => openSelect(open)}
                             >
-                                {__("Upload Icon", "Kemet")}
+                                {__("Upload Icon", "kemet")}
                             </Button>
                         )}
                         {value.url && (
-                            <div class="attachment-media-view ">
+                            <div class="attachment-media-view kmt-attachment ">
                                 <div class="thumbnail thumbnail-image">
                                     <img
                                         class="thumbnail-attachment"
@@ -40,9 +39,9 @@ const CustomIcon = ({ onChange, value }) => {
                                     />
                                     <div class="actions">
                                         <button
+                                            title="Edit"
                                             type="button"
                                             class="button edit-button "
-                                            title="Edit"
                                             onClick={() => openSelect(open)}
                                         ></button>
                                         <button
@@ -60,13 +59,13 @@ const CustomIcon = ({ onChange, value }) => {
                                 </div>
                             </div>
                         )}
-                    </>
+                    </Fragment>
                 )}
             />
             <p className="kmt-option-description">
                 {__(
                     "For performance and customization reasons, only SVG files are allowed.",
-                    "Kemet"
+                    "kemet"
                 )}
             </p>
         </div>

@@ -158,7 +158,7 @@ div.kmt-type-control {
     -webkit-font-smoothing: antialiased;
     text-transform: uppercase;
     justify-content: space-between;
-    margin-left: -5px;
+    margin-left: -7px;
   }
 
   .kmt-tooltip-top {
@@ -538,7 +538,7 @@ div.kmt-type-control {
 
       label {
         position: absolute;
-        top: 2px;
+        top: 0px;
         left: 2px;
         bottom: 1px;
         @extend %flex;
@@ -549,7 +549,7 @@ div.kmt-type-control {
         min-width: 18px;
         margin: 0;
         background: rgba(238, 238, 238, 0.65);
-        border-radius: 2px 0 0 2px;
+        border-radius: 0px;
       }
 
       input[type="number"] {
@@ -893,11 +893,11 @@ button.kmt-delete-palette {
   flex-direction: row;
   justify-content: space-between;
   background: #fff;
-  height: 45px;
+  height: 50px;
   z-index: 10;
   position: sticky;
   top: 0;
-  margin: 0 -25px 20px;
+  margin: 0 -25px 0px;
 }
 
 .kmt-color-palette-confrim__delete {
@@ -918,10 +918,9 @@ button.kmt-delete-palette {
       background-color: #e4e4e4;
       border: 0;
       box-shadow: none;
-      padding: 8px 1px;
       border: 1px solid #d1d0d0;
       color: #515256;
-      height: 28px;
+      height: 30px;
     }
   }
 
@@ -942,10 +941,13 @@ button.kmt-delete-palette {
     @extend %flex;
     font-weight: bold;
   }
-  span {
+  i {
     font-size: 16px;
     height: 16px;
     width: 16px;
+  }
+  span {
+    display: none;
   }
 
   .components-button {
@@ -960,13 +962,13 @@ button.kmt-delete-palette {
 
 .kmt-color-palette-confrim__delete {
   .components-modal__content {
-    padding: 0 25px 24px;
+    padding: 0 25px 25px;
   }
 
   .kmt-palette-popup-content {
     font-size: 13px;
     line-height: 1.5;
-    margin: 20px 0px;
+    margin: 25px 0px;
     text-indent: unset;
     .kmt-deleted-palette__name {
       font-style: italic;
@@ -1099,5 +1101,5 @@ button.kmt-delete-palette {
 }
 .components-modal__frame {
   width: 398px !important;
-  height: 173px !important;
+  height: 193px !important;
 }
