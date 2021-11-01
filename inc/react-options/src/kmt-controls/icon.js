@@ -60,13 +60,13 @@ const IconPicker = ({ value, onChange, params }) => {
                                 e.preventDefault();
 
                                 let futureIsPicking = isPicking
-                                    ? isPicking.split(":")[0] === "opts"
+                                    ? isPicking.split(":")[0] === "obj"
                                         ? null
-                                        : `opts:${isPicking.split(":")[0]}`
-                                    : "opts";
+                                        : `obj:${isPicking.split(":")[0]}`
+                                    : "obj";
 
                                 setAnimationState({
-                                    isTransitioning: "opts",
+                                    isTransitioning: "obj",
                                     isPicking: futureIsPicking,
                                 });
 
@@ -90,7 +90,7 @@ const IconPicker = ({ value, onChange, params }) => {
                                 <div>
                                     <span className="kmt-edit">
                                         <span className="kmt-tooltip-top">
-                                            {__("Change Icon", "Kemet")}
+                                            {__("Change Icon", "kemet")}
                                         </span>
                                     </span>
                                     <i className="divider"></i>
@@ -103,17 +103,14 @@ const IconPicker = ({ value, onChange, params }) => {
                                         }}
                                     >
                                         <span className="kmt-tooltip-top">
-                                            {__("Remove Icon", "Kemet")}
+                                            {__("Remove Icon", "kemet")}
                                         </span>
                                     </span>
                                 </div>
                             </Fragment>
                         ) : (
-                            <div >{__("Select", "Kemet")}</div>
+                            <div >{__("Select", "emet")}</div>
                         )}
-
-
-
                     </OutsideComponent>
                     <div className="kmt-btn-reset-wrap">
                         <button
@@ -138,11 +135,11 @@ const IconPicker = ({ value, onChange, params }) => {
                     searchString={searchString}
                     setSearchString={setSearchString}
                     picker={{
-                        id: "opts",
+                        id: "obj",
                     }}
                     onPickingChange={(isPicking) => {
                         setAnimationState({
-                            isTransitioning: "opts",
+                            isTransitioning: "obj",
                             isPicking,
                         });
                     }}

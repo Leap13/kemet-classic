@@ -232,9 +232,9 @@ const BackgroundModal = (props) => {
                     >
                         {
                             {
-                                color: __("Color", "Kemet"),
-                                gradient: __("Gradient", "Kemet"),
-                                image: __("Image", "Kemet"),
+                                color: __("Color", "kemet"),
+                                gradient: __("Gradient", "kemet"),
+                                image: __("Image", "kemet"),
                             }[type]
                         }
                     </li>

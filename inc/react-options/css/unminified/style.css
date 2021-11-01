@@ -4508,7 +4508,7 @@ input[type="checkbox"]:focus {
   max-width: 100%;
 }
 
-.attachment-media-view .actions {
+[class*="kmt-attachment"] .actions {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -4518,7 +4518,7 @@ input[type="checkbox"]:focus {
   box-shadow: 0 2px 5px black;
 }
 
-.attachment-media-view .actions button {
+[class*="kmt-attachment"] .actions button {
   width: 34px;
   height: 29px;
   line-height: 29px;
@@ -4529,16 +4529,16 @@ input[type="checkbox"]:focus {
   background: transparent !important;
 }
 
-.attachment-media-view .actions button:before {
+[class*="kmt-attachment"] .actions button:before {
   font-family: "dashicons";
   font-size: 15px;
 }
 
-.attachment-media-view .actions .edit-button:before {
+[class*="kmt-attachment"] .actions .edit-button:before {
   content: "\f464";
 }
 
-.attachment-media-view .actions .remove-button:before {
+[class*="kmt-attachment"] .actions .remove-button:before {
   content: "\f335";
 }
 

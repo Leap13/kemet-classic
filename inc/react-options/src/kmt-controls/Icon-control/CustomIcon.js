@@ -8,16 +8,16 @@ const CustomIcon = ({ onChange, value }) => {
     return (
         <div className=" kmt-upload-icon-container">
             <MediaUpload
-                title={__("Select Icon", "Kemet")}
+                title={__("Select Icon", "kemet")}
                 onSelect={(data) => {
                     onChange({
-
+                        ...value,
                         ...data,
-                        ...value
-                    });
+                    })
                 }}
                 allowedTypes={["image/svg+xml"]}
-                value={value.icon ? value.icon : ""}
+
+                value={value}
                 render={({ open }) => (
                     <>
                         {!value.url && (
@@ -26,11 +26,11 @@ const CustomIcon = ({ onChange, value }) => {
                                 isDefault
                                 onClick={() => openSelect(open)}
                             >
-                                {__("Upload Icon", "Kemet")}
+                                {__("Upload Icon", "kemet")}
                             </Button>
                         )}
                         {value.url && (
-                            <div class="attachment-media-view ">
+                            <div class="attachment-media-view kmt-attachment ">
                                 <div class="thumbnail thumbnail-image">
                                     <img
                                         class="thumbnail-attachment"
@@ -66,7 +66,7 @@ const CustomIcon = ({ onChange, value }) => {
             <p className="kmt-option-description">
                 {__(
                     "For performance and customization reasons, only SVG files are allowed.",
-                    "Kemet"
+                    "kemet"
                 )}
             </p>
         </div>

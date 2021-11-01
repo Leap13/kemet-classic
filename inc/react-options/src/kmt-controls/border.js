@@ -123,7 +123,7 @@ const Border = ({ value, onChange, params }) => {
                                                     data-style={style}
                                                 >
                                                     {style === "none"
-                                                        ? __("None", "Kemet")
+                                                        ? __("None", "kemet")
                                                         : null}
                                                 </span>
                                             ))}

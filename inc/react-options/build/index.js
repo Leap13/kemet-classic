@@ -21758,9 +21758,9 @@ var BackgroundModal = function BackgroundModal(props) {
         return props.onSelect(type);
       }
     }, {
-      color: __("Color", "Kemet"),
-      gradient: __("Gradient", "Kemet"),
-      image: __("Image", "Kemet")
+      color: __("Color", "kemet"),
+      gradient: __("Gradient", "kemet"),
+      image: __("Image", "kemet")
     }[type]);
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()({
@@ -21844,12 +21844,12 @@ var CustomIcon = function CustomIcon(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: " kmt-upload-icon-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
-    title: __("Select Icon", "Kemet"),
+    title: __("Select Icon", "kemet"),
     onSelect: function onSelect(data) {
-      onChange(_objectSpread(_objectSpread({}, data), value));
+      onChange(_objectSpread(_objectSpread({}, value), data));
     },
     allowedTypes: ["image/svg+xml"],
-    value: value.icon ? value.icon : "",
+    value: value,
     render: function render(_ref2) {
       var open = _ref2.open;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, !value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -21858,8 +21858,8 @@ var CustomIcon = function CustomIcon(_ref) {
         onClick: function onClick() {
           return openSelect(open);
         }
-      }, __("Upload Icon", "Kemet")), value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-        class: "attachment-media-view "
+      }, __("Upload Icon", "kemet")), value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+        class: "attachment-media-view kmt-attachment "
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
         class: "thumbnail thumbnail-image"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("img", {
@@ -21889,7 +21889,7 @@ var CustomIcon = function CustomIcon(_ref) {
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
     className: "kmt-option-description"
-  }, __("For performance and customization reasons, only SVG files are allowed.", "Kemet")));
+  }, __("For performance and customization reasons, only SVG files are allowed.", "kemet")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CustomIcon);
@@ -22081,7 +22081,7 @@ var IconPickerModal = function IconPickerModal(_ref) {
       className: classnames__WEBPACK_IMPORTED_MODULE_3___default()({
         active: value.source !== "attachment"
       })
-    }, __("Predefined", "Kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
+    }, __("Predefined", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
       onClick: function onClick() {
         onChange(_objectSpread(_objectSpread({}, value), {}, {
           source: "attachment"
@@ -22090,7 +22090,7 @@ var IconPickerModal = function IconPickerModal(_ref) {
       className: classnames__WEBPACK_IMPORTED_MODULE_3___default()({
         active: value.source === "attachment"
       })
-    }, __("Custom", "Kemet"))), value.source !== "attachment" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_IconsList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, __("Custom", "kemet"))), value.source !== "attachment" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_IconsList__WEBPACK_IMPORTED_MODULE_4__["default"], {
       searchString: searchString,
       filteredPacks: filteredPacks,
       setSearchString: setSearchString,
@@ -22228,7 +22228,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
   var renderSettings = function renderSettings() {
     var renderBackground = responsive ? props_value[device] : props_value;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_kmt_background__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Background", "Kemet"),
+      text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Background", "kemet"),
       onSelect: function onSelect(type) {
         return onSelectType(type);
       },
@@ -22465,7 +22465,7 @@ var Border = function Border(_ref) {
           setIsOpen(false);
         },
         "data-style": style
-      }, style === "none" ? __("None", "Kemet") : null);
+      }, style === "none" ? __("None", "kemet") : null);
     }));
   })))), value.style !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onChangeComplete: function onChangeComplete(colorValue) {
@@ -24015,9 +24015,9 @@ var IconPicker = function IconPicker(_ref) {
     wrapperProps: {
       onClick: function onClick(e) {
         e.preventDefault();
-        var futureIsPicking = isPicking ? isPicking.split(":")[0] === "opts" ? null : "opts:".concat(isPicking.split(":")[0]) : "opts";
+        var futureIsPicking = isPicking ? isPicking.split(":")[0] === "obj" ? null : "obj:".concat(isPicking.split(":")[0]) : "obj";
         setAnimationState({
-          isTransitioning: "opts",
+          isTransitioning: "obj",
           isPicking: futureIsPicking
         });
         setSearchString("");
@@ -24033,7 +24033,7 @@ var IconPicker = function IconPicker(_ref) {
     className: "kmt-edit"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-tooltip-top"
-  }, __("Change Icon", "Kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
+  }, __("Change Icon", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
     className: "divider"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-remove",
@@ -24044,7 +24044,7 @@ var IconPicker = function IconPicker(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-tooltip-top"
-  }, __("Remove Icon", "Kemet"))))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, __("Select", "Kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }, __("Remove Icon", "kemet"))))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, __("Select", "emet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
     className: "kmt-reset-btn ",
@@ -24062,11 +24062,11 @@ var IconPicker = function IconPicker(_ref) {
     searchString: searchString,
     setSearchString: setSearchString,
     picker: {
-      id: "opts"
+      id: "obj"
     },
     onPickingChange: function onPickingChange(isPicking) {
       setAnimationState({
-        isTransitioning: "opts",
+        isTransitioning: "obj",
         isPicking: isPicking
       });
     },
