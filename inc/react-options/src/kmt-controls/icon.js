@@ -26,7 +26,7 @@ const IconPicker = ({ value, onChange, params }) => {
         isPicking: null,
         isTransitioning: null,
     });
-    console.log(value)
+
 
     const handleRemoveIcon = () => {
         value.source !== "attachment" ? onChange({ ...value, icon: '' }) : onChange({ ...value, url: '' });

@@ -23975,8 +23975,6 @@ var IconPicker = function IconPicker(_ref) {
       isTransitioning = _useState4$.isTransitioning,
       setAnimationState = _useState4[1];
 
-  console.log(value);
-
   var handleRemoveIcon = function handleRemoveIcon() {
     value.source !== "attachment" ? onChange(_objectSpread(_objectSpread({}, value), {}, {
       icon: ''
