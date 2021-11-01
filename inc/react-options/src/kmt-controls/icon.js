@@ -2,11 +2,10 @@ import { Fragment, useMemo, useRef, useState } from "@wordpress/element";
 import OutsideComponent from "../common/outside-component";
 const { __ } = wp.i18n;
 
-import Dashicons from "../common/iconList";
+import { Dashicons } from "../common/iconList";
 import IconPickerModal from "./Icon-control/Modal";
 
 export const packs = Dashicons;
-
 const IconPicker = ({ value, onChange, params }) => {
     const correctIcon = useMemo(() => {
         return (value.icon || value.url) && packs
@@ -19,18 +18,12 @@ const IconPicker = ({ value, onChange, params }) => {
     let defaultValue = {
         icon: null,
     };
-
     const [searchString, setSearchString] = useState("");
-
     const [{ isPicking, isTransitioning }, setAnimationState] = useState({
         isPicking: null,
         isTransitioning: null,
     });
 
-
-    const handleRemoveIcon = () => {
-        value.source !== "attachment" ? onChange({ ...value, icon: '' }) : onChange({ ...value, url: '' });
-    }
     return (
         <div className={`kmt-icon-container `}>
             <header>
@@ -58,7 +51,6 @@ const IconPicker = ({ value, onChange, params }) => {
                         wrapperProps={{
                             onClick: (e) => {
                                 e.preventDefault();
-
                                 let futureIsPicking = isPicking
                                     ? isPicking.split(":")[0] === "obj"
                                         ? null
@@ -99,7 +91,7 @@ const IconPicker = ({ value, onChange, params }) => {
                                         onClick={(e) => {
                                             e.preventDefault();
                                             e.stopPropagation();
-                                            handleRemoveIcon()
+                                            value.source !== "attachment" ? onChange({ ...value, icon: '' }) : onChange({ ...value, url: '' });
                                         }}
                                     >
                                         <span className="kmt-tooltip-top">

@@ -21845,16 +21845,15 @@ var CustomIcon = function CustomIcon(_ref) {
     className: " kmt-upload-icon-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
     title: __("Select Icon", "kemet"),
+    allowedTypes: ["image/svg+xml"],
+    value: value,
     onSelect: function onSelect(data) {
       onChange(_objectSpread(_objectSpread({}, value), data));
     },
-    allowedTypes: ["image/svg+xml"],
-    value: value,
     render: function render(_ref2) {
       var open = _ref2.open;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, !value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "upload-button button-add-media",
-        isDefault: true,
         onClick: function onClick() {
           return openSelect(open);
         }
@@ -21870,9 +21869,9 @@ var CustomIcon = function CustomIcon(_ref) {
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
         class: "actions"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+        title: "Edit",
         type: "button",
         class: "button edit-button ",
-        title: "Edit",
         onClick: function onClick() {
           return openSelect(open);
         }
@@ -23882,8 +23881,8 @@ var IconSelectComponent = function IconSelectComponent(props) {
         icon = _ref2[1];
 
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
-      className: "icon-select-input",
       type: "radio",
+      className: "icon-select-input",
       value: key,
       name: "_customize-icon-select-".concat(id),
       checked: value === key,
@@ -23943,7 +23942,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var __ = wp.i18n.__;
 
 
-var packs = _common_iconList__WEBPACK_IMPORTED_MODULE_4__["default"];
+var packs = _common_iconList__WEBPACK_IMPORTED_MODULE_4__["Dashicons"];
 
 var IconPicker = function IconPicker(_ref) {
   var value = _ref.value,
@@ -23974,14 +23973,6 @@ var IconPicker = function IconPicker(_ref) {
       isPicking = _useState4$.isPicking,
       isTransitioning = _useState4$.isTransitioning,
       setAnimationState = _useState4[1];
-
-  var handleRemoveIcon = function handleRemoveIcon() {
-    value.source !== "attachment" ? onChange(_objectSpread(_objectSpread({}, value), {}, {
-      icon: ''
-    })) : onChange(_objectSpread(_objectSpread({}, value), {}, {
-      url: ''
-    }));
-  };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-icon-container "
@@ -24038,7 +24029,11 @@ var IconPicker = function IconPicker(_ref) {
     onClick: function onClick(e) {
       e.preventDefault();
       e.stopPropagation();
-      handleRemoveIcon();
+      value.source !== "attachment" ? onChange(_objectSpread(_objectSpread({}, value), {}, {
+        icon: ''
+      })) : onChange(_objectSpread(_objectSpread({}, value), {}, {
+        url: ''
+      }));
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-tooltip-top"
@@ -26787,12 +26782,9 @@ var TypographyModal = function TypographyModal(_ref) {
       setSearchTerm('');
     }
   }, currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("span", null, Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["familyToDisplay"])(value.family)), currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("input", {
-    onClick: function onClick(e) {
-      return e.stopPropagation();
-    },
     ref: inputEl,
-    autoFocus: true,
     value: searchTerm,
+    autoFocus: true,
     onKeyUp: function onKeyUp(e) {
       if (e.keyCode == 13) {
         if (linearFontsList.length > 0) {
@@ -26800,6 +26792,9 @@ var TypographyModal = function TypographyModal(_ref) {
           setSearchTerm('');
         }
       }
+    },
+    onClick: function onClick(e) {
+      return e.stopPropagation();
     },
     onChange: function onChange(_ref3) {
       var value = _ref3.target.value;
@@ -27351,15 +27346,15 @@ var Uploader = function Uploader(_ref3) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-option-input"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", {
+    type: "text",
+    value: name,
+    placeholder: __("Font Name", "kemet"),
     onChange: function onChange(_ref6) {
       var name = _ref6.target.value;
       setFutureFont(_objectSpread(_objectSpread({}, futureFont), {}, {
         name: name
       }));
     },
-    type: "text",
-    placeholder: __("Font Name", "kemet"),
-    value: name,
     style: {
       width: "100%"
     }

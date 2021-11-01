@@ -148,10 +148,9 @@ const TypographyModal = ({
 
                         {currentView === 'search' && (
                             <input
-                                onClick={(e) => e.stopPropagation()}
                                 ref={inputEl}
-                                autoFocus
                                 value={searchTerm}
+                                autoFocus
                                 onKeyUp={(e) => {
                                     if (e.keyCode == 13) {
                                         if (linearFontsList.length > 0) {
@@ -160,6 +159,7 @@ const TypographyModal = ({
                                         }
                                     }
                                 }}
+                                onClick={(e) => e.stopPropagation()}
                                 onChange={({ target: { value } }) =>
                                     setSearchTerm(value)
                                 }

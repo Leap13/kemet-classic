@@ -9,21 +9,19 @@ const CustomIcon = ({ onChange, value }) => {
         <div className=" kmt-upload-icon-container">
             <MediaUpload
                 title={__("Select Icon", "kemet")}
+                allowedTypes={["image/svg+xml"]}
+                value={value}
                 onSelect={(data) => {
                     onChange({
                         ...value,
                         ...data,
                     })
                 }}
-                allowedTypes={["image/svg+xml"]}
-
-                value={value}
                 render={({ open }) => (
                     <>
                         {!value.url && (
                             <Button
                                 className="upload-button button-add-media"
-                                isDefault
                                 onClick={() => openSelect(open)}
                             >
                                 {__("Upload Icon", "kemet")}
@@ -40,9 +38,9 @@ const CustomIcon = ({ onChange, value }) => {
                                     />
                                     <div class="actions">
                                         <button
+                                            title="Edit"
                                             type="button"
                                             class="button edit-button "
-                                            title="Edit"
                                             onClick={() => openSelect(open)}
                                         ></button>
                                         <button
