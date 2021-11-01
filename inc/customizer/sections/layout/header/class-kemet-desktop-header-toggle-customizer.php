@@ -190,7 +190,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'type'         => 'kmt-slider',
 								'default'      => array(
 									'value' => 10,
-									'unit'  => '%',
+									'unit'  => 'px',
 								),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Vertical Offset', 'kemet' ),
@@ -212,7 +212,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'type'         => 'kmt-slider',
 								'default'      => array(
 									'value' => 10,
-									'unit'  => '%',
+									'unit'  => 'px',
 								),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Horizontal Offset', 'kemet' ),
