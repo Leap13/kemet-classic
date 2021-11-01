@@ -89,7 +89,7 @@ const BackgroundComponent = (props) => {
         return (
             <>
                 <Background
-                    text={__("Background", "Kemet")}
+                    text={__("Background", "kemet")}
                     onSelect={(type) => onSelectType(type)}
                     color={
                         undefined !== renderBackground["background-color"] &&

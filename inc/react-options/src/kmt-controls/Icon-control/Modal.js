@@ -113,7 +113,7 @@ const IconPickerModal = ({
                                         active: value.source !== "attachment",
                                     })}
                                 >
-                                    {__("Predefined", "Kemet")}
+                                    {__("Predefined", "kemet")}
                                 </li>
 
                                 <li
@@ -127,7 +127,7 @@ const IconPickerModal = ({
                                         active: value.source === "attachment",
                                     })}
                                 >
-                                    {__("Custom", "Kemet")}
+                                    {__("Custom", "kemet")}
                                 </li>
                             </ul>
 

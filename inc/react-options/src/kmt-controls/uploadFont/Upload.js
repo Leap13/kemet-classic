@@ -266,15 +266,15 @@ const Uploader = ({
             <div className="kmt-font-name">
                 <div className="kmt-option-input">
                     <input
+                        type="text"
+                        value={name}
+                        placeholder={__("Font Name", "kemet")}
                         onChange={({ target: { value: name } }) => {
                             setFutureFont({
                                 ...futureFont,
                                 name,
                             });
                         }}
-                        type="text"
-                        placeholder={__("Font Name", "kemet")}
-                        value={name}
                         style={{ width: "100%" }}
                     />
                 </div>
