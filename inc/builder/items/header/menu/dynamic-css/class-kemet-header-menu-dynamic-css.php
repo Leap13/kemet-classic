@@ -88,6 +88,10 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'color'             => 'var(--linksHoverColor)',
 						'--backgroundColor' => esc_attr( $submenu_bg_h_color ),
 					),
+					'body:not(.kmt-header-break-point) #site-navigation ' . $selector . ' .kemet-megamenu-item .mega-menu-full-wrap' => array(
+						'--borderTopWidth' => kemet_slider( $submenu_border_top_width ),
+						'--borderTopColor' => esc_attr( $submenu_top_border_color ),
+					),
 				);
 
 				/* Parse CSS from array() */
