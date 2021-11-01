@@ -24,10 +24,6 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'type'  => 'kmt-color-palettes',
 				'link'  => '',
 			),
-			'test-border'              => array(
-				'type'  => 'icon-picker',
-				'label' => __( 'Test icon', 'kemet' ),
-			),
 			'color-schema-title'       => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'Manage color Scheme', 'kemet' ),
