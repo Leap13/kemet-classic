@@ -308,6 +308,13 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 										'max'  => 200,
 									),
 								),
+								'context'      => array(
+									array(
+										'setting'  => self::$prefix . '-style',
+										'operator' => 'in_array',
+										'value'    => array( 'outline', 'solid' ),
+									),
+								),
 								'preview'      => array(
 									'selector' => $selector,
 									'property' => '--borderRadius',

@@ -6110,6 +6110,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
   color: #ffffff;
 }
 
+.kmt-radio-container-control .components-button.is-tertiary.active-radio:hover {
+  color: #ffffff;
+}
+
 .kmt-radio-container-control .components-button.is-tertiary .kmt-icon-set {
   display: flex;
 }

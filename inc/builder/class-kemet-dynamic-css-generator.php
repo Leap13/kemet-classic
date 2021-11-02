@@ -803,6 +803,15 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				case 'left-five-forty':
 					$grid_template_columns = '3fr 1fr 1fr 1fr 1fr';
 					break;
+				case 'left-six-heavy':
+					$grid_template_columns = '2fr 1fr 1fr 1fr 1fr 1fr';
+					break;
+				case 'six-six-heavy':
+					$grid_template_columns = '1fr 1fr 2fr 2fr 1fr 1fr';
+					break;
+				case 'right-six-heavy':
+					$grid_template_columns = '1fr 1fr 1fr 1fr 1fr 2fr';
+					break;
 				case 'row':
 					$grid_template_columns = 'minmax(0, 1fr)';
 					break;
