@@ -83,7 +83,7 @@ const ColorPalettes = ({
             skin: data.type,
             name: data.name,
         };
-        palettes.unshift(newPalette);
+        palettes.splice(0, 0, newPalette);
         onChange({
             ...value,
             flag: !value.flag,

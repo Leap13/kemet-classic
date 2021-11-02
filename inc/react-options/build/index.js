@@ -23020,7 +23020,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
       name: data.name
     });
 
-    palettes.unshift(newPalette);
+    palettes.splice(0, 0, newPalette);
     onChange(_objectSpread(_objectSpread({}, value), {}, {
       flag: !value.flag
     }));
