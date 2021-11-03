@@ -5,9 +5,9 @@ import _ from 'underscore'
 const round = (value) => Math.round(value * 10) / 10
 
 const NumberComponent = ({ value, params, onChange }) => {
-    let { min, max, label } = params
-    let step = 1;
-    let defaultValue = 1
+    let { min, max, label, step } = params;
+    step = step ? step : 1;
+    let defaultValue = params.default ? params.default : 1;
 
     return (
         <div className={`kmt-number-control__Wrapper`}>
@@ -29,15 +29,16 @@ const NumberComponent = ({ value, params, onChange }) => {
                         })}
                         onClick={() =>
                             onChange(
-                                round(
-                                    Math.min(
-                                        Math.max(
-                                            parseFloat(value) - parseFloat(step),
-                                            min
-                                        ),
-                                        max
-                                    )
-                                )
+                                value ?
+                                    round(
+                                        Math.min(
+                                            Math.max(
+                                                parseFloat(value) - parseFloat(step),
+                                                min
+                                            ),
+                                            max
+                                        )
+                                    ) : min
                             )
                         }
                     />
@@ -48,14 +49,14 @@ const NumberComponent = ({ value, params, onChange }) => {
                         })}
                         onClick={() =>
                             onChange(
-
-                                Math.min(
-                                    Math.max(
-                                        parseFloat(value) + parseFloat(step),
-                                        min
-                                    ),
-                                    max
-                                )
+                                value ?
+                                    Math.min(
+                                        Math.max(
+                                            parseFloat(value) + parseFloat(step),
+                                            min
+                                        ),
+                                        max
+                                    ) : step
 
                             )
                         }
