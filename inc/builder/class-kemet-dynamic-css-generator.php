@@ -764,6 +764,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 			return $parse_css;
 		}
 
+		/**
+		 * get_grid_template_columns
+		 *
+		 * @param  string $layout
+		 * @return string
+		 */
 		public static function get_grid_template_columns( $layout = '' ) {
 			$grid_template_columns = '';
 			switch ( $layout ) {
