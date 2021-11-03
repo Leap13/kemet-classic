@@ -65,7 +65,7 @@ const NumberComponent = ({ value, params, onChange }) => {
                         step={step}
                         onChange={(val) => onChange(val)} />
                 </div>
-            </div >
+            </div>
             <div className="kmt-btn-reset-wrap">
                 <button
                     className="kmt-reset-btn "

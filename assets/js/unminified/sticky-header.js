@@ -39,8 +39,8 @@
     },
     stickySection: function (section) {
       var header = document.querySelector(
-          "#kmt-" + kemetStickyHeader.activeHeader + "-header"
-        ),
+        "#kmt-" + kemetStickyHeader.activeHeader + "-header"
+      ),
         sectionContainer = header.querySelector("." + section + "-header-bar"),
         sectionWrap = header.querySelector(".kmt-" + section + "-header-wrap"),
         top = 0,
@@ -93,10 +93,13 @@
         section,
         index
       ) {
-        var sectionBar = header.querySelector("." + section + "-header-bar"),
-          sectionWrap = header.querySelector(
-            ".kmt-" + section + "-header-wrap"
-          );
+        var sectionBar = header.querySelector("." + section + "-header-bar");
+        if (!sectionBar) {
+          return;
+        }
+        var sectionWrap = header.querySelector(
+          ".kmt-" + section + "-header-wrap"
+        );
         sectionBar.setAttribute(
           "data-offset",
           kemetStickyHeader.getOffset(sectionWrap).top
@@ -126,15 +129,18 @@
         kemetStickyHeader.activeShrink == "on"
       ) {
         var header = document.querySelector(
-            "#kmt-" + kemetStickyHeader.activeHeader + "-header"
-          ),
+          "#kmt-" + kemetStickyHeader.activeHeader + "-header"
+        ),
           shrinkHeight = kemetStickyHeader.isMobile
             ? kemet.shrinkMobileHeight
             : kemet.shrinkHeight,
           mainInner = header.querySelector(
             ".site-main-header-wrap .kmt-grid-row"
-          ),
-          mainBar = header.querySelector(".main-header-bar"),
+          );
+        if (!mainInner) {
+          return;
+        }
+        var mainBar = header.querySelector(".main-header-bar"),
           mainWrap = header.querySelector(".kmt-main-header-wrap"),
           startHeight = mainBar.getAttribute("data-start-height");
 
@@ -152,14 +158,14 @@
     },
     offSetTop: function (section) {
       var header = document.querySelector(
-          "#kmt-" + kemetStickyHeader.activeHeader + "-header"
-        ),
-        topOffSet = parseInt(
+        "#kmt-" + kemetStickyHeader.activeHeader + "-header"
+      ),
+        topOffSet = header.querySelector(".top-header-bar") && parseInt(
           header.querySelector(".top-header-bar").getAttribute("data-offset")
         ),
         mainBar = header.querySelector(".main-header-bar"),
         mainOffSet = parseInt(mainBar.getAttribute("data-offset")),
-        bottomOffSet = parseInt(
+        bottomOffSet = header.querySelector(".bottom-header-bar") && parseInt(
           header.querySelector(".bottom-header-bar").getAttribute("data-offset")
         ),
         offSet = 0,
@@ -172,11 +178,11 @@
         "on" == kemetStickyHeader.activeShrink
           ? parseInt(shrinkHeight)
           : parseInt(
-              header
-                .querySelector(".main-header-bar")
-                .getAttribute("data-height")
-            );
-      var topHeight = parseInt(
+            header
+              .querySelector(".main-header-bar")
+              .getAttribute("data-height")
+          );
+      var topHeight = header.querySelector(".top-header-bar") && parseInt(
         header.querySelector(".top-header-bar").getAttribute("data-height")
       );
       if (kemetStickyHeader.hasAdminBar) {
@@ -241,6 +247,9 @@
       kemetStickyHeader.hasAdminBar =
         document.body.classList.contains("admin-bar") &&
         "desktop" == kemetStickyHeader.activeHeader;
+      var header = document.querySelector(
+        "#kmt-" + kemetStickyHeader.activeHeader + "-header"
+      );
       Object.keys(kemetStickyHeader.stickySections).map(function (
         section,
         index
@@ -248,7 +257,8 @@
         var enable = kemetStickyHeader.isMobile
           ? kemetStickyHeader.stickySections[section].mobileEnable
           : kemetStickyHeader.stickySections[section].enable;
-        if ("on" === enable) {
+        var sectionContainer = header.querySelector("." + section + "-header-bar");
+        if ("on" === enable && sectionContainer) {
           kemetStickyHeader.stickySection(section);
         }
       });
