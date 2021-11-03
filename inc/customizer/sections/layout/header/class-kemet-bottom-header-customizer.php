@@ -171,6 +171,34 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							self::$prefix . '-sticky-border-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Sticky Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-sticky-bottom-bar #sitehead ' . $selector . '.kmt-is-sticky',
+										'property' => '--borderColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting' => 'enable-sticky-bottom',
+										'value'   => true,
+									),
+									array(
+										'setting' => 'enable-sticky-mobile-bottom',
+										'value'   => true,
+									),
+									'relation' => 'OR',
+								),
+							),
 						),
 					),
 				),
