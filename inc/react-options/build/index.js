@@ -24389,12 +24389,12 @@ var NumberComponent = function NumberComponent(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
     className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(value) === parseInt(min))),
     onClick: function onClick() {
-      return _onChange(round(Math.min(Math.max(parseFloat(value) - parseFloat(step), min), max)));
+      return _onChange(value ? round(Math.min(Math.max(parseFloat(value) - parseFloat(step), min), max)) : min);
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
     className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(value) === parseInt(max))),
     onClick: function onClick() {
-      return _onChange(Math.min(Math.max(parseFloat(value) + parseFloat(step), min), max));
+      return _onChange(value ? Math.min(Math.max(parseFloat(value) + parseFloat(step), min), max) : step);
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: value,

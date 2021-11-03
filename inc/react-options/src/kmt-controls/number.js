@@ -29,15 +29,16 @@ const NumberComponent = ({ value, params, onChange }) => {
                         })}
                         onClick={() =>
                             onChange(
-                                round(
-                                    Math.min(
-                                        Math.max(
-                                            parseFloat(value) - parseFloat(step),
-                                            min
-                                        ),
-                                        max
-                                    )
-                                )
+                                value ?
+                                    round(
+                                        Math.min(
+                                            Math.max(
+                                                parseFloat(value) - parseFloat(step),
+                                                min
+                                            ),
+                                            max
+                                        )
+                                    ) : min
                             )
                         }
                     />
@@ -48,14 +49,14 @@ const NumberComponent = ({ value, params, onChange }) => {
                         })}
                         onClick={() =>
                             onChange(
-
-                                Math.min(
-                                    Math.max(
-                                        parseFloat(value) + parseFloat(step),
-                                        min
-                                    ),
-                                    max
-                                )
+                                value ?
+                                    Math.min(
+                                        Math.max(
+                                            parseFloat(value) + parseFloat(step),
+                                            min
+                                        ),
+                                        max
+                                    ) : step
 
                             )
                         }
