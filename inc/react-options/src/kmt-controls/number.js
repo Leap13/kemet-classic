@@ -5,9 +5,10 @@ import _ from 'underscore'
 const round = (value) => Math.round(value * 10) / 10
 
 const NumberComponent = ({ value, params, onChange }) => {
-    let { min, max, label } = params
-    let step = 1;
-    let defaultValue = 1
+    let { min, max, label, step } = params;
+    step = step ? step : 1;
+    let defaultValue = params.default ? params.default : 1;
+    console.log(min, max)
 
     return (
         <div className={`kmt-number-control__Wrapper`}>

@@ -24375,9 +24375,11 @@ var NumberComponent = function NumberComponent(_ref) {
       _onChange = _ref.onChange;
   var min = params.min,
       max = params.max,
-      label = params.label;
-  var step = 1;
-  var defaultValue = 1;
+      label = params.label,
+      step = params.step;
+  step = step ? step : 1;
+  var defaultValue = params.default ? params.default : 1;
+  console.log(min, max);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-number-control__Wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
