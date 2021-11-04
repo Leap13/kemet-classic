@@ -23122,13 +23122,13 @@ var ColorPalettes = function ColorPalettes(_ref) {
           isTransitioning: null
         };
       });
-      setCurrentView("modal");
+      setCurrentView(!isOpen ? "modal" : "");
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, __("Select Another Palette", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: classnames__WEBPACK_IMPORTED_MODULE_12___default()("kmt-button-open-palette", {
       active: currentView === "modal"
     })
-  }))), isOpen && currentView === "modal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }))), isOpen && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
     wrapperProps: {
       style: _objectSpread({}, styles)
     },

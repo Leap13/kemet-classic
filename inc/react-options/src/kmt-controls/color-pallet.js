@@ -183,7 +183,7 @@ const ColorPalettes = ({
                                 isOpen: !isOpen,
                                 isTransitioning: null,
                             }))
-                            setCurrentView("modal");
+                            setCurrentView(!isOpen ? "modal" : "");
                         }}
                     >
                         <header>
@@ -195,7 +195,7 @@ const ColorPalettes = ({
                     </div>
 
                 </div>
-                {isOpen && currentView === "modal" &&
+                {isOpen &&
                     <ColorPalettesModal
                         wrapperProps={{
                             style: {
