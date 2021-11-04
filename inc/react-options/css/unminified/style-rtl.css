@@ -2600,6 +2600,11 @@ span.kmt-color-description {
   width: 17px !important;
 }
 
+.css-ln2ltz-Thumb {
+  box-shadow: none !important;
+  border-width: 2px;
+}
+
 .customize-control-kmt-sortable .kmt-sortable ul {
   cursor: default;
 }
