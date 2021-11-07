@@ -29,103 +29,155 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 		self::$prefix     = 'footer-menu';
 		$selector         = has_nav_menu( self::$prefix ) ? '#' . self::$prefix : '#' . self::$prefix . ' > ul';
 		$register_options = array(
-			self::$prefix . '-title'        => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'Menu Settings', 'kemet' ),
-			),
-			self::$prefix . '-typography'   => array(
-				'type'      => 'kmt-typography',
-				'label'     => __( 'Typography', 'kemet' ),
-				'transport' => 'postMessage',
-				'preview'   => array(
-					'selector' => $selector . ' > li > a',
-				),
-			),
-			self::$prefix . '-bg-color'     => array(
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'divider'   => true,
-				'label'     => __( 'Background Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
+			self::$prefix . '-tabs' => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							self::$prefix . '-items-direction' => array(
+								'type'      => 'kmt-radio',
+								'transport' => 'postMessage',
+								'label'     => __( 'Items Direction', 'kemet' ),
+								'choices'   => array(
+									'100%'    => __( 'Horizontal', 'kemet' ),
+									'initial' => __( 'Vertical', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector . ' > li',
+									'property' => '--itemsWidth',
+								),
+							),
+							self::$prefix . '-items-align' => array(
+								'type'      => 'kmt-icon-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Horizontal Alignment', 'kemet' ),
+								'choices'   => array(
+									'flex-start' => array(
+										'icon' => 'dashicons-editor-alignleft',
+									),
+									'center'     => array(
+										'icon' => 'dashicons-editor-aligncenter',
+									),
+									'flex-end'   => array(
+										'icon' => 'dashicons-editor-alignright',
+									),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'property' => '--justifyContent',
+								),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-items-direction',
+										'value'   => '100%',
+									),
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Typography', 'kemet' ),
+								'transport' => 'postMessage',
+								'preview'   => array(
+									'selector' => $selector . ' > li > a',
+								),
+							),
+							self::$prefix . '-bg-color'   => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'divider'   => true,
+								'label'     => __( 'Background Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--backgroundColor',
+									),
+								),
+							),
+							self::$prefix . '-link-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Links Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--linksColor',
+									),
+									'hover'   => array(
+										'selector' => $selector,
+										'property' => '--linksHoverColor',
+									),
+								),
+							),
+							self::$prefix . '-spacing'    => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'divider'        => true,
+								'label'          => __( 'Menu Padding', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector,
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-item-spacing' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Menu Item Padding', 'kemet' ),
+								'linked_choices' => true,
+								'responsive'     => true,
+								'divider'        => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector . ' li > a',
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
+								),
+							),
+						),
+
 					),
 				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => $selector,
-						'property' => '--backgroundColor',
-					),
-				),
 			),
-			self::$prefix . '-link-color'   => array(
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'label'     => __( 'Links Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
-					),
-					array(
-						'title' => __( 'Hover', 'kemet' ),
-						'id'    => 'hover',
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => $selector,
-						'property' => '--linksColor',
-					),
-					'hover'   => array(
-						'selector' => $selector,
-						'property' => '--linksHoverColor',
-					),
-				),
-			),
-			self::$prefix . '-spacing'      => array(
-				'type'           => 'kmt-spacing',
-				'transport'      => 'postMessage',
-				'responsive'     => true,
-				'divider'        => true,
-				'label'          => __( 'Menu Padding', 'kemet' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-					'left'   => __( 'Left', 'kemet' ),
-				),
-				'preview'        => array(
-					'selector'   => $selector,
-					'property'   => '--padding',
-					'sides'      => false,
-					'responsive' => true,
-				),
-			),
-			self::$prefix . '-item-spacing' => array(
-				'type'           => 'kmt-spacing',
-				'transport'      => 'postMessage',
-				'label'          => __( 'Menu Item Padding', 'kemet' ),
-				'linked_choices' => true,
-				'responsive'     => true,
-				'divider'        => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-					'left'   => __( 'Left', 'kemet' ),
-				),
-				'preview'        => array(
-					'selector'   => $selector . ' li > a',
-					'property'   => '--padding',
-					'sides'      => false,
-					'responsive' => true,
-				),
-			),
+
 		);
 
 		$register_options = array(

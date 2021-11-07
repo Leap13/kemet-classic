@@ -178,7 +178,9 @@
     }
     #offcanvas-menu {
       .children > li > a,
-      .sub-menu > li > a {
+      .sub-menu > li > a,
+      .children > li > .kmt-menu-item-wrap,
+      .sub-menu > li > .kmt-menu-item-wrap {
         padding-left: 30px;
         &:before {
           content: "-";
@@ -186,7 +188,9 @@
         }
       }
       .children li li a,
-      .sub-menu li li a {
+      .sub-menu li li a,
+      .children li li .kmt-menu-item-wrap,
+      .sub-menu li li .kmt-menu-item-wrap {
         padding-left: 40px;
         &:before {
           content: "--";
@@ -194,7 +198,9 @@
         }
       }
       .children li li li a,
-      .sub-menu li li li a {
+      .sub-menu li li li a,
+      .children li li li .kmt-menu-item-wrap,
+      .sub-menu li li li .kmt-menu-item-wrap {
         padding-left: 50px;
         &:before {
           content: "---";
@@ -202,7 +208,9 @@
         }
       }
       .children li li li li a,
-      .sub-menu li li li li a {
+      .sub-menu li li li li a,
+      .children li li li li .kmt-menu-item-wrap,
+      .sub-menu li li li li .kmt-menu-item-wrap {
         padding-left: 60px;
         &:before {
           content: "----";

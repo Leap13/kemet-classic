@@ -99,7 +99,7 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-link-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
-								'label'     => __( 'Link Color', 'kemet' ),
+								'label'     => __( 'Link Colors', 'kemet' ),
 								'pickers'   => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),

@@ -30,6 +30,8 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 				$menu_spacing        = kemet_get_option( $prefix . '-spacing' );
 				$menu_link_spacing   = kemet_get_option( $prefix . '-item-spacing' );
 				$line_height         = kemet_get_option( $prefix . '-line-height' );
+				$items_width         = kemet_get_option( $prefix . '-items-direction' );
+				$align               = kemet_get_option( $prefix . '-items-align' );
 
 				$css_output = array(
 					$selector                     => array(
@@ -37,6 +39,14 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
+						'--justifyContent'  => esc_attr( $align ),
+						'justify-content'   => 'var(--justifyContent)',
+					),
+					$selector . ' > li'           => array(
+						'display'         => 'inline-flex',
+						'--itemsWidth'    => esc_attr( $items_width ),
+						'width'           => 'var(--itemsWidth)',
+						'justify-content' => 'var(--justifyContent)',
 					),
 					$selector . ' > li > a'       => array(
 						'font-family'         => 'var(--fontFamily)',

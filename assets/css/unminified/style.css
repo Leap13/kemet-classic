@@ -3198,45 +3198,61 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children > li > a,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > a {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > a,
+.kmt-popup-main .main-navigation #offcanvas-menu .children > li > .kmt-menu-item-wrap,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > .kmt-menu-item-wrap {
 	padding-left: 30px;
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children > li > a:before,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > a:before {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > a:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .children > li > .kmt-menu-item-wrap:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > .kmt-menu-item-wrap:before {
 	margin-right: 2px;
 	content: "-";
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children li li a,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li a {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li a,
+.kmt-popup-main .main-navigation #offcanvas-menu .children li li .kmt-menu-item-wrap,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li .kmt-menu-item-wrap {
 	padding-left: 40px;
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children li li a:before,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li a:before {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li a:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .children li li .kmt-menu-item-wrap:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li .kmt-menu-item-wrap:before {
 	margin-right: 2px;
 	content: "--";
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children li li li a,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li a {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li a,
+.kmt-popup-main .main-navigation #offcanvas-menu .children li li li .kmt-menu-item-wrap,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li .kmt-menu-item-wrap {
 	padding-left: 50px;
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children li li li a:before,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li a:before {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li a:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .children li li li .kmt-menu-item-wrap:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li .kmt-menu-item-wrap:before {
 	margin-right: 2px;
 	content: "---";
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children li li li li a,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li li a {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li li a,
+.kmt-popup-main .main-navigation #offcanvas-menu .children li li li li .kmt-menu-item-wrap,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li li .kmt-menu-item-wrap {
 	padding-left: 60px;
 }
 
 .kmt-popup-main .main-navigation #offcanvas-menu .children li li li li a:before,
-.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li li a:before {
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li li a:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .children li li li li .kmt-menu-item-wrap:before,
+.kmt-popup-main .main-navigation #offcanvas-menu .sub-menu li li li li .kmt-menu-item-wrap:before {
 	margin-right: 2px;
 	content: "----";
 }

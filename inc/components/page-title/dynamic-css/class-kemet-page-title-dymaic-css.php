@@ -57,8 +57,8 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 					'--padding' => kemet_responsive_spacing( $page_title_space, 'all', 'desktop' ),
 				),
 				'.kemet-page-title'                   => array(
-					'font-family'  => 'var(--fontFamily)',
-					'--linksColor' => esc_attr( $page_title_color ),
+					'font-family'    => 'var(--fontFamily)',
+					'--headingColor' => esc_attr( $page_title_color ),
 				),
 				'.taxonomy-description'               => array(
 					'color' => 'var(--linksColor)',

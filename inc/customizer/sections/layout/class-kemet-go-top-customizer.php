@@ -231,29 +231,15 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'go-top-border-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Border Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Initial', 'kemet' ),
-										'id'    => 'initial',
-									),
-									array(
-										'title' => __( 'Hover', 'kemet' ),
-										'id'    => 'hover',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => '#kmt-go-top',
-										'property' => 'border-color',
-									),
-									'hover'   => array(
-										'selector' => '#kmt-go-top:hover',
-										'property' => 'border-color',
-									),
+							'go-top-border'       => array(
+								'transport'   => 'postMessage',
+								'secondColor' => true,
+								'divider'     => true,
+								'type'        => 'kmt-border',
+								'label'       => __( 'Border', 'kemet' ),
+								'preview'     => array(
+									'selector' => '#kmt-go-top',
+									'property' => 'border',
 								),
 							),
 						),

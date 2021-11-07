@@ -646,6 +646,9 @@ function kemet_border_css(control, css_property, selector) {
           color = value.color ? value.color : 'var(--borderColor)';
 
         dynamicStyle = selector + '{' + css_property + ': ' + width + ' ' + style + ' ' + color + '}';
+        if (value.secondColor) {
+          dynamicStyle += selector + ':hover{ border-color: ' + value.secondColor + '}';
+        }
       }
       kemet_add_dynamic_css(control, dynamicStyle);
     })
@@ -1102,6 +1105,13 @@ function kemet_change_attr(control, selector, attr) {
     }
   }
 
+  function kemet_editor(control, selector) {
+    wp.customize(control, function (value) {
+      value.bind(function (new_value) {
+        jQuery(selector).html(new_value);
+      })
+    })
+  }
   // Button Preview.
   kemet_button_css(
     $.merge(previewData.buttonItems, previewData.mobileButtonItems)
@@ -1136,6 +1146,7 @@ function kemet_change_attr(control, selector, attr) {
         }
         break;
       case "kmt-radio":
+      case "kmt-icon-select":
         if (data.attr) {
           kemet_change_attr(control, data.selector, data.attr);
           return;
@@ -1168,6 +1179,9 @@ function kemet_change_attr(control, selector, attr) {
         } else {
           kemet_background(control, data.selector);
         }
+        break;
+      case 'kmt-editor':
+        kemet_editor(control, data.selector);
         break;
     }
   });

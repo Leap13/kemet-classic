@@ -254,7 +254,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$go_top_bgcolor       = kemet_get_sub_option( 'go-top-icon-bgcolor', 'initial' );
 			$go_top_h_bgcolor     = kemet_get_sub_option( 'go-top-icon-bgcolor', 'hover' );
 			$go_top_bordercolor   = kemet_get_sub_option( 'go-top-border-color', 'initial' );
-			$go_top_h_bordercolor = kemet_get_sub_option( 'go-top-border-color', 'hover' );
+			$go_top_h_bordercolor = kemet_get_sub_option( 'go-top-border', 'secondColor' );
+			$go_top_border        = kemet_get_option( 'go-top-border' );
 
 			$css_output = array();
 
@@ -517,7 +518,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--buttonColor'                => esc_attr( $footer_button_color ),
 					'--buttonBackgroundColor'      => esc_attr( $footer_button_bg_color ),
 					'--borderColor'                => esc_attr( $footer_button_border_color ),
-					'--buttonBorderRadius'         => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'desktop' ),
+					'--borderRadius'               => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'desktop' ),
 					'--borderWidth'                => kemet_spacing( $footer_button_border_width, 'all' ),
 					'--buttonHoverColor'           => esc_attr( $footer_button_hover_color ),
 					'--buttonBackgroundHoverColor' => esc_attr( $footer_button_bg_h_color ),
@@ -743,7 +744,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'#kmt-go-top'                             => array(
 					'background-color' => esc_attr( $go_top_bgcolor ),
-					'border-color'     => esc_attr( $go_top_bordercolor ),
+					'border'           => kemet_border( $go_top_border ),
 				),
 				'#kmt-go-top:hover'                       => array(
 					'background-color' => esc_attr( $go_top_h_bgcolor ),

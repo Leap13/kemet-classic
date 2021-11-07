@@ -40,9 +40,11 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 							'title'   => __( 'General', 'kemet' ),
 							'options' => array(
 								$prefix . '-text' => array(
-									'label'     => __( 'Html', 'kemet' ),
 									'transport' => 'postMessage',
 									'type'      => 'kmt-editor',
+									'preview'   => array(
+										'selector' => $selector,
+									),
 								),
 							),
 						),
@@ -78,7 +80,7 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-link-color' => array(
 									'transport' => 'postMessage',
 									'type'      => 'kmt-color',
-									'label'     => __( 'Link Color', 'kemet' ),
+									'label'     => __( 'Link Colors', 'kemet' ),
 									'pickers'   => array(
 										array(
 											'title' => __( 'Initial', 'kemet' ),
@@ -145,26 +147,6 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 		}
 
 		return array_merge( $sections, $register_sections );
-	}
-
-	/**
-	 * Add Partials
-	 *
-	 * @param array $partials partials.
-	 * @return array
-	 */
-	public function add_partials( $partials ) {
-		foreach ( self::$html_items as $html ) {
-			$prefix                        = $html;
-			$num                           = explode( 'header-mobile-html-', $prefix )[1];
-			$partials[ $prefix . '-text' ] = array(
-				'selector'            => '.kmt-' . $prefix,
-				'container_inclusive' => false,
-				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_' . $num ),
-			);
-		}
-
-		return $partials;
 	}
 }
 

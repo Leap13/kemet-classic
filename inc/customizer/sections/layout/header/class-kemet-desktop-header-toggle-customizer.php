@@ -304,6 +304,33 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 									'property' => '--borderRadius',
 								),
 							),
+							self::$prefix . '-padding'    => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Padding', 'kemet' ),
+								'divider'        => true,
+								'responsive'     => false,
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector' => $selector . '[data-style="outline"],' . $selector . '[data-style="solid"]',
+									'property' => 'padding',
+									'sides'    => false,
+								),
+								'context'        => array(
+									array(
+										'setting'  => self::$prefix . '-style',
+										'operator' => 'in_array',
+										'value'    => array( 'outline', 'solid' ),
+									),
+								),
+							),
 						),
 					),
 				),

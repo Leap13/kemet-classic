@@ -41,7 +41,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			),
 			'links-color'              => array(
 				'type'        => 'kmt-color',
-				'label'       => __( 'Headings & Links Color', 'kemet' ),
+				'label'       => __( 'Link Colors', 'kemet' ),
 				'description' => __( 'Main menu links and all other body links.', 'kemet' ),
 				'pickers'     => array(
 					array(

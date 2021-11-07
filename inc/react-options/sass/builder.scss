@@ -392,6 +392,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   padding: 0 10px;
   align-items: center;
   background-color: #ffffff;
+  > .kmt-builder-item:not(:first-child) {
+    margin-left: 5px;
+  }
 }
 .active-builder-row {
   .kmt-builder-sortable-panel {

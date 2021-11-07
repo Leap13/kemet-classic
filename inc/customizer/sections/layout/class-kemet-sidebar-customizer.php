@@ -21,7 +21,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 		$selector         = '#secondary .sidebar-main';
 		$input_selector   = '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select';
 		$register_options = array(
-			'site-sidebar-tabs'           => array(
+			'site-sidebar-tabs' => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -126,11 +126,11 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'enable-sidebar-separator'  => array(
+							'enable-sidebar-separator'    => array(
 								'type'  => 'kmt-switcher',
 								'label' => __( 'Enable Sidebar Separator', 'kemet' ),
 							),
-							'sidebar-separator-color'   => array(
+							'sidebar-separator-color'     => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'divider'   => true,
@@ -148,7 +148,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'sidebar-content-font-size' => array(
+							'sidebar-content-font-size'   => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
@@ -171,7 +171,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							'sidebar-text-color'        => array(
+							'sidebar-text-color'          => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'divider'   => true,
@@ -189,7 +189,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'sidebar-link-color'        => array(
+							'sidebar-link-color'          => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Links Color', 'kemet' ),
@@ -214,89 +214,90 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'kmt-sidebar-title'           => array(
+								'type'  => 'kmt-title',
+								'label' => __( 'Sidebar Input Fields Style', 'kemet' ),
+							),
+							'sidebar-input-color'         => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Text Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $input_selector,
+										'property' => '--inputColor',
+									),
+								),
+							),
+							'sidebar-input-bg-color'      => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Background Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $input_selector,
+										'property' => '--inputBackgroundColor',
+									),
+								),
+							),
+							'sidebar-input-border-color'  => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $input_selector,
+										'property' => '--inputBorderColor',
+									),
+								),
+							),
+							'sidebar-input-border-radius' => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'divider'      => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Input Field Border Radius', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 1,
+										'step' => 1,
+										'max'  => 200,
+									),
+									'%'  => array(
+										'min'  => 1,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector'   => $input_selector,
+									'property'   => '--inputBorderRadius',
+									'responsive' => true,
+								),
+							),
 						),
 					),
 				),
 			),
-			'kmt-sidebar-title'           => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'Sidebar Input Fields Style', 'kemet' ),
-			),
-			'sidebar-input-color'         => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'label'     => __( 'Text Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => $input_selector,
-						'property' => '--inputColor',
-					),
-				),
-			),
-			'sidebar-input-bg-color'      => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => $input_selector,
-						'property' => '--inputBackgroundColor',
-					),
-				),
-			),
-			'sidebar-input-border-color'  => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'label'     => __( 'Border Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => $input_selector,
-						'property' => '--inputBorderColor',
-					),
-				),
-			),
-			'sidebar-input-border-radius' => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'divider'      => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Input Field Border Radius', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'%'  => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-				'preview'      => array(
-					'selector'   => $input_selector,
-					'property'   => '--inputBorderRadius',
-					'responsive' => true,
-				),
-			),
+
 		);
 
 		$section_name     = kemet_has_widget_editor() ? 'kemet-sidebar-widgets-sidebar-1' : 'sidebar-widgets-sidebar-1';

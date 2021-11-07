@@ -29,19 +29,20 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 		self::$prefix     = 'breadcrumbs';
 		$selector         = '.kemet-breadcrumb-trail';
 		$register_options = array(
-			self::$prefix . '-enabled'       => array(
-				'type'  => 'kmt-switcher',
-				'label' => __( 'Enable Breadcrumbs', 'kemet' ),
-			),
 			self::$prefix . '-controls-tabs' => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-show-item-title' => array(
+							self::$prefix . '-enabled'   => array(
 								'type'  => 'kmt-switcher',
-								'label' => __( 'Show Current Location', 'kemet' ),
+								'label' => __( 'Enable Breadcrumbs', 'kemet' ),
+							),
+							self::$prefix . '-show-item-title' => array(
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Show Current Location', 'kemet' ),
 							),
 							'disable-' . self::$prefix . '-in-archive' => array(
 								'type'    => 'kmt-switcher',

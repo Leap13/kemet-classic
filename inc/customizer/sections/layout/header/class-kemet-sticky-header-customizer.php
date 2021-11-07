@@ -362,7 +362,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 									'transport'  => 'postMessage',
 									'type'       => 'kmt-color',
 									'responsive' => true,
-									'label'      => __( 'Link Color', 'kemet' ),
+									'label'      => __( 'Link Colors', 'kemet' ),
 									'pickers'    => array(
 										array(
 											'title' => __( 'Initial', 'kemet' ),

@@ -434,7 +434,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'transport'  => 'postMessage',
 								'type'       => 'kmt-color',
 								'responsive' => true,
-								'label'      => __( 'Link Color', 'kemet' ),
+								'label'      => __( 'Link Colors', 'kemet' ),
 								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),

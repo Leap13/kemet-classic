@@ -181,6 +181,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$vertical_offset   = kemet_get_option( $toggle_button . '-button-vertical-offset' );
 				$horizontal_offset = kemet_get_option( $toggle_button . '-button-horizontal-offset' );
 				$z_index           = kemet_get_option( $toggle_button . '-button-z-index' );
+				$padding           = kemet_get_option( $toggle_button . '-button-padding' );
 
 				$btn_css_output = array(
 					$btn_selector . '.toggle-button-fixed' => array(
@@ -233,12 +234,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--backgroundColor'      => esc_attr( $icon_bg_color ),
 						'--backgroundHoverColor' => esc_attr( $icon_bg_h_color ),
 						'border'                 => 'none',
+						'padding'                => kemet_spacing( $padding, 'all' ),
 					),
 					$btn_selector . '[data-style="outline"]' => array(
 						'--buttonColor'      => esc_attr( $icon_color ),
 						'--borderColor'      => esc_attr( $border_color ),
 						'--borderHoverColor' => esc_attr( $border_h_color ),
 						'background'         => 'transparent',
+						'padding'            => kemet_spacing( $padding, 'all' ),
 					),
 				);
 				/* Parse CSS from array()*/

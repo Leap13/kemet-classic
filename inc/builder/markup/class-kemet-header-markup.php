@@ -431,34 +431,6 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
-		 * Html 1
-		 */
-		public function render_html_1() {
-			return $this->get_html( 'header-html-1' );
-		}
-
-		/**
-		 * Html 2
-		 */
-		public function render_html_2() {
-			return $this->get_html( 'header-html-2' );
-		}
-
-		/**
-		 * Html 1
-		 */
-		public function render_html_mobile_1() {
-			return $this->get_html( 'header-mobile-html-1' );
-		}
-
-		/**
-		 * Html 2
-		 */
-		public function render_html_mobile_2() {
-			return $this->get_html( 'header-mobile-html-2' );
-		}
-
-		/**
 		 * Html callback
 		 *
 		 * @param string $option option name.

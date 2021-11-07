@@ -233,37 +233,37 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									'property'   => '--padding',
 								),
 							),
+							'subtitle-title'              => array(
+								'type'  => 'kmt-title',
+								'label' => __( 'Subtitle', 'kemet' ),
+							),
+							'sub-title-typography'        => array(
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Typography', 'kemet' ),
+								'transport' => 'postMessage',
+								'preview'   => array(
+									'selector' => '.kemet-page-sub-title',
+								),
+							),
+							'sub-title-color'             => array(
+								'type'      => 'kmt-color',
+								'divider'   => true,
+								'transport' => 'postMessage',
+								'label'     => __( 'Text Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'id'    => 'initial',
+										'title' => __( 'Initial', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kemet-page-sub-title',
+										'property' => '--headingColor',
+									),
+								),
+							),
 						),
-					),
-				),
-			),
-			'subtitle-title'                 => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'Subtitle', 'kemet' ),
-			),
-			'sub-title-typography'           => array(
-				'type'      => 'kmt-typography',
-				'label'     => __( 'Typography', 'kemet' ),
-				'transport' => 'postMessage',
-				'preview'   => array(
-					'selector' => '.kemet-page-sub-title',
-				),
-			),
-			'sub-title-color'                => array(
-				'type'      => 'kmt-color',
-				'divider'   => true,
-				'transport' => 'postMessage',
-				'label'     => __( 'Text Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'id'    => 'initial',
-						'title' => __( 'Initial', 'kemet' ),
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => '.kemet-page-sub-title',
-						'property' => '--headingColor',
 					),
 				),
 			),

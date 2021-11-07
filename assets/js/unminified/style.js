@@ -1535,6 +1535,22 @@ var toggleClass = function (el, className) {
 
   get_browser();
 
+  var setSearchPosition = function () {
+    var sibling = document.querySelector('.kmt-search-menu-icon'),
+      searchIcon = document.querySelector(".kmt-search-icon"),
+      searchLeft = searchIcon.getBoundingClientRect().left,
+      windowWidth = window.innerWidth,
+      searchFromLeft = parseInt(windowWidth) / 2;
+
+    if (searchLeft < searchFromLeft) {
+      sibling.classList.add("kmt-search-left");
+    } else {
+      sibling.classList.add("kmt-search-right");
+    }
+
+  }
+
+  setSearchPosition();
   /* Search Script */
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("kemet-search-icon")) {
@@ -1542,20 +1558,7 @@ var toggleClass = function (el, className) {
       var sibling = e.target.parentNode.parentNode.querySelector(
         ".kmt-search-menu-icon"
       );
-
-      var searchIcon =
-        e.target.parentNode.parentNode.querySelector(".kmt-search-icon"),
-        searchLeft = searchIcon.getBoundingClientRect().left,
-        windowWidth = window.innerWidth,
-        searchFromLeft = parseInt(windowWidth) / 2,
-        searchGoingOutside = false;
-
-      if (searchLeft < searchFromLeft) {
-        sibling.classList.add("kmt-search-left");
-      } else {
-        sibling.classList.add("kmt-search-right");
-      }
-
+      setSearchPosition();
       if (!sibling.classList.contains("kmt-dropdown-active")) {
         sibling.classList.add("kmt-dropdown-active");
         sibling

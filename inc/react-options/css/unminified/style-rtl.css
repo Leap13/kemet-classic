@@ -4936,6 +4936,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   background-color: #ffffff;
 }
 
+.kmt-builder-sortable-panel > .kmt-builder-item:not(:first-child) {
+  margin-right: 5px;
+}
+
 .active-builder-row .kmt-builder-sortable-panel {
   background-color: #ffffff;
 }
