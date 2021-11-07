@@ -8,7 +8,7 @@ const { __ } = wp.i18n;
 const convert = (min, max, value) => Math.max(min, Math.min(max, value))
 
 const Border = ({ value, onChange, params }) => {
-    let { secondColor, label, responsive = true } = params;
+    let { secondColor, label, responsive } = params;
     const [isOpen, setIsOpen] = useState(false);
     const [device, setDevice] = useState(wp.customize && wp.customize.previewedDevice() ? wp.customize.previewedDevice() : 'desktop');
     let defaultValue = {

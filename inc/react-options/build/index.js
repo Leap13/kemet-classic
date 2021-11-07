@@ -22525,8 +22525,7 @@ var Border = function Border(_ref) {
       params = _ref.params;
   var secondColor = params.secondColor,
       label = params.label,
-      _params$responsive = params.responsive,
-      responsive = _params$responsive === void 0 ? true : _params$responsive;
+      responsive = params.responsive;
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
