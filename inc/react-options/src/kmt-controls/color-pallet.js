@@ -131,7 +131,7 @@ const ColorPalettes = ({
                 <span className="customize-control-title kmt-control-title">
                     {label}
                 </span>
-                {label && <a href={link}> </a>}
+                {label && <a href={'https://kemet.io/docs/global-colors/'}> </a>}
             </header>
             <OutsideClickHandler
                 disabled={!isOpen}
@@ -274,7 +274,8 @@ const ColorPalettes = ({
                     {__('Save New Palette', "kemet")}
                 </button>
             </OutsideClickHandler>
-            {isTransitioning && currentView === "add" &&
+            {
+                isTransitioning && currentView === "add" &&
                 createPortal(
                     <Transition
                         items={isTransitioning}
@@ -341,27 +342,29 @@ const ColorPalettes = ({
                         }}
                     </Transition>,
                     document.body
-                )}
+                )
+            }
 
-            {openModal && <Modal title={(<div className={`kmt-popup-modal__header`}><i className="dashicons dashicons-bell"></i> {__("Warning", "kemet")}</div>)}
-                className={`kmt-color-palette-confrim__delete`}
-                isDismissible={true}
-                onRequestClose={() => { setOpenModal(false) }}
-            >
-                < p className={__(`kmt-palette-popup-content`)}>
-                    {__(`You are about to delete `, "kemet")}<q className={`kmt-deleted-palette__name`}>"{delPalette[0].name}"</q>{__(`. This palette cannot be restored, are you sure you want to delete it?`, "kemet")}
-                </p>
-                <div className={__(`kmt-paltette-popup-action`)}>
-                    <button type="button" class="button button-primary save has-next-sibling" onClick={() => {
-                        setOpenModal(false)
-                    }
-                    }>{__("No", "kemet")}</button>
-                    <button type="button" class="components-button  kmt-button__delete__palette" onClick={(e) => {
-                        e.preventDefault();
-                        ConfirmDelete()
-                    }}>{__('Yes', "kemet")}</button>
-                </div>
-            </Modal>
+            {
+                openModal && <Modal title={(<div className={`kmt-popup-modal__header`}><i className="dashicons dashicons-bell"></i> {__("Warning", "kemet")}</div>)}
+                    className={`kmt-color-palette-confrim__delete`}
+                    isDismissible={true}
+                    onRequestClose={() => { setOpenModal(false) }}
+                >
+                    < p className={__(`kmt-palette-popup-content`)}>
+                        {__(`You are about to delete `, "kemet")}<q className={`kmt-deleted-palette__name`}>"{delPalette[0].name}"</q>{__(`. This palette cannot be restored, are you sure you want to delete it?`, "kemet")}
+                    </p>
+                    <div className={__(`kmt-paltette-popup-action`)}>
+                        <button type="button" class="button button-primary save has-next-sibling" onClick={() => {
+                            setOpenModal(false)
+                        }
+                        }>{__("No", "kemet")}</button>
+                        <button type="button" class="components-button  kmt-button__delete__palette" onClick={(e) => {
+                            e.preventDefault();
+                            ConfirmDelete()
+                        }}>{__('Yes', "kemet")}</button>
+                    </div>
+                </Modal>
             }
 
         </div >

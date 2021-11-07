@@ -642,7 +642,7 @@
   margin-top: 10px;
 }
 
-.customize-control-kmt-color-palettes header, div.kmt-type-control span, .kmt-palettes-preview .kmt-palette-toggle-modal, .kmt-palettes-modal label, .kmt-color-picker-container, .kmt-color-picker-single > span span, .kmt-edit-palette, .kmt-color-picker-modal .components-color-picker__controls, .kmt-color-picker-modal .components-color-picker__inputs-wrapper .components-base-control__field label, .kmt-color-picker-modal .components-color-picker__inputs-toggle, .kmt-palettes-preview .kmt-single-palette .kmt-color-palette-container, .kmt-palette-info .kmt-Palette-type-container, .kmt-palette-info .kmt-Palette-type-wrapper button, .kmt-color-palette-confrim__delete .kmt-paltette-popup-action, .components-modal__header, .kmt-color-palette-confrim__delete .kmt-paltette-popup-action > *, .kmt-color-palette-confrim__delete .kmt-pop-modal__header, .components-modal__header .components-modal__header-heading .kmt-popup-modal__header, .kmt-palettes-modal .kmt_label_type__palette {
+.customize-control-kmt-color-palettes header, div.kmt-type-control span, .kmt-palettes-preview .kmt-palette-toggle-modal, .kmt-palettes-modal label, .kmt-color-picker-container, .kmt-color-picker-single > span span, .kmt-edit-palette, .kmt-color-picker-modal .components-color-picker__controls, .kmt-color-picker-modal .components-color-picker__inputs-wrapper .components-base-control__field label, .kmt-color-picker-modal .components-color-picker__inputs-toggle, .kmt-palettes-preview .kmt-single-palette .kmt-color-palette-container, .kmt-palette-info .kmt-Palette-type-container, .kmt-palette-info .kmt-Palette-type-wrapper button, .components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header, .components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header .components-modal__header-heading .kmt-popup-modal__header, .components-modal__frame.kmt-color-palette-confrim__delete .kmt-paltette-popup-action > *, .components-modal__frame.kmt-color-palette-confrim__delete .kmt-pop-modal__header, .components-modal__frame.kmt-color-palette-confrim__delete .kmt-paltette-popup-action, .kmt-palettes-modal .kmt_label_type__palette {
   display: flex;
   align-items: center;
 }
@@ -1466,13 +1466,26 @@ button.kmt-delete-palette::before {
   fill: #848484;
 }
 
-.kmt-color-palette-confrim__delete .kmt-paltette-popup-action {
-  margin-top: 0px;
-  justify-content: space-between;
-  width: 100%;
+.components-modal__frame.kmt-color-palette-confrim__delete {
+  top: 50%;
+  left: auto;
+  bottom: auto;
+  right: 50%;
+  max-width: calc(100% - -40px);
+  max-height: 90%;
+  transform: translate(50%, -50%);
+  animation: components-modal__appear-animation 0.1s ease-out;
+  animation-fill-mode: none;
+  animation-fill-mode: forwards;
+  width: 398px !important;
+  height: 193px !important;
 }
 
-.components-modal__header {
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content {
+  padding: 0 25px 25px;
+}
+
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header {
   box-sizing: border-box;
   border-bottom: 1px dashed #a2a3a3;
   padding: 0 23px;
@@ -1486,7 +1499,33 @@ button.kmt-delete-palette::before {
   margin: 0 -25px 0px;
 }
 
-.kmt-color-palette-confrim__delete .kmt-paltette-popup-action > * {
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header .components-modal__header-heading .kmt-popup-modal__header {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header i {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header span {
+  display: none;
+}
+
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header .components-button {
+  color: #7c7c7c;
+}
+
+.components-modal__frame.kmt-color-palette-confrim__delete .components-modal__content .components-modal__header .components-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-paltette-popup-action > * {
   border-radius: 0px;
   justify-content: center;
   width: 169px;
@@ -1497,7 +1536,7 @@ button.kmt-delete-palette::before {
   cursor: pointer;
 }
 
-.kmt-color-palette-confrim__delete .kmt-paltette-popup-action .kmt-button__delete__palette {
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-paltette-popup-action .kmt-button__delete__palette {
   background-color: #e4e4e4;
   border: 0;
   box-shadow: none;
@@ -1506,55 +1545,31 @@ button.kmt-delete-palette::before {
   height: 30px;
 }
 
-.kmt-color-palette-confrim__delete .kmt-pop-modal__header {
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-pop-modal__header {
   font-size: 14px;
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 
-.components-modal__header .components-modal__header-heading .kmt-popup-modal__header {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-paltette-popup-action {
+  margin-top: 0px;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.components-modal__header i {
-  font-size: 16px;
-  height: 16px;
-  width: 16px;
-}
-
-.components-modal__header span {
-  display: none;
-}
-
-.components-modal__header .components-button {
-  color: #7c7c7c;
-}
-
-.components-modal__header .components-button:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.kmt-color-palette-confrim__delete .components-modal__content {
-  padding: 0 25px 25px;
-}
-
-.kmt-color-palette-confrim__delete .kmt-palette-popup-content {
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-palette-popup-content {
   font-size: 13px;
   line-height: 1.5;
   margin: 25px 0px;
   text-indent: unset;
 }
 
-.kmt-color-palette-confrim__delete .kmt-palette-popup-content .kmt-deleted-palette__name {
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-palette-popup-content .kmt-deleted-palette__name {
   font-style: italic;
 }
 
-.kmt-color-palette-confrim__delete .kmt-paltette-popup-action .components-button.has-icon.has-text .dashicon {
+.components-modal__frame.kmt-color-palette-confrim__delete .kmt-paltette-popup-action .components-button.has-icon.has-text .dashicon {
   margin-left: 2px;
 }
 
@@ -1605,21 +1620,6 @@ button.kmt-delete-palette::before {
   letter-spacing: 0.3px;
 }
 
-.components-modal__frame {
-  top: 50%;
-  left: auto;
-  bottom: auto;
-  right: 50%;
-  width: 404px;
-  max-width: calc(100% - -40px);
-  max-height: 90%;
-  transform: translate(50%, -50%);
-  animation: components-modal__appear-animation 0.1s ease-out;
-  animation-fill-mode: none;
-  animation-fill-mode: forwards;
-  height: 197px;
-}
-
 @media (max-width: 1400px) {
   .kmt-palettes-preview .kmt-single-palette .kmt-color-palette-container div .kmt-color-picker-single span {
     width: 38px !important;
@@ -1649,11 +1649,6 @@ button.kmt-delete-palette::before {
 .kmt-option-modal.kmt-palettes-modal {
   position: absolute;
   right: -1px !important;
-}
-
-.components-modal__frame {
-  width: 398px !important;
-  height: 193px !important;
 }
 
 .customize-control-kmt-color {
@@ -1965,7 +1960,7 @@ span.kmt-color-description {
 [class*="kmt-tooltip"][class*="-top"]:after {
   width: 10px;
   height: 5px;
-  bottom: -5px;
+  bottom: -4px;
   right: 0;
   left: 0;
   margin: 0 auto;

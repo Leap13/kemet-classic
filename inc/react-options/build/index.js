@@ -22495,6 +22495,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color */ "./src/kmt-controls/color.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
 
 
 
@@ -22509,9 +22510,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var __ = wp.i18n.__;
 
-var clamp = function clamp(min, max, value) {
+var convert = function convert(min, max, value) {
   return Math.max(min, Math.min(max, value));
 };
 
@@ -22519,15 +22521,21 @@ var Border = function Border(_ref) {
   var _classnames;
 
   var value = _ref.value,
-      _onChange = _ref.onChange,
+      onChange = _ref.onChange,
       params = _ref.params;
   var secondColor = params.secondColor,
-      label = params.label;
+      label = params.label,
+      responsive = params.responsive;
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
       isOpen = _useState2[0],
       setIsOpen = _useState2[1];
+
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(wp.customize && wp.customize.previewedDevice() ? wp.customize.previewedDevice() : 'desktop'),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState3, 2),
+      device = _useState4[0],
+      setDevice = _useState4[1];
 
   var defaultValue = _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({
     secondColor: true,
@@ -22536,53 +22544,74 @@ var Border = function Border(_ref) {
     color: ""
   }, "secondColor", "");
 
-  value = value ? value : defaultValue;
+  var ResDefaultParam = {
+    desktop: _objectSpread({}, defaultValue),
+    tablet: _objectSpread({}, defaultValue),
+    mobile: _objectSpread({}, defaultValue)
+  };
+  var defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = params.default ? params.default : defaultValues;
+  value = value ? value : defaultVals;
 
-  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState3, 2),
-      state = _useState4[0],
-      setState = _useState4[1];
+  var _useState5 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
+      _useState6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState5, 2),
+      state = _useState6[0],
+      setState = _useState6[1];
+
+  var borderValue = responsive ? state[device] : state;
 
   var handleChangeComplete = function handleChangeComplete(color, id) {
-    var colorValue = state;
-    typeof color === "string" ? colorValue[id] = color : undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ? colorValue[id] = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")") : colorValue[id] = color.hex;
-    setState(colorValue);
+    var obj = _objectSpread({}, state);
 
-    _onChange(_objectSpread({}, colorValue));
+    var colorValue = responsive ? obj[device] : obj;
+    typeof color === "string" ? colorValue[id] = color : undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ? colorValue[id] = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")") : colorValue[id] = color.hex;
+    setState(obj);
+    onChange(_objectSpread(_objectSpread({}, obj), {}, {
+      flag: !value.flag
+    }));
+  };
+
+  var updateStyle = function updateStyle(style, name) {
+    var obj = _objectSpread({}, state);
+
+    responsive ? obj[device][name] = style : obj[name] = style;
+    setState(obj);
+    onChange(_objectSpread(_objectSpread({}, obj), {}, {
+      flag: !value.flag
+    }));
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-border-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "customize-control-title"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onChange: function onChange(currentDevice) {
+      return setDevice(currentDevice);
+    },
+    label: label
+  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "customize-control-title kmt-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-border__wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-option-border")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-value-changer", (_classnames = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "active", isOpen), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "kmt-disabled", value.style === "none"), _classnames))
+    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-value-changer", (_classnames = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "active", isOpen), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "kmt-disabled", borderValue.style === "none"), _classnames))
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
     type: "number",
-    value: value.width,
+    value: borderValue.width,
     onChange: function onChange(_ref2) {
       var width = _ref2.target.value;
-      setState(_objectSpread(_objectSpread({}, value), {}, {
-        width: width
-      }));
-
-      _onChange(_objectSpread(_objectSpread({}, value), {}, {
-        width: width
-      }));
+      updateStyle(convert(1, 10, parseInt(width, 10) || 1), "width");
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "kmt-value-divider"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "kmt-current-value",
-    "data-style": value.inherit ? "none" : value.style,
+    "data-style": borderValue.inherit ? "none" : borderValue.style,
     onClick: function onClick() {
       return setIsOpen(!isOpen);
     }
-  }, value.style === "none" ? value.style : null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, borderValue.style === "none" ? borderValue.style : null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
     disabled: !isOpen,
     onOutsideClick: function onOutsideClick() {
       if (!isOpen) return;
@@ -22598,24 +22627,17 @@ var Border = function Border(_ref) {
     }, group.map(function (style) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
         className: classnames__WEBPACK_IMPORTED_MODULE_5___default()({
-          active: style === value.style
+          active: style === borderValue.style
         }),
         key: style,
         onClick: function onClick() {
-          setState(_objectSpread(_objectSpread({}, value), {}, {
-            style: style
-          }));
-
-          _onChange(_objectSpread(_objectSpread({}, value), {}, {
-            style: style
-          }));
-
+          updateStyle(style, "style");
           setIsOpen(false);
         },
         "data-style": style
       }, style === "none" ? __("None", "kemet") : null);
     }));
-  })))), value.style !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })))), borderValue.style !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onChangeComplete: function onChangeComplete(colorValue) {
       return handleChangeComplete(colorValue, 'color');
     },
@@ -22624,7 +22646,7 @@ var Border = function Border(_ref) {
       title: __("Initial", "kemet")
     },
     value: {
-      default: value.color
+      default: borderValue.color
     }
   }), secondColor && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onChangeComplete: function onChangeComplete(colorValue) {
@@ -22635,18 +22657,17 @@ var Border = function Border(_ref) {
       title: __("Hover", "kemet")
     },
     value: {
-      default: value.secondColor
+      default: borderValue.secondColor
     }
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     className: "kmt-reset-btn ",
-    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
+    disabled: JSON.stringify(defaultVals) === JSON.stringify(state),
     onClick: function onClick(e) {
       e.preventDefault();
-      setState(_objectSpread({}, defaultValue));
-
-      _onChange(_objectSpread({}, defaultValue));
+      setState(_objectSpread({}, defaultVals));
+      onChange(_objectSpread({}, defaultVals));
     }
   }))));
 };
@@ -23217,7 +23238,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label), label && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("a", {
-    href: link
+    href: 'https://kemet.io/docs/global-colors/'
   }, " ")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
     disabled: !isOpen,
     useCapture: false,

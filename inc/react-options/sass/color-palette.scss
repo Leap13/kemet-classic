@@ -878,29 +878,60 @@ button.kmt-delete-palette {
   }
 }
 
-.kmt-color-palette-confrim__delete .kmt-paltette-popup-action {
-  @extend %flex;
-  margin-top: 0px;
-  justify-content: space-between;
-  width: 100%;
-}
+.components-modal__frame.kmt-color-palette-confrim__delete {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  max-width: calc(100% - -40px);
+  max-height: 90%;
+  transform: translate(-50%, -50%);
+  animation: components-modal__appear-animation 0.1s ease-out;
+  animation-fill-mode: none;
+  animation-fill-mode: forwards;
+  width: 398px !important;
+  height: 193px !important;
+  .components-modal__content {
+    padding: 0 25px 25px;
+    .components-modal__header {
+      @extend %flex;
+      box-sizing: border-box;
+      border-bottom: 1px dashed #a2a3a3;
+      padding: 0 23px;
+      flex-direction: row;
+      justify-content: space-between;
+      background: #fff;
+      height: 50px;
+      z-index: 10;
+      position: sticky;
+      top: 0;
+      margin: 0 -25px 0px;
+      .components-modal__header-heading .kmt-popup-modal__header {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        @extend %flex;
+        font-weight: bold;
+      }
+      i {
+        font-size: 16px;
+        height: 16px;
+        width: 16px;
+      }
+      span {
+        display: none;
+      }
 
-.components-modal__header {
-  @extend %flex;
-  box-sizing: border-box;
-  border-bottom: 1px dashed #a2a3a3;
-  padding: 0 23px;
-  flex-direction: row;
-  justify-content: space-between;
-  background: #fff;
-  height: 50px;
-  z-index: 10;
-  position: sticky;
-  top: 0;
-  margin: 0 -25px 0px;
-}
+      .components-button {
+        color: #7c7c7c;
 
-.kmt-color-palette-confrim__delete {
+        &:focus {
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+  }
   .kmt-paltette-popup-action {
     > * {
       border-radius: 0px;
@@ -931,38 +962,11 @@ button.kmt-delete-palette {
     text-transform: uppercase;
     letter-spacing: 0.3px;
   }
-}
-
-.components-modal__header {
-  .components-modal__header-heading .kmt-popup-modal__header {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .kmt-paltette-popup-action {
     @extend %flex;
-    font-weight: bold;
-  }
-  i {
-    font-size: 16px;
-    height: 16px;
-    width: 16px;
-  }
-  span {
-    display: none;
-  }
-
-  .components-button {
-    color: #7c7c7c;
-
-    &:focus {
-      box-shadow: none;
-      outline: none;
-    }
-  }
-}
-
-.kmt-color-palette-confrim__delete {
-  .components-modal__content {
-    padding: 0 25px 25px;
+    margin-top: 0px;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .kmt-palette-popup-content {
@@ -1032,21 +1036,6 @@ button.kmt-delete-palette {
   letter-spacing: 0.3px;
 }
 
-.components-modal__frame {
-  top: 50%;
-  right: auto;
-  bottom: auto;
-  left: 50%;
-  width: 404px;
-  max-width: calc(100% - -40px);
-  max-height: 90%;
-  transform: translate(-50%, -50%);
-  animation: components-modal__appear-animation 0.1s ease-out;
-  animation-fill-mode: none;
-  animation-fill-mode: forwards;
-  height: 197px;
-}
-
 @media (max-width: 1400px) {
   .kmt-palettes-preview
     .kmt-single-palette
@@ -1098,8 +1087,4 @@ button.kmt-delete-palette {
 .kmt-option-modal.kmt-palettes-modal {
   position: absolute;
   left: -1px !important;
-}
-.components-modal__frame {
-  width: 398px !important;
-  height: 193px !important;
 }
