@@ -3,11 +3,14 @@ import OutsideClickHandler from "../common/outside-component";
 import classnames from "classnames";
 import ColorComponent from "./color";
 import { Fragment } from "react";
+import Responsive from '../common/responsive';
 const { __ } = wp.i18n;
-const clamp = (min, max, value) => Math.max(min, Math.min(max, value));
+const convert = (min, max, value) => Math.max(min, Math.min(max, value))
+
 const Border = ({ value, onChange, params }) => {
-    let { secondColor, label } = params;
+    let { secondColor, label, responsive = true } = params;
     const [isOpen, setIsOpen] = useState(false);
+    const [device, setDevice] = useState(wp.customize && wp.customize.previewedDevice() ? wp.customize.previewedDevice() : 'desktop');
     let defaultValue = {
         secondColor: true,
         style: "none",
@@ -15,11 +18,27 @@ const Border = ({ value, onChange, params }) => {
         color: "",
         secondColor: "",
     };
-    value = value ? value : defaultValue;
+    let ResDefaultParam = {
+        desktop: { ...defaultValue },
+        tablet: { ...defaultValue },
+        mobile: { ...defaultValue },
+    };
+
+    let defaultValues = responsive ? ResDefaultParam : defaultValue;
+
+    let defaultVals = params.default
+        ? params.default
+        : defaultValues;
+
+    value = value ? value : defaultVals;
+
 
     const [state, setState] = useState(value);
+    let borderValue = responsive ? state[device] : state;
+
     const handleChangeComplete = (color, id) => {
-        let colorValue = state;
+        let obj = { ...state };
+        let colorValue = responsive ? obj[device] : obj;
         (typeof color === "string") ?
             colorValue[id] = color
             : (
@@ -31,35 +50,37 @@ const Border = ({ value, onChange, params }) => {
                 :
                 colorValue[id] = color.hex
 
-        setState(colorValue);
-        onChange({ ...colorValue });
+        setState(obj);
+        onChange({ ...obj, flag: !value.flag });
     };
-
+    const updateStyle = (style, name) => {
+        let obj = { ...state };
+        responsive ? obj[device][name] = style : obj[name] = style;
+        setState(obj);
+        onChange({ ...obj, flag: !value.flag })
+    }
     return (
         <div className={`kmt-border-container`}>
             <header>
-                <span className="customize-control-title">{label}</span>
+                {responsive ? (<Responsive
+                    onChange={(currentDevice) => setDevice(currentDevice)}
+                    label={label}
+                />
+                ) : <span className="customize-control-title kmt-control-title">{label}</span>}
             </header>
             <div className={`kmt-border__wrapper`}>
                 <div className={classnames("kmt-option-border")}>
                     <div
                         className={classnames("kmt-value-changer", {
                             ["active"]: isOpen,
-                            ["kmt-disabled"]: value.style === "none",
+                            ["kmt-disabled"]: borderValue.style === "none",
                         })}
                     >
                         <input
                             type="number"
-                            value={value.width}
+                            value={borderValue.width}
                             onChange={({ target: { value: width } }) => {
-                                setState({
-                                    ...value,
-                                    width: width,
-                                });
-                                onChange({
-                                    ...value,
-                                    width: width,
-                                });
+                                updateStyle(convert(1, 10, parseInt(width, 10) || 1), "width")
                             }}
                         />
 
@@ -67,10 +88,10 @@ const Border = ({ value, onChange, params }) => {
 
                         <span
                             className="kmt-current-value"
-                            data-style={value.inherit ? "none" : value.style}
+                            data-style={borderValue.inherit ? "none" : borderValue.style}
                             onClick={() => setIsOpen(!isOpen)}
                         >
-                            {value.style === "none" ? value.style : null}
+                            {borderValue.style === "none" ? borderValue.style : null}
                         </span>
                         <OutsideClickHandler
                             disabled={!isOpen}
@@ -107,18 +128,11 @@ const Border = ({ value, onChange, params }) => {
                                                 <span
                                                     className={classnames({
                                                         active:
-                                                            style === value.style,
+                                                            style === borderValue.style,
                                                     })}
                                                     key={style}
                                                     onClick={() => {
-                                                        setState({
-                                                            ...value,
-                                                            style,
-                                                        });
-                                                        onChange({
-                                                            ...value,
-                                                            style,
-                                                        });
+                                                        updateStyle(style, "style")
                                                         setIsOpen(false);
                                                     }}
                                                     data-style={style}
@@ -133,7 +147,7 @@ const Border = ({ value, onChange, params }) => {
                             </ul>
                         </OutsideClickHandler>
                     </div>
-                    {value.style !== "none" && <Fragment>
+                    {borderValue.style !== "none" && <Fragment>
                         <ColorComponent
                             onChangeComplete={(colorValue) =>
                                 handleChangeComplete(colorValue, 'color')
@@ -142,7 +156,7 @@ const Border = ({ value, onChange, params }) => {
                                 id: "default",
                                 title: __("Initial", "kemet"),
                             }}
-                            value={{ default: value.color }}
+                            value={{ default: borderValue.color }}
                         />
 
                         {secondColor && (
@@ -154,7 +168,7 @@ const Border = ({ value, onChange, params }) => {
                                     id: "default",
                                     title: __("Hover", "kemet"),
                                 }}
-                                value={{ default: value.secondColor }}
+                                value={{ default: borderValue.secondColor }}
                             />
                         )}
                     </Fragment>}
@@ -163,13 +177,13 @@ const Border = ({ value, onChange, params }) => {
                     <button
                         className="kmt-reset-btn "
                         disabled={
-                            JSON.stringify(defaultValue) ===
-                            JSON.stringify(value)
+                            JSON.stringify(defaultVals) ===
+                            JSON.stringify(state)
                         }
                         onClick={(e) => {
                             e.preventDefault();
-                            setState({ ...defaultValue });
-                            onChange({ ...defaultValue });
+                            setState({ ...defaultVals });
+                            onChange({ ...defaultVals });
                         }}
                     ></button>
                 </div>
