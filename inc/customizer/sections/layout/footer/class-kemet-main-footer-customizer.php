@@ -186,75 +186,52 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-title',
 								'label' => __( 'Row Settings', 'kemet' ),
 							),
-							self::$prefix . '-top-border-width' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Top Border', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'em' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 12,
-									),
-								),
-								'preview'      => array(
+							self::$prefix . '-row-border-top' => array(
+								'type'       => 'kmt-border',
+								'label'      => __( 'Border Top', 'kemet' ),
+								'transport'  => 'postMessage',
+								'responsive' => true,
+								'preview'    => array(
 									'selector'   => $selector,
-									'property'   => '--rowBorderTopWidth',
+									'property'   => '--rowBorderTop',
 									'responsive' => true,
 								),
 							),
-							self::$prefix . '-bottom-border-width' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Bottom Border', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'em' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 12,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $selector,
-									'property'   => '--rowBorderBottomWidth',
-									'responsive' => true,
-								),
-							),
-							self::$prefix . '-row-border-color' => array(
-								'type'      => 'kmt-color',
+							self::$prefix . '-row-border-top-width' => array(
+								'type'      => 'kmt-radio',
 								'transport' => 'postMessage',
-								'label'     => __( 'Border Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Top', 'kemet' ),
-										'id'    => 'top',
-									),
-									array(
-										'title' => __( 'Bottom', 'kemet' ),
-										'id'    => 'bottom',
-									),
+								'label'     => __( 'Border Top Width', 'kemet' ),
+								'choices'   => array(
+									'default' => __( 'Default', 'kemet' ),
+									'full'    => __( 'Full Width', 'kemet' ),
 								),
 								'preview'   => array(
-									'top'    => array(
-										'selector' => $selector,
-										'property' => '--rowBorderTopColor',
-									),
-									'bottom' => array(
-										'selector' => $selector,
-										'property' => '--rowBorderBottomColor',
-									),
+									'selector' => $selector,
+									'attr'     => 'data-border-top',
+								),
+							),
+							self::$prefix . '-row-border-bottom' => array(
+								'type'       => 'kmt-border',
+								'label'      => __( 'Border Bottom', 'kemet' ),
+								'transport'  => 'postMessage',
+								'responsive' => true,
+								'preview'    => array(
+									'selector'   => $selector,
+									'property'   => '--rowBorderBottom',
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-row-border-bottom-width' => array(
+								'type'      => 'kmt-radio',
+								'transport' => 'postMessage',
+								'label'     => __( 'Border Bottom Width', 'kemet' ),
+								'choices'   => array(
+									'default' => __( 'Default', 'kemet' ),
+									'full'    => __( 'Full Width', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'attr'     => 'data-border-bottom',
 								),
 							),
 							self::$prefix . '-columns-title' => array(

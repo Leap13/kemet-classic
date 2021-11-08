@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import ColorComponent from './color';
 import { useEffect, useState } from 'react';
 import Responsive from '../common/responsive'
+import { isObject } from 'underscore';
 const { __ } = wp.i18n;
 
 const KemetColorComponent = props => {
@@ -43,7 +44,7 @@ const KemetColorComponent = props => {
                             value = 'unset';
                         }
                         setState(value)
-                        props.onChange({ ...value, flag: !props.value.flag });
+                        props.onChange({ ...value, flag: props.value ? !props.value.flag : !props.value });
                     }}>
                 </button>
             </div>
@@ -61,7 +62,7 @@ const KemetColorComponent = props => {
             colorValue[`${id}`] = color.hex;
         }
         setState({ ...value, ...colorValue })
-        props.onChange({ ...value, ...colorValue, flag: !props.value.flag });
+        props.onChange({ ...value, ...colorValue, flag: props.value ? !props.value.flag : !props.value });
     };
 
 

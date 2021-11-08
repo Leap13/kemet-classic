@@ -4869,11 +4869,28 @@ h4.widget-title {
 }
 
 [class*="-footer-wrap"] {
+	background-color: var(--footerBackgroundColor);
+}
+
+[class*="-footer-wrap"] .kmt-container {
 	padding-top: var(--padding-top, 25px);
 	padding-bottom: var(--padding-bottom, 25px);
-	border-top: var(--rowBorderTopWidth) var(--borderTopStyle, solid) var(--rowBorderTopColor);
-	border-bottom: var(--rowBorderBottomWidth) var(--borderBottomStyle, solid) var(--rowBorderBottomColor);
-	background-color: var(--footerBackgroundColor);
+}
+
+[class*="-footer-wrap"][data-border-top="full"] {
+	border-top: var(--rowBorderTop);
+}
+
+[class*="-footer-wrap"][data-border-bottom="full"] {
+	border-bottom: var(--rowBorderBottom);
+}
+
+[class*="-footer-wrap"][data-border-top="default"] .kmt-container {
+	border-top: var(--rowBorderTop);
+}
+
+[class*="-footer-wrap"][data-border-bottom="default"] .kmt-container {
+	border-bottom: var(--rowBorderBottom);
 }
 
 [class*="-footer-wrap"] .site-footer-section {

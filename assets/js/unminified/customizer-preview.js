@@ -637,24 +637,54 @@ function kemet_border_css(control, css_property, selector) {
       if (!value || value === '' || !value.style) {
         return
       }
-      var dynamicStyle = '';
-      if (value.style === 'none') {
-        dynamicStyle = selector + '{' + css_property + ': ' + value.style + '}';
-      } else {
-        var width = value.width ? value.width + 'px' : '1px',
-          style = value.style,
-          color = value.color ? value.color : 'var(--borderColor)';
-
-        dynamicStyle = selector + '{' + css_property + ': ' + width + ' ' + style + ' ' + color + '}';
-        if (value.secondColor) {
-          dynamicStyle += selector + ':hover{ border-color: ' + value.secondColor + '}';
-        }
-      }
+      var dynamicStyle = kemet_get_border(value, css_property, selector);
       kemet_add_dynamic_css(control, dynamicStyle);
     })
   })
 }
 
+function kemet_responsive_border_css(control, css_property, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      if (!value || value === '' || !value.desktop || !value.tablet || !value.mobile) {
+        return
+      }
+      var desktopStyle = kemet_get_border(value.desktop, css_property, selector);
+      var tabletStyle = kemet_get_border(value.tablet, css_property, selector);
+      var mobileStyle = kemet_get_border(value.mobile, css_property, selector);
+      // Concat and append new <style>.
+      var dynamicStyle = desktopStyle +
+        "@media (max-width: 768px) {" +
+        tabletStyle +
+        " }" +
+        "@media (max-width: 544px) {" +
+        mobileStyle +
+        " }";
+      kemet_add_dynamic_css(control, dynamicStyle);
+    })
+  })
+}
+
+function kemet_get_border(value, css_property, selector) {
+  if (!value.style) {
+    return;
+  }
+  var dynamicStyle = '';
+  if (value.style === 'none') {
+    dynamicStyle = selector + '{' + css_property + ': ' + value.style + '}';
+  } else {
+    var width = value.width ? value.width + 'px' : '1px',
+      style = value.style,
+      color = value.color ? value.color : 'var(--borderColor)';
+
+    dynamicStyle = selector + '{' + css_property + ': ' + width + ' ' + style + ' ' + color + '}';
+    if (value.secondColor) {
+      dynamicStyle += selector + ':hover{ border-color: ' + value.secondColor + '}';
+    }
+  }
+
+  return dynamicStyle
+}
 function settingName(settingName) {
   var setting = previewData.setting.replace("setting_name", settingName);
 
@@ -1162,7 +1192,12 @@ function kemet_change_attr(control, selector, attr) {
         kemet_css(control, data.property, data.selector);
         break;
       case "kmt-border":
-        kemet_border_css(control, data.property, data.selector);
+        if (data.responsive) {
+          delete data.responsive;
+          kemet_responsive_border_css(control, data.property, data.selector);
+        } else {
+          kemet_border_css(control, data.property, data.selector);
+        }
         break;
       case "kmt-spacing":
         if (data.responsive) {
