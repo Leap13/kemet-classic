@@ -1536,8 +1536,11 @@ var toggleClass = function (el, className) {
   get_browser();
 
   var setSearchPosition = function () {
-    var sibling = document.querySelector('.kmt-search-menu-icon'),
-      searchIcon = document.querySelector(".kmt-search-icon"),
+    var sibling = document.querySelector('.kmt-search-menu-icon');
+    if (!sibling) {
+      return;
+    }
+    var searchIcon = document.querySelector(".kmt-search-icon"),
       searchLeft = searchIcon.getBoundingClientRect().left,
       windowWidth = window.innerWidth,
       searchFromLeft = parseInt(windowWidth) / 2;
