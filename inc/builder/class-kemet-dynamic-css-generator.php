@@ -367,26 +367,23 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$selector = '.kmt-' . $row . '-header-wrap .' . $row . '-header-bar';
 				$prefix   = $row . '-header';
 
-				$height              = kemet_get_option( $prefix . '-min-height' );
-				$background          = kemet_get_option( $prefix . '-background' );
-				$border              = kemet_get_option( $prefix . '-border-width' );
-				$border_color        = kemet_get_sub_option( $prefix . '-border-color', 'initial' );
-				$sticky_border_color = kemet_get_sub_option( $prefix . '-sticky-border-color', 'initial' );
-				$sticky_background   = kemet_get_option( $prefix . '-sticky-background' );
-				$layout              = kemet_get_option( $prefix . '-layout' );
-				$layout_color        = kemet_get_sub_option( $prefix . '-layout-color', 'initial' );
+				$height            = kemet_get_option( $prefix . '-min-height' );
+				$background        = kemet_get_option( $prefix . '-background' );
+				$border            = kemet_get_option( $prefix . '-border-bottom' );
+				$sticky_border     = kemet_get_option( $prefix . '-sticky-border-bottom' );
+				$sticky_background = kemet_get_option( $prefix . '-sticky-background' );
+				$layout            = kemet_get_option( $prefix . '-layout' );
+				$layout_color      = kemet_get_sub_option( $prefix . '-layout-color', 'initial' );
 
 				$css_output = array(
 					$selector . ' .kmt-grid-row' => array(
 						'--minHeight' => kemet_responsive_slider( $height, 'desktop' ),
 					),
 					'.kmt-sticky-' . $row . '-bar #sitehead ' . $selector . '.kmt-is-sticky' => array(
-						'--borderColor' => esc_attr( $sticky_border_color ),
+						'--borderBottom' => kemet_border( $sticky_border ),
 					),
 					$selector                    => array(
-						'border-style'  => esc_attr( 'solid' ),
-						'--borderWidth' => kemet_responsive_spacing( $border, 'all', 'desktop' ),
-						'--borderColor' => esc_attr( $border_color ),
+						'--borderBottom' => kemet_border( $border ),
 					),
 				);
 

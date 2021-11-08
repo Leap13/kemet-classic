@@ -133,67 +133,30 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							self::$prefix . '-border-width' => array(
-								'type'           => 'kmt-spacing',
-								'divider'        => true,
-								'transport'      => 'postMessage',
-								'responsive'     => true,
-								'label'          => __( 'Border', 'kemet' ),
-								'linked_choices' => true,
-								'unit_choices'   => array( 'px', 'em' ),
-								'choices'        => array(
-									'top'    => __( 'Top', 'kemet' ),
-									'right'  => __( 'Right', 'kemet' ),
-									'bottom' => __( 'Bottom', 'kemet' ),
-									'left'   => __( 'Left', 'kemet' ),
-								),
-								'preview'        => array(
-									'selector'   => $selector,
-									'property'   => '--borderWidth',
-									'sides'      => false,
-									'responsive' => true,
+							self::$prefix . '-border-bottom' => array(
+								'type'      => 'kmt-border',
+								'label'     => __( 'Border Bottom', 'kemet' ),
+								'transport' => 'postMessage',
+								'preview'   => array(
+									'selector' => $selector,
+									'property' => '--borderBottom',
 								),
 							),
-							self::$prefix . '-border-color' => array(
-								'type'      => 'kmt-color',
+							self::$prefix . '-sticky-border-bottom' => array(
+								'type'      => 'kmt-border',
+								'label'     => __( 'Sticky Border Bottom', 'kemet' ),
 								'transport' => 'postMessage',
-								'label'     => __( 'Border Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Initial', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
 								'preview'   => array(
-									'initial' => array(
-										'selector' => $selector,
-										'property' => '--borderColor',
-									),
-								),
-							),
-							self::$prefix . '-sticky-border-color' => array(
-								'type'      => 'kmt-color',
-								'transport' => 'postMessage',
-								'label'     => __( 'Sticky Border Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Initial', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => '.kmt-sticky-main-bar #sitehead ' . $selector . '.kmt-is-sticky',
-										'property' => '--borderColor',
-									),
+									'selector' => '.kmt-sticky-main-bar #sitehead ' . $selector . '.kmt-is-sticky',
+									'property' => '--borderBottom',
 								),
 								'context'   => array(
 									array(
-										'setting' => 'enable-sticky-main',
+										'setting' => 'enable-sticky-bottom',
 										'value'   => true,
 									),
 									array(
-										'setting' => 'enable-sticky-mobile-main',
+										'setting' => 'enable-sticky-mobile-bottom',
 										'value'   => true,
 									),
 									'relation' => 'OR',

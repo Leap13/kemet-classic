@@ -308,9 +308,8 @@
   }
 }
 [class*="-header-wrap"] {
-  [class*="-header-bar"] {
-    border-color: var(--borderColor);
-    border-width: var(--borderWidth, 0 0 1px 0);
+  > [class*="-header-bar"] {
+    border-bottom: var(--borderBottom);
     .header-bar-content {
       background-color: var(--backgroundColor);
     }

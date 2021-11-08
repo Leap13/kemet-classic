@@ -3900,12 +3900,11 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	--minHeight: 70px;
 }
 
-[class*="-header-wrap"] [class*="-header-bar"] {
-	border-width: var(--borderWidth, 0 0 1px 0);
-	border-color: var(--borderColor);
+[class*="-header-wrap"] > [class*="-header-bar"] {
+	border-bottom: var(--borderBottom);
 }
 
-[class*="-header-wrap"] [class*="-header-bar"] .header-bar-content {
+[class*="-header-wrap"] > [class*="-header-bar"] .header-bar-content {
 	background-color: var(--backgroundColor);
 }
 
