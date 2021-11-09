@@ -93,6 +93,32 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							'cart-icon-color'     => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Cart Icon Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-site-header-cart-li a.cart-container',
+										'property' => '--linksColor',
+									),
+									'hover'   => array(
+										'selector' => '.kmt-site-header-cart-li  a.cart-container:hover',
+										'property' => '--linksHoverColor',
+									),
+								),
+
+							),
 							'cart-dropdown-bg-color'     => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',

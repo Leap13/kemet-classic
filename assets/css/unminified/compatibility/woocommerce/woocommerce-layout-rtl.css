@@ -121,8 +121,8 @@
 .woocommerce-page #content div.product div.thumbnails a {
 	float: right;
 	width: 30.75%;
-	margin-bottom: 1em;
 	margin-left: 3.8%;
+	margin-bottom: 1em;
 }
 
 .woocommerce div.product div.thumbnails a.last,
@@ -974,6 +974,6 @@
 }
 
 .woocommerce-account .woocommerce-MyAccount-content fieldset .form-row {
-	padding-right: 0;
 	padding-left: 0;
+	padding-right: 0;
 }

@@ -389,7 +389,7 @@ p.demo_store a,
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 100%;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,	Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 21px;
@@ -434,11 +434,6 @@ p.demo_store a,
 .woocommerce .woocommerce-breadcrumb::after,
 .woocommerce-page .woocommerce-breadcrumb::after {
 	clear: both;
-}
-
-.woocommerce .woocommerce-breadcrumb a,
-.woocommerce-page .woocommerce-breadcrumb a {
-	color: #777;
 }
 
 .woocommerce .quantity input[type="text"],
