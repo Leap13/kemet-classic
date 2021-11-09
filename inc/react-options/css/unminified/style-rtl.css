@@ -2039,6 +2039,14 @@ span.kmt-color-description {
   overflow-y: scroll;
 }
 
+.kmt-post-options .kmt-options input[type="color"], .kmt-post-options .kmt-options input[type="date"], .kmt-post-options .kmt-options input[type="datetime-local"], .kmt-post-options .kmt-options input[type="datetime"], .kmt-post-options .kmt-options input[type="email"], .kmt-post-options .kmt-options input[type="month"], .kmt-post-options .kmt-options input[type="number"], .kmt-post-options .kmt-options input[type="password"], .kmt-post-options .kmt-options input[type="search"], .kmt-post-options .kmt-options input[type="tel"], .kmt-post-options .kmt-options input[type="text"], .kmt-post-options .kmt-options input[type="time"], .kmt-post-options .kmt-options input[type="url"], .kmt-post-options .kmt-options input[type="week"] {
+  background-color: #fff;
+}
+
+.kmt-post-options .kmt-options select {
+  background-color: #fff;
+}
+
 .kmt-post-options .customize-control-title {
   display: inline-block;
   font-size: 14px;

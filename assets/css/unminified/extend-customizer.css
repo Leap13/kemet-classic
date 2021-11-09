@@ -2,8 +2,6 @@
   #customize-theme-controls
   .customize-pane-child.current-panel-parent,
 #customize-theme-controls .customize-pane-child.current-section-parent {
-  -webkit-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 
@@ -15,18 +13,6 @@
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   border-left: 4px solid #fff;
-  -webkit-transition: 0.15s color ease-in-out,
-    0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
-  -webkit-transition: 0.15s color ease-in-out,
-    0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
-  -webkit-transition: 0.15s color ease-in-out,
-    0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
-  -webkit-transition: 0.15s color ease-in-out,
-    0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
-  -webkit-transition: 0.15s color ease-in-out,
-    0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
-  -webkit-transition: 0.15s color ease-in-out, 0.15s background-color ease-in-out,
-    0.15s border-color ease-in-out;
   transition: 0.15s color ease-in-out, 0.15s background-color ease-in-out,
     0.15s border-color ease-in-out;
 }
