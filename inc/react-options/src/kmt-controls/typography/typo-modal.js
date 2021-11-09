@@ -87,13 +87,10 @@ const TypographyModal = ({
     )
 
 
-
     useEffect(() => {
         if (initialView && initialView !== 'done') {
             setSearchTerm('')
-            setTimeout(() => {
-                // setInititialView('done')
-            })
+
         }
 
         if (initialView === 'font_size') {
@@ -245,7 +242,7 @@ const TypographyModal = ({
                                 <VariationsList
                                     currentView={currentView}
                                     props={props}
-                                    typographyList={typographyList}
+                                    typographyList={linearFontsList}
                                     onChange={(value) => {
                                         onChange(value)
                                     }}

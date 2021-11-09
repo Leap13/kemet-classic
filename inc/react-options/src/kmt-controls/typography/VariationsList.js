@@ -3,12 +3,11 @@ import classnames from 'classnames'
 import { convertVariations, findFontFamily } from './helpers'
 import { animated } from '@react-spring/web'
 
-const VariationsList = ({ option, value, onChange, typographyList, props }) => {
+const VariationsList = ({ value, onChange, typographyList, props }) => {
 	const selectedFontFamily = findFontFamily(
 		value.family,
 		typographyList
 	)
-
 	const parentElement = useRef(null);
 
 	useEffect(() => {

@@ -26597,8 +26597,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var VariationsList = function VariationsList(_ref) {
-  var option = _ref.option,
-      value = _ref.value,
+  var value = _ref.value,
       onChange = _ref.onChange,
       typographyList = _ref.typographyList,
       props = _ref.props;
@@ -26662,7 +26661,18 @@ var getDefaultFonts = function getDefaultFonts() {
       all_variations: familyValue[1][0]
     };
   });
-  return [systemFonts.concat(googleFonts)];
+  var customFonts = Object.entries(KmtFontFamilies["custom"]).map(function (family) {
+    return {
+      family: family[0],
+      variations: [],
+      all_variations: family[1].weights
+    };
+  });
+  return {
+    system: systemFonts,
+    google: googleFonts,
+    custom: customFonts
+  };
 };
 
 /***/ }),
@@ -26693,8 +26703,7 @@ var fontFamilytoCss = function fontFamilytoCss(family) {
 
 var findSourceTypeSettingsFor = function findSourceTypeSettingsFor(font_family, fonts_list) {
   return fonts_list.find(function (single_font_source) {
-    return Object.values(single_font_source).map(function (_ref) {
-      var family = _ref.family;
+    return Object.values(single_font_source).map(function (family) {
       return family;
     }).indexOf(font_family) > -1;
   });
@@ -26712,10 +26721,7 @@ var findFontFamily = function findFontFamily(font_family, fonts_list) {
     return null;
   }
 
-  return source.find(function (_ref2) {
-    var family = _ref2.family;
-    return family === font_family;
-  });
+  return source;
 };
 var decideVariation = function decideVariation(newValue, oldValue) {
   if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
@@ -26914,8 +26920,6 @@ var TypographyModal = function TypographyModal(_ref) {
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
     if (initialView && initialView !== 'done') {
       setSearchTerm('');
-      setTimeout(function () {// setInititialView('done')
-      });
     }
 
     if (initialView === 'font_size') {
@@ -27036,7 +27040,7 @@ var TypographyModal = function TypographyModal(_ref) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_VariationsList__WEBPACK_IMPORTED_MODULE_12__["default"], {
         currentView: currentView,
         props: props,
-        typographyList: typographyList,
+        typographyList: linearFontsList,
         onChange: function onChange(value) {
           _onChange(value);
         },

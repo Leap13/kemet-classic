@@ -588,6 +588,10 @@
 .kmt-typography-fonts {
   overflow-x: scroll;
   max-height: 360px;
+  .kmt-source-fonts {
+    text-transform: capitalize;
+    margin-left: 10px;
+  }
 }
 
 .kmt-typography-single-font {

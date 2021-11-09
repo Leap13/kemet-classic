@@ -10,7 +10,7 @@ const findSourceTypeSettingsFor = (font_family, fonts_list) =>
 	fonts_list.find(
 		(single_font_source) =>
 			Object.values(single_font_source)
-				.map(({ family }) => family)
+				.map((family) => family)
 				.indexOf(font_family) > -1
 	)
 
@@ -27,7 +27,7 @@ export const findFontFamily = (font_family, fonts_list) => {
 		return null
 	}
 
-	return source.find(({ family }) => family === font_family)
+	return source
 }
 
 export const decideVariation = (newValue, oldValue) => {
