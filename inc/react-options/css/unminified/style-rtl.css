@@ -3580,7 +3580,8 @@ input[type="checkbox"]:focus {
 
 .kmt-typography-fonts {
   overflow-x: scroll;
-  max-height: 360px;
+  max-height: 290px;
+  margin-top: 0px;
 }
 
 .kmt-typography-fonts .kmt-source-fonts {
@@ -3628,6 +3629,18 @@ input[type="checkbox"]:focus {
 
 .kmt-typography-single-font:hover .kmt-font-name {
   opacity: 1;
+}
+
+.kmt-fonts-source {
+  width: 100%;
+  font-size: 16px;
+  background-color: #efeff1;
+  height: 30px;
+  padding: 6px 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
 }
 
 .kmt-typography-variations {

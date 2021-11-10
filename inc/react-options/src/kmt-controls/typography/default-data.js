@@ -3,6 +3,7 @@ export const getDefaultFonts = () => {
 	let systemFonts = Object.entries(KmtFontFamilies[`system`]).map((familyValue) => ({
 		family: familyValue[0],
 		variations: [],
+		source: "system",
 		all_variations: [
 			'n1',
 			'i1',
@@ -28,12 +29,14 @@ export const getDefaultFonts = () => {
 	let googleFonts = Object.entries(KmtFontFamilies[`google`]).map((familyValue) => ({
 		family: familyValue[0],
 		variations: [],
+		source: "google",
 		all_variations: familyValue[1][0]
 
 	}))
 	let customFonts = Object.entries(KmtFontFamilies[`custom`]).map((family) => ({
 		family: family[0],
 		variations: [],
+		source: "custom",
 		all_variations: family[1].weights
 
 	}))
