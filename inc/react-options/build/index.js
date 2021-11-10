@@ -24315,10 +24315,7 @@ var FontsList = function FontsList(_ref4) {
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     if (value.family) {
-      listRef.current.querySelector('.active').scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest'
-      });
+      listRef.current.querySelector('.active').scrollIntoView();
     }
   }, []);
 

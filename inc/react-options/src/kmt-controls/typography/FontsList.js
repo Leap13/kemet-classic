@@ -65,11 +65,7 @@ const FontsList = ({
 
 	useEffect(() => {
 		if (value.family) {
-			listRef.current.querySelector('.active').scrollIntoView({
-				behavior: 'smooth',
-				block: 'nearest',
-
-			});
+			listRef.current.querySelector('.active').scrollIntoView();
 		}
 	}, [])
 
