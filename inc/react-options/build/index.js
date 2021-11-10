@@ -26445,6 +26445,7 @@ var loadedFonts = [];
 
 var loadGoogleFonts = function loadGoogleFonts(font_families) {
   if (font_families.length === 0) return;
+  console.log(font_families);
   loadedFonts = [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(loadedFonts), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(font_families.map(function (_ref) {
     var family = _ref.family;
     return family;
