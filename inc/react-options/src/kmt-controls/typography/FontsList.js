@@ -9,7 +9,6 @@ let loadedFonts = []
 const loadGoogleFonts = (font_families) => {
 	if (font_families.length === 0) return
 
-	console.log(font_families)
 	loadedFonts = [...loadedFonts, ...font_families.map(({ family }) => family)]
 
 	const googleFonts = font_families
