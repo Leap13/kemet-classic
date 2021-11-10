@@ -712,7 +712,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			/**
 			 * Disable Up-Sells Products.
 			 */
-			$disable_up_sells_products = kemet_get_option( 'woo-single-disable-up-sells-products' );
+			$disable_up_sells_products = kemet_get_option( 'woo-single-disable-up-sell-products' );
 
 			if ( ! $disable_up_sells_products ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
@@ -960,6 +960,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			// General.
 			$cart_dropdown_width        = kemet_get_option( 'cart-dropdown-width' );
+			$cart_icon_color            = kemet_get_sub_option( 'cart-icon-color', 'initial' );
+			$cart_icon_h_color          = kemet_get_sub_option( 'cart-icon-color', 'hover' );
 			$cart_icon_size             = kemet_get_option( 'cart-icon-size' );
 			$cart_dropdown_border_size  = kemet_get_option( 'cart-dropdown-border-size' );
 			$cart_dropdown_border_color = kemet_get_sub_option( 'cart-dropdown-border-color', 'initial', $global_border_color );
@@ -978,6 +980,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$sale_bg_color = kemet_get_sub_option( 'sale-background-color', 'initial' );
 
 			$css_output = array(
+				'.kmt-site-header-cart-li a.cart-container' => array(
+					'--linksColor'      => esc_attr( $cart_icon_color ),
+					'--linksHoverColor' => esc_attr( $cart_icon_h_color ),
+				),
 				'.woocommerce .product .onsale , .product .onsale' => array(
 					'--buttonColor'           => esc_attr( $sale_color ),
 					'--buttonBackgroundColor' => esc_attr( $sale_bg_color ),

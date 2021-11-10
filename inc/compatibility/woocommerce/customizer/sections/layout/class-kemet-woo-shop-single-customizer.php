@@ -98,15 +98,15 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 			),
 			self::$prefix . '-up-sell-products'         => array(
 				'type'  => 'kmt-title',
-				'label' => __( 'Related Products Settings', 'kemet' ),
+				'label' => __( 'Upsell Products Settings', 'kemet' ),
 			),
 			self::$prefix . '-disable-up-sell-products' => array(
 				'type'  => 'kmt-switcher',
-				'label' => __( 'Disable Related Products', 'kemet' ),
+				'label' => __( 'Disable Upsell Products', 'kemet' ),
 			),
 			self::$prefix . '-up-sell-products-count'   => array(
 				'type'    => 'kmt-number',
-				'label'   => __( 'Related Products Count', 'kemet' ),
+				'label'   => __( 'Upsell Products Count', 'kemet' ),
 				'min'     => 1,
 				'step'    => 1,
 				'max'     => 100,
@@ -119,7 +119,7 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 			),
 			self::$prefix . '-up-sell-products-columns' => array(
 				'type'    => 'kmt-radio',
-				'label'   => __( 'Related Products Columns', 'kemet' ),
+				'label'   => __( 'Upsell Products Columns', 'kemet' ),
 				'choices' => array(
 					'1' => __( '1', 'kemet' ),
 					'2' => __( '2', 'kemet' ),
@@ -171,4 +171,3 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 }
 
 new Kemet_Woo_Shop_Single_Customizer();
-

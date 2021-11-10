@@ -122,6 +122,12 @@ class Kemet_Svg_Icons {
 			case 'bag':
 				$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>bag-outline</title><path d="M21,6H18A6,6,0,0,0,6,6H3A3,3,0,0,0,0,9V19a5,5,0,0,0,5,5H19a5,5,0,0,0,5-5V9A3,3,0,0,0,21,6ZM12,2a4,4,0,0,1,4,4H8A4,4,0,0,1,12,2ZM22,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V9A1,1,0,0,1,3,8H6v2a1,1,0,0,0,2,0V8h8v2a1,1,0,0,0,2,0V8h3a1,1,0,0,1,1,1Z"/></svg>';
 				break;
+			case 'view-fill':
+				$output = '<svg data-name="Layer 1" width="24.02" height="24.02" viewBox="0 0 92 90" xmlns="http://www.w3.org/2000/svg"><path transform="translate(-30 -30)" d="M79.2,25.6C73.7,20.5,62.2,12,47.5,12S21.3,20.6,15.8,25.6C7.9,32.8,2.5,41.8,2.5,47.5S7.9,62.2,15.8,69.4c5.5,5.1,17,13.7,31.7,13.7s26.2-8.6,31.7-13.6C87,62.3,92.5,53.3,92.5,47.6S87.1,32.8,79.2,25.6ZM47.5,78.1C25.6,78.1,7.4,55.9,7.4,47.5S25.6,16.9,47.5,16.9,87.6,39.1,87.6,47.5,69.4,78.1,47.5,78.1Z"/><path transform="translate(-2.5 -12)" d="m47.5 28.5a19 19 0 1 0 19 19 19 19 0 0 0-19-19zm0 33.1a14.1 14.1 0 1 1 14.1-14.1 14.08 14.08 0 0 1-14.1 14.1z"/></svg>';
+				break;
+			case 'view':
+				$output = '<svg data-name="Layer 1" width="24.02" height="24.02" viewBox="0 0 90.1 61.45" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><g data-name=" -Round- -Image- -remove red eye"><path class="cls-1" d="M45.05,0A48.44,48.44,0,0,0,0,30.71a48.39,48.39,0,0,0,90.1,0A48.44,48.44,0,0,0,45.05,0Zm0,51.19A20.48,20.48,0,1,1,65.53,30.71h0A20.5,20.5,0,0,1,45.05,51.18Zm0-32.76A12.29,12.29,0,1,0,57.34,30.72h0A12.27,12.27,0,0,0,45.08,18.43Z" data-name=" -Icon-Color"/></g></svg>';
+				break;
 			default:
 				$output = '';
 				break;
