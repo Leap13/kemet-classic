@@ -712,7 +712,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			/**
 			 * Disable Up-Sells Products.
 			 */
-			$disable_up_sells_products = kemet_get_option( 'woo-single-disable-up-sells-products' );
+			$disable_up_sells_products = kemet_get_option( 'woo-single-disable-up-sell-products' );
 
 			if ( ! $disable_up_sells_products ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );

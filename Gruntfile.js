@@ -209,6 +209,10 @@ module.exports = function (grunt) {
             dest: "assets/css/minified/compatibility/bbpress.min-rtl.css",
           },
           {
+            src: "assets/css/unminified/compatibility/woocommerce/woocommerce.css",
+            dest: "assets/css/minified/compatibility/woocommerce/woocommerce.min.css",
+          },
+          {
             src: "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
             dest: "assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css",
           },

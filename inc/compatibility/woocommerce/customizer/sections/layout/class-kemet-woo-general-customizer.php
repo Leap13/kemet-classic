@@ -29,31 +29,6 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 		self::$prefix     = 'woo-general';
 		$selector         = '';
 		$register_options = array(
-			'kmt-rating-title'      => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'Rating Style', 'kemet' ),
-			),
-			'rating-color'          => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'label'     => __( 'Rating color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'id'    => 'initial',
-						'title' => __( 'Initial', 'kemet' ),
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before , .product_list_widget .star-rating',
-						'property' => 'color',
-					),
-				),
-			),
-			'kmt-rating-title'      => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'On Sale Badge', 'kemet' ),
-			),
 			self::$prefix . '-tabs' => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
@@ -73,6 +48,10 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							'kmt-sale-title'      => array(
+								'type'  => 'kmt-title',
+								'label' => __( 'On Sale Badge', 'kemet' ),
+							),
 							'sale-text-color'       => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
@@ -104,6 +83,27 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 									'initial' => array(
 										'selector' => '.woocommerce .product .onsale , .product .onsale',
 										'property' => '--buttonBackgroundColor',
+									),
+								),
+							),
+							'kmt-rating-title'      => array(
+								'type'  => 'kmt-title',
+								'label' => __( 'Rating Style', 'kemet' ),
+							),
+							'rating-color'          => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Rating color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'id'    => 'initial',
+										'title' => __( 'Initial', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before , .product_list_widget .star-rating',
+										'property' => 'color',
 									),
 								),
 							),
