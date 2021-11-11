@@ -64,7 +64,7 @@ const FontsList = ({
 	const [scrollTimer, setScrollTimer] = useState(null)
 
 	useEffect(() => {
-		if (value.family) {
+		if (value.family && listRef.current) {
 			listRef.current.querySelector('.active').scrollIntoView();
 		}
 	}, [])
@@ -78,7 +78,7 @@ const FontsList = ({
 				if (!listRef.current) {
 					return
 				}
-				let overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85);
+				let overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85) + 9;
 
 				const perPage = 25
 				const startingPage = Math.ceil(
@@ -101,24 +101,25 @@ const FontsList = ({
 	let customFonts = linearFontsList.filter((family) => family.source === "custom")
 	let googleFonts = linearFontsList.filter((family) => family.source === "google")
 	return (
-		<div>
-			<ul ref={listRef} className="kmt-typography-fonts" onScroll={onScroll} >
-				<div>
-					<div className={`kmt-fonts-source`}>{__('System Fonts', "kemet")}</div>
+		<ul ref={listRef} className="kmt-typography-fonts" onScroll={onScroll} style={{
+			width: `100%`
+		}}>
+			<div>
+				<div className={`kmt-fonts-source`}>{__('System Fonts', "kemet")}</div>
+				<ul>
+					{systemFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
+				</ul>
+				{customFonts.length > 1 && (<><div className={`kmt-fonts-source`}>{__('Custom Fonts', "kemet")}</div>
 					<ul>
-						{systemFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
-					</ul>
-					{customFonts.length > 1 && (<><div className={`kmt-fonts-source`}>{__('Custom Fonts', "kemet")}</div>
-						<ul>
-							{customFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
-						</ul></>)}
-					<div className={`kmt-fonts-source`}>{__('Google  Fonts', "kemet")}</div>
-					<ul>
-						{googleFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
-					</ul>
-				</div>
-			</ul>
-		</div>
+						{customFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
+					</ul></>)}
+				<div className={`kmt-fonts-source`}>{__('Google  Fonts', "kemet")}</div>
+				<ul>
+					{googleFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
+				</ul>
+			</div>
+		</ul>
+
 	)
 }
 

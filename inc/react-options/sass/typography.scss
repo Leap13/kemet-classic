@@ -204,7 +204,6 @@
   ~ * {
     left: 0;
     right: 0;
-    top: 70px;
   }
 
   li {
@@ -586,9 +585,13 @@
 }
 
 .kmt-typography-fonts {
-  overflow-x: scroll;
-  max-height: 290px;
-  margin-top: 0px;
+  position: relative;
+  height: 290px;
+  overflow: auto;
+  will-change: transform;
+  direction: ltr;
+
+  margin: 0px;
   .kmt-source-fonts {
     text-transform: capitalize;
     margin-left: 10px;

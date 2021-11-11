@@ -24314,7 +24314,7 @@ var FontsList = function FontsList(_ref4) {
       setScrollTimer = _useState2[1];
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    if (value.family) {
+    if (value.family && listRef.current) {
       listRef.current.querySelector('.active').scrollIntoView();
     }
   }, []);
@@ -24326,7 +24326,7 @@ var FontsList = function FontsList(_ref4) {
         return;
       }
 
-      var overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85);
+      var overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85) + 9;
       var perPage = 25;
       var startingPage = Math.ceil((overscanStartIndex + 1) / perPage);
 
@@ -24354,10 +24354,13 @@ var FontsList = function FontsList(_ref4) {
   var googleFonts = linearFontsList.filter(function (family) {
     return family.source === "google";
   });
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
     ref: listRef,
     className: "kmt-typography-fonts",
-    onScroll: onScroll
+    onScroll: onScroll,
+    style: {
+      width: "100%"
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-fonts-source"
   }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('System Fonts', "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", null, systemFonts.map(function (family) {
@@ -24382,7 +24385,7 @@ var FontsList = function FontsList(_ref4) {
       onPickFamily: onPickFamily,
       value: value
     });
-  })))));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FontsList);
@@ -24770,47 +24773,7 @@ var TypographyModal = function TypographyModal(_ref) {
     className: "kmt-option-modal kmt-typography-modal"
   }, wrapperProps), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("div", {
     className: "kmt-typography-container"
-  }, (currentView === "fonts" || currentView === "search") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("ul", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()('kmt-typography-top', {
-      'kmt-switch-panel': currentView !== 'options',
-      'kmt-static': previousView === '_'
-    })
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("li", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()('kmt-font', {
-      active: currentView === 'search'
-    }),
-    onClick: function onClick() {
-      setCurrentView(currentView === 'fonts' ? 'search' : 'fonts');
-      setSearchTerm('');
-    }
-  }, currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("span", null, Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["familyToDisplay"])(value.family)), currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("input", {
-    ref: inputEl,
-    value: searchTerm,
-    autoFocus: true,
-    onKeyUp: function onKeyUp(e) {
-      if (e.keyCode == 13) {
-        if (linearFontsList.length > 0) {
-          pickFontFamily(linearFontsList[0]);
-          setSearchTerm('');
-        }
-      }
-    },
-    onClick: function onClick(e) {
-      return e.stopPropagation();
-    },
-    onChange: function onChange(_ref3) {
-      var value = _ref3.target.value;
-      return setSearchTerm(value);
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("svg", {
-    width: "8",
-    height: "8",
-    viewBox: "0 0 15 15"
-  }, currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("path", {
-    d: "M8.9,7.5l4.6-4.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.5,6.1L2.9,1.5c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l4.6,4.6l-4.6,4.6c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l4.6-4.6l4.6,4.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4L8.9,7.5z"
-  }), currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("path", {
-    d: "M14.6,14.6c-0.6,0.6-1.4,0.6-2,0l-2.5-2.5c-1,0.7-2.2,1-3.5,1C2.9,13.1,0,10.2,0,6.6S2.9,0,6.6,0c3.6,0,6.6,2.9,6.6,6.6c0,1.3-0.4,2.5-1,3.5l2.5,2.5C15.1,13.1,15.1,14,14.6,14.6z M6.6,1.9C4,1.9,1.9,4,1.9,6.6s2.1,4.7,4.7,4.7c2.6,0,4.7-2.1,4.7-4.7C11.3,4,9.2,1.9,6.6,1.9z"
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_10__["Transition"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_10__["Transition"], {
     items: currentView,
     immediate: direction === 'static',
     config: function config(item, type) {
@@ -24846,9 +24809,53 @@ var TypographyModal = function TypographyModal(_ref) {
 
     if (currentView === 'fonts' || currentView === 'search') {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_10__["animated"].div, {
-        style: props,
+        style: _objectSpread(_objectSpread({}, props), {}, {
+          top: '0px',
+          right: '0px',
+          left: "0px"
+        }),
         key: currentView
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_FontsList__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      }, (currentView === "fonts" || currentView === "search") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("ul", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_5___default()('kmt-typography-top', {
+          'kmt-switch-panel': currentView !== 'options',
+          'kmt-static': previousView === '_'
+        })
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("li", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_5___default()('kmt-font', {
+          active: currentView === 'search'
+        }),
+        onClick: function onClick() {
+          setCurrentView(currentView === 'fonts' ? 'search' : 'fonts');
+          setSearchTerm('');
+        }
+      }, currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("span", null, Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["familyToDisplay"])(value.family)), currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("input", {
+        ref: inputEl,
+        value: searchTerm,
+        autoFocus: true,
+        onKeyUp: function onKeyUp(e) {
+          if (e.keyCode == 13) {
+            if (linearFontsList.length > 0) {
+              pickFontFamily(linearFontsList[0]);
+              setSearchTerm('');
+            }
+          }
+        },
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        onChange: function onChange(_ref3) {
+          var value = _ref3.target.value;
+          return setSearchTerm(value);
+        }
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("svg", {
+        width: "8",
+        height: "8",
+        viewBox: "0 0 15 15"
+      }, currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("path", {
+        d: "M8.9,7.5l4.6-4.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.5,6.1L2.9,1.5c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l4.6,4.6l-4.6,4.6c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l4.6-4.6l4.6,4.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4L8.9,7.5z"
+      }), currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("path", {
+        d: "M14.6,14.6c-0.6,0.6-1.4,0.6-2,0l-2.5-2.5c-1,0.7-2.2,1-3.5,1C2.9,13.1,0,10.2,0,6.6S2.9,0,6.6,0c3.6,0,6.6,2.9,6.6,6.6c0,1.3-0.4,2.5-1,3.5l2.5,2.5C15.1,13.1,15.1,14,14.6,14.6z M6.6,1.9C4,1.9,1.9,4,1.9,6.6s2.1,4.7,4.7,4.7c2.6,0,4.7-2.1,4.7-4.7C11.3,4,9.2,1.9,6.6,1.9z"
+      })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_FontsList__WEBPACK_IMPORTED_MODULE_11__["default"], {
         typographyList: typographyList,
         searchTerm: searchTerm,
         linearFontsList: linearFontsList,

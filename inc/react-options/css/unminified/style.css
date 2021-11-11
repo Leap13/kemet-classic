@@ -3227,7 +3227,6 @@ input[type="checkbox"]:focus {
 .kmt-typography-top ~ * {
   left: 0;
   right: 0;
-  top: 70px;
 }
 
 .kmt-typography-top li {
@@ -3579,9 +3578,12 @@ input[type="checkbox"]:focus {
 }
 
 .kmt-typography-fonts {
-  overflow-x: scroll;
-  max-height: 290px;
-  margin-top: 0px;
+  position: relative;
+  height: 290px;
+  overflow: auto;
+  will-change: transform;
+  direction: ltr;
+  margin: 0px;
 }
 
 .kmt-typography-fonts .kmt-source-fonts {
