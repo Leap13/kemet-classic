@@ -24267,6 +24267,7 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
     var family = _ref2.family;
     return family;
   });
+  console.log(googleFonts);
 
   if (googleFonts.length > 0 || typekitFonts.length > 0) {
     webfontloader__WEBPACK_IMPORTED_MODULE_6___default.a.load(_objectSpread(_objectSpread({}, googleFonts.length > 0 ? {
@@ -24318,6 +24319,15 @@ var FontsList = function FontsList(_ref4) {
       listRef.current.querySelector('.active').scrollIntoView();
     }
   }, []);
+  var systemFonts = linearFontsList.filter(function (family) {
+    return family.source === "system";
+  });
+  var customFonts = linearFontsList.filter(function (family) {
+    return family.source === "custom";
+  });
+  var googleFonts = linearFontsList.filter(function (family) {
+    return family.source === "google";
+  });
 
   var onScroll = function onScroll() {
     scrollTimer && clearTimeout(scrollTimer);
@@ -24326,14 +24336,14 @@ var FontsList = function FontsList(_ref4) {
         return;
       }
 
-      var overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85) + 9;
+      var overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85);
       var perPage = 25;
       var startingPage = Math.ceil((overscanStartIndex + 1) / perPage);
 
       var pageItems = _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(Array(perPage)).map(function (_, i) {
         return (startingPage - 1) * perPage + i;
       }).map(function (index) {
-        return linearFontsList[index];
+        return googleFonts[index];
       }).filter(function (s) {
         return !!s;
       });
@@ -24345,15 +24355,6 @@ var FontsList = function FontsList(_ref4) {
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     onScroll();
   }, [linearFontsList]);
-  var systemFonts = linearFontsList.filter(function (family) {
-    return family.source === "system";
-  });
-  var customFonts = linearFontsList.filter(function (family) {
-    return family.source === "custom";
-  });
-  var googleFonts = linearFontsList.filter(function (family) {
-    return family.source === "google";
-  });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
     ref: listRef,
     className: "kmt-typography-fonts",

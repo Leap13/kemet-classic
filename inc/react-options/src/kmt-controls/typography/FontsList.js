@@ -14,6 +14,8 @@ const loadGoogleFonts = (font_families) => {
 	const googleFonts = font_families
 		.map(({ family }) => family)
 
+	console.log(googleFonts)
+
 	if (googleFonts.length > 0 || typekitFonts.length > 0) {
 		WebFontLoader.load({
 			...(googleFonts.length > 0
@@ -69,6 +71,9 @@ const FontsList = ({
 		}
 	}, [])
 
+	let systemFonts = linearFontsList.filter((family) => family.source === "system")
+	let customFonts = linearFontsList.filter((family) => family.source === "custom")
+	let googleFonts = linearFontsList.filter((family) => family.source === "google")
 
 	const onScroll = () => {
 		scrollTimer && clearTimeout(scrollTimer)
@@ -78,7 +83,7 @@ const FontsList = ({
 				if (!listRef.current) {
 					return
 				}
-				let overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85) + 9;
+				let overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85);
 
 				const perPage = 25
 				const startingPage = Math.ceil(
@@ -86,7 +91,7 @@ const FontsList = ({
 				)
 				const pageItems = [...Array(perPage)]
 					.map((_, i) => (startingPage - 1) * perPage + i)
-					.map((index) => linearFontsList[index])
+					.map((index) => googleFonts[index])
 					.filter((s) => !!s)
 				loadGoogleFonts(pageItems)
 			}, 10)
@@ -97,9 +102,6 @@ const FontsList = ({
 		onScroll()
 	}, [linearFontsList])
 
-	let systemFonts = linearFontsList.filter((family) => family.source === "system")
-	let customFonts = linearFontsList.filter((family) => family.source === "custom")
-	let googleFonts = linearFontsList.filter((family) => family.source === "google")
 	return (
 		<ul ref={listRef} className="kmt-typography-fonts" onScroll={onScroll} style={{
 			width: `100%`
