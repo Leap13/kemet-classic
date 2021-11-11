@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from '@wordpress/element'
 import classnames from 'classnames'
 import { fontFamilytoCss } from './helpers'
-import { FixedSizeList as List } from 'react-window'
 import WebFontLoader from 'webfontloader'
+import { __ } from '@wordpress/i18n';
 
 let loadedFonts = []
 
@@ -13,7 +13,6 @@ const loadGoogleFonts = (font_families) => {
 
 	const googleFonts = font_families
 		.map(({ family }) => family)
-
 	if (googleFonts.length > 0 || typekitFonts.length > 0) {
 		WebFontLoader.load({
 			...(googleFonts.length > 0
@@ -29,16 +28,10 @@ const loadGoogleFonts = (font_families) => {
 		})
 	}
 }
-
-const SingleFont = ({
-	data: { linearFontsList, onPickFamily, value },
-	index,
-	style,
-}) => {
-	const family = linearFontsList[index]
+const SingleFont = ({ family, onPickFamily, value }) => {
 	return (
 		<div
-			style={style}
+
 			onClick={() => onPickFamily(family)}
 			className={classnames(
 				'kmt-typography-single-font',
@@ -56,7 +49,7 @@ const SingleFont = ({
 				}}
 				className="kmt-font-preview">
 				Simply dummy text
-			</span>
+            </span>
 		</div>
 	)
 }
@@ -70,16 +63,14 @@ const FontsList = ({
 	const [scrollTimer, setScrollTimer] = useState(null)
 
 	useEffect(() => {
-
-		if (value.family) {
-			listRef.current.scrollToItem(
-				linearFontsList
-					.map(({ family }) => family)
-					.indexOf(value.family),
-				'start'
-			)
+		if (value.family && listRef.current) {
+			listRef.current.querySelector('.active').scrollIntoView();
 		}
 	}, [])
+
+	let systemFonts = linearFontsList.filter((family) => family.source === "system")
+	let customFonts = linearFontsList.filter((family) => family.source === "custom")
+	let googleFonts = linearFontsList.filter((family) => family.source === "google")
 
 	const onScroll = () => {
 		scrollTimer && clearTimeout(scrollTimer)
@@ -89,7 +80,7 @@ const FontsList = ({
 				if (!listRef.current) {
 					return
 				}
-				const [overscanStartIndex] = listRef.current._getRangeToRender()
+				let overscanStartIndex = Math.ceil(listRef.current.scrollTop / 85);
 
 				const perPage = 25
 				const startingPage = Math.ceil(
@@ -97,12 +88,10 @@ const FontsList = ({
 				)
 				const pageItems = [...Array(perPage)]
 					.map((_, i) => (startingPage - 1) * perPage + i)
-					.map((index) => linearFontsList[index])
+					.map((index) => googleFonts[index])
 					.filter((s) => !!s)
-
-
 				loadGoogleFonts(pageItems)
-			}, 100)
+			}, 10)
 		)
 	}
 
@@ -111,23 +100,25 @@ const FontsList = ({
 	}, [linearFontsList])
 
 	return (
-		<List
-			height={290}
-			itemCount={linearFontsList.length}
-			itemSize={85}
-			ref={listRef}
-			onScroll={(e) => {
-				onScroll()
-			}}
-			itemData={{
-				linearFontsList,
-				onPickFamily,
-				value,
-			}}
-			onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => { }}
-			className="kmt-typography-fonts">
-			{SingleFont}
-		</List>
+		<ul ref={listRef} className="kmt-typography-fonts" onScroll={onScroll} style={{
+			width: `100%`
+		}}>
+			<div>
+				<div className={`kmt-fonts-source`}>{__('System Fonts', "kemet")}</div>
+				<ul>
+					{systemFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
+				</ul>
+				{customFonts.length > 1 && (<><div className={`kmt-fonts-source`}>{__('Custom Fonts', "kemet")}</div>
+					<ul>
+						{customFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
+					</ul></>)}
+				<div className={`kmt-fonts-source`}>{__('Google  Fonts', "kemet")}</div>
+				<ul>
+					{googleFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
+				</ul>
+			</div>
+		</ul>
+
 	)
 }
 

@@ -100,10 +100,11 @@ final class Kemet_Fonts {
 		$google_fonts = array();
 		$font_subset  = array();
 
-		$system_fonts = Kemet_Font_Families::get_system_fonts();
+		$all_google_fonts = Kemet_Font_Families::get_google_fonts();
+		$system_fonts     = Kemet_Font_Families::get_system_fonts();
 
 		foreach ( $font_list as $name => $font ) {
-			if ( ! empty( $name ) && ! isset( $system_fonts[ $name ] ) ) {
+			if ( ! empty( $name ) && ! isset( $system_fonts[ $name ] ) && isset( $all_google_fonts[ $name ] ) ) {
 
 				// Add font variants.
 				$google_fonts[ $name ] = $font['variants'];
