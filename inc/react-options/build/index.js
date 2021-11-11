@@ -24267,7 +24267,6 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
     var family = _ref2.family;
     return family;
   });
-  console.log(googleFonts);
 
   if (googleFonts.length > 0 || typekitFonts.length > 0) {
     webfontloader__WEBPACK_IMPORTED_MODULE_6___default.a.load(_objectSpread(_objectSpread({}, googleFonts.length > 0 ? {
