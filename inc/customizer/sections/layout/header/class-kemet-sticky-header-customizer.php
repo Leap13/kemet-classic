@@ -66,9 +66,8 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 									),
 								),
 								'enable-sticky-top'        => array(
-									'label'   => __( 'Sticky Top Header', 'kemet' ),
-									'divider' => true,
-									'type'    => 'kmt-switcher',
+									'label' => __( 'Sticky Top Header', 'kemet' ),
+									'type'  => 'kmt-switcher',
 								),
 								'enable-sticky-main'       => array(
 									'label'   => __( 'Sticky Main Header', 'kemet' ),
@@ -118,9 +117,8 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 									'label' => __( 'Mobile Sticky', 'kemet' ),
 								),
 								'enable-sticky-mobile-top' => array(
-									'label'   => __( 'Sticky Mobile Top Header', 'kemet' ),
-									'divider' => true,
-									'type'    => 'kmt-switcher',
+									'label' => __( 'Sticky Mobile Top Header', 'kemet' ),
+									'type'  => 'kmt-switcher',
 								),
 								'enable-sticky-mobile-main' => array(
 									'label'   => __( 'Sticky Mobile Main Header', 'kemet' ),

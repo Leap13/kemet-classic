@@ -181,7 +181,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function loop_markup( $is_page = false ) { ?>
 
-			<main id="main" class="site-main" role="main">
+			<main id="main" class="site-main">
 
 				<?php if ( have_posts() ) : ?>
 

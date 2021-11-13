@@ -482,7 +482,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -503,7 +503,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
-				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';
 				wp_nav_menu( $menu_args );
 				echo '</div>';
@@ -511,7 +511,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				echo '</div>';
 			} else {
 				echo '<div class="main-header-bar-navigation">';
-				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 				wp_page_menu( $fallback_menu_args );
 				echo '</nav>';
 				echo '</div>';

@@ -265,7 +265,7 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 	function kemet_header_markup() {
 		?>
 
-		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="sitehead" <?php kemet_header_classes(); ?> role="banner">
+		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="sitehead" <?php kemet_header_classes(); ?>>
 
 			<?php kemet_sitehead_top(); ?>
 

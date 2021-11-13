@@ -48,8 +48,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
-			add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
-			add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 			add_action( 'rest_request_after_callbacks', array( $this, 'theme_color_support' ), 999, 3 );
 			add_filter( 'kemet_dynamic_css', array( $this, 'dynamic_css' ) );
 		}
@@ -130,22 +128,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			}
 
 			return $response;
-		}
-
-		/**
-		 * Elementor styles
-		 *
-		 * @return void
-		 * @since  1.0.4
-		 */
-		public function enqueue_elementor_compatibility_styles() {
-			?>
-				<style type="text/css" id="kmt-elementor-compatibility-css">
-					.elementor-widget-heading .elementor-heading-title {
-						margin: 0;
-					}
-				</style>
-			<?php
 		}
 
 		/**

@@ -97,6 +97,9 @@
   .main-navigation {
     ul {
       background-color: var(--backgroundColor);
+      li > a {
+        --padding: 5px;
+      }
     }
   }
 }

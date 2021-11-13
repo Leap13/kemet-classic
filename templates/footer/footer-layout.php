@@ -6,7 +6,7 @@
  */
 
 ?>
-<footer class="site-footer" id="colophon" role="contentinfo">
+<footer class="site-footer" id="colophon">
 	<?php
 		kemet_footer_content_top();
 

@@ -55,7 +55,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Dynamic_Css' ) ) {
 						'display' => esc_attr( 'block' ),
 					),
 					$selector . ' .header-bar-content'     => array(
-						'display' => esc_attr( 'transparent !important' ),
+						'background' => esc_attr( 'transparent !important' ),
 					),
 					'.kmt-shrink-effect .kmt-grid-row'     => array(
 						'transition' => esc_attr( 'all 0.3s linear' ),

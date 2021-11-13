@@ -11,7 +11,7 @@ $sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
 
 ?>
 
-<div itemtype="https://schema.org/WPSideBar" itemscope="itemscope" id="secondary" class="widget-area secondary" role="complementary">
+<div itemtype="https://schema.org/WPSideBar" itemscope="itemscope" id="secondary" class="widget-area secondary">
 
 	<div class="sidebar-main">
 

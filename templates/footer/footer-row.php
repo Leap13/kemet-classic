@@ -27,8 +27,8 @@ $row_classes = array(
 $zone        = 0;
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" data-border-bottom="<?php esc_attr_e( $bottom_border_type ); ?>" data-border-top="<?php esc_attr_e( $top_border_type ); ?>">
-	<div class="kmt-builder-grid-row-container-inner site-builder-focus-item" data-section="section-<?php echo esc_attr_e( $row ); ?>-footer-builder">
+<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" data-border-bottom="<?php echo esc_attr( $bottom_border_type ); ?>" data-border-top="<?php echo esc_attr( $top_border_type ); ?>">
+	<div class="kmt-builder-grid-row-container-inner site-builder-focus-item" data-section="section-<?php echo esc_attr( $row ); ?>-footer-builder">
 		<?php Kemet_Builder_Helper::customizer_row_edit_link(); ?>
 		<div class="kmt-container">
 			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap kmt-grid-row <?php echo esc_attr( implode( ' ', $row_classes ) ); ?>">

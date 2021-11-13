@@ -28,10 +28,12 @@ $classes = array_map( 'sanitize_html_class', $classes );
 $bar_classes = apply_filters( 'kemet_header_' . $row . '_row_classes', array_map( 'sanitize_html_class', array() ) );
 
 $layout = kemet_get_option( $row . '-header-layout' );
+
+$border_type = kemet_get_option( $row . '-header-bottom-width' ) ? kemet_get_option( $row . '-header-bottom-width' ) : 'full';
 ?>
 
 <div class="kmt-<?php echo esc_attr( $row ); ?>-header-wrap">
-	<div class="<?php echo esc_attr( $row ); ?>-header-bar <?php echo esc_attr( join( ' ', $bar_classes ) ); ?>site-builder-focus-item" data-section="section-<?php echo esc_attr( $row ); ?>-header-builder">
+	<div class="<?php echo esc_attr( $row ); ?>-header-bar <?php echo esc_attr( join( ' ', $bar_classes ) ); ?>site-builder-focus-item" data-section="section-<?php echo esc_attr( $row ); ?>-header-builder" data-border="<?php echo esc_attr( $border_type ); ?>">
 	<?php Kemet_Builder_Helper::customizer_row_edit_link(); ?>
 		<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap kmt-builder-grid-row-container kmt-container site-header-focus-item section-header-<?php echo esc_attr( $row ); ?>">
 			<div class="<?php echo esc_attr( $row ); ?>-header-inner<?php echo ( 'stretched' === $layout || 'boxed' === $layout ) ? ' header-bar-content' : ''; ?>">

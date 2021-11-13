@@ -133,6 +133,20 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							self::$prefix . '-bottom-width' => array(
+								'type'      => 'kmt-radio',
+								'transport' => 'postMessage',
+								'default'   => 'full',
+								'label'     => __( 'Border Bottom Width', 'kemet' ),
+								'choices'   => array(
+									'default' => __( 'Default', 'kemet' ),
+									'full'    => __( 'Full Width', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'attr'     => 'data-border',
+								),
+							),
 							self::$prefix . '-border-bottom' => array(
 								'type'      => 'kmt-border',
 								'label'     => __( 'Border Bottom', 'kemet' ),

@@ -309,7 +309,14 @@
 }
 [class*="-header-wrap"] {
   > [class*="-header-bar"] {
-    border-bottom: var(--borderBottom);
+    &[data-border="full"] {
+      border-bottom: var(--borderBottom, 1px solid var(--borderColor));
+    }
+    &[data-border="default"] {
+      .main-header-inner {
+        border-bottom: var(--borderBottom, 1px solid var(--borderColor));
+      }
+    }
     .header-bar-content {
       background-color: var(--backgroundColor);
     }

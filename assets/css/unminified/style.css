@@ -3676,8 +3676,12 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	--minHeight: 70px;
 }
 
-[class*="-header-wrap"] > [class*="-header-bar"] {
-	border-bottom: var(--borderBottom);
+[class*="-header-wrap"] > [class*="-header-bar"][data-border="full"] {
+	border-bottom: var(--borderBottom, 1px solid var(--borderColor));
+}
+
+[class*="-header-wrap"] > [class*="-header-bar"][data-border="default"] .main-header-inner {
+	border-bottom: var(--borderBottom, 1px solid var(--borderColor));
 }
 
 [class*="-header-wrap"] > [class*="-header-bar"] .header-bar-content {
@@ -4537,6 +4541,10 @@ h4.widget-title {
 
 .site-footer .main-navigation ul {
 	background-color: var(--backgroundColor);
+}
+
+.site-footer .main-navigation ul li > a {
+	--padding: 5px;
 }
 
 @media all and (max-width: 768px) {
