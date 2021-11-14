@@ -1097,7 +1097,8 @@ function kemet_change_attr(control, selector, attr) {
       function (response) {
         if (
           response.partial.id.includes("header-desktop-items") ||
-          response.partial.id.includes("header-mobile-items")
+          response.partial.id.includes("header-mobile-items") ||
+          response.partial.id.includes("footer-items")
         ) {
           document.dispatchEvent(
             new CustomEvent("kmtPartialContentRendered", {
