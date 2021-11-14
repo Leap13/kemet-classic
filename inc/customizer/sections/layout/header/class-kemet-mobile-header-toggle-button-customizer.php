@@ -125,7 +125,6 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
-								'divider'   => true,
 								'label'     => __( 'Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(

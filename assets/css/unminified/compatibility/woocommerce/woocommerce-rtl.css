@@ -5406,3 +5406,38 @@ ul.products li.product .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse
 .woocommerce-page ul.products li .compare.button {
 	display: none;
 }
+
+/************ Single Prodcut ************/
+.kmt-product-navigation {
+	float: left;
+}
+
+.kmt-product-navigation .kmt-product-links a {
+	display: inline-block;
+}
+
+.kmt-product-navigation .kmt-product-links a span {
+	display: inline-flex;
+	width: 28px;
+	height: 28px;
+	margin-right: 10px;
+	border: 2px solid var(--borderColor);
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	font-size: 14px;
+	line-height: 24px;
+
+	-ms-border-radius: 50%;
+	justify-content: center;
+}
+
+.kmt-product-navigation .kmt-product-links a .prev:before {
+	font-family: dashicons;
+	content: "\f341";
+}
+
+.kmt-product-navigation .kmt-product-links a .next:before {
+	font-family: dashicons;
+	content: "\f345";
+}
