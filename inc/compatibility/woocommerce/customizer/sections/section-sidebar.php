@@ -30,7 +30,7 @@ if ( ! function_exists( 'kemet_woo_sidebar' ) ) {
 		);
 		$options['woocommerce-sidebar-layout']    = array(
 			'type'    => 'kmt-select',
-			'label'   => __( 'WooCommerce', 'kemet' ),
+			'label'   => __( 'Woocommerce Shop/Archive', 'kemet' ),
 			'choices' => array(
 				'default'       => __( 'Default', 'kemet' ),
 				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
@@ -40,7 +40,7 @@ if ( ! function_exists( 'kemet_woo_sidebar' ) ) {
 		);
 		$options['single-product-sidebar-layout'] = array(
 			'type'    => 'kmt-select',
-			'label'   => __( 'WooCommerce', 'kemet' ),
+			'label'   => __( 'WooCommerce Single', 'kemet' ),
 			'choices' => array(
 				'default'       => __( 'Default', 'kemet' ),
 				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
