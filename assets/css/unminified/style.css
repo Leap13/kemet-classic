@@ -3020,7 +3020,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	display: inline-block;
 	width: 100%;
 
-	--padding: 5px 20px;
+	--padding: 5px 0;
 }
 
 .kmt-popup-main .main-navigation ul > li > .kmt-menu-item-wrap {

@@ -147,6 +147,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-button-label'                  => 'button',
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,
+					'offcanvas-menu-border-bottom-width'   => Kemet_Customizer::responsive_default_value( 1, 'px' ),
 					// Footer Builder
 					'footer-items'                         => array(
 						'top'    => array(
