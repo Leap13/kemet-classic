@@ -38,10 +38,11 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-items-direction' => array(
 								'type'      => 'kmt-radio',
 								'transport' => 'postMessage',
+								'default'   => 'initial',
 								'label'     => __( 'Items Direction', 'kemet' ),
 								'choices'   => array(
-									'100%'    => __( 'Horizontal', 'kemet' ),
-									'initial' => __( 'Vertical', 'kemet' ),
+									'initial' => __( 'Horizontal', 'kemet' ),
+									'100%'    => __( 'Vertical', 'kemet' ),
 								),
 								'preview'   => array(
 									'selector' => $selector . ' > li',
