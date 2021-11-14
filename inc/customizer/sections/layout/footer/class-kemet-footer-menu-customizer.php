@@ -52,6 +52,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-items-align' => array(
 								'type'      => 'kmt-icon-select',
 								'transport' => 'postMessage',
+								'default'   => 'flex-start',
 								'label'     => __( 'Horizontal Alignment', 'kemet' ),
 								'choices'   => array(
 									'flex-start' => array(
