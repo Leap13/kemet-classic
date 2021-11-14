@@ -438,6 +438,8 @@ module.exports = function (grunt) {
           "assets/css/unminified/editor-style-rtl.css":
             "assets/css/unminified/editor-style-rtl.css",
           "inc/react-options/css/unminified/style.css":
+            "inc/react-options/css/unminified/style.css",
+          "inc/react-options/css/unminified/style-rtl.css":
             "inc/react-options/css/unminified/style-rtl.css",
         },
       },
