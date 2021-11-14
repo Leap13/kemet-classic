@@ -48,6 +48,10 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 			),
 			self::$prefix . '-image-width'              => array(
 				'type'         => 'kmt-slider',
+				'default'      => array(
+					'value' => '50',
+					'unit'  => '%',
+				),
 				'label'        => __( 'Image Width', 'kemet' ),
 				'unit_choices' => array(
 					'%' => array(
