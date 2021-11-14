@@ -488,24 +488,23 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			$items_wrap .= '</div>';
 			$items_wrap .= '</nav>';
 
-			// Menu.
-			$menu_args = array(
-				'theme_location'  => $menu,
-				'menu'            => apply_filters( 'kemet_' . $menu . '_slug', $menu ),
-				'menu_id'         => $menu,
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
-				'container'       => 'div',
-				'container_class' => 'main-header-bar-navigation ' . $menu,
-				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			);
-
 			if ( has_nav_menu( $menu ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
 				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';
-				wp_nav_menu( $menu_args );
+				wp_nav_menu(
+					array(
+						'theme_location'  => $menu,
+						'menu'            => apply_filters( 'kemet_' . $menu . '_slug', $menu ),
+						'menu_id'         => $menu,
+						'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
+						'container'       => 'div',
+						'container_class' => 'main-header-bar-navigation ' . $menu,
+						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					)
+				);
 				echo '</div>';
 				echo '</nav>';
 				echo '</div>';
