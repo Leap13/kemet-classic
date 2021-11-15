@@ -2889,7 +2889,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	display: inline-block;
 	transition: all 0.2s linear;
 
-	--padding: 27px 1em;
+	--padding: 0.5em 1.6em;
 }
 
 .main-header-menu li {
@@ -3319,10 +3319,6 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	overflow: hidden;
 	position: absolute;
 	opacity: 0;
-}
-
-.main-header-bar {
-	border-bottom-style: solid;
 }
 
 /**

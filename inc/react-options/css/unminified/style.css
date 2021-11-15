@@ -698,6 +698,10 @@ div.kmt-type-control span,
 	position: relative;
 }
 
+.customize-control-kmt-color-palettes header a {
+	margin-bottom: 2px;
+}
+
 .customize-control-kmt-color-palettes header a:focus {
 	box-shadow: none;
 }
@@ -2114,6 +2118,10 @@ span.kmt-color-description {
 	margin-bottom: 25px;
 	border-bottom: 1px solid #dcdcde;
 	content: "";
+}
+
+.devices button {
+	vertical-align: middle;
 }
 
 .interface-complementary-area .components-panel {
