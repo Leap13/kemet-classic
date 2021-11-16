@@ -23,16 +23,14 @@
   a {
     display: inline-block;
     .page-link {
-      border-color: $color-border-pagination;
+      border-color: var(--borderColor);
       background: transparent;
     }
   }
   .page-link {
     padding: 0;
     margin: 0 0 0.3em 0.3em;
-    border: 2px solid $color-border-pagination;
-    color: $color-text-pagination;
-    background: $color-background-pagination;
+    border: 2px solid var(--borderColor);
     font-size: 0.8em;
     width: 2.5em;
     height: 2.5em;
@@ -40,11 +38,6 @@
     display: inline-block;
     text-align: center;
     @include kmt-transition();
-    &:hover,
-    &:focus {
-      color: $color-text-pagination;
-    }
-
     @media (max-width: $mx-col-md) {
       margin-bottom: 6px;
     }
