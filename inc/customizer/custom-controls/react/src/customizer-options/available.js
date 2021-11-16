@@ -52,6 +52,21 @@ const AvailableComponent = (props) => {
       wp.customize.section(section).focus();
     }
   };
+
+  const checkAvilabelItems = () => {
+    let available = false;
+    Object.keys(choices).map((item) => {
+      controlParams.zones.map((zone) => {
+        Object.keys(items[zone]).map((row) => {
+          if (items[zone][row].includes(item)) {
+            available = true;
+          }
+        });
+      });
+    })
+    return available;
+  }
+
   const renderItems = (item, type) => {
     let available = true;
 
@@ -112,6 +127,11 @@ const AvailableComponent = (props) => {
   };
   return (
     <div className="kmt-control-field kmt-available-items">
+      {checkAvilabelItems(choices) && <div className="kmt-available-items-title">
+        <span className="customize-control-title">
+          {__("Active Elements", "kemet")}
+        </span>
+      </div>}
       <div className="kmt-used-items-container">
         {Object.keys(choices).map((item) => {
           return renderItems(item, "used");
@@ -119,7 +139,7 @@ const AvailableComponent = (props) => {
       </div>
       <div className="kmt-available-items-title">
         <span className="customize-control-title">
-          {__("Available Items", "kemet")}
+          {__("Available Elements", "kemet")}
         </span>
       </div>
       <div className="kmt-available-items-container">

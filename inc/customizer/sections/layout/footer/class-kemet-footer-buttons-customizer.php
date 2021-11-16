@@ -161,7 +161,7 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 		$register_sections = array(
 			'section-footer-buttons' => array(
 				'priority' => 85,
-				'title'    => __( 'Buttons', 'kemet' ),
+				'title'    => __( "Footer Buttons' Styles", 'kemet' ),
 				'panel'    => 'panel-footer-builder-group',
 			),
 		);

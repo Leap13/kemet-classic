@@ -171,7 +171,7 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 		$copyright_sections = array(
 			'section-' . self::$prefix => array(
 				'priority' => 85,
-				'title'    => __( 'Copyright', 'kemet' ),
+				'title'    => __( 'Copyright Notice', 'kemet' ),
 				'panel'    => 'panel-footer-builder-group',
 			),
 		);

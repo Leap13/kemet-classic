@@ -13,14 +13,12 @@ const RadioImageComponent = (props) => {
     const {
         label,
         description,
-        id,
         choices,
         inputAttrs,
         link,
         labelStyle
     } = props.params;
     let inputContent = [];
-
     let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
     let descriptionContent = (description && description !== '') ? <span className="description customize-control-description">{description}</span> : null;
@@ -42,10 +40,10 @@ const RadioImageComponent = (props) => {
     let radioContent = Object.entries(choices).map(([key, value]) => {
         return (
             <Fragment key={key}>
-                <input {...inputContent} className="image-select" type="radio" value={key} name={`_customize-radio-${id}`}
-                    id={id + key} checked={props_value === key ? true : false} onChange={() => onLayoutChange(key)} />
+                <input {...inputContent} className="image-select" type="radio" value={key}
+                    checked={props_value === key ? true : false} onChange={() => onLayoutChange(key)} id={key} />
 
-                <label htmlFor={id + key} {...labelStyle} className="image">
+                <label htmlFor={key} {...labelStyle} className="image">
                     <img className="wp-ui-highlight" src={choices[key].path} />
                     <span className="image-clickable" title={choices[key].label}></span>
                 </label>
@@ -58,7 +56,7 @@ const RadioImageComponent = (props) => {
                 {labelContent}
                 {descriptionContent}
             </label>
-            <div id={`input_${id}`} className="image">
+            <div id={`input_${props.id}`} className="image">
                 {radioContent}
             </div>
         </Fragment>
