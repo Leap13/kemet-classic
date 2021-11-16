@@ -36,10 +36,9 @@ if ( ! class_exists( 'Kemet_Admin_Notices' ) ) :
 		 * Setup class.
 		 */
 		public function __construct() {
-
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			if ( ! defined( 'KEMET_ADDONS_VERSION' ) ) {
 				/* TO DO */
+				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				add_action( 'admin_notices', array( $this, 'kemet_admin_notice' ) );
 				return;
 			}

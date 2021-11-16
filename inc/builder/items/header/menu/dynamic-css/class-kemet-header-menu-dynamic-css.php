@@ -81,7 +81,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--backgroundColor' => esc_attr( $submenu_bg_color ),
 						'--linksColor'      => esc_attr( $submenu_link_color ),
 						'--borderBottom'    => kemet_border( $submenu_items_border ),
-						'padding'           => '0.75em 0.6em',
+						'padding'           => '0.5em 1.6em',
 						'--linksHoverColor' => esc_attr( $submenu_link_h_color ),
 					),
 					$selector . ' > li ul > li > a:hover' => array(
