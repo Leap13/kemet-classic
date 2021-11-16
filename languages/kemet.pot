@@ -1,91 +1,77 @@
 # <!=Copyright (C) 2021 Leap13
 # This file is distributed under the GNU General Public License v2 or later.=!>
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Kemet 1.1.17\n"
+"Project-Id-Version: Kemet 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/kemet\n"
-"POT-Creation-Date: 2021-11-14 00:38+0200\n"
-"PO-Revision-Date: 2021-10-10 16:57+0200\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2021-11-15 11:26:53+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c\n"
-"X-Poedit-Basepath: ..\n"
-"X-Textdomain-Support: yes\n"
-"X-Generator: Poedit 3.0\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-msgid "Select Color"
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:89
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:128
+#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:91
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:42
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:42
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:42
+msgid "1"
 msgstr ""
 
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-msgid "Current"
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:90
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:129
+#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:92
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:43
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:43
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:43
+msgid "2"
 msgstr ""
 
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-msgid "Color value"
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:91
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:130
+#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:93
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:44
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:44
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:44
+msgid "3"
 msgstr ""
 
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-#: inc/compatibility/bbpress/customizer/sections/section-container.php:35
-#: inc/compatibility/bbpress/customizer/sections/section-sidebar.php:35
-#: inc/compatibility/learndash/customizer/sections/section-container.php:35
-#: inc/compatibility/learndash/customizer/sections/section-sidebar.php:35
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:88
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:35
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:35
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:45
-#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:58
-#: inc/customizer/sections/layout/class-kemet-blog-single-customizer.php:32
-#: inc/customizer/sections/layout/class-kemet-container-customizer.php:54
-#: inc/customizer/sections/layout/class-kemet-container-customizer.php:65
-#: inc/customizer/sections/layout/class-kemet-container-customizer.php:76
-#: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:62
-#: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:73
-#: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:84
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:205
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:229
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:205
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:229
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:205
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:229
-#: inc/customizer/sections/layout/header/class-kemet-bottom-header-customizer.php:142
-#: inc/customizer/sections/layout/header/class-kemet-main-header-customizer.php:142
-#: inc/customizer/sections/layout/header/class-kemet-top-header-customizer.php:141
-#: inc/meta/classes/class-kemet-meta-settings.php:80
-#: inc/meta/classes/class-kemet-meta-settings.php:91
-#: inc/meta/classes/class-kemet-meta-settings.php:135
-#: inc/meta/classes/class-kemet-meta-settings.php:183
-msgid "Default"
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:92
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:131
+#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:94
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:45
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:45
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:45
+msgid "4"
 msgstr ""
 
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-msgid "Select default color"
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:93
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:132
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:46
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:46
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:46
+msgid "5"
 msgstr ""
 
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-msgid "clear"
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:94
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:133
+msgid "6"
 msgstr ""
-
-#: assets/js/minified/wp-color-picker-alpha.min.js:1
-msgid "Clear color"
-msgstr ""
-
-#: comments.php:36
-#, php-format
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
 
 #: comments.php:46 comments.php:69
 msgid "Comments Navigation"
@@ -106,17 +92,14 @@ msgid "Install Kemet Addons"
 msgstr ""
 
 #: functions/classes/class-kemet-admin-settings.php:83
-#: inc/react-options/build/index.js:24945
-#: inc/react-options/build/index.js:24951
 msgid "Settings"
 msgstr ""
 
-#: functions/classes/class-kemet-admin-settings.php:83
-#: inc/builder/markup/class-kemet-footer-markup.php:126
+#. Theme Name of the plugin/theme
 msgid "Kemet"
 msgstr ""
 
-#: functions/classes/class-kemet-theme-options.php:391
+#: functions/classes/class-kemet-theme-options.php:392
 msgid "Powered by [theme_author] WordPress Theme"
 msgstr ""
 
@@ -234,13 +217,13 @@ msgstr ""
 
 #: functions/classes/class-theme-strings.php:71
 #: functions/classes/class-theme-strings.php:86
-#, php-format
+#. translators: 1: Post type label
 msgid "Next %s >"
 msgstr ""
 
 #: functions/classes/class-theme-strings.php:73
 #: functions/classes/class-theme-strings.php:88
-#, php-format
+#. translators: 1: Post type label
 msgid "< Previous %s"
 msgstr ""
 
@@ -251,6 +234,7 @@ msgid ""
 msgstr ""
 
 #: functions/custom-functions.php:593
+#. translators: 1: Site Title Markup, 2: Site Tagline Markup
 msgid "Add Widget"
 msgstr ""
 
@@ -283,7 +267,6 @@ msgid "Color7"
 msgstr ""
 
 #: functions/custom-functions.php:1211
-#, php-format
 msgid "Read More »%s"
 msgstr ""
 
@@ -294,13 +277,13 @@ msgstr ""
 
 #: functions/helper-options-functions.php:950
 #: functions/helper-options-functions.php:1030
-#, php-format
+#. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
 
 #: functions/template-tags.php:31 templates/content-page.php:51
 #: templates/single/single-layout.php:40
-#, php-format
+#. translators: %s: Name of current post
 msgid "Edit %s"
 msgstr ""
 
@@ -309,6 +292,7 @@ msgid "Read More &raquo;"
 msgstr ""
 
 #: inc/blog/blog-config.php:242 inc/blog/blog-config.php:270
+#. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
@@ -321,7 +305,7 @@ msgid "(Edit)"
 msgstr ""
 
 #: inc/blog/single-blog.php:157
-#, php-format
+#. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
 
@@ -362,12 +346,12 @@ msgid "Header Widget 2"
 msgstr ""
 
 #: inc/builder/markup/class-kemet-header-markup.php:485
-#: inc/builder/markup/class-kemet-header-markup.php:506
-#: inc/builder/markup/class-kemet-header-markup.php:514
+#: inc/builder/markup/class-kemet-header-markup.php:495
+#: inc/builder/markup/class-kemet-header-markup.php:513
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/builder/markup/class-kemet-header-markup.php:544
+#: inc/builder/markup/class-kemet-header-markup.php:543
 #: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:40
 #: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:151
 #: inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php:213
@@ -384,6 +368,38 @@ msgstr ""
 
 #: inc/compatibility/bbpress/customizer/sections/section-container.php:33
 msgid "Container for bbPress"
+msgstr ""
+
+#: inc/compatibility/bbpress/customizer/sections/section-container.php:35
+#: inc/compatibility/bbpress/customizer/sections/section-sidebar.php:35
+#: inc/compatibility/learndash/customizer/sections/section-container.php:35
+#: inc/compatibility/learndash/customizer/sections/section-sidebar.php:35
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:88
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:35
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:35
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:45
+#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:58
+#: inc/customizer/sections/layout/class-kemet-blog-single-customizer.php:32
+#: inc/customizer/sections/layout/class-kemet-container-customizer.php:54
+#: inc/customizer/sections/layout/class-kemet-container-customizer.php:65
+#: inc/customizer/sections/layout/class-kemet-container-customizer.php:76
+#: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:62
+#: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:73
+#: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:84
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:205
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:229
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:205
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:229
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:205
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:229
+#: inc/customizer/sections/layout/header/class-kemet-bottom-header-customizer.php:142
+#: inc/customizer/sections/layout/header/class-kemet-main-header-customizer.php:142
+#: inc/customizer/sections/layout/header/class-kemet-top-header-customizer.php:141
+#: inc/meta/classes/class-kemet-meta-settings.php:80
+#: inc/meta/classes/class-kemet-meta-settings.php:91
+#: inc/meta/classes/class-kemet-meta-settings.php:135
+#: inc/meta/classes/class-kemet-meta-settings.php:183
+msgid "Default"
 msgstr ""
 
 #: inc/compatibility/bbpress/customizer/sections/section-container.php:36
@@ -491,14 +507,6 @@ msgstr ""
 #: inc/compatibility/woocommerce/class-kemet-woocommerce.php:244
 msgid "Added"
 msgstr ""
-
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:361
-#, php-format
-msgctxt "product categories"
-msgid "%1$s Product"
-msgid_plural "%1$s Products"
-msgstr[0] ""
-msgstr[1] ""
 
 #: inc/compatibility/woocommerce/class-kemet-woocommerce.php:484
 msgid "WooCommerce Sidebar"
@@ -631,7 +639,7 @@ msgstr ""
 #: inc/customizer/sections/layout/class-kemet-widgets-customizer.php:109
 #: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:140
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:80
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:80
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:82
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:140
 #: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:140
 #: inc/customizer/sections/layout/header/class-kemet-bottom-header-customizer.php:77
@@ -665,14 +673,14 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-general-customizer.php:100
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:136
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:185
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:214
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:72
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:98
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:143
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:223
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:281
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:97
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:123
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:168
 #: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:248
 #: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:273
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:336
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:298
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:361
 #: inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php:37
 #: inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php:48
 #: inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php:74
@@ -723,8 +731,8 @@ msgstr ""
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:100
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:88
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:105
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:97
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:114
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:99
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:116
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:42
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:59
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:284
@@ -768,9 +776,9 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:168
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-html-customizer.php:69
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-html-customizer.php:86
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:132
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:157
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:274
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:131
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:156
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:273
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:113
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:131
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:130
@@ -804,15 +812,13 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php:366
 #: inc/customizer/sections/layout/header/class-kemet-top-header-customizer.php:117
 #: inc/meta/classes/class-kemet-meta-settings.php:166
-#: inc/react-options/build/index.js:19757
-#: inc/react-options/build/index.js:20459
 msgid "Initial"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-cart-customizer.php:106
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:76
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:102
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:147
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:101
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:127
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:172
 #: inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php:52
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:177
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:202
@@ -828,7 +834,7 @@ msgstr ""
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:59
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:104
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:109
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:118
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:120
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:63
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:120
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:145
@@ -854,9 +860,9 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:127
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:172
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-html-customizer.php:90
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:136
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:161
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:278
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:135
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:160
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:277
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:135
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:157
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:207
@@ -872,7 +878,6 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php:293
 #: inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php:320
 #: inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php:370
-#: inc/react-options/build/index.js:20470
 msgid "Hover"
 msgstr ""
 
@@ -923,19 +928,17 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-general-customizer.php:58
 #: inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php:63
-#: inc/react-options/build/index.js:19725
-#: inc/react-options/build/index.js:22134
 msgid "Color"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-general-customizer.php:75
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:94
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:245
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:119
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:270
 #: inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php:92
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:560
 #: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:241
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:51
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:94
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:96
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:138
 #: inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php:120
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:53
@@ -943,7 +946,7 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:143
 #: inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php:120
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:120
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:154
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:153
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:177
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:227
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:282
@@ -1026,7 +1029,6 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:89
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:59
 #: inc/customizer/sections/layout/class-kemet-blog-single-customizer.php:33
-#: inc/react-options/build/index.js:20059
 msgid "Custom"
 msgstr ""
 
@@ -1046,7 +1048,6 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:120
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:409
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:422
-#: inc/react-options/build/index.js:20451
 msgid "None"
 msgstr ""
 
@@ -1060,7 +1061,7 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:132
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:181
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:210
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:277
 #: inc/customizer/sections/layout/class-kemet-content-customizer.php:120
 #: inc/customizer/sections/layout/class-kemet-content-customizer.php:148
 #: inc/customizer/sections/layout/class-kemet-content-customizer.php:177
@@ -1076,9 +1077,9 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:149
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:198
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:227
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:59
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:210
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:294
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:84
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:235
 #: inc/customizer/sections/layout/class-kemet-breadcrumbs-customizer.php:99
 #: inc/customizer/sections/layout/class-kemet-content-customizer.php:30
 #: inc/customizer/sections/layout/class-kemet-content-customizer.php:137
@@ -1089,7 +1090,7 @@ msgstr ""
 #: inc/customizer/sections/layout/class-kemet-content-customizer.php:282
 #: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:107
 #: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:242
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:84
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:86
 #: inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php:86
 #: inc/customizer/sections/layout/header/class-kemet-header-html-customizer.php:57
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:44
@@ -1104,18 +1105,18 @@ msgid "Typography"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:158
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:236
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:283
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:207
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:254
 msgid "Spacing"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:162
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:240
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:287
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:126
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:170
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:192
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:366
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:211
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:258
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:151
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:195
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:217
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:391
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:281
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:368
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:682
@@ -1132,8 +1133,8 @@ msgstr ""
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:127
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:67
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:133
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:142
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:163
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:144
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:165
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:87
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:106
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:127
@@ -1155,7 +1156,7 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:194
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:213
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:231
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:331
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:330
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:88
 #: inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php:233
 #: inc/meta/classes/class-kemet-meta-settings.php:122
@@ -1163,12 +1164,12 @@ msgid "Top"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:163
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:241
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:288
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:127
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:171
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:193
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:367
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:212
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:259
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:152
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:196
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:218
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:392
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:240
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:282
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:369
@@ -1187,8 +1188,8 @@ msgstr ""
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:128
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:52
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:134
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:143
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:164
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:145
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:166
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:88
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:107
 #: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:107
@@ -1211,7 +1212,7 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:214
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:232
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:107
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:332
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:331
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:63
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:80
 #: inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php:234
@@ -1219,12 +1220,12 @@ msgid "Right"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:164
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:242
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:289
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:128
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:172
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:194
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:368
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:213
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:260
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:153
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:197
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:219
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:393
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:283
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:370
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:684
@@ -1241,8 +1242,8 @@ msgstr ""
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:129
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:69
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:135
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:144
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:165
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:146
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:167
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:89
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:108
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:128
@@ -1264,7 +1265,7 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:196
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:215
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:233
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:333
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:332
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:90
 #: inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php:235
 #: inc/meta/classes/class-kemet-meta-settings.php:123
@@ -1272,12 +1273,12 @@ msgid "Bottom"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:165
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:243
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:290
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:129
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:173
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:195
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:369
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:214
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:261
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:154
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:198
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:220
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:394
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:239
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:284
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:371
@@ -1296,8 +1297,8 @@ msgstr ""
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:130
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:50
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:136
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:145
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:166
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:147
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:168
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:90
 #: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:109
 #: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:109
@@ -1320,7 +1321,7 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:216
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:234
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:106
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:334
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:333
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:62
 #: inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php:78
 #: inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php:236
@@ -1328,20 +1329,20 @@ msgid "Left"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:176
-msgid "Product Content Style"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:205
 msgid "Product Price Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:254
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:225
 msgid "Product Rating Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:260
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:231
 #: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:155
 msgid "Font Size"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php:272
+msgid "Product Content Style"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:39
@@ -1360,92 +1361,43 @@ msgstr ""
 msgid "Beside Product Image"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:51
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:55
 msgid "Image Width"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:62
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:66
 msgid "Related Products Settings"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:66
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:70
 msgid "Disable Related Products"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:70
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:74
 msgid "Related Products Count"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:83
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:87
 msgid "Related Products Columns"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:85
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:124
-#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:91
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:42
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:42
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:42
-msgid "1"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:86
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:125
-#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:92
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:43
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:43
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:43
-msgid "2"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:87
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:126
-#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:93
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:44
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:44
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:44
-msgid "3"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:88
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:127
-#: inc/customizer/sections/layout/class-kemet-blog-customizer.php:94
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:45
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:45
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:45
-msgid "4"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:89
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:128
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:46
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:46
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:46
-msgid "5"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:90
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:129
-msgid "6"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:101
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:105
 msgid "Upsell Products Settings"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:105
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:109
 msgid "Disable Upsell Products"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:109
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:113
 msgid "Upsell Products Count"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:122
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:126
 msgid "Upsell Products Columns"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:163
+#: inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php:167
 msgid "Single Product"
 msgstr ""
 
@@ -1459,8 +1411,11 @@ msgid "Container for WooCommerce"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:33
+msgid "Woocommerce Shop/Archive"
+msgstr ""
+
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:43
-msgid "WooCommerce"
+msgid "WooCommerce Single"
 msgstr ""
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:75
@@ -1475,11 +1430,6 @@ msgstr ""
 msgid "Browse:"
 msgstr ""
 
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:241
-msgctxt "breadcrumbs aria label"
-msgid "Breadcrumbs"
-msgstr ""
-
 #: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:243
 msgid "404 Not Found"
 msgstr ""
@@ -1489,200 +1439,27 @@ msgid "Archives"
 msgstr ""
 
 #: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:246
-#, php-format
+#. Translators: %s is the search query.
 msgid "Search results for: %s"
 msgstr ""
 
 #: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:248
-#, php-format
+#. Translators: %s is the page number.
 msgid "Page %s"
 msgstr ""
 
 #: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:252
-#, php-format
+#. Translators: Minute archive title. %s is the minute time format.
 msgid "Minute %s"
 msgstr ""
 
 #: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:254
-#, php-format
+#. Translators: Weekly archive title. %s is the week date format.
 msgid "Week %s"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:684
-msgctxt "minute and hour archives time format"
-msgid "g:i a"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:699
-msgctxt "minute archives time format"
-msgid "i"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:714
-msgctxt "hour archives time format"
-msgid "g a"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:728
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:752
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:786
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:808
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:1087
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:729
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:787
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:1091
-msgctxt "monthly archives date format"
-msgid "F"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:730
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:1095
-msgctxt "daily archives date format"
-msgid "j"
-msgstr ""
-
-#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:753
-msgctxt "weekly archives date format"
-msgid "W"
 msgstr ""
 
 #: inc/customizer/class-kemet-customizer.php:670
 msgid "Inherit"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:5683
-#: inc/customizer/sections/layout/footer/class-kemet-footer-builder-customizer.php:116
-#: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:269
-#: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:284
-msgid "Available Items"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:5733
-#: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:95
-#: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:108
-msgid "Desktop"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:5739
-msgid "Tablet / Mobile"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:5743
-msgid "Hide"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:5747
-msgid "Show Builder"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6546
-msgid "Settings for"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6551
-msgid "Design for"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6559
-msgid "Remove"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6637
-#: inc/customizer/custom-controls/react/build/index.js:6643
-msgid "Off Canvas"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6753
-#: inc/customizer/custom-controls/react/build/index.js:6771
-#: inc/customizer/custom-controls/react/build/index.js:6789
-#: inc/customizer/custom-controls/react/build/index.js:6811
-#: inc/customizer/custom-controls/react/build/index.js:6825
-#: inc/customizer/custom-controls/react/build/index.js:6833
-#: inc/customizer/custom-controls/react/build/index.js:6843
-#: inc/customizer/custom-controls/react/build/index.js:6857
-#: inc/customizer/custom-controls/react/build/index.js:6891
-msgid "Equal Width Columns"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6757
-msgid "Left Heavy 40/15/15/15/15"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6761
-msgid "Center Heavy 15/15/40/15/15"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6765
-msgid "Right Heavy 15/15/15/15/40"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6775
-msgid "Left Heavy 40/20/20/20"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6779
-msgid "Center Heavy 10/40/40/10"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6783
-msgid "Right Heavy 20/20/20/40"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6793
-#: inc/customizer/custom-controls/react/build/index.js:6861
-msgid "Left Heavy 50/25/25"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6797
-#: inc/customizer/custom-controls/react/build/index.js:6865
-msgid "Right Heavy 25/25/50"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6801
-#: inc/customizer/custom-controls/react/build/index.js:6869
-msgid "Center Heavy 25/50/25"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6805
-#: inc/customizer/custom-controls/react/build/index.js:6873
-msgid "Wide Center 20/60/20"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6815
-#: inc/customizer/custom-controls/react/build/index.js:6895
-msgid "Left Heavy 66/33"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6819
-#: inc/customizer/custom-controls/react/build/index.js:6899
-msgid "Right Heavy 33/66"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6837
-#: inc/customizer/custom-controls/react/build/index.js:6851
-#: inc/customizer/custom-controls/react/build/index.js:6885
-#: inc/customizer/custom-controls/react/build/index.js:6903
-msgid "Collapse to Rows"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6847
-msgid "Two Column Grid"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6877
-msgid "First Row, Next Columns 100 - 50/50"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6881
-msgid "Last Row, Previous Columns 50/50 - 100"
-msgstr ""
-
-#: inc/customizer/custom-controls/react/build/index.js:6909
-msgid "Single Row"
 msgstr ""
 
 #: inc/customizer/notification/class-kemet-notification-helper.php:47
@@ -1710,8 +1487,20 @@ msgstr ""
 msgid "Button Hover Shadow"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:69
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:220
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:64
+#: inc/customizer/sections/layout/class-kemet-go-top-customizer.php:239
+#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:252
+#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:252
+#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:252
+msgid "Border"
+msgstr ""
+
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:74
+msgid "Box Shadow"
+msgstr ""
+
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:94
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:245
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:529
 #: inc/customizer/sections/layout/class-kemet-breadcrumbs-customizer.php:109
 #: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:252
@@ -1736,8 +1525,8 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:123
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:316
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:148
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:341
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:80
 #: inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php:148
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:170
@@ -1745,8 +1534,8 @@ msgstr ""
 msgid "Border Size"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:140
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:333
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:165
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:358
 #: inc/customizer/sections/layout/class-kemet-blog-customizer.php:616
 #: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:258
 #: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:281
@@ -1758,41 +1547,41 @@ msgstr ""
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:345
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:187
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:165
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:271
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:270
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:396
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:166
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:291
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:191
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:316
 #: inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php:123
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:287
 #: inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php:190
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:212
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:190
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:302
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:301
 msgid "Border Radius"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:188
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:362
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:213
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:387
 #: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:219
 #: inc/customizer/sections/layout/class-kemet-widgets-customizer.php:32
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:310
 #: inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php:209
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:209
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:325
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:324
 #: inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php:229
 msgid "Padding"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:206
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:231
 msgid "Input Fields Style"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:227
 #: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:252
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:340
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:277
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:365
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:125
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:150
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:194
@@ -1801,11 +1590,11 @@ msgstr ""
 msgid "Focus"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:270
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:295
 msgid "Label Color"
 msgstr ""
 
-#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:406
+#: inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php:431
 msgid "Buttons & Fields"
 msgstr ""
 
@@ -2232,7 +2021,7 @@ msgstr ""
 
 #: inc/customizer/sections/layout/class-kemet-breadcrumbs-customizer.php:126
 #: inc/customizer/sections/layout/class-kemet-sidebar-customizer.php:195
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:111
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:113
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:70
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:286
 #: inc/customizer/sections/layout/header/class-kemet-header-offcanvas-menu-customizer.php:75
@@ -2321,8 +2110,7 @@ msgid "Content Padding"
 msgstr ""
 
 #: inc/customizer/sections/layout/class-kemet-container-customizer.php:98
-msgid ""
-"This value will be changed to 0px in the pages built with a page builder"
+msgid "This value will be changed to 0px in the pages built with a page builder"
 msgstr ""
 
 #: inc/customizer/sections/layout/class-kemet-container-customizer.php:116
@@ -2437,7 +2225,7 @@ msgstr ""
 #: inc/customizer/sections/layout/class-kemet-go-top-customizer.php:187
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:113
 #: inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php:93
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:129
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:128
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:257
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:337
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:518
@@ -2446,13 +2234,6 @@ msgstr ""
 
 #: inc/customizer/sections/layout/class-kemet-go-top-customizer.php:212
 msgid "Icon BackgroundColor"
-msgstr ""
-
-#: inc/customizer/sections/layout/class-kemet-go-top-customizer.php:239
-#: inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php:252
-#: inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php:252
-#: inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php:252
-msgid "Border"
 msgstr ""
 
 #: inc/customizer/sections/layout/class-kemet-go-top-customizer.php:273
@@ -2501,6 +2282,11 @@ msgstr ""
 #: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:91
 #: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:104
 msgid "Visibility"
+msgstr ""
+
+#: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:95
+#: inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php:108
+msgid "Desktop"
 msgstr ""
 
 #: inc/customizer/sections/layout/class-kemet-page-title-customizer.php:96
@@ -2750,7 +2536,7 @@ msgid "Copyright"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer/class-kemet-footer-builder-customizer.php:38
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:206
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:208
 msgid "Footer Menu"
 msgstr ""
 
@@ -2782,6 +2568,12 @@ msgstr ""
 msgid "Widget 6"
 msgstr ""
 
+#: inc/customizer/sections/layout/footer/class-kemet-footer-builder-customizer.php:116
+#: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:269
+#: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:284
+msgid "Available Items"
+msgstr ""
+
 #: inc/customizer/sections/layout/footer/class-kemet-footer-builder-customizer.php:127
 msgid "Buttons Styles"
 msgstr ""
@@ -2809,7 +2601,7 @@ msgid "Copyright Text"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php:48
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:54
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:56
 msgid "Horizontal Alignment"
 msgstr ""
 
@@ -2826,24 +2618,24 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:41
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:42
 msgid "Items Direction"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:43
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:44
 msgid "Horizontal"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:44
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:45
 msgid "Vertical"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:138
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:140
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:181
 msgid "Menu Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:157
+#: inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php:159
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:200
 #: inc/customizer/sections/layout/header/class-kemet-header-offcanvas-menu-customizer.php:151
 msgid "Menu Item Padding"
@@ -2860,7 +2652,6 @@ msgstr ""
 
 #: inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php:134
 #: inc/customizer/sections/layout/header/class-kemet-header-widget-customizer.php:134
-#, php-format
 msgid "Widget %s"
 msgstr ""
 
@@ -2936,54 +2727,54 @@ msgid "Label Position"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:169
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:185
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:184
 msgid "Float"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:175
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:191
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:190
 msgid "Position"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:177
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:193
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:192
 msgid "Top Right"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:178
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:194
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:193
 msgid "Top Left"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:179
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:195
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:194
 msgid "Bottom Right"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:180
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:196
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:195
 msgid "Bottom Left"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:196
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:212
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:211
 msgid "Vertical Offset"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:218
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:234
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:233
 msgid "Horizontal Offset"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:237
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:253
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:252
 msgid "Z-index"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php:363
 #: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:75
 #: inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php:166
-#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:378
+#: inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php:377
 msgid "Trigger"
 msgstr ""
 
@@ -3128,12 +2919,10 @@ msgid "Set link to Download?"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php:278
-#, php-format
 msgid "Header Button %s"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-header-html-customizer.php:161
-#, php-format
 msgid "Header Html %s"
 msgstr ""
 
@@ -3188,7 +2977,6 @@ msgid "Submenu Box Shadow"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php:411
-#, php-format
 msgid "%s Menu"
 msgstr ""
 
@@ -3232,12 +3020,10 @@ msgid "Main Header"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php:278
-#, php-format
 msgid "Header Mobile Button %s"
 msgstr ""
 
 #: inc/customizer/sections/layout/header/class-kemet-mobile-header-html-customizer.php:141
-#, php-format
 msgid "Header Mobile Html %s"
 msgstr ""
 
@@ -3415,8 +3201,8 @@ msgstr ""
 
 #: inc/customizer/sections/performance/class-kemet-performance-customizer.php:25
 msgid ""
-"Enable this option if you want to remove WordPress emojis script in order to "
-"improve the performance."
+"Enable this option if you want to remove WordPress emojis script in order "
+"to improve the performance."
 msgstr ""
 
 #: inc/customizer/sections/performance/class-kemet-performance-customizer.php:50
@@ -3475,280 +3261,6 @@ msgstr ""
 msgid "Disable Featured Image"
 msgstr ""
 
-#: inc/react-options/build/index.js:19606
-#: inc/react-options/build/index.js:19622
-msgid "Select Background Image"
-msgstr ""
-
-#: inc/react-options/build/index.js:19653
-msgid "Background Repeat"
-msgstr ""
-
-#: inc/react-options/build/index.js:19671
-msgid "Background Size"
-msgstr ""
-
-#: inc/react-options/build/index.js:19689
-msgid "Background Attachment"
-msgstr ""
-
-#: inc/react-options/build/index.js:19726
-#: inc/react-options/build/index.js:22133
-msgid "Gradient"
-msgstr ""
-
-#: inc/react-options/build/index.js:19727
-#: inc/react-options/build/index.js:22135
-msgid "Image"
-msgstr ""
-
-#: inc/react-options/build/index.js:19814
-msgid "Select Icon"
-msgstr ""
-
-#: inc/react-options/build/index.js:19827
-msgid "Upload Icon"
-msgstr ""
-
-#: inc/react-options/build/index.js:19858
-msgid "For performance and customization reasons, only SVG files are allowed."
-msgstr ""
-
-#: inc/react-options/build/index.js:19903
-msgid "Search icon"
-msgstr ""
-
-#: inc/react-options/build/index.js:20050
-msgid "Predefined"
-msgstr ""
-
-#: inc/react-options/build/index.js:20569
-msgid "palette name"
-msgstr ""
-
-#: inc/react-options/build/index.js:20572
-msgid "name your palette"
-msgstr ""
-
-#: inc/react-options/build/index.js:20582
-msgid "palette type"
-msgstr ""
-
-#: inc/react-options/build/index.js:20593
-msgid "Light"
-msgstr ""
-
-#: inc/react-options/build/index.js:20602
-msgid "Dark"
-msgstr ""
-
-#: inc/react-options/build/index.js:20610
-msgid "Save Palette"
-msgstr ""
-
-#: inc/react-options/build/index.js:20699
-msgid "my palettes"
-msgstr ""
-
-#: inc/react-options/build/index.js:20706
-#: inc/react-options/build/index.js:20732
-#, javascript-format
-msgid "Palette #%s"
-msgstr ""
-
-#: inc/react-options/build/index.js:20727
-msgid "kemet palettes"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid ""
-"Buttons background color \n"
-"& Links hover color"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid "Headings & Links color"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid "Body text & Meta color"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid "Borders color"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid ""
-"Body background, a tint for Input fields,\n"
-"Page titles, Widgets background"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid "Footer text color"
-msgstr ""
-
-#: inc/react-options/build/index.js:20801
-msgid "Footer background color"
-msgstr ""
-
-#: inc/react-options/build/index.js:21111
-msgid "Select Another Palette"
-msgstr ""
-
-#: inc/react-options/build/index.js:21186
-msgid "Save New Palette"
-msgstr ""
-
-#: inc/react-options/build/index.js:21235
-msgid "Warning"
-msgstr ""
-
-#: inc/react-options/build/index.js:21242
-msgid "kmt-palette-popup-content"
-msgstr ""
-
-#: inc/react-options/build/index.js:21243
-msgid "You are about to delete "
-msgstr ""
-
-#: inc/react-options/build/index.js:21245
-msgid ". This palette cannot be restored, are you sure you want to delete it?"
-msgstr ""
-
-#: inc/react-options/build/index.js:21246
-msgid "kmt-paltette-popup-action"
-msgstr ""
-
-#: inc/react-options/build/index.js:21253
-msgid "No"
-msgstr ""
-
-#: inc/react-options/build/index.js:21260
-msgid "Yes"
-msgstr ""
-
-#: inc/react-options/build/index.js:21407
-#: inc/react-options/build/index.js:21422
-msgid "Reset"
-msgstr ""
-
-#: inc/react-options/build/index.js:21409
-#: inc/react-options/build/index.js:21424
-msgid "This will reset the current color to the default one."
-msgstr ""
-
-#: inc/react-options/build/index.js:22008
-msgid "Change Icon"
-msgstr ""
-
-#: inc/react-options/build/index.js:22023
-msgid "Remove Icon"
-msgstr ""
-
-#: inc/react-options/build/index.js:22023
-msgid "Select"
-msgstr ""
-
-#: inc/react-options/build/index.js:25033
-msgid "Custom Fonts Settings"
-msgstr ""
-
-#: inc/react-options/build/index.js:25033
-msgid ""
-"Here you can see all your custom fonts that could be used in all typography "
-"options across the theme."
-msgstr ""
-
-#: inc/react-options/build/index.js:25038
-msgid "Dynamic Font"
-msgstr ""
-
-#: inc/react-options/build/index.js:25038
-msgid "Variable font"
-msgstr ""
-
-#: inc/react-options/build/index.js:25044
-msgid "Variations"
-msgstr ""
-
-#: inc/react-options/build/index.js:25054
-msgid "Edit Font"
-msgstr ""
-
-#: inc/react-options/build/index.js:25067
-msgid "Remove Font"
-msgstr ""
-
-#: inc/react-options/build/index.js:25070
-msgid ""
-"There are no custom fonts at the moment, hit the button below and upload "
-"some."
-msgstr ""
-
-#: inc/react-options/build/index.js:25078
-#: inc/react-options/build/index.js:25345
-msgid "Upload Simple Font"
-msgstr ""
-
-#: inc/react-options/build/index.js:25083
-#: inc/react-options/build/index.js:25349
-msgid "Upload Variable Font"
-msgstr ""
-
-#: inc/react-options/build/index.js:25260
-msgid "Add Variation"
-msgstr ""
-
-#: inc/react-options/build/index.js:25311
-msgid "Change"
-msgstr ""
-
-#: inc/react-options/build/index.js:25311
-msgid "Choose"
-msgstr ""
-
-#: inc/react-options/build/index.js:25315
-msgid "Regular"
-msgstr ""
-
-#: inc/react-options/build/index.js:25317
-msgid "Italic"
-msgstr ""
-
-#: inc/react-options/build/index.js:25347
-#, javascript-format
-msgid ""
-"Upload only the %s.woff2%s or %s.ttf%s font file formats (see browser "
-"coverage %shere%s). Use %sthis converter tool%s if you don't have these font "
-"formats."
-msgstr ""
-
-#: inc/react-options/build/index.js:25351
-#, javascript-format
-msgid ""
-"Upload only the %s.woff2%s or %s.ttf%s font file formats. Please don't "
-"convert non-woff variable fonts by yourself. Instead, just ask the font "
-"provider to hand a correct file otherwise the %svariable%s font will loose "
-"its capabilities."
-msgstr ""
-
-#: inc/react-options/build/index.js:25360
-msgid "Font Name"
-msgstr ""
-
-#: inc/react-options/build/index.js:25394
-msgid "Add/upload another font variation"
-msgstr ""
-
-#: inc/react-options/build/index.js:25406
-msgid "Back to All Fonts"
-msgstr ""
-
-#: inc/react-options/build/index.js:25418
-msgid "Save Custom Font"
-msgstr ""
-
 #: inc/widgets.php:84
 msgid "Main Sidebar"
 msgstr ""
@@ -3770,12 +3282,100 @@ msgid "Footer Bar Section 2"
 msgstr ""
 
 #: templates/content-none.php:21
-#, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#. translators: 1: link to new post
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: templates/content.php:34
-#, php-format
+#. translators: %s: Name of current post.
 msgid "Continue reading %s"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://kemet.io/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Kemet is a fast, reliable and fully customizable WordPress theme suitable "
+"for business websites, blogs, personal portfolios and WooCommerce "
+"e-commerce websites. It is very lightweight and offers blazing fast speed. "
+"Built with SEO in mind, Kemet comes with Schema.org code integrated so "
+"search engines will love your site. It offers special features and "
+"templates so it works perfectly with all page builders like Elementor Page "
+"builder, Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of "
+"the other features: # WooCommerce Ready # Responsive # RTL & Translation "
+"Ready # Regularly updated # Designed, Developed, Maintained & Supported by "
+"Leap13."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Leap13"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://leap13.com/"
+msgstr ""
+
+#: comments.php:36
+#. translators: 1: number of comments
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:361
+#. translators: 1: number of products
+msgctxt "product categories"
+msgid "%1$s Product"
+msgid_plural "%1$s Products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:241
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:684
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:699
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:714
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:728
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:752
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:786
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:808
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:1087
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:729
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:787
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:1091
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:730
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:1095
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: inc/components/page-title/classes/class-kemet-breadcrumb-trail.php:753
+msgctxt "weekly archives date format"
+msgid "W"
 msgstr ""

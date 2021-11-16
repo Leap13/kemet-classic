@@ -18,6 +18,7 @@ import Visibility from './visibility'
 import IconPicker from "./icon";
 import EditSettings from "./uploadFont";
 import Border from "./border";
+import BoxShadow from "./box-shadow";
 
 const OptionComponent = (type) => {
     let OptionComponent;
@@ -81,6 +82,9 @@ const OptionComponent = (type) => {
             break;
         case "kmt-border":
             OptionComponent = Border;
+            break;
+        case "kmt-box-shadow":
+            OptionComponent = BoxShadow;
             break;
     }
 

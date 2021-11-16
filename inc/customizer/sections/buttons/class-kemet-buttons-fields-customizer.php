@@ -54,6 +54,30 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'label'    => __( 'Buttons Style', 'kemet' ),
 								'priority' => 1,
 							),
+
+
+							// 'go-top-border'       => array(
+							// 	'transport'   => 'postMessage',
+							// 	'secondColor' => true,
+							// 	'divider'     => true,
+							// 	'type'        => 'kmt-border',
+							// 	'label'       => __( 'Border', 'kemet' ),
+							// 	'preview'     => array(
+							// 		'selector' => '#kmt-go-top',
+							// 		'property' => 'border',
+							// 	),
+							// ),
+							'buttons-shadow'        => array(
+								'type'     => 'kmt-box-shadow',
+								'transport'   => 'postMessage',
+								'secondColor' => true,
+								'label'    => __( 'Box Shadow', 'kemet' ),
+								'priority' => 1,
+					            'preview'     => array(
+									'selector' => $btn_selector,
+									'property' => '--buttonShadow',
+								),
+							),
 							'buttons-typography' => array(
 								'type'      => 'kmt-typography',
 								'label'     => __( 'Typography', 'kemet' ),

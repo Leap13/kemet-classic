@@ -155,6 +155,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// Button Styling.
 			$btn_border_radius = kemet_get_option( 'button-radius' );
 			$btn_padding       = kemet_get_option( 'button-spacing' );
+			$btn_shadow       = kemet_get_option( 'buttons-shadow' );
 
 			// Content.
 			$content_text_color   = kemet_get_sub_option( 'content-text-color', 'initial' );
@@ -559,14 +560,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--borderColor'      => esc_attr( $btn_border_color ),
 					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
-					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
+					//'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
+					'--buttonShadow'	 => kemet_box_shadow( $btn_shadow ),
 				),
 				'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
 					'color'            => 'var(--buttonHoverColor, var(--buttonColor))',
 					'background-color' => 'var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor))',
 					'border-color'     => 'var(--borderHoverColor)',
-					'box-shadow'       => 'var(--buttonShadow)',
-					'--buttonShadow'   => $btn_hover_effect ? '2px 2px 10px -3px var(--buttonBackgroundHoverColor,var(--buttonBackgroundColor))' : 'none',
+					//'box-shadow'       => 'var(--buttonShadow)',
+					//'--buttonShadow'   => $btn_hover_effect ? '2px 2px 10px -3px var(--buttonBackgroundHoverColor,var(--buttonBackgroundColor))' : 'none',
 				),
 				// Content.
 				'.entry-content'                          => array(

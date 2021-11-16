@@ -66,6 +66,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$btn_bg_hover_color   = kemet_get_sub_option( 'button-bg-color', 'hover', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
 			$btn_border_radius    = kemet_get_option( 'button-radius' );
 			$btn_padding          = kemet_get_option( 'button-spacing' );
+			$btn_shadow           = kemet_get_option( 'buttons-shadow' );
 			// Input Options.
 			$input_bg_color           = kemet_get_sub_option( 'input-bg-color', 'initial', kemet_color_brightness( $global_bg_color, 0.99, 'dark' ) );
 			$input_text_color         = kemet_get_sub_option( 'input-text-color', 'initial' );
@@ -459,6 +460,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'--borderColor'      => esc_attr( $btn_border_color ),
 					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
+					'--buttonShadow'	 => esc_attr( $btn_shadow ),
 				),
 				'.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .wp-block-button:not(.is-style-outline) .wp-block-button__link:focus, ' . $blocks_parent . ' .button:not(#elementor-editor-button):hover, ' . $blocks_parent . ' input[type=reset]:hover' => array(
 					'color'            => 'var(--buttonHoverColor, var(--buttonColor))',
