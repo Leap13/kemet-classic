@@ -3,7 +3,19 @@
   height: 100%;
   padding: 12px 20px 12px 20px !important;
 }
-
+.kmt-docs-link {
+  text-decoration: none;
+  display: inline-block;
+  color: #2d3748;
+  outline: none !important;
+  box-shadow: none !important;
+  &:hover {
+    color: #135e96;
+  }
+  > span {
+    vertical-align: middle;
+  }
+}
 .kmt-options {
   input {
     &[type="color"],

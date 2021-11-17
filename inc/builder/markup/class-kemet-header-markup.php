@@ -202,28 +202,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Enable Overlay Header
 		 */
 		public static function enable_overlay_header() {
-			$prefix             = 'overlay-header';
-			$header_transparent = kemet_get_option( $prefix . '-enable' );
-
-			if ( ( is_archive() || is_search() || is_404() ) && kemet_get_option( $prefix . '-disable-404-archive' ) ) {
-				$header_transparent = false;
-			}
-
-			if ( is_home() && kemet_get_option( $prefix . '-disable-latest-posts' ) && ( 'posts' !== get_option( 'show_on_front' ) ) ) {
-				$header_transparent = false;
-			}
-
-			if ( is_page() && kemet_get_option( $prefix . '-disable-pages' ) ) {
-				$header_transparent = false;
-			}
-
-			if ( is_single() && kemet_get_option( $prefix . '-disable-posts' ) ) {
-				$header_transparent = false;
-			}
-
-			if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) && kemet_get_option( $prefix . '-disable-blog' ) ) {
-				$header_transparent = false;
-			}
+			$header_transparent = kemet_get_option( 'overlay-header-enable' );
 
 			return apply_filters( 'kemet_enable_overlay_header', $header_transparent );
 		}

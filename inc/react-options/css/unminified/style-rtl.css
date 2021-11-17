@@ -2066,6 +2066,22 @@ span.kmt-color-description {
 	padding: 12px 20px 12px 20px !important;
 }
 
+.kmt-docs-link {
+	display: inline-block;
+	outline: none !important;
+	color: #2d3748;
+	box-shadow: none !important;
+	text-decoration: none;
+}
+
+.kmt-docs-link:hover {
+	color: #135e96;
+}
+
+.kmt-docs-link > span {
+	vertical-align: middle;
+}
+
 .kmt-options input[type="color"],
 .kmt-options input[type="date"],
 .kmt-options input[type="datetime-local"],
@@ -3048,7 +3064,7 @@ input[type="number"] {
 }
 
 .customize-control-kmt-title .customize-control-title {
-	display: block;
+	display: flex;
 	margin: 0 -22px;
 	margin-bottom: 0;
 	padding: 10px 21px;
@@ -3057,10 +3073,24 @@ input[type="number"] {
 	font-size: 13px;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
+
+	align-items: center;
 }
 
 .customize-control-kmt-title .customize-control-title:hover {
 	cursor: default;
+}
+
+.customize-control-kmt-title .customize-control-title > a {
+	margin-right: 5px;
+	outline: none;
+	color: #2d3748;
+	box-shadow: none;
+	text-decoration: none;
+}
+
+.customize-control-kmt-title .customize-control-title > a:hover {
+	color: #135e96;
 }
 
 .customize-control-kmt-title .description.customize-control-description {
