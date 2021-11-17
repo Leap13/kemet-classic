@@ -74,6 +74,7 @@ if ( is_admin() ) {
 	 */
 	require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-admin-settings.php';
 	require_once KEMET_THEME_DIR . 'functions/admin/class-kemet-admin-notices.php';
+	require_once KEMET_THEME_DIR . 'inc/kemet-panel/class-kemet-addons-panel.php';
 }
 
 /**

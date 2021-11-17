@@ -64,6 +64,13 @@ module.exports = function (grunt) {
             dest: "inc/react-options/css/unminified/",
             ext: "-rtl.css",
           },
+          {
+            expand: true,
+            cwd: "inc/kemet-panel/assets/css/unminified/",
+            src: ["*.css", "!*-rtl.css"],
+            dest: "inc/kemet-panel/assets/css/unminified/",
+            ext: "-rtl.css",
+          },
         ],
       },
     },
@@ -86,7 +93,10 @@ module.exports = function (grunt) {
             "inc/react-options/css/unminified/style.css":
               "inc/react-options/sass/style.scss",
           },
-
+          {
+            "inc/kemet-panel/assets/css/unminified/kemet-panel.css":
+              "inc/kemet-panel/scss/kemet-panel.scss",
+          },
           /* Common Style */
           {
             expand: true,
@@ -182,6 +192,14 @@ module.exports = function (grunt) {
           {
             src: "inc/react-options/css/unminified/style-rtl.css",
             dest: "inc/react-options/css/minified/style-rtl.min.css",
+          },
+          {
+            src: "inc/kemet-panel/assets/css/unminified/kemet-panel.css",
+            dest: "inc/kemet-panel/assets/css/minified/kemet-panel.min.css",
+          },
+          {
+            src: "inc/kemet-panel/assets/css/unminified/kemet-panel-rtl.css",
+            dest: "inc/kemet-panel/assets/css/minified/kemet-panel-rtl.min.css",
           },
           // Generating RTL files from '/unminified/' into '/minified/'
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
