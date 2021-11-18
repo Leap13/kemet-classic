@@ -48,6 +48,7 @@ if ( ! class_exists( 'Kemet_Panel_Plugins_Data' ) ) {
 		 */
 		public static function get_plugins() {
 			$plugins = array(
+				'kemet-addons',
 				'elementor',
 				'premium-addons-for-elementor',
 				'premium-blocks-for-gutenberg',
@@ -109,10 +110,12 @@ if ( ! class_exists( 'Kemet_Panel_Plugins_Data' ) ) {
 			$data    = array();
 			foreach ( $plugins as $plugin ) {
 				$plugin_data     = $this->call_plugin_api( $plugin );
+				$plugin_banner   = isset( $plugin_data->banners ) ? $plugin_data->banners['high'] : '';
 				$data[ $plugin ] = array(
 					'name'        => $plugin_data->name,
 					'description' => $plugin_data->short_description,
 					'path'        => $plugin . '/' . $plugin . '.php',
+					'banner'      => $plugin_banner,
 				);
 			}
 

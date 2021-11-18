@@ -258,6 +258,7 @@ if ( ! class_exists( 'Kemet_Panel' ) ) {
 					'system_info'          => self::get_system_info(),
 					'customizer_url'       => esc_url( admin_url( 'customize.php' ) ),
 					'images_url'           => KEMET_ADDONS_PANEL_URL . 'assets/images/',
+					'addons_plugin'        => esc_html( 'kemet-addons' ),
 				)
 			);
 		}

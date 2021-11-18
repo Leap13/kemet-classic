@@ -69,6 +69,18 @@
   margin-bottom: 25px;
 }
 
+#kmt-dashboard .kmt-addons-tab {
+  text-align: center;
+}
+
+#kmt-dashboard .kmt-addons-tab .description {
+  margin: 1em auto;
+}
+
+#kmt-dashboard .kmt-addons-tab .actions {
+  margin-top: 2em;
+}
+
 #kmt-dashboard .options-section.customize-site-options .customize-control-description {
   height: 55px;
 }

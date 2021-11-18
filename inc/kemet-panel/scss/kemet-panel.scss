@@ -57,6 +57,15 @@
   font-size: 14px;
   min-height: 100%;
   margin-bottom: 25px;
+  .kmt-addons-tab {
+    text-align: center;
+    .description {
+      margin: 1em auto;
+    }
+    .actions {
+      margin-top: 2em;
+    }
+  }
   .options-section {
     &.customize-site-options {
       .customize-control-description {

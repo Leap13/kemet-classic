@@ -1,29 +1,18 @@
 import OptionsTab from './tabs/options'
 import Plugins from './tabs/plugins'
 import System from './tabs/system'
+import Support from './tabs/support'
 import KemetAddons from './tabs/kemet-addons'
-import { render, Fragment } from '@wordpress/element'
+import { render, Fragment, useContext } from '@wordpress/element'
 import Header from './layout/Header';
 import Card from './common/Card';
 import Container from './common/Container';
+import PanelContext, { PanelProvider } from './store/panel-store'
 const { __ } = wp.i18n;
 const { TabPanel, Panel, PanelBody } = wp.components;
-const { kmtEvents } = window.KmtOptionComponent;
-let tabs = {
-    tabs: [],
-    data: {}
-};
-
-kmtEvents.on('kmt:dashboard:customtabs', function ({ detail: customtabs }) {
-    if (customtabs) {
-        tabs = {
-            tabs: [...tabs.tabs, ...customtabs.tabs],
-            data: { ...tabs.data, ...customtabs.data }
-        };
-    }
-})
 
 const RendeTabs = ({ options }) => {
+    let { tabs } = useContext(PanelContext);
     const compare = (a, b) => {
         if (a.priority < b.priority) {
             return -1;
@@ -33,56 +22,70 @@ const RendeTabs = ({ options }) => {
         }
         return 0;
     }
-    let defaultTabs = {
-        tabs: [
-            {
-                name: 'customizer-options',
-                title: __('Customization', 'kemet'),
-                className: 'customizer-options',
-                priority: 5,
-            },
-            {
-                name: 'kemet-addons',
-                title: __('Kemet Addons', 'kemet'),
-                className: 'kemet-addons',
-                priority: 10,
-            },
-            {
-                name: 'plugins',
-                title: __('Recommended Plugins', 'kemet'),
-                className: 'plugins',
-                priority: 10
-            },
-            {
-                name: 'system',
-                title: __('System Info', 'kemet'),
-                className: 'system',
-                priority: 15
-            },
-        ],
-        data: {
-            'customizer-options': { Component: OptionsTab, props: { 'customize-options': options.customize } },
-            'plugins': { Component: Plugins, props: {} },
-            'system': { Component: System, props: {} },
-            'kemet-addons': { Component: KemetAddons, props: {} },
-        }
-    };
-    var names = new Set(defaultTabs.tabs.map(d => d.name));
-    var mergedTabs = [...defaultTabs.tabs, ...tabs.tabs.filter(d => !names.has(d.name))];
-
-    tabs = {
-        tabs: mergedTabs,
-        data: Object.assign(defaultTabs.data, tabs.data)
-    };
+    let defaultTabs = [
+        {
+            name: 'customizer-options',
+            title: __('Customization', 'kemet'),
+            className: 'customizer-options',
+            priority: 5,
+            data: {
+                Component: OptionsTab,
+                props: { 'customize-options': options.customize }
+            }
+        },
+        {
+            name: 'kemet-addons',
+            title: __('Kemet Addons', 'kemet'),
+            className: 'kemet-addons',
+            priority: 10,
+            data: {
+                Component: KemetAddons,
+                props: {}
+            }
+        },
+        {
+            name: 'plugins',
+            title: __('Recommended Plugins', 'kemet'),
+            className: 'plugins',
+            priority: 15,
+            data: {
+                Component: Plugins,
+                props: {}
+            }
+        },
+        {
+            name: 'support',
+            title: __('Support', 'kemet'),
+            className: 'support',
+            priority: 25,
+            data: {
+                Component: Support,
+                props: {}
+            }
+        },
+        {
+            name: 'system',
+            title: __('System Info', 'kemet'),
+            className: 'system',
+            priority: 25,
+            data: {
+                Component: System,
+                props: {}
+            }
+        },
+    ];
+    let names = new Set(tabs.map(d => d.name));
+    let mergedTabs = [...tabs, ...defaultTabs.filter(d => !names.has(d.name))];
+    tabs = mergedTabs;
     return <Fragment>
         <Header />
         <TabPanel className="kemet-dashboard-tab-panel"
             activeClass="active-tab"
-            tabs={tabs.tabs.sort(compare)}>
+            tabs={tabs.sort(compare)}>
             {
                 (tab) => {
-                    const { Component, props } = tabs.data[tab.name];
-                    return <Panel className="tab-section">
+                    const { Component, props } = tab.data;
+                    return <Panel className={`tab-section ${tab.name}`}>
                         <PanelBody
                             opened={true}
                         >
@@ -100,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let sidebar = document.getElementById("adminmenuwrap"),
             sidebarHeight = sidebar.offsetHeight + 'px';
         document.getElementById("wpbody").style.minHeight = sidebarHeight
-        render(<RendeTabs options={KemetPanelData.options} />, document.getElementById('kmt-dashboard'))
+        render(<PanelProvider><RendeTabs options={KemetPanelData.options} /></PanelProvider>, document.getElementById('kmt-dashboard'))
     }
 })
 
