@@ -204,7 +204,6 @@
   ~ * {
     left: 0;
     right: 0;
-    top: 70px;
   }
 
   li {
@@ -586,8 +585,17 @@
 }
 
 .kmt-typography-fonts {
-  overflow-x: scroll;
-  max-height: 360px;
+  position: relative;
+  height: 290px;
+  overflow: auto;
+  will-change: transform;
+  direction: ltr;
+
+  margin: 0px;
+  .kmt-source-fonts {
+    text-transform: capitalize;
+    margin-left: 10px;
+  }
 }
 
 .kmt-typography-single-font {
@@ -631,7 +639,16 @@
     opacity: 1;
   }
 }
-
+.kmt-fonts-source {
+  font-size: 16px;
+  background-color: #efeff1;
+  height: 30px;
+  padding: 6px 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+}
 .kmt-typography-variations {
   overflow-x: auto;
   max-height: 360px;

@@ -3419,7 +3419,6 @@ input[type="checkbox"]:focus {
 }
 
 .kmt-typography-top ~ * {
-	top: 70px;
 	right: 0;
 	left: 0;
 }
@@ -3784,8 +3783,18 @@ input[type="checkbox"]:focus {
 }
 
 .kmt-typography-fonts {
-	overflow-x: scroll;
-	max-height: 360px;
+	overflow: auto;
+	position: relative;
+	height: 290px;
+	margin: 0;
+
+	direction: rtl;
+	will-change: transform;
+}
+
+.kmt-typography-fonts .kmt-source-fonts {
+	margin-right: 10px;
+	text-transform: capitalize;
 }
 
 .kmt-typography-single-font {
@@ -3829,6 +3838,18 @@ input[type="checkbox"]:focus {
 
 .kmt-typography-single-font:hover .kmt-font-name {
 	opacity: 1;
+}
+
+.kmt-fonts-source {
+	display: flex;
+	height: 30px;
+	padding: 6px 11px;
+	background-color: #efeff1;
+	font-size: 16px;
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+
+	align-items: center;
 }
 
 .kmt-typography-variations {
@@ -4701,7 +4722,7 @@ input[type="checkbox"]:focus {
 	box-shadow: 0 0 0 0 transparent;
 	font-size: 12px !important;
 	line-height: normal;
-	transition: box-shadow 0.1s linear, background 0.1s linear,	border-radius 0.1s linear, border-color 0.1s linear;
+	transition: box-shadow 0.1s linear, background 0.1s linear, border-radius 0.1s linear, border-color 0.1s linear;
 }
 
 .kmt-upload-icon-container {
@@ -7311,7 +7332,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	padding: 0;
 	border-radius: 2px;
 	outline: 0 none;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;
@@ -7357,7 +7378,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	margin-top: -1px;
 	padding: 0;
 	border-radius: 1px 0 4px 4px;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;
