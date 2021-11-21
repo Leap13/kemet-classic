@@ -5988,6 +5988,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+var kmtEvents = window.KmtOptionComponent.kmtEvents;
 
 var BuilderComponent = function BuilderComponent(props) {
   var value = props.value;
@@ -6326,7 +6327,27 @@ var BuilderComponent = function BuilderComponent(props) {
     });
   };
 
+  var handleOutsideUpdate = function handleOutsideUpdate() {
+    kmtEvents.on('UpdateBuilderValues', function (_ref) {
+      var _ref$detail = _ref.detail,
+          values = _ref$detail.values,
+          id = _ref$detail.id;
+
+      if (!controlParams.group === id) {
+        return;
+      }
+
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          value: values
+        });
+      });
+      updateValues(values);
+    });
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
+    handleOutsideUpdate();
     updateRowLayout();
   }, []);
   checkPopupVisibilty(false);

@@ -389,7 +389,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $device device.
 		 */
 		public static function render_column_content( $column, $row, $builder = 'header', $device = 'desktop' ) {
-			$items = kemet_get_option( $builder . '-' . $device . '-items' );
+			$items = apply_filters( 'kemet_' . $device . '_header_items', kemet_get_option( $builder . '-' . $device . '-items' ) );
 			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
 				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) || false !== strpos( $item, 'button' ) ) {
 					$type = ( false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'html' ) ) || ( false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'button' ) ) ? explode( '-', str_replace( 'mobile-', '', $item ) )[1] : explode( '-', $item )[1];

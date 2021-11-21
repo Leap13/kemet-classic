@@ -47,7 +47,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 * @return boolean
 		 */
 		public static function column_has_items( $column, $row, $builder = 'header', $device = 'desktop' ) {
-			$items = 'header' === $builder ? kemet_get_option( $builder . '-' . $device . '-items' ) : kemet_get_option( $builder . '-items' );
+			$items = 'header' === $builder ? apply_filters( 'kemet_' . $device . '_header_items', kemet_get_option( $builder . '-' . $device . '-items' ) ) : kemet_get_option( $builder . '-items' );
 
 			if ( isset( $items ) && isset( $items[ $row ] ) && isset( $items[ $row ][ $row . '_' . $column ] ) && is_array( $items[ $row ][ $row . '_' . $column ] ) && ! empty( $items[ $row ][ $row . '_' . $column ] ) ) {
 				return true;
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 * @return boolean
 		 */
 		public static function is_row_empty( $row, $builder, $device = 'desktop' ) {
-			$items  = 'header' === $builder ? kemet_get_option( $builder . '-' . $device . '-items' ) : kemet_get_option( $builder . '-items' );
+			$items  = 'header' === $builder ? apply_filters( 'kemet_' . $device . '_header_items', kemet_get_option( $builder . '-' . $device . '-items' ) ) : kemet_get_option( $builder . '-items' );
 			$result = false;
 
 			if ( isset( $items ) && isset( $items[ $row ] ) ) {
@@ -91,8 +91,8 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			$current_items = array();
 
 			if ( 'header' == $builder ) {
-				$items['desktop'] = kemet_get_option( 'header-desktop-items', array() );
-				$items['mobile']  = kemet_get_option( 'header-mobile-items', array() );
+				$items['desktop'] = apply_filters( 'kemet_desktop_header_items', kemet_get_option( 'header-desktop-items', array() ) );
+				$items['mobile']  = apply_filters( 'kemet_mobile_header_items', kemet_get_option( 'header-mobile-items', array() ) );
 				foreach ( $items as $d_items => $rows ) {
 					$loaded_items = array();
 					foreach ( $rows as $row => $columns ) {

@@ -80,6 +80,15 @@ if ( ! class_exists( 'Kemet_Options' ) ) {
 				true
 			);
 
+			wp_localize_script(
+				'kemet-react-custom-control-script',
+				'kemetReactControls',
+				array(
+					'theme_url' => KEMET_THEME_URI,
+					'setting'   => KEMET_THEME_SETTINGS . '[setting_name]',
+				)
+			);
+
 			wp_enqueue_style( 'kemet-custom-control-css', KEMET_THEME_URI . 'inc/react-options/css/' . $dir . '/style' . $css_prefix, array( 'wp-components' ), KEMET_THEME_VERSION );
 			/**
 			 * Inline styles

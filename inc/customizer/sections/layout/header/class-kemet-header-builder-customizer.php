@@ -252,6 +252,31 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 		$layout_options  = array(
+			'readymade-headers-desktop'     => array(
+				'label'     => __( 'Readymade Headers', 'kemet' ),
+				'type'      => 'kmt-readymade-headers',
+				'ref'       => 'header-desktop-items',
+				'transport' => 'postMessage',
+				'context'   => array(
+					array(
+						'setting' => 'device',
+						'value'   => 'desktop',
+					),
+				),
+			),
+			'readymade-headers-mobile'      => array(
+				'label'     => __( 'Readymade Headers', 'kemet' ),
+				'type'      => 'kmt-readymade-headers',
+				'ref'       => 'header-mobile-items',
+				'transport' => 'postMessage',
+				'context'   => array(
+					array(
+						'setting'  => 'device',
+						'operator' => 'in_array',
+						'value'    => array( 'tablet', 'mobile' ),
+					),
+				),
+			),
 			'header-desktop-popup-items'    => array(
 				'default'   => false,
 				'type'      => '',

@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import RowComponent from "./row-component";
 import { Fragment, useState, useEffect } from "react";
-import { getSettingId } from '../../options/options-component'
+import { getSettingId } from '../../options/options-component';
+const { kmtEvents } = window.KmtOptionComponent;
 
 const BuilderComponent = (props) => {
   let value = props.value;
@@ -340,7 +341,21 @@ const BuilderComponent = (props) => {
       }
     });
   };
+
+  const handleOutsideUpdate = () => {
+    kmtEvents.on('UpdateBuilderValues', ({ detail: { values, id } }) => {
+      if (!controlParams.group === id) {
+        return;
+      }
+      setState(prevState => ({
+        ...prevState,
+        value: values,
+      }));
+      updateValues(values);
+    })
+  }
   useEffect(() => {
+    handleOutsideUpdate();
     updateRowLayout();
   }, [])
   checkPopupVisibilty(false);

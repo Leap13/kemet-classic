@@ -62,7 +62,41 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				add_filter( 'sub_title_color', array( $this, 'post_sub_title_color' ) );
 				add_filter( 'kemet_site_layout_outside_bg', array( $this, 'page_background' ) );
 				add_filter( 'kemet_site_boxed_inner_bg', array( $this, 'page_boxed_background' ) );
+				add_filter( 'kemet_desktop_header_items', array( $this, 'desktop_header_items' ) );
+				add_filter( 'kemet_mobile_header_items', array( $this, 'mobile_header_items' ) );
 			}
+		}
+
+		/**
+		 * desktop_header_items
+		 *
+		 * @param  mixed $default
+		 * @return array
+		 */
+		public function desktop_header_items( $default ) {
+			$header_items = kemet_get_meta( 'readymade-headers-desktop' );
+
+			if ( $header_items ) {
+				return $header_items;
+			}
+
+			return $default;
+		}
+
+		/**
+		 * mobile_header_items
+		 *
+		 * @param  mixed $default
+		 * @return array
+		 */
+		public function mobile_header_items( $default ) {
+			$header_items = kemet_get_meta( 'readymade-headers-mobile' );
+
+			if ( $header_items ) {
+				return $header_items;
+			}
+
+			return $default;
 		}
 
 		/**

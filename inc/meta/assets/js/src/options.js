@@ -16,7 +16,7 @@ export const isDisplay = (rules, values) => {
             operator = undefined != rule.operator ? rule.operator : "=",
             ruleValue = rule.value;
         var settingValue = values[rule.setting];
-
+        console.log(rule.setting, settingValue, ruleValue);
         switch (operator) {
             case "in_array":
                 boolean = ruleValue.includes(settingValue);
