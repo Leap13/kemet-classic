@@ -1,6 +1,7 @@
 import { useContext, useState } from "@wordpress/element";
 import PanelContext from "../store/panel-store";
 import Card from "./Card";
+import pushHistory from "./push-history";
 const { Dashicon } = wp.components;
 const SinglePlugin = ({ slug }) => {
     const { plugins, pluginsStatus, doAction, pluginActions: actions } = useContext(PanelContext);
@@ -12,7 +13,8 @@ const SinglePlugin = ({ slug }) => {
             setIsLoading(true);
         }
         await doAction(action, slug);
-        if (KemetPanelData.addons_plugin === slug && !action.includes("install")) {
+        if (KemetPanelData.addons_plugin === slug && action.includes("activate")) {
+            pushHistory('kemet-addons');
             window.location.reload();
         }
         setIsLoading(false);

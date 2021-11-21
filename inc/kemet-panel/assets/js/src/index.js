@@ -8,6 +8,8 @@ import Header from './layout/Header';
 import Card from './common/Card';
 import Container from './common/Container';
 import PanelContext, { PanelProvider } from './store/panel-store'
+import pushHistory from './common/push-history'
+
 const { __ } = wp.i18n;
 const { TabPanel, Panel, PanelBody } = wp.components;
 
@@ -77,10 +79,15 @@ const RendeTabs = ({ options }) => {
     let names = new Set(tabs.map(d => d.name));
     let mergedTabs = [...tabs, ...defaultTabs.filter(d => !names.has(d.name))];
     tabs = mergedTabs;
+    const onSelectHandler = (tabName) => {
+        pushHistory(tabName);
+    }
     return <Fragment>
         <Header />
         <TabPanel className="kemet-dashboard-tab-panel"
             activeClass="active-tab"
+            initialTabName={KemetPanelData.kemet_addons_redirect}
+            onSelect={onSelectHandler}
             tabs={tabs.sort(compare)}>
             {
                 (tab) => {

@@ -454,6 +454,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _store_panel_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/panel-store */ "./src/store/panel-store.js");
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Card */ "./src/common/Card.js");
+/* harmony import */ var _push_history__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./push-history */ "./src/common/push-history.js");
+
 
 
 
@@ -496,7 +498,8 @@ var SinglePlugin = function SinglePlugin(_ref) {
               return doAction(action, slug);
 
             case 3:
-              if (KemetPanelData.addons_plugin === slug && !action.includes("install")) {
+              if (KemetPanelData.addons_plugin === slug && action.includes("activate")) {
+                Object(_push_history__WEBPACK_IMPORTED_MODULE_6__["default"])('kemet-addons');
                 window.location.reload();
               }
 
@@ -667,6 +670,27 @@ var Logo = function Logo() {
 
 /***/ }),
 
+/***/ "./src/common/push-history.js":
+/*!************************************!*\
+  !*** ./src/common/push-history.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var pushHistory = function pushHistory(tab) {
+  if (tab) {
+    var url = new URL(window.location);
+    url.searchParams.set('tab', tab);
+    window.history.pushState({}, '', url);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (pushHistory);
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -689,6 +713,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_Card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./common/Card */ "./src/common/Card.js");
 /* harmony import */ var _common_Container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./common/Container */ "./src/common/Container.js");
 /* harmony import */ var _store_panel_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./store/panel-store */ "./src/store/panel-store.js");
+/* harmony import */ var _common_push_history__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./common/push-history */ "./src/common/push-history.js");
+
 
 
 
@@ -780,9 +806,16 @@ var RendeTabs = function RendeTabs(_ref) {
     return !names.has(d.name);
   })));
   tabs = mergedTabs;
+
+  var onSelectHandler = function onSelectHandler(tabName) {
+    Object(_common_push_history__WEBPACK_IMPORTED_MODULE_11__["default"])(tabName);
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_layout_Header__WEBPACK_IMPORTED_MODULE_7__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(TabPanel, {
     className: "kemet-dashboard-tab-panel",
     activeClass: "active-tab",
+    initialTabName: KemetPanelData.kemet_addons_redirect,
+    onSelect: onSelectHandler,
     tabs: tabs.sort(compare)
   }, function (tab) {
     var _tab$data = tab.data,
@@ -1096,6 +1129,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _common_Container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/Container */ "./src/common/Container.js");
 /* harmony import */ var _store_panel_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/panel-store */ "./src/store/panel-store.js");
+/* harmony import */ var _common_push_history__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/push-history */ "./src/common/push-history.js");
+
 
 
 
@@ -1139,6 +1174,7 @@ var KemetAddons = function KemetAddons() {
 
             case 3:
               if (!action.includes("install")) {
+                Object(_common_push_history__WEBPACK_IMPORTED_MODULE_6__["default"])('kemet-addons');
                 window.location.reload();
               }
 

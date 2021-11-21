@@ -1,6 +1,7 @@
 import Container from "../common/Container"
 import { useContext, useState } from "@wordpress/element";
 import PanelContext from "../store/panel-store";
+import pushHistory from "../common/push-history";
 
 const { Dashicon } = wp.components;
 const KemetAddons = () => {
@@ -15,6 +16,7 @@ const KemetAddons = () => {
         }
         await doAction(action, slug);
         if (!action.includes("install")) {
+            pushHistory('kemet-addons');
             window.location.reload();
         }
         setIsLoading(false);
