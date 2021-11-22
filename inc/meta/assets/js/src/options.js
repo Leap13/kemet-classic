@@ -1,8 +1,11 @@
 import {
-    useEffect, useState
+    useEffect, useContext
 } from '@wordpress/element'
+import OptionsContext from './store/options-context';
+import kmtEvents from '../../../../react-options/src/common/events';
 
-export const isDisplay = (rules, values) => {
+export const isDisplay = (rules) => {
+    const { values } = useContext(OptionsContext);
     if (!values) {
         return;
     }
@@ -16,7 +19,6 @@ export const isDisplay = (rules, values) => {
             operator = undefined != rule.operator ? rule.operator : "=",
             ruleValue = rule.value;
         var settingValue = values[rule.setting];
-        console.log(rule.setting, settingValue, ruleValue);
         switch (operator) {
             case "in_array":
                 boolean = ruleValue.includes(settingValue);
@@ -65,70 +67,51 @@ export const isDisplay = (rules, values) => {
     return isVisible;
 };
 
-const toggleVisible = (rules, onChange) => {
-    document.addEventListener('KemetUpdateMeta', function ({ detail: { key, values } }) {
-        _.each(rules, function (rule) {
-            if (rule.setting === key) {
-                onChange(isDisplay(rules, values));
-            }
-        });
-    })
-    document.addEventListener('KemetInitMeta', function ({ detail: { values } }) {
-        _.each(rules, function (rule) {
-            if (values[rule.setting]) {
-                onChange(isDisplay(rules, values));
-            }
-        });
-    })
-}
-
-const SingleOptionComponent = ({ value, optionId, option, onChange }) => {
+const SingleOptionComponent = ({ optionId, option }) => {
+    const { values, onChange } = useContext(OptionsContext);
+    const value = values[optionId];
     const { OptionComponent } = window.KmtOptionComponent;
     const Option = OptionComponent(option.type);
+
     return option.type && <div id={optionId} className={`customize-control-${option.type}`}>
-        <Option id={optionId} value={value} params={option} onChange={onChange} />
+        <Option id={optionId} value={value} params={option} onChange={(newVal) => {
+            onChange(newVal, optionId)
+        }} />
     </div>;
 }
 
-const RenderOptions = ({ options, onChange, values }) => {
+const RenderOptions = ({ options }) => {
     return Object.keys(options).map((optionId) => {
-        let value = values[optionId];
         let option = options[optionId];
-        let context = option.context ? isDisplay(option.context) : true;
-        const [isVisible, setVisible] = useState(context);
+        let isVisible = option.context ? isDisplay(option.context) : true;
 
-        const onChangeVisible = (value) => {
-            setVisible(value)
-        }
-
-        if (option.context) {
-            toggleVisible(option.context, onChangeVisible)
-        }
-
-        useEffect(() => {
-            kemetGetResponsiveJs();
-            jQuery(document).mouseup(function (e) {
-                var container = jQuery(document);
-                var colorWrap = container.find('.kemet-color-picker-wrap');
-                var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
-
-                // If the target of the click isn't the container nor a descendant of the container.
-                if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
-                    container.find('.components-button.kemet-color-icon-indicate.open').click();
-                }
-            });
-            let event = new CustomEvent("KemetInitMeta", {
-                detail: {
-                    values: values
-                },
-            });
-            document.dispatchEvent(event);
-        }, []);
-        return isVisible && <SingleOptionComponent value={value} optionId={optionId} option={option} onChange={(newVal) => {
-            onChange(newVal, optionId)
-        }} key={optionId} />;
+        return isVisible && <SingleOptionComponent optionId={optionId} option={option} key={optionId} />;
     })
 }
+
+export const OptionsComponent = ({ options }) => {
+    useEffect(() => {
+        kmtEvents.trigger("KemetInitOptionsMeta");
+    }, []);
+    return <div className="kmt-options">
+        <RenderOptions options={options} />
+    </div>
+}
+
+kmtEvents.on("KemetInitOptionsMeta", () => {
+    kemetGetResponsiveJs();
+    jQuery(document).mouseup(function (e) {
+        var container = jQuery(document);
+        var colorWrap = container.find('.kemet-color-picker-wrap');
+        var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+
+        // If the target of the click isn't the container nor a descendant of the container.
+        if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+            container.find('.components-button.kemet-color-icon-indicate.open').click();
+        }
+    });
+})
+
 
 function kemetGetResponsiveJs() {
     'use strict';
@@ -164,13 +147,4 @@ function kemetGetResponsiveJs() {
         jQuery(document).find('.kmt-responsive-control-btns > li').removeClass('active');
         jQuery(document).find('.kmt-responsive-control-btns > li.' + device).addClass('active');
     });
-}
-export const OptionsComponent = ({ options, onChange, values }) => {
-    useEffect(() => {
-        let event = new CustomEvent("KemetInitOptionsMeta");
-        document.dispatchEvent(event);
-    }, [])
-    return <div className="kmt-options">
-        <RenderOptions options={options} onChange={onChange} values={values} />
-    </div>
 }
