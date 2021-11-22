@@ -440,9 +440,9 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $menu menu slug.
 		 */
 		public function menu_markup( $menu ) {
-			$custom_header_section   = kemet_get_option( 'header-main-rt-section' );
 			$submenu_has_boxshadow   = kemet_get_option( $menu . '-box-shadow' ) ? ' submenu-box-shadow' : '';
-			$kemet_submenu_animation = kemet_get_option( 'sub-menu-animation' );
+			$kemet_submenu_animation = kemet_get_option( $menu . '-submenu-effect' );
+			$item_hover_effect       = kemet_get_option( $menu . '-items-hover-effect' );
 			$kmt_submenu_classes     = array();
 			$kmt_submenu_classes[]   = $submenu_has_boxshadow;
 			if ( 'none' != $kemet_submenu_animation ) {
@@ -457,15 +457,9 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				'menu_id'        => $menu,
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
+				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '" data-effect="' . esc_attr( $item_hover_effect ) . '">',
 				'after'          => '</ul>',
 			);
-
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
-			$items_wrap .= '<div class="main-navigation">';
-			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
-			$items_wrap .= '</div>';
-			$items_wrap .= '</nav>';
 
 			if ( has_nav_menu( $menu ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
@@ -481,7 +475,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 						'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
 						'container'       => 'div',
 						'container_class' => 'main-header-bar-navigation ' . $menu,
-						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'items_wrap'      => '<ul id="%1$s" data-effect="' . esc_attr( $item_hover_effect ) . '" class="%2$s">%3$s</ul>',
 					)
 				);
 				echo '</div>';

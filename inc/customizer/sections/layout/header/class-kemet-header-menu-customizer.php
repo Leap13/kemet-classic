@@ -38,6 +38,22 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'type'  => 'kmt-title',
 					'label' => __( 'Menu Settings', 'kemet' ),
 				),
+				$prefix . '-items-hover-effect'        => array(
+					'type'      => 'kmt-radio',
+					'default'   => 'none',
+					'transport' => 'postMessage',
+					'label'     => __( 'Hover Effect', 'kemet' ),
+					'choices'   => array(
+						'none'          => __( 'None', 'kemet' ),
+						'background'    => __( 'Background', 'kemet' ),
+						'border-bottom' => __( 'Border Bottom', 'kemet' ),
+						'border-top'    => __( 'Border Top', 'kemet' ),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'attr'     => 'data-effect',
+					),
+				),
 				$prefix . '-typography'                => array(
 					'type'      => 'kmt-typography',
 					'transport' => 'postMessage',
@@ -138,11 +154,11 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						'responsive' => true,
 					),
 				),
-				$prefix . '-link-bottom-border-width-hover' => array(
+				$prefix . '-link-border-width-hover'   => array(
 					'type'         => 'kmt-slider',
 					'responsive'   => true,
 					'transport'    => 'postMessage',
-					'label'        => __( 'Link Bottom Border Size on Hover', 'kemet' ),
+					'label'        => __( 'Link Border Size on Hover', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
 							'min'  => 0,
@@ -152,7 +168,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 					'preview'      => array(
 						'selector'   => $selector . ' > li > a',
-						'property'   => '--borderBottomWidth',
+						'property'   => '--effectBorderWidth',
 						'responsive' => true,
 					),
 				),
@@ -169,7 +185,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'preview'   => array(
 						'initial' => array(
 							'selector' => $selector . ' > li > a:hover',
-							'property' => '--borderBottomColor',
+							'property' => '--effectBorderColor',
 						),
 					),
 				),
@@ -246,6 +262,18 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						'design'  => array(
 							'title'   => __( 'Design', 'kemet' ),
 							'options' => array(
+								$prefix . '-submenu-effect' => array(
+									'type'    => 'kmt-radio',
+									'default' => 'none',
+									// 'transport' => 'postMessage',
+									'label'   => __( 'Dropdown Reveal', 'kemet' ),
+									'choices' => array(
+										'none'      => __( 'None', 'kemet' ),
+										'fade'      => __( 'Fade', 'kemet' ),
+										'fade-up'   => __( 'Fade Up', 'kemet' ),
+										'fade-down' => __( 'Fade Down', 'kemet' ),
+									),
+								),
 								$prefix . '-submenu-typography' => array(
 									'type'      => 'kmt-typography',
 									'transport' => 'postMessage',
