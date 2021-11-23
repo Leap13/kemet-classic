@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import Responsive from '../common/responsive'
 const { __ } = wp.i18n;
 const { ButtonGroup, Button } = wp.components;
+import kmtEvents from "../common/events";
 
 const RadioComponent = (props) => {
     let value = props.value;
@@ -18,11 +19,7 @@ const RadioComponent = (props) => {
 
         if (props.id.includes('footer-columns')) {
             let row = props.id.replace('-footer-columns', '');
-            let event = new CustomEvent(
-                'KemetUpdateFooterColumns', {
-                'detail': row,
-            });
-            document.dispatchEvent(event);
+            kmtEvents.trigger("KemetUpdateFooterColumns", row);
         }
 
         setState((prevState) => ({

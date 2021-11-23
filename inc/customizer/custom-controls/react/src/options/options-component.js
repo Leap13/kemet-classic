@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import TabsComponent from '../customizer-options/tabs'
 import BuilderComponent from '../customizer-options/layout-builder/builder-component'
 import AvailableComponent from '../customizer-options/available'
 import BuilderTabs from '../customizer-options/builder-tabs'
@@ -12,9 +11,6 @@ let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 export const CustomizerOptionComponent = (type) => {
     let OptionComponent;
     switch (type) {
-        case 'kmt-tabs':
-            OptionComponent = TabsComponent;
-            break;
         case 'kmt-builder':
             OptionComponent = BuilderComponent;
             break;
@@ -139,6 +135,7 @@ const toggleVisible = (rules, onChange) => {
 const SingleOptionComponent = ({ value, optionId, option, control }) => {
     const { OptionComponent } = window.KmtOptionComponent;
     let context = option.context ? isDisplay(option.context) : true;
+    const extraProps = {};
     const [isVisible, setVisible] = useState(context);
     let [settingVal, setValue] = useState(value);
     const onChange = (value) => {
@@ -149,10 +146,14 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
         toggleVisible(option.context, onChange)
     }
 
+    if (option.type === 'kmt-tabs') {
+        extraProps.renderOptions = renderOptions;
+    }
+
     const Option = CustomizerOptionComponent(option.type) ? CustomizerOptionComponent(option.type) : OptionComponent(option.type);
-    const divider = option.divider ? 'has-divider' : '';
-    return isVisible && option.type && <div id={optionId} className={`kmt-customize-control customize-control-${option.type} ${divider}`}>
-        <Option id={optionId} value={settingVal} params={option} control={control} customizer={wp.customize} onChange={(value) => {
+    const divider = option.divider ? ' has-divider' : '';
+    return isVisible && option.type && <div id={optionId} className={`kmt-customize-control customize-control-${option.type}${divider}`}>
+        <Option id={optionId} value={settingVal} {...extraProps} params={option} control={control} customizer={wp.customize} onChange={(value) => {
             const key = getSettingId(optionId);
             setValue(value);
             wp.customize(key).set(value);
@@ -165,7 +166,6 @@ export const renderOptions = (options) => {
         const controlName = getSettingId(optionId);
         let control = wp.customize(controlName);
         let value = control && control.get();
-
         let option = options[optionId];
 
         return <SingleOptionComponent value={value} optionId={optionId} option={option} control={control} key={optionId} />;

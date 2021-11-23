@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 import { Fragment, useState, useEffect } from "react";
 import { getSettingId } from '../options/options-component'
 import Icons from "../common/icons";
-
 const { __ } = wp.i18n;
 const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
-
+const { kmtEvents } = window.KmtOptionComponent;
 const RowLayoutComponent = (props) => {
     const { Responsive } = window.KmtOptionComponent;
     let defaultParams = {
@@ -194,12 +193,6 @@ const RowLayoutComponent = (props) => {
     const [device, setDevice] = useState('desktop');
     const HandleChange = (value) => {
         props.onChange(value);
-
-        let event = new CustomEvent("KemetUpdateFooterColumns", {
-            detail: row,
-        });
-        document.dispatchEvent(event);
-
         setState((prevState) => ({
             ...prevState,
             value,
@@ -243,11 +236,11 @@ const RowLayoutComponent = (props) => {
     }
 
     const linkColumns = () => {
-        document.addEventListener('KemetUpdateFooterColumns', function (e) {
+        kmtEvents.on('KemetUpdateFooterColumns', function (e) {
             if (e.detail === row) {
                 onFooterUpdate();
             }
-        });
+        })
     }
 
     linkColumns();

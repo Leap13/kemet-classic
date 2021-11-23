@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import { ReactSortable, Sortable } from "react-sortablejs";
 const { __ } = wp.i18n;
 const { Dashicon, Button } = wp.components;
+const { kmtEvents } = window.KmtOptionComponent;
 const AvailableComponent = (props) => {
   let defaultParams = {};
 
@@ -39,11 +40,11 @@ const AvailableComponent = (props) => {
   };
 
   const linkRemovingItem = () => {
-    document.addEventListener("KemetBuilderRemovedBuilderItem", function (e) {
+    kmtEvents.on("KemetBuilderRemovedBuilderItem", function (e) {
       if (e.detail === controlParams.group) {
         onUpdate();
       }
-    });
+    })
   };
 
   linkRemovingItem();

@@ -209,10 +209,7 @@ const BuilderComponent = (props) => {
 
   const onAddItem = (row, zone, items) => {
     onDragEnd(row, zone, items);
-    let event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
-      detail: controlParams.group,
-    });
-    document.dispatchEvent(event);
+    kmtEvents.trigger("KemetBuilderRemovedBuilderItem", controlParams.group);
   };
   const arraysEqual = (a, b) => {
     if (a === b) return true;
@@ -267,10 +264,7 @@ const BuilderComponent = (props) => {
     }));
 
     updateValues(updateState, row);
-    let event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
-      detail: controlParams.group,
-    });
-    document.dispatchEvent(event);
+    kmtEvents.trigger("KemetBuilderRemovedBuilderItem", controlParams.group);
   };
 
   const focusSection = (item) => {
@@ -315,7 +309,7 @@ const BuilderComponent = (props) => {
   };
 
   const updateRowLayout = () => {
-    document.addEventListener('KemetUpdateFooterColumns', function (e) {
+    kmtEvents.on('KemetUpdateFooterColumns', function (e) {
 
       if ("footer-items" !== controlParams.group) {
         return;
@@ -339,7 +333,7 @@ const BuilderComponent = (props) => {
 
         updateValues(newParams);
       }
-    });
+    })
   };
 
   const handleOutsideUpdate = () => {

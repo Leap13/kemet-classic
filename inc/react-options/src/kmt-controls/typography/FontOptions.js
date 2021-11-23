@@ -11,9 +11,6 @@ import { animated } from '@react-spring/web'
 import ResponsiveSliderComponent from '../slider'
 
 const FontOptions = ({ value, defaults, onChange, props }) => {
-	useEffect(() => {
-		document.dispatchEvent(new CustomEvent("kmtSubOptionsReady"));
-	}, []);
 	return (
 		<animated.ul
 			style={props}

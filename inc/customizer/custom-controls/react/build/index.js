@@ -169,6 +169,37 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/extends.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  module.exports["default"] = module.exports, module.exports.__esModule = true;
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
@@ -5495,42 +5526,6 @@ var Icons = {
 
 /***/ }),
 
-/***/ "./src/common/responsive-helper.js":
-/*!*****************************************!*\
-  !*** ./src/common/responsive-helper.js ***!
-  \*****************************************/
-/*! exports provided: kemetGetResponsiveJs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveJs", function() { return kemetGetResponsiveJs; });
-function kemetGetResponsiveJs() {
-  'use strict';
-
-  var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-  jQuery(document).find('.kmt-responsive-control-btns > li').removeClass('active');
-  jQuery(document).find('.kmt-responsive-control-btns > li.' + device).addClass('active');
-  jQuery(document).find('.kmt-responsive-control-btns button i').on('click', function (event) {
-    event.preventDefault();
-    var device = jQuery(this).parent('button').attr('data-device');
-
-    if ('desktop' == device) {
-      device = 'tablet';
-    } else if ('tablet' == device) {
-      device = 'mobile';
-    } else {
-      device = 'desktop';
-    }
-
-    jQuery(document).find('.kmt-responsive-control-btns > li').removeClass('active');
-    jQuery(document).find('.kmt-responsive-control-btns > li.' + device).addClass('active');
-    jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
-  });
-}
-
-/***/ }),
-
 /***/ "./src/customizer-options/available.js":
 /*!*********************************************!*\
   !*** ./src/customizer-options/available.js ***!
@@ -5567,6 +5562,7 @@ var __ = wp.i18n.__;
 var _wp$components = wp.components,
     Dashicon = _wp$components.Dashicon,
     Button = _wp$components.Button;
+var kmtEvents = window.KmtOptionComponent.kmtEvents;
 
 var AvailableComponent = function AvailableComponent(props) {
   var defaultParams = {};
@@ -5600,7 +5596,7 @@ var AvailableComponent = function AvailableComponent(props) {
   };
 
   var linkRemovingItem = function linkRemovingItem() {
-    document.addEventListener("KemetBuilderRemovedBuilderItem", function (e) {
+    kmtEvents.on("KemetBuilderRemovedBuilderItem", function (e) {
       if (e.detail === controlParams.group) {
         onUpdate();
       }
@@ -6188,10 +6184,7 @@ var BuilderComponent = function BuilderComponent(props) {
 
   var _onAddItem = function onAddItem(row, zone, items) {
     onDragEnd(row, zone, items);
-    var event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
-      detail: controlParams.group
-    });
-    document.dispatchEvent(event);
+    kmtEvents.trigger("KemetBuilderRemovedBuilderItem", controlParams.group);
   };
 
   var arraysEqual = function arraysEqual(a, b) {
@@ -6243,10 +6236,7 @@ var BuilderComponent = function BuilderComponent(props) {
       });
     });
     updateValues(updateState, row);
-    var event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
-      detail: controlParams.group
-    });
-    document.dispatchEvent(event);
+    kmtEvents.trigger("KemetBuilderRemovedBuilderItem", controlParams.group);
   };
 
   var _focusSection = function focusSection(item) {
@@ -6302,7 +6292,7 @@ var BuilderComponent = function BuilderComponent(props) {
   };
 
   var updateRowLayout = function updateRowLayout() {
-    document.addEventListener('KemetUpdateFooterColumns', function (e) {
+    kmtEvents.on('KemetUpdateFooterColumns', function (e) {
       if ("footer-items" !== controlParams.group) {
         return;
       }
@@ -6782,6 +6772,7 @@ var _wp$components = wp.components,
     Dashicon = _wp$components.Dashicon,
     Tooltip = _wp$components.Tooltip,
     Button = _wp$components.Button;
+var kmtEvents = window.KmtOptionComponent.kmtEvents;
 
 var RowLayoutComponent = function RowLayoutComponent(props) {
   var Responsive = window.KmtOptionComponent.Responsive;
@@ -6978,10 +6969,6 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
 
   var HandleChange = function HandleChange(value) {
     props.onChange(value);
-    var event = new CustomEvent("KemetUpdateFooterColumns", {
-      detail: row
-    });
-    document.dispatchEvent(event);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         value: value
@@ -7027,7 +7014,7 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
   };
 
   var linkColumns = function linkColumns() {
-    document.addEventListener('KemetUpdateFooterColumns', function (e) {
+    kmtEvents.on('KemetUpdateFooterColumns', function (e) {
       if (e.detail === row) {
         onFooterUpdate();
       }
@@ -7068,70 +7055,6 @@ RowLayoutComponent.propTypes = {
 
 /***/ }),
 
-/***/ "./src/customizer-options/tabs.js":
-/*!****************************************!*\
-  !*** ./src/customizer-options/tabs.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../options/options-component */ "./src/options/options-component.js");
-
-
-
-
-var Dashicon = wp.components.Dashicon;
-var __ = wp.i18n.__;
-
-
-var TabsComponent = function TabsComponent(props) {
-  var tabs = props.params.tabs ? props.params.tabs : {};
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])({
-    currentTab: 0
-  }),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
-
-  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    document.dispatchEvent(new CustomEvent("kmtSubOptionsReady"));
-  }, [state]);
-  var currentTab = tabs[Object.keys(tabs)[state.currentTab]];
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: "tabs"
-  }, Object.keys(tabs).map(function (tab, index) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-      onClick: function onClick() {
-        setState({
-          currentTab: index
-        });
-      },
-      className: index === state.currentTab && 'active'
-    }, tabs[tab].title);
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "current-tab-options"
-  }, Object(_options_options_component__WEBPACK_IMPORTED_MODULE_4__["renderOptions"])(currentTab.options)));
-};
-
-TabsComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired,
-  customizer: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(TabsComponent));
-
-/***/ }),
-
 /***/ "./src/customizer.js":
 /*!***************************!*\
   !*** ./src/customizer.js ***!
@@ -7143,6 +7066,7 @@ TabsComponent.propTypes = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./options/options-component */ "./src/options/options-component.js");
 
+var kmtEvents = window.KmtOptionComponent.kmtEvents;
 
 (function ($, api) {
   var $window = $(window),
@@ -7216,21 +7140,17 @@ __webpack_require__.r(__webpack_exports__);
 
           if (isExpanded) {
             _.each(options, function (control) {
-              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
-                detail: {
-                  control: control,
-                  isExpanded: true
-                }
-              }));
+              kmtEvents.trigger('kmtExpandedBuilder', {
+                control: control,
+                isExpanded: true
+              });
             });
           } else {
             _.each(options, function (control) {
-              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
-                detail: {
-                  control: control,
-                  isExpanded: false
-                }
-              }));
+              kmtEvents.trigger('kmtExpandedBuilder', {
+                control: control,
+                isExpanded: false
+              });
             });
           }
 
@@ -7342,13 +7262,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _options_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./options/control */ "./src/options/control.js");
 
 
+var kmtEvents = window.KmtOptionComponent.kmtEvents;
 window.addEventListener('load', function () {
   var deviceButtons = document.querySelector('#customize-footer-actions .devices');
   deviceButtons.addEventListener('click', function (e) {
-    var event = new CustomEvent('KemetChangedRepsonsivePreview', {
-      'detail': e.target.dataset.device
-    });
-    document.dispatchEvent(event);
+    console.log(e.target.dataset.device);
+    var device = e.target.dataset.device;
+    kmtEvents.trigger('KemetChangedRepsonsivePreview', device);
   });
 });
 
@@ -7366,23 +7286,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _options_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./options-component */ "./src/options/options-component.js");
-/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
 
 
-
+var kmtEvents = window.KmtOptionComponent.kmtEvents;
 
 var renderOptions = function renderOptions(control) {
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["render"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_options_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
     control: control
   }), control.container[0]);
-  document.dispatchEvent(new CustomEvent("kmtOptionsReady", {
-    detail: control
-  }));
-  document.addEventListener('kmtSubOptionsReady', function () {
-    document.dispatchEvent(new CustomEvent("kmtOptionsReady", {
-      detail: control
-    }));
-  });
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -7406,7 +7317,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-document.addEventListener('kmtExpandedBuilder', function (_ref2) {
+kmtEvents.on('kmtExpandedBuilder', function (_ref2) {
   var _ref2$detail = _ref2.detail,
       control = _ref2$detail.control,
       isExpanded = _ref2$detail.isExpanded;
@@ -7419,44 +7330,6 @@ document.addEventListener('kmtExpandedBuilder', function (_ref2) {
   setTimeout(function () {
     Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["unmountComponentAtNode"])(control.container[0]);
   }, 500);
-});
-document.addEventListener('kmtOptionsReady', function (_ref3) {
-  var control = _ref3.detail;
-
-  if (control) {
-    // Color
-    'use strict';
-
-    jQuery(document).ready(function ($) {
-      $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(function (e) {
-        if (!$(e.target).closest(".kemet-color-picker-wrap").length && !$(e.target).closest(".color-button-wrap").length) {
-          $(".components-button.kemet-color-icon-indicate.open").trigger("click");
-        }
-      });
-      control.container.on("click", ".components-button.kemet-color-icon-indicate", function () {
-        var $this = $(this),
-            parentWrap = $this.closest(".customize-control-kmt-color"),
-            Section = parentWrap.parents(".control-section");
-
-        if ($this.hasClass("open")) {
-          parentWrap.find(".kemet-color-picker-wrap").hide();
-        } else {
-          var getOpenPopup = Section.find(".components-button.kemet-color-icon-indicate.open");
-
-          if (getOpenPopup.length > 0) {
-            getOpenPopup.trigger("click");
-          }
-
-          parentWrap.find(".kemet-color-picker-wrap").show();
-        }
-
-        $(this).toggleClass("open");
-      });
-    });
-  } // Responsive
-
-
-  Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])();
 });
 
 /***/ }),
@@ -7475,15 +7348,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSetting", function() { return getSetting; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplay", function() { return isDisplay; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderOptions", function() { return renderOptions; });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _customizer_options_tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../customizer-options/tabs */ "./src/customizer-options/tabs.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _customizer_options_layout_builder_builder_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../customizer-options/layout-builder/builder-component */ "./src/customizer-options/layout-builder/builder-component.js");
 /* harmony import */ var _customizer_options_available__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../customizer-options/available */ "./src/customizer-options/available.js");
 /* harmony import */ var _customizer_options_builder_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../customizer-options/builder-tabs */ "./src/customizer-options/builder-tabs.js");
@@ -7504,10 +7378,6 @@ var CustomizerOptionComponent = function CustomizerOptionComponent(type) {
   var OptionComponent;
 
   switch (type) {
-    case 'kmt-tabs':
-      OptionComponent = _customizer_options_tabs__WEBPACK_IMPORTED_MODULE_4__["default"];
-      break;
-
     case 'kmt-builder':
       OptionComponent = _customizer_options_layout_builder_builder_component__WEBPACK_IMPORTED_MODULE_5__["default"];
       break;
@@ -7634,14 +7504,15 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
       control = _ref.control;
   var OptionComponent = window.KmtOptionComponent.OptionComponent;
   var context = option.context ? isDisplay(option.context) : true;
+  var extraProps = {};
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(context),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(context),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       isVisible = _useState2[0],
       setVisible = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
       settingVal = _useState4[0],
       setValue = _useState4[1];
 
@@ -7653,14 +7524,19 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
     toggleVisible(option.context, onChange);
   }
 
+  if (option.type === 'kmt-tabs') {
+    extraProps.renderOptions = renderOptions;
+  }
+
   var Option = CustomizerOptionComponent(option.type) ? CustomizerOptionComponent(option.type) : OptionComponent(option.type);
-  var divider = option.divider ? 'has-divider' : '';
-  return isVisible && option.type && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+  var divider = option.divider ? ' has-divider' : '';
+  return isVisible && option.type && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     id: optionId,
-    className: "kmt-customize-control customize-control-".concat(option.type, " ").concat(divider)
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Option, {
+    className: "kmt-customize-control customize-control-".concat(option.type).concat(divider)
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Option, _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     id: optionId,
-    value: settingVal,
+    value: settingVal
+  }, extraProps, {
     params: option,
     control: control,
     customizer: wp.customize,
@@ -7669,7 +7545,7 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
       setValue(value);
       wp.customize(key).set(value);
     }
-  }));
+  })));
 };
 
 var renderOptions = function renderOptions(options) {
@@ -7678,7 +7554,7 @@ var renderOptions = function renderOptions(options) {
     var control = wp.customize(controlName);
     var value = control && control.get();
     var option = options[optionId];
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SingleOptionComponent, {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(SingleOptionComponent, {
       value: value,
       optionId: optionId,
       option: option,
@@ -7691,7 +7567,7 @@ var renderOptions = function renderOptions(options) {
 var OptionsComponent = function OptionsComponent(_ref2) {
   var control = _ref2.control;
   var options = control.params.data.options;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-options"
   }, renderOptions(options));
 };

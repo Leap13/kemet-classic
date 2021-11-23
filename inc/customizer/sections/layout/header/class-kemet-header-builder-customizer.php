@@ -252,109 +252,124 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 		$layout_options  = array(
-			'readymade-headers-desktop'     => array(
-				'label'     => __( 'Readymade Headers', 'kemet' ),
-				'type'      => 'kmt-readymade-headers',
-				'ref'       => 'header-desktop-items',
-				'transport' => 'postMessage',
-				'context'   => array(
-					array(
-						'setting' => 'device',
-						'value'   => 'desktop',
+			'header-builder-tab' => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'templates' => array(
+						'title'   => __( 'Templates', 'kemet' ),
+						'options' => array(
+							'readymade-headers-desktop' => array(
+								'label'     => __( 'Readymade Headers', 'kemet' ),
+								'type'      => 'kmt-readymade-headers',
+								'ref'       => 'header-desktop-items',
+								'transport' => 'postMessage',
+								'context'   => array(
+									array(
+										'setting' => 'device',
+										'value'   => 'desktop',
+									),
+								),
+							),
+							'readymade-headers-mobile'  => array(
+								'label'     => __( 'Readymade Headers', 'kemet' ),
+								'type'      => 'kmt-readymade-headers',
+								'ref'       => 'header-mobile-items',
+								'transport' => 'postMessage',
+								'context'   => array(
+									array(
+										'setting'  => 'device',
+										'operator' => 'in_array',
+										'value'    => array( 'tablet', 'mobile' ),
+									),
+								),
+							),
+						),
 					),
-				),
-			),
-			'readymade-headers-mobile'      => array(
-				'label'     => __( 'Readymade Headers', 'kemet' ),
-				'type'      => 'kmt-readymade-headers',
-				'ref'       => 'header-mobile-items',
-				'transport' => 'postMessage',
-				'context'   => array(
-					array(
-						'setting'  => 'device',
-						'operator' => 'in_array',
-						'value'    => array( 'tablet', 'mobile' ),
-					),
-				),
-			),
-			'header-desktop-popup-items'    => array(
-				'default'   => false,
-				'type'      => '',
-				'transport' => 'postMessage',
-			),
-			/**
-			 * Header Mobile popup items.
-			 */
-			'header-mobile-popup-items'     => array(
-				'default'   => false,
-				'type'      => '',
-				'transport' => 'postMessage',
-			),
-			'header-desktop-availble-items' => array(
-				'label'       => __( 'Available Items', 'kemet' ),
-				'transport'   => 'postMessage',
-				'type'        => 'kmt-available',
-				'input_attrs' => array(
-					'group' => 'header-desktop-items',
-					'zones' => array( 'popup', 'top', 'main', 'bottom' ),
-				),
-				'context'     => array(
-					array(
-						'setting' => 'device',
-						'value'   => 'desktop',
-					),
-				),
-			),
-			'header-mobile-availble-items'  => array(
-				'label'       => __( 'Available Items', 'kemet' ),
-				'transport'   => 'postMessage',
-				'type'        => 'kmt-available',
-				'input_attrs' => array(
-					'group' => 'header-mobile-items',
-					'zones' => array( 'popup', 'top', 'main', 'bottom' ),
-				),
-				'context'     => array(
-					array(
-						'setting'  => 'device',
-						'operator' => 'in_array',
-						'value'    => array( 'tablet', 'mobile' ),
-					),
-				),
-			),
-			'foucs-sticky-section'          => array(
-				'type'          => 'kmt-focus-button',
-				'button_params' => array(
-					'title'   => __( 'Sticky Header', 'kemet' ),
-					'section' => 'section-sticky-header-options',
-				),
-			),
-			'overlay-header-enable'         => array(
-				'type'  => 'kmt-switcher',
-				'label' => __( 'Enable Overlay Header', 'kemet' ),
-			),
-			'overlay-header-enable-device'  => array(
-				'label'   => __( 'Overlay Header Visibility', 'kemet' ),
-				'type'    => 'kmt-visibility',
-				'choices' => array(
-					'desktop' => __( 'Desktop', 'kemet' ),
-					'mobile'  => __( 'Mobile', 'kemet' ),
-				),
-				'context' => array(
-					array(
-						'setting' => 'overlay-header-enable',
-						'value'   => true,
-					),
-				),
-			),
-			'kemet-break-point'             => array(
-				'type'         => 'kmt-slider',
-				'divider'      => true,
-				'label'        => __( 'Mobile/Tablet Breakpoint', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 1200,
+					'elements'  => array(
+						'title'   => __( 'Elements', 'kemet' ),
+						'options' => array(
+							'header-desktop-popup-items'   => array(
+								'default'   => false,
+								'type'      => '',
+								'transport' => 'postMessage',
+							),
+							/**
+							 * Header Mobile popup items.
+							 */
+							'header-mobile-popup-items'    => array(
+								'default'   => false,
+								'type'      => '',
+								'transport' => 'postMessage',
+							),
+							'header-desktop-availble-items' => array(
+								'label'       => __( 'Available Items', 'kemet' ),
+								'transport'   => 'postMessage',
+								'type'        => 'kmt-available',
+								'input_attrs' => array(
+									'group' => 'header-desktop-items',
+									'zones' => array( 'popup', 'top', 'main', 'bottom' ),
+								),
+								'context'     => array(
+									array(
+										'setting' => 'device',
+										'value'   => 'desktop',
+									),
+								),
+							),
+							'header-mobile-availble-items' => array(
+								'label'       => __( 'Available Items', 'kemet' ),
+								'transport'   => 'postMessage',
+								'type'        => 'kmt-available',
+								'input_attrs' => array(
+									'group' => 'header-mobile-items',
+									'zones' => array( 'popup', 'top', 'main', 'bottom' ),
+								),
+								'context'     => array(
+									array(
+										'setting'  => 'device',
+										'operator' => 'in_array',
+										'value'    => array( 'tablet', 'mobile' ),
+									),
+								),
+							),
+							'foucs-sticky-section'         => array(
+								'type'          => 'kmt-focus-button',
+								'button_params' => array(
+									'title'   => __( 'Sticky Header', 'kemet' ),
+									'section' => 'section-sticky-header-options',
+								),
+							),
+							'overlay-header-enable'        => array(
+								'type'  => 'kmt-switcher',
+								'label' => __( 'Enable Overlay Header', 'kemet' ),
+							),
+							'overlay-header-enable-device' => array(
+								'label'   => __( 'Overlay Header Visibility', 'kemet' ),
+								'type'    => 'kmt-visibility',
+								'choices' => array(
+									'desktop' => __( 'Desktop', 'kemet' ),
+									'mobile'  => __( 'Mobile', 'kemet' ),
+								),
+								'context' => array(
+									array(
+										'setting' => 'overlay-header-enable',
+										'value'   => true,
+									),
+								),
+							),
+							'kemet-break-point'            => array(
+								'type'         => 'kmt-slider',
+								'divider'      => true,
+								'label'        => __( 'Mobile/Tablet Breakpoint', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 1200,
+									),
+								),
+							),
+						),
 					),
 				),
 			),

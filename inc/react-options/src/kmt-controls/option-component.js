@@ -19,10 +19,14 @@ import IconPicker from "./icon";
 import EditSettings from "./uploadFont";
 import Border from "./border";
 import ReadymadeHeaders from './readymade-headers'
+import TabsComponent from './tabs'
 
 const OptionComponent = (type) => {
     let OptionComponent;
     switch (type) {
+        case 'kmt-tabs':
+            OptionComponent = TabsComponent;
+            break;
         case 'kmt-color':
             OptionComponent = KemetColorComponent;
             break;

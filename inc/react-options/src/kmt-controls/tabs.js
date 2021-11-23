@@ -1,8 +1,5 @@
 import PropTypes from "prop-types";
 import { Fragment, useState, useEffect } from "react";
-const { Dashicon } = wp.components;
-const { __ } = wp.i18n;
-import { renderOptions } from '../options/options-component'
 
 const TabsComponent = (props) => {
     let tabs = props.params.tabs
@@ -12,12 +9,8 @@ const TabsComponent = (props) => {
         currentTab: 0,
     });
 
-    useEffect(() => {
-        document.dispatchEvent(new CustomEvent("kmtSubOptionsReady"));
-    }, [state]);
-
     const currentTab = tabs[Object.keys(tabs)[state.currentTab]];
-
+    const currentClass = props.currentClass ? ' ' + props.currentClass : '';
     return (
         <Fragment>
             <ul className="tabs">
@@ -32,8 +25,8 @@ const TabsComponent = (props) => {
                     </li>
                 })}
             </ul>
-            <div className="current-tab-options">
-                {renderOptions(currentTab.options)}
+            <div className={`current-tab-options${currentClass}`}>
+                {props.renderOptions(currentTab.options)}
             </div>
         </Fragment >
     );

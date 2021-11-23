@@ -1,4 +1,6 @@
 import { isDisplay, getSetting, getSettingId } from './options/options-component'
+const { kmtEvents } = window.KmtOptionComponent;
+
 (function ($, api) {
   var $window = $(window),
     $body = $("body");
@@ -91,15 +93,11 @@ import { isDisplay, getSetting, getSettingId } from './options/options-component
           let options = $.merge(section.controls(), section_layout.controls());
           if (isExpanded) {
             _.each(options, function (control) {
-              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
-                detail: { control, isExpanded: true }
-              }));
+              kmtEvents.trigger('kmtExpandedBuilder', { control, isExpanded: true });
             })
           } else {
             _.each(options, function (control) {
-              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
-                detail: { control, isExpanded: false }
-              }));
+              kmtEvents.trigger('kmtExpandedBuilder', { control, isExpanded: false });
             })
           }
           Promise.all([
