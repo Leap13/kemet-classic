@@ -170,9 +170,10 @@
     > .menu-item,
     > .page_item {
       > a {
-        border-bottom-style: var(--effectBorderStyle, solid);
-        border-bottom-color: var(--effectBorderColor, transparent);
-        border-bottom-width: var(--effectBorderWidth, 0);
+        &:not(:hover) {
+          border-bottom-color: transparent;
+        }
+        border-bottom: var(--effectBorder);
       }
     }
   }
@@ -180,9 +181,8 @@
     > .menu-item,
     > .page_item {
       > a {
-        border-top-style: var(--effectBorderStyle, solid);
-        border-top-color: var(--effectBorderColor, transparent);
-        border-top-width: var(--effectBorderWidth, 0);
+        border-top-color: transparent;
+        border-top: var(--effectBorder);
       }
     }
   }

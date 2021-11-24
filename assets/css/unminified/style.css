@@ -3527,16 +3527,18 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .main-header-menu[data-effect="border-bottom"] > .menu-item > a,
 .main-header-menu[data-effect="border-bottom"] > .page_item > a {
-	border-bottom-width: var(--effectBorderWidth, 0);
-	border-bottom-style: var(--effectBorderStyle, solid);
-	border-bottom-color: var(--effectBorderColor, transparent);
+	border-bottom: var(--effectBorder);
+}
+
+.main-header-menu[data-effect="border-bottom"] > .menu-item > a:not(:hover),
+.main-header-menu[data-effect="border-bottom"] > .page_item > a:not(:hover) {
+	border-bottom-color: transparent;
 }
 
 .main-header-menu[data-effect="border-top"] > .menu-item > a,
 .main-header-menu[data-effect="border-top"] > .page_item > a {
-	border-top-width: var(--effectBorderWidth, 0);
-	border-top-style: var(--effectBorderStyle, solid);
-	border-top-color: var(--effectBorderColor, transparent);
+	border-top: var(--effectBorder);
+	border-top-color: transparent;
 }
 
 .main-header-menu[data-effect="background"] > .menu-item > a,

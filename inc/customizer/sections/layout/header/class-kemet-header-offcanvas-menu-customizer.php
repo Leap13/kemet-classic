@@ -96,52 +96,12 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-border-bottom-width'       => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'divider'      => true,
-				'default'      => Kemet_Customizer::responsive_default_value( 1, 'px' ),
-				'transport'    => 'postMessage',
-				'label'        => __( 'Link Bottom Border Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-				'preview'      => array(
-					'selector'   => $selector,
-					'property'   => '--borderBottomWidth',
-					'responsive' => true,
-				),
-			),
-			self::$prefix . '-link-border-color'         => array(
-				'transport'  => 'postMessage',
-				'type'       => 'kmt-color',
-				'label'      => __( 'Link Border Color', 'kemet' ),
-				'responsive' => true,
-				'pickers'    => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
-					),
-					array(
-						'title' => __( 'Hover', 'kemet' ),
-						'id'    => 'hover',
-					),
-				),
-				'preview'    => array(
-					'responsive' => true,
-					'initial'    => array(
-						'selector' => $selector,
-						'property' => '--borderBottomColor',
-					),
-					'hover'      => array(
-						'selector' => $selector . ' li > a:hover, ' . $selector . ' li > .kmt-menu-item-wrap:hover',
-						'property' => '--borderBottomColor',
-					),
-				),
+			self::$prefix . '-border-bottom'             => array(
+				'type'        => 'kmt-border',
+				'responsive'  => true,
+				'divider'     => true,
+				'secondColor' => true,
+				'label'       => __( 'Link Bottom Border', 'kemet' ),
 			),
 			self::$prefix . '-item-spacing'              => array(
 				'transport'      => 'postMessage',
@@ -250,11 +210,11 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 					'responsive' => true,
 					'initial'    => array(
 						'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
-						'property' => '--borderBottomColor',
+						'property' => 'border-bottom-color',
 					),
 					'hover'      => array(
 						'selector' => $selector . ' > li ul > li > a:hover, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap:hover',
-						'property' => '--borderBottomColor',
+						'property' => 'border-bottom-color',
 					),
 				),
 			),

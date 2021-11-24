@@ -154,39 +154,19 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						'responsive' => true,
 					),
 				),
-				$prefix . '-link-border-width-hover'   => array(
-					'type'         => 'kmt-slider',
-					'responsive'   => true,
-					'transport'    => 'postMessage',
-					'label'        => __( 'Link Border Size on Hover', 'kemet' ),
-					'unit_choices' => array(
-						'px' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 20,
-						),
-					),
-					'preview'      => array(
-						'selector'   => $selector . ' > li > a',
-						'property'   => '--effectBorderWidth',
-						'responsive' => true,
-					),
-				),
-				$prefix . '-link-h-border-color'       => array(
+				$prefix . '-link-border-hover'         => array(
 					'transport' => 'postMessage',
-					'type'      => 'kmt-color',
-					'label'     => __( 'Link Hover Border Color', 'kemet' ),
-					'pickers'   => array(
-						array(
-							'title' => __( 'Initial', 'kemet' ),
-							'id'    => 'initial',
-						),
+					'type'      => 'kmt-border',
+					'divider'   => true,
+					'default'   => array(
+						'style' => 'none',
+						'width' => 1,
+						'color' => 'var(--linksHoverColor)',
 					),
+					'label'     => __( 'Link Border on Hover', 'kemet' ),
 					'preview'   => array(
-						'initial' => array(
-							'selector' => $selector . ' > li > a:hover',
-							'property' => '--effectBorderColor',
-						),
+						'selector' => $selector . ' > li > a',
+						'property' => '--effectBorder',
 					),
 				),
 				$prefix . '-spacing'                   => array(
