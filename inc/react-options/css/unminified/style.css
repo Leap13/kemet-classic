@@ -2253,14 +2253,26 @@ span.kmt-color-description {
 	text-align: center;
 }
 
+.customize-control-kmt-icon-select .icon-select .icon-select-label svg {
+	fill: #ccc;
+}
+
 .customize-control-kmt-icon-select .icon-select .icon-select-label:hover {
 	border-color: #f1f1f1;
 	color: var(--primaryColor);
 }
 
+.customize-control-kmt-icon-select .icon-select .icon-select-label:hover svg {
+	fill: var(--primaryColor);
+}
+
 .customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label {
 	border-color: #f1f1f1;
 	color: var(--primaryColor);
+}
+
+.customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label svg {
+	fill: var(--primaryColor);
 }
 
 .customize-control-kmt-icon-select .icon-select.rtl {

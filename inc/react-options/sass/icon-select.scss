@@ -29,16 +29,24 @@
     margin: 0;
     padding: 5px;
     text-align: center;
-
+    svg {
+      fill: #cccccc;
+    }
     &:hover {
       color: var(--primaryColor);
       border-color: #f1f1f1;
+      svg {
+        fill: var(--primaryColor);
+      }
     }
   }
 
   .icon-select-input:checked + .icon-select-label {
     color: var(--primaryColor);
     border-color: #f1f1f1;
+    svg {
+      fill: var(--primaryColor);
+    }
   }
 
   &.rtl {

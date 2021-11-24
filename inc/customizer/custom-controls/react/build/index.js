@@ -5605,26 +5605,6 @@ var AvailableComponent = function AvailableComponent(props) {
 
   linkRemovingItem();
 
-  var focusSection = function focusSection(section) {
-    if (undefined !== wp.customize.section(section)) {
-      wp.customize.section(section).focus();
-    }
-  };
-
-  var checkAvilabelItems = function checkAvilabelItems() {
-    var available = false;
-    Object.keys(choices).map(function (item) {
-      controlParams.zones.map(function (zone) {
-        Object.keys(items[zone]).map(function (row) {
-          if (items[zone][row].includes(item)) {
-            available = true;
-          }
-        });
-      });
-    });
-    return available;
-  };
-
   var renderItems = function renderItems(item, type) {
     var available = true;
     controlParams.zones.map(function (zone) {
@@ -5637,21 +5617,7 @@ var AvailableComponent = function AvailableComponent(props) {
     var list = [{
       id: item
     }];
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, !available && type == "used" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-      className: "kmt-builder-item-start"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
-      className: "kmt-builder-item",
-      "data-id": item,
-      onClick: function onClick() {
-        return focusSection(choices[item].section);
-      },
-      "data-section": choices[item] && choices[item].section ? choices[item].section : "",
-      key: item
-    }, choices[item] && choices[item].name ? choices[item].name : "", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-      className: "kmt-builder-item-icon"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Dashicon, {
-      icon: "arrow-right-alt2"
-    })))), available && type == "available" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react_sortablejs__WEBPACK_IMPORTED_MODULE_5__["ReactSortable"], {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, available && type == "available" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react_sortablejs__WEBPACK_IMPORTED_MODULE_5__["ReactSortable"], {
       animation: 100,
       className: "kmt-builder-item-start kmt-move-item",
       onStart: function onStart() {
@@ -5682,15 +5648,7 @@ var AvailableComponent = function AvailableComponent(props) {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-control-field kmt-available-items"
-  }, checkAvilabelItems(choices) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-available-items-title"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "customize-control-title"
-  }, __("Active Elements", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-used-items-container"
-  }, Object.keys(choices).map(function (item) {
-    return renderItems(item, "used");
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"

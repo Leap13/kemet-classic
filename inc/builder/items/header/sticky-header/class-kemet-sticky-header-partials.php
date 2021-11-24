@@ -51,15 +51,28 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Partials' ) ) {
 		 */
 		public static function enable_sticky() {
 			$sticky_rows = array( 'top', 'main', 'bottom' );
-
+			$enable      = false;
 			foreach ( $sticky_rows as $row ) {
 				if ( kemet_get_option( 'enable-sticky-' . $row ) || kemet_get_option( 'enable-sticky-mobile-' . $row ) ) {
-					return true;
+					$enable = true;
 				}
 			}
 
-			return false;
+			return apply_filters( 'kemet_enable_sticky_header', $enable );
 		}
+
+		/**
+		 * enable_sticky_row
+		 *
+		 * @param  string $row
+		 * @param  string $device
+		 * @return boolean
+		 */
+		public static function enable_sticky_row( $row, $device = 'desktop' ) {
+			$option = 'mobile' === $device ? 'enable-sticky-mobile-' . $row : 'enable-sticky-' . $row;
+			return apply_filters( 'kemet_enable_sticky_' . $row . '_header', kemet_get_option( $option ) );
+		}
+
 		/**
 		 * Header classes
 		 *
@@ -67,16 +80,19 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Partials' ) ) {
 		 * @return array
 		 */
 		public function body_classes( $classes ) {
+			if ( ! self::enable_sticky() ) {
+				return $classes;
+			}
 			// Sticky Header.
-			$sticky_top = kemet_get_option( 'enable-sticky-top' );
+			$sticky_top = self::enable_sticky_row( 'top' );
 			if ( $sticky_top ) {
 				$classes[] = 'kmt-sticky-top-bar';
 			}
-			$sticky_main = kemet_get_option( 'enable-sticky-main' );
+			$sticky_main = self::enable_sticky_row( 'main' );
 			if ( $sticky_main ) {
 				$classes[] = 'kmt-sticky-main-bar';
 			}
-			$sticky_bottom = kemet_get_option( 'enable-sticky-bottom' );
+			$sticky_bottom = self::enable_sticky_row( 'bottom' );
 			if ( $sticky_bottom ) {
 				$classes[] = 'kmt-sticky-bottom-bar';
 			}
@@ -90,8 +106,11 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Partials' ) ) {
 		 * @return array
 		 */
 		public function main_row_classes( $classes ) {
+			if ( ! self::enable_sticky() ) {
+				return $classes;
+			}
 			$shrink      = kemet_get_option( 'enable-shrink-main' );
-			$main_sticky = kemet_get_option( 'enable-sticky-main' );
+			$main_sticky = self::enable_sticky_row( 'main' );
 
 			if ( $shrink && $main_sticky ) {
 				$classes[] = 'kmt-shrink-effect';
@@ -108,7 +127,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Partials' ) ) {
 		 */
 		public function mobile_main_row_classes( $classes ) {
 			$shrink      = kemet_get_option( 'enable-shrink-main-mobile' );
-			$main_sticky = kemet_get_option( 'enable-sticky-mobile-main' );
+			$main_sticky = self::enable_sticky_row( 'main', 'mobile' );
 
 			if ( $shrink && $main_sticky ) {
 				$classes[] = 'kmt-shrink-effect';
@@ -226,17 +245,17 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Partials' ) ) {
 		 */
 		public function js_localize( $localize ) {
 
-			$localize['stickyTop']          = kemet_get_option( 'enable-sticky-top' ) ? 'on' : 'off';
-			$localize['stickyMain']         = kemet_get_option( 'enable-sticky-main' ) ? 'on' : 'off';
-			$localize['stickyBottom']       = kemet_get_option( 'enable-sticky-bottom' ) ? 'on' : 'off';
+			$localize['stickyTop']          = self::enable_sticky_row( 'top' ) ? 'on' : 'off';
+			$localize['stickyMain']         = self::enable_sticky_row( 'main' ) ? 'on' : 'off';
+			$localize['stickyBottom']       = self::enable_sticky_row( 'bottom' ) ? 'on' : 'off';
 			$localize['enableShrink']       = kemet_get_option( 'enable-shrink-main' ) ? 'on' : 'off';
 			$localize['enableStickyMobile'] = kemet_get_option( 'enable-sticky-mobile' ) ? 'on' : 'off';
 			$shrink_height                  = kemet_get_option( 'main-row-shrink-height' );
 			$shrink_height                  = '' !== $shrink_height ? $shrink_height['value'] : '';
 			$localize['shrinkHeight']       = $shrink_height;
-			$localize['stickyMobileTop']    = kemet_get_option( 'enable-sticky-mobile-top' ) ? 'on' : 'off';
-			$localize['stickyMobileMain']   = kemet_get_option( 'enable-sticky-mobile-main' ) ? 'on' : 'off';
-			$localize['stickyMobileBottom'] = kemet_get_option( 'enable-sticky-mobile-bottom' ) ? 'on' : 'off';
+			$localize['stickyMobileTop']    = self::enable_sticky_row( 'top', 'mobile' ) ? 'on' : 'off';
+			$localize['stickyMobileMain']   = self::enable_sticky_row( 'main', 'mobile' ) ? 'on' : 'off';
+			$localize['stickyMobileBottom'] = self::enable_sticky_row( 'bottom', 'mobile' ) ? 'on' : 'off';
 			$localize['enableMobileShrink'] = kemet_get_option( 'enable-shrink-main-mobile' ) ? 'on' : 'off';
 			$mobile_shrink_height           = kemet_get_option( 'mobile-main-row-shrink-height' );
 			$mobile_shrink_height           = '' !== $mobile_shrink_height ? $mobile_shrink_height['value'] : '';

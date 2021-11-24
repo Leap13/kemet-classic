@@ -68,11 +68,11 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 		 */
 		public static function meta_options() {
 			$options = array(
-				'page-settings-title'       => array(
+				'page-settings-title'         => array(
 					'type'  => 'kmt-title',
 					'label' => __( 'Page Settings', 'kemet' ),
 				),
-				'sidebar-layout'            => array(
+				'sidebar-layout'              => array(
 					'type'    => 'kmt-select',
 					'default' => 'default',
 					'label'   => __( 'Sidebar Layout', 'kemet' ),
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 					),
 				),
-				'content-layout'            => array(
+				'content-layout'              => array(
 					'type'    => 'kmt-select',
 					'default' => 'default',
 					'label'   => __( 'Page Layout', 'kemet' ),
@@ -95,12 +95,12 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'page-builder'            => __( 'Stretched Content', 'kemet' ),
 					),
 				),
-				'background'                => array(
+				'background'                  => array(
 					'type'       => 'kmt-background',
 					'responsive' => true,
 					'label'      => __( 'Page Background', 'kemet' ),
 				),
-				'boxed-background'          => array(
+				'boxed-background'            => array(
 					'type'       => 'kmt-background',
 					'responsive' => true,
 					'label'      => __( 'Page Boxed Background', 'kemet' ),
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'content-padding'           => array(
+				'content-padding'             => array(
 					'type'           => 'kmt-spacing',
 					'label'          => __( 'Content Padding', 'kemet' ),
 					'linked_choices' => true,
@@ -123,11 +123,11 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'bottom' => __( 'Bottom', 'kemet' ),
 					),
 				),
-				'pagetitle-settings-title'  => array(
+				'pagetitle-settings-title'    => array(
 					'type'  => 'kmt-title',
 					'label' => __( 'Page Title Settings', 'kemet' ),
 				),
-				'page-title-layouts'        => array(
+				'page-title-layouts'          => array(
 					'label'   => __( 'Page Title Layouts', 'kemet' ),
 					'type'    => 'kmt-radio-image',
 					'choices' => array(
@@ -153,11 +153,11 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'sub-title'                 => array(
+				'sub-title'                   => array(
 					'type'  => 'kmt-text',
 					'label' => __( 'Subtitle', 'kemet' ),
 				),
-				'sub-title-color'           => array(
+				'sub-title-color'             => array(
 					'type'    => 'kmt-color',
 					'label'   => __( 'Subtitle color', 'kemet' ),
 					'pickers' => array(
@@ -167,15 +167,15 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'disable-breadcrumbs'       => array(
+				'disable-breadcrumbs'         => array(
 					'type'  => 'kmt-switcher',
 					'label' => __( 'Disable Breadcrumbs', 'kemet' ),
 				),
-				'page-elements-title'       => array(
+				'page-elements-title'         => array(
 					'type'  => 'kmt-title',
 					'label' => __( 'Page Elements', 'kemet' ),
 				),
-				'overlay-header'            => array(
+				'overlay-header'              => array(
 					'type'    => 'kmt-radio',
 					'default' => 'default',
 					'label'   => __( 'Overlay Header', 'kemet' ),
@@ -185,29 +185,72 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'disable' => __( 'Disable', 'kemet' ),
 					),
 				),
-				'readymade-headers-desktop' => array(
+				'sticky-header'               => array(
+					'type'    => 'kmt-radio',
+					'default' => 'default',
+					'label'   => __( 'Sticky Header', 'kemet' ),
+					'choices' => array(
+						'default' => __( 'Default', 'kemet' ),
+						'enable'  => __( 'Enable', 'kemet' ),
+						'disable' => __( 'Disable', 'kemet' ),
+					),
+				),
+				'enable-sticky-top-header'    => array(
+					'type'    => 'kmt-switcher',
+					'default' => false,
+					'label'   => __( 'Stick Top Header', 'kemet' ),
+					'context' => array(
+						array(
+							'setting' => 'sticky-header',
+							'value'   => 'enable',
+						),
+					),
+				),
+				'disable-sticky-main-header'  => array(
+					'type'    => 'kmt-switcher',
+					'default' => false,
+					'label'   => __( 'Disable Main Header', 'kemet' ),
+					'context' => array(
+						array(
+							'setting' => 'sticky-header',
+							'value'   => 'enable',
+						),
+					),
+				),
+				'enable-sticky-bottom-header' => array(
+					'type'    => 'kmt-switcher',
+					'default' => false,
+					'label'   => __( 'Stick Bottom Header', 'kemet' ),
+					'context' => array(
+						array(
+							'setting' => 'sticky-header',
+							'value'   => 'enable',
+						),
+					),
+				),
+				'readymade-headers-desktop'   => array(
 					'label'     => __( 'Readymade Desktop Headers', 'kemet' ),
 					'type'      => 'kmt-readymade-headers',
 					'ref'       => 'header-desktop-items',
 					'transport' => 'postMessage',
 				),
-				'readymade-headers-mobile'  => array(
+				'readymade-headers-mobile'    => array(
 					'label'     => __( 'Readymade Mobile Headers', 'kemet' ),
 					'type'      => 'kmt-readymade-headers',
 					'ref'       => 'header-mobile-items',
 					'transport' => 'postMessage',
 				),
-				'disable-header'            => array(
+				'disable-header'              => array(
 					'type'    => 'kmt-switcher',
 					'default' => false,
 					'label'   => __( 'Disable Header', 'kemet' ),
 				),
-				'disable-footer'            => array(
+				'disable-footer'              => array(
 					'type'    => 'kmt-switcher',
 					'default' => false,
 					'label'   => __( 'Disable Footer', 'kemet' ),
 				),
-				'disable-featured-img'      => array(
+				'disable-featured-img'        => array(
 					'type'  => 'kmt-switcher',
 					'label' => __( 'Disable Featured Image', 'kemet' ),
 				),

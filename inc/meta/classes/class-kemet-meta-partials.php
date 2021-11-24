@@ -64,7 +64,86 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				add_filter( 'kemet_site_boxed_inner_bg', array( $this, 'page_boxed_background' ) );
 				add_filter( 'kemet_desktop_header_items', array( $this, 'desktop_header_items' ) );
 				add_filter( 'kemet_mobile_header_items', array( $this, 'mobile_header_items' ) );
+				add_filter( 'kemet_enable_sticky_header', array( $this, 'sticky_header' ) );
+				add_filter( 'kemet_enable_sticky_top_header', array( $this, 'sticky_top_header' ) );
+				add_filter( 'kemet_enable_sticky_main_header', array( $this, 'sticky_main_header' ) );
+				add_filter( 'kemet_enable_sticky_bottom_header', array( $this, 'sticky_bottom_header' ) );
 			}
+		}
+
+		/**
+		 * sticky_header
+		 *
+		 * @param  boolean $default
+		 * @return boolean
+		 */
+		public function sticky_header( $default ) {
+			$sticky_header = kemet_get_meta( 'sticky-header' );
+
+			if ( 'enable' === $sticky_header ) {
+				return true;
+			}
+
+			if ( 'disable' === $sticky_header ) {
+				return false;
+			}
+
+			return $default;
+		}
+
+		/**
+		 * sticky_header
+		 *
+		 * @param  boolean $default
+		 * @return boolean
+		 */
+		public function sticky_top_header( $default ) {
+			$sticky_header     = kemet_get_meta( 'sticky-header' );
+			$sticky_top_header = kemet_get_meta( 'enable-sticky-top-header' );
+
+			if ( 'enable' === $sticky_header && $sticky_top_header ) {
+				return true;
+			}
+
+			return false;
+		}
+
+		/**
+		 * sticky_header
+		 *
+		 * @param  boolean $default
+		 * @return boolean
+		 */
+		public function sticky_main_header( $default ) {
+			$sticky_header      = kemet_get_meta( 'sticky-header' );
+			$sticky_main_header = kemet_get_meta( 'disable-sticky-main-header' );
+
+			if ( 'enable' === $sticky_header && ! $sticky_main_header ) {
+				return true;
+			}
+			error_log( $sticky_main_header );
+			if ( $sticky_main_header ) {
+				return false;
+			}
+
+			return $default;
+		}
+
+		/**
+		 * sticky_header
+		 *
+		 * @param  boolean $default
+		 * @return boolean
+		 */
+		public function sticky_bottom_header( $default ) {
+			$sticky_header        = kemet_get_meta( 'sticky-header' );
+			$sticky_bottom_header = kemet_get_meta( 'enable-sticky-bottom-header' );
+
+			if ( 'enable' === $sticky_header && $sticky_bottom_header ) {
+				return true;
+			}
+
+			return false;
 		}
 
 		/**

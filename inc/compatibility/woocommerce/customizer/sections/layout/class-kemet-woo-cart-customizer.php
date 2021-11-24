@@ -32,12 +32,16 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							'shop-cart-icon'        => array(
-								'type'      => 'kmt-radio',
+								'type'      => 'kmt-icon-select',
 								'transport' => 'postMessage',
 								'label'     => __( 'Icon Display', 'kemet' ),
 								'choices'   => array(
-									'cart' => __( 'Cart', 'kemet' ),
-									'bag'  => __( 'Bag', 'kemet' ),
+									'cart' => array(
+										'icon' => 'kmt-cart',
+									),
+									'bag'  => array(
+										'icon' => 'kmt-bag',
+									),
 								),
 							),
 							'disable-cart-if-empty' => array(

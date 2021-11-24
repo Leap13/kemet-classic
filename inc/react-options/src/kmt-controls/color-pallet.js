@@ -131,7 +131,7 @@ const ColorPalettes = ({
                 <span className="customize-control-title kmt-control-title">
                     {label}
                 </span>
-                {label && <a href={'https://kemet.io/docs/global-colors/'}> </a>}
+                {label && <a href={'https://kemet.io/docs/global-colors/'} target='_blank'> </a>}
             </header>
             <OutsideClickHandler
                 disabled={!isOpen}

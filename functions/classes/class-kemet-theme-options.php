@@ -416,21 +416,25 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'container-inner-spacing'              => '',
 					'content-separator-color'              => '',
 					// Typography.
-					'site-title-font-size'                 => array(
-						'desktop'      => 35,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
+					'site-title-typography'                => array(
+						'size' => array(
+							'desktop'      => 35,
+							'tablet'       => '',
+							'mobile'       => '',
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						),
 					),
-					'font-size-site-tagline'               => array(
-						'desktop'      => 15,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
+					'tagline-typography'                   => array(
+						'size' => array(
+							'desktop'      => 15,
+							'tablet'       => '',
+							'mobile'       => '',
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						),
 					),
 					'site-title-letter-spacing'            => '',
 					'tagline-letter-spacing'               => '',

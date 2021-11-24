@@ -48,25 +48,6 @@ const AvailableComponent = (props) => {
   };
 
   linkRemovingItem();
-  const focusSection = (section) => {
-    if (undefined !== wp.customize.section(section)) {
-      wp.customize.section(section).focus();
-    }
-  };
-
-  const checkAvilabelItems = () => {
-    let available = false;
-    Object.keys(choices).map((item) => {
-      controlParams.zones.map((zone) => {
-        Object.keys(items[zone]).map((row) => {
-          if (items[zone][row].includes(item)) {
-            available = true;
-          }
-        });
-      });
-    })
-    return available;
-  }
 
   const renderItems = (item, type) => {
     let available = true;
@@ -81,26 +62,6 @@ const AvailableComponent = (props) => {
     let list = [{ id: item }];
     return (
       <Fragment>
-        {!available && type == "used" && (
-          <div className={"kmt-builder-item-start"}>
-            <Button
-              className="kmt-builder-item"
-              data-id={item}
-              onClick={() => focusSection(choices[item].section)}
-              data-section={
-                choices[item] && choices[item].section
-                  ? choices[item].section
-                  : ""
-              }
-              key={item}
-            >
-              {choices[item] && choices[item].name ? choices[item].name : ""}
-              <span className="kmt-builder-item-icon">
-                <Dashicon icon="arrow-right-alt2" />
-              </span>
-            </Button>
-          </div>
-        )}
         {available && type == "available" && (
           <ReactSortable
             animation={100}
@@ -128,16 +89,6 @@ const AvailableComponent = (props) => {
   };
   return (
     <div className="kmt-control-field kmt-available-items">
-      {checkAvilabelItems(choices) && <div className="kmt-available-items-title">
-        <span className="customize-control-title">
-          {__("Active Elements", "kemet")}
-        </span>
-      </div>}
-      <div className="kmt-used-items-container">
-        {Object.keys(choices).map((item) => {
-          return renderItems(item, "used");
-        })}
-      </div>
       <div className="kmt-available-items-title">
         <span className="customize-control-title">
           {__("Available Elements", "kemet")}

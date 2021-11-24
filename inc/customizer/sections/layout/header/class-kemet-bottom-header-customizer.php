@@ -51,13 +51,14 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 								'type'         => 'kmt-slider',
 								'divider'      => true,
 								'responsive'   => true,
+								'default'      => Kemet_Customizer::responsive_default_value( 70, 'px' ),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Min Height', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 500,
+										'max'  => 300,
 									),
 									'em' => array(
 										'min'  => 0,

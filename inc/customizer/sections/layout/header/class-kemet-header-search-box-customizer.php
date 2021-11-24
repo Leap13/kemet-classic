@@ -64,7 +64,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									'px' => array(
 										'min'  => 10,
 										'step' => 1,
-										'max'  => 300,
+										'max'  => 100,
 									),
 								),
 								'preview'      => array(
@@ -172,7 +172,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									'px' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 100,
+										'max'  => 30,
 									),
 								),
 								'preview'      => array(

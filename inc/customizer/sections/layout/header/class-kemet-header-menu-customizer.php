@@ -45,9 +45,9 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Hover Effect', 'kemet' ),
 					'choices'   => array(
 						'none'          => __( 'None', 'kemet' ),
-						'background'    => __( 'Background', 'kemet' ),
-						'border-bottom' => __( 'Border Bottom', 'kemet' ),
-						'border-top'    => __( 'Border Top', 'kemet' ),
+						'background'    => __( 'Style 1', 'kemet' ),
+						'border-bottom' => __( 'Style 2', 'kemet' ),
+						'border-top'    => __( 'Style 3', 'kemet' ),
 					),
 					'preview'   => array(
 						'selector' => $selector,
@@ -140,7 +140,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						'px' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 100,
+							'max'  => 50,
 						),
 						'%'  => array(
 							'min'  => 0,
@@ -163,7 +163,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						'px' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 100,
+							'max'  => 20,
 						),
 					),
 					'preview'      => array(
@@ -244,6 +244,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-submenu-width' => array(
 									'type'         => 'kmt-slider',
 									'transport'    => 'postMessage',
+									'default'      => array(
+										'value' => 240,
+										'unit'  => 'px',
+									),
 									'label'        => __( 'Submenu Width', 'kemet' ),
 									'unit_choices' => array(
 										'px' => array(
@@ -265,7 +269,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-submenu-effect' => array(
 									'type'    => 'kmt-radio',
 									'default' => 'none',
-									// 'transport' => 'postMessage',
 									'label'   => __( 'Dropdown Reveal', 'kemet' ),
 									'choices' => array(
 										'none'      => __( 'None', 'kemet' ),
@@ -359,7 +362,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 										'px' => array(
 											'min'  => 0,
 											'step' => 1,
-											'max'  => 50,
+											'max'  => 30,
 										),
 									),
 									'preview'      => array(

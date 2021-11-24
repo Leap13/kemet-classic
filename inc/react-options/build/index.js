@@ -18909,7 +18909,33 @@ var Icons = {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
       d: "M0,0V39H66V0ZM2,37V2h9V37Zm20,0H13V2h9Zm11,0H24V2h9Zm11,0H35V2h9Zm20,0H46V2H64Z"
     }))
-  }
+  },
+  'kmt-cart': Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
+    id: "Outline",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "20",
+    height: "20",
+    viewBox: "0 0 23.41 24"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "cart-outline"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    d: "M22.71,4.08A3,3,0,0,0,20.41,3H4.24l0-.35A3,3,0,0,0,1.22,0H1A1,1,0,0,0,1,2h.22a1,1,0,0,1,1,.88l1.38,11.7a5,5,0,0,0,5,4.42H19a1,1,0,0,0,0-2H8.56a3,3,0,0,1-2.82-2H17.66a5,5,0,0,0,4.92-4.11l.78-4.36A3,3,0,0,0,22.71,4.08ZM21.4,6.18l-.79,4.35A3,3,0,0,1,17.66,13H5.42L4.48,5H20.41a1,1,0,0,1,1,1A1.11,1.11,0,0,1,21.4,6.18Z"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("circle", {
+    cx: "7",
+    cy: "22",
+    r: "2"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("circle", {
+    cx: "17",
+    cy: "22",
+    r: "2"
+  })),
+  'kmt-bag': Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
+    id: "Outline",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "20",
+    height: "20",
+    viewBox: "0 0 24 24"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "bag-outline"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    d: "M21,6H18A6,6,0,0,0,6,6H3A3,3,0,0,0,0,9V19a5,5,0,0,0,5,5H19a5,5,0,0,0,5-5V9A3,3,0,0,0,21,6ZM12,2a4,4,0,0,1,4,4H8A4,4,0,0,1,12,2ZM22,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V9A1,1,0,0,1,3,8H6v2a1,1,0,0,0,2,0V8h8v2a1,1,0,0,0,2,0V8h3a1,1,0,0,1,1,1Z"
+  }))
 };
 /* harmony default export */ __webpack_exports__["default"] = (Icons);
 
@@ -21079,7 +21105,8 @@ var ColorPalettes = function ColorPalettes(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label), label && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("a", {
-    href: 'https://kemet.io/docs/global-colors/'
+    href: 'https://kemet.io/docs/global-colors/',
+    target: "_blank"
   }, " ")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
     disabled: !isOpen,
     useCapture: false,
@@ -21858,6 +21885,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _common_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/icons */ "./src/common/icons.js");
+
 
 
 
@@ -21877,13 +21906,12 @@ var IconSelectComponent = function IconSelectComponent(props) {
   var _props$params = props.params,
       label = _props$params.label,
       description = _props$params.description,
-      id = _props$params.id,
       choices = _props$params.choices;
   var ContentHTML = [];
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label) : null;
-  var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+  var descriptionContent = description && description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "description customize-control-description"
   }, description) : null;
   ContentHTML = Object.entries(choices).map(function (_ref) {
@@ -21891,25 +21919,27 @@ var IconSelectComponent = function IconSelectComponent(props) {
         key = _ref2[0],
         icon = _ref2[1];
 
+    console.log(_common_icons__WEBPACK_IMPORTED_MODULE_4__["default"], _common_icons__WEBPACK_IMPORTED_MODULE_4__["default"][icon['icon']]);
+    var iconHtml = _common_icons__WEBPACK_IMPORTED_MODULE_4__["default"][icon['icon']] ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, _common_icons__WEBPACK_IMPORTED_MODULE_4__["default"][icon['icon']]) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+      className: "dashicons ".concat(icon['icon'])
+    });
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
       type: "radio",
       className: "icon-select-input",
       value: key,
-      name: "_customize-icon-select-".concat(id),
+      name: "_customize-icon-select-".concat(props.id),
       checked: value === key,
       onChange: function onChange() {
         return onLayoutChange(key);
       }
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "icon-select-label"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-      className: "dashicons ".concat(icon['icon'])
-    })));
+    }, iconHtml));
   });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", {
     className: "customizer-text"
   }, labelContent, descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    id: id,
+    id: props.id,
     className: "icon-select"
   }, ContentHTML));
 };
