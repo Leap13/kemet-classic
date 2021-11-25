@@ -2788,7 +2788,7 @@ span.kmt-color-description {
 }
 
 .css-ln2ltz-Thumb {
-	border-width: 2px;
+	border-width: 2px !important;
 	box-shadow: none !important;
 }
 
