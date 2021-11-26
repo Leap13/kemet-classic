@@ -30,6 +30,13 @@
         text-decoration: none;
         content: "\f223";
         color: #50575e;
+        line-height: 1;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+        text-rendering: auto;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
       }
 
       &:hover::before {

@@ -42,6 +42,9 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 									'bag'  => array(
 										'icon' => 'kmt-bag',
 									),
+									'dcart' => array(
+										'icon' => 'kmt-dcart',
+									),
 								),
 							),
 							'disable-cart-if-empty' => array(

@@ -38,12 +38,9 @@ const ReadymadeHeaders = props => {
             title: __('Header 1', 'kemet'),
             image: kemetReactControls.theme_url + 'assets/images/page-title-layout-01.png',
             value: {
-                top: {
-                    top_left: ['search']
-                },
                 main: {
                     main_left: ['logo'],
-                    main_right: ['primary-menu']
+                    main_right: ['primary-menu', 'search']
                 },
             }
         },
@@ -51,12 +48,68 @@ const ReadymadeHeaders = props => {
             title: __('Header 2', 'kemet'),
             image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
             value: {
-                top: {
-                    top_left: ['search-box']
+                main: {
+                    main_left: ['primary-menu', 'search'],
+                    main_right: ['logo']
                 },
+            }
+        },
+        header3: {
+            title: __('Header 3', 'kemet'),
+            image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
+            value: {
+                main: {
+                    main_center: ['logo']
+                },
+                bottom: {
+                    bottom_center: ['primary-menu'],
+                },
+            }
+        },
+        header4: {
+            title: __('Header 4', 'kemet'),
+            image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
+            value: {
+                main: {
+                    main_left: ['search-box'],
+                    main_center: ['logo'],
+                    main_right: ['desktop-toggle']
+                },
+                popup: {
+                    popup_content: ['offcanvas-menu']
+                },
+            }
+        },
+        header5: {
+            title: __('Header 5', 'kemet'),
+            image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
+            value: {
                 main: {
                     main_left: ['logo'],
-                    main_right: ['desktop-toggle']
+                    main_right: ['search', 'desktop-toggle']
+                },
+                popup: {
+                    popup_content: ['offcanvas-menu']
+                },
+            }
+        },
+        header6: {
+            title: __('Header 6', 'kemet'),
+            image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
+            value: {
+                main: {
+                    main_left: ['logo'],
+                    main_right: ['primary-menu', 'search-box']
+                },
+            }
+        },
+        header7: {
+            title: __('Header 7', 'kemet'),
+            image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
+            value: {
+                main: {
+                    main_left: ['logo'],
+                    main_right: ['primary-menu', 'header-button-1']
                 },
             }
         }

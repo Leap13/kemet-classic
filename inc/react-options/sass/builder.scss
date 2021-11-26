@@ -194,7 +194,7 @@
     backface-visibility: hidden;
   }
   .accordion-section-content {
-    color: #2d3748;
+    color: #50575e;
   }
 }
 .kmt-compontent-tabs {
@@ -281,6 +281,11 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
     .customize-partial-edit-shortcut {
       display: none;
     }
+  }
+}
+.customize-control-kmt-available {
+  .kmt-available-items {
+    margin-bottom: 15px;
   }
 }
 .menu-toggle-open {
@@ -746,6 +751,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
     }
   }
 }
+
 .kmt-builder-item-start {
   margin-bottom: 10px;
   min-height: 34px;
@@ -774,6 +780,11 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
     &:hover {
       background: #fbfbfc;
     }
+  }
+}
+.kmt-available-items-container {
+  .kmt-builder-item-start:last-child {
+    margin-bottom: 0px;
   }
 }
 #accordion-section-section-header-builder {
@@ -1258,7 +1269,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   }
 }
 .customize-control-kmt-focus-button {
-  border-top: 1px solid #ddd;
   padding-top: 10px;
 }
 .kmt-builder-areas.kmt-builder-mode-header.popup-vertical-group {
@@ -1429,7 +1439,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-available-items-container {
   min-width: 80px;
   border: 1px dashed #a0aec0;
-  padding: 20px 10px 10px;
+  padding: 10px 10px 10px;
   background: #fff;
   color: #777;
 }

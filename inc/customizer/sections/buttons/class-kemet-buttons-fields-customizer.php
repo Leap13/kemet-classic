@@ -383,6 +383,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			'section-buttons-fields' => array(
 				'priority' => 50,
 				'title'    => __( 'Buttons & Fields', 'kemet' ),
+				'infoLink' => esc_url( 'https://kemet.io/docs/buttons-fields/' ),
 			),
 		);
 

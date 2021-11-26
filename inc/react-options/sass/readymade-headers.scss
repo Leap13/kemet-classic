@@ -9,6 +9,22 @@
         box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
       }
     }
+    &:focus {
+      img {
+        border: 1px solid #0085ba;
+        background-color: #0085ba;
+        -webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+        box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+      }
+    }
+    &:checked {
+      img {
+        border: 1px solid #0085ba;
+        background-color: #0085ba;
+        -webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+        box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+      }
+    }
     img {
       border: 1px solid #f1f1f1;
       background-color: #ccc;

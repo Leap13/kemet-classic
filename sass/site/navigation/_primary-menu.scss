@@ -34,14 +34,14 @@
 
 .main-header-menu {
   li > a {
-    --padding: 27px 1em;
+    --padding: 0 1em;
     display: inline-block;
     @include kmt-transition();
   }
 
   li {
     position: relative;
-
+    line-height: 80px;
     &:hover > ul,
     &.focus > ul {
       left: 0;

@@ -221,6 +221,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 		$register_panel = array(
 			'panel-layout' => array(
 				'priority' => 25,
+				'infoLink' => esc_url( 'https://kemet.io/docs/how-to-customize-your-layout/' ),
 				'title'    => __( 'Layout', 'kemet' ),
 			),
 		);

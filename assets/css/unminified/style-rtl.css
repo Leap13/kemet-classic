@@ -2889,11 +2889,12 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	display: inline-block;
 	transition: all 0.2s linear;
 
-	--padding: 27px 1em;
+	--padding: 0 1em;
 }
 
 .main-header-menu li {
 	position: relative;
+	line-height: 80px;
 }
 
 .main-header-menu li:hover > ul,
@@ -3265,6 +3266,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .kmt-svg-icon.icon-search svg {
 	width: 1em;
+	height: 100%;
 	margin-left: 10px;
 }
 
@@ -3525,39 +3527,49 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	padding: var(--padding);
 }
 
-.main-header-menu[data-effect="border-bottom"] > .menu-item > a,
-.main-header-menu[data-effect="border-bottom"] > .page_item > a {
-	border-bottom: var(--effectBorder);
-}
-
-.main-header-menu[data-effect="border-bottom"] > .menu-item > a:not(:hover),
-.main-header-menu[data-effect="border-bottom"] > .page_item > a:not(:hover) {
-	border-bottom-color: transparent;
-}
-
-.main-header-menu[data-effect="border-top"] > .menu-item > a,
-.main-header-menu[data-effect="border-top"] > .page_item > a {
-	border-top: var(--effectBorder);
-	border-top-color: transparent;
-}
-
-.main-header-menu[data-effect="background"] > .menu-item > a,
-.main-header-menu[data-effect="background"] > .page_item > a {
+.main-header-menu[data-effect="style1"] > .menu-item > a,
+.main-header-menu[data-effect="style1"] > .page-item > a {
 	position: relative;
+	line-height: 40px;
 }
 
-.main-header-menu[data-effect="background"] > .menu-item > a:hover,
-.main-header-menu[data-effect="background"] > .page_item > a:hover {
-	--linksHoverColor: var(--linksColor);
+.main-header-menu[data-effect="style1"] > .menu-item > a::before,
+.main-header-menu[data-effect="style1"] > .page-item > a::before {
+	position: absolute;
+	width: 0;
+	height: 3px;
+	background-color: currentColor;
+	content: "";
+	transition: all 0.35s ease;
 }
 
-.main-header-menu[data-effect="background"] > .menu-item > a:hover::after,
-.main-header-menu[data-effect="background"] > .page_item > a:hover::after {
+.main-header-menu[data-effect="style1"] > .menu-item > a::before,
+.main-header-menu[data-effect="style1"] > .page-item > a::before {
+	top: 0;
+	right: 0;
+}
+
+.main-header-menu[data-effect="style1"] > .menu-item:hover > a::before {
 	width: 100%;
 }
 
-.main-header-menu[data-effect="background"] > .menu-item > a::after,
-.main-header-menu[data-effect="background"] > .page_item > a::after {
+.main-header-menu[data-effect="style2"] > .menu-item > a,
+.main-header-menu[data-effect="style2"] > .page_item > a {
+	position: relative;
+}
+
+.main-header-menu[data-effect="style2"] > .menu-item > a:hover,
+.main-header-menu[data-effect="style2"] > .page_item > a:hover {
+	color: var(--buttonColor);
+}
+
+.main-header-menu[data-effect="style2"] > .menu-item > a:hover::after,
+.main-header-menu[data-effect="style2"] > .page_item > a:hover::after {
+	width: 100%;
+}
+
+.main-header-menu[data-effect="style2"] > .menu-item > a::after,
+.main-header-menu[data-effect="style2"] > .page_item > a::after {
 	display: block;
 	position: absolute;
 	z-index: -1;
@@ -3572,6 +3584,41 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	content: "";
 	transition: opacity 0.3s ease, width 0.3s ease;
 	pointer-events: none;
+}
+
+.main-header-menu[data-effect="style3"] > .menu-item > a,
+.main-header-menu[data-effect="style3"] > .page-item > a {
+	position: relative;
+	line-height: 40px;
+}
+
+.main-header-menu[data-effect="style3"] > .menu-item > a::before,
+.main-header-menu[data-effect="style3"] > .menu-item > a::after,
+.main-header-menu[data-effect="style3"] > .page-item > a::before,
+.main-header-menu[data-effect="style3"] > .page-item > a::after {
+	position: absolute;
+	width: 0;
+	height: 3px;
+	background-color: currentColor;
+	content: "";
+	transition: all 0.35s ease;
+}
+
+.main-header-menu[data-effect="style3"] > .menu-item > a::before,
+.main-header-menu[data-effect="style3"] > .page-item > a::before {
+	top: 0;
+	right: 0;
+}
+
+.main-header-menu[data-effect="style3"] > .menu-item > a::after,
+.main-header-menu[data-effect="style3"] > .page-item > a::after {
+	bottom: 0;
+	left: 0;
+}
+
+.main-header-menu[data-effect="style3"] > .menu-item:hover > a::before,
+.main-header-menu[data-effect="style3"] > .menu-item:hover > a::after {
+	width: 100%;
 }
 
 .main-header-menu ul.sub-menu > .menu-item > a,
@@ -3781,16 +3828,12 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	justify-content: flex-end;
 }
 
-.site-header-section > * {
-	padding: 0 10px;
-}
-
 .site-header-section > div:last-child {
-	padding-left: 0;
+	margin-left: 0;
 }
 
 .site-header-section > div:first-child {
-	padding-right: 0;
+	margin-right: 0;
 }
 
 .kmt-grid-left-center-section {
@@ -7023,7 +7066,7 @@ Hide From Devices
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,	visibility 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 	transition: all 0.5s ease-in-out;
 	transform: translate3d(0, 15px, 0);
 

@@ -422,6 +422,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					'priority' => 35,
 					'title'    => __( 'Sticky Header', 'kemet' ),
 					'panel'    => 'panel-header-builder-group',
+					'infoLink' => esc_url( 'https://kemet.io/docs/sticky-header/' ),
 				),
 			);
 

@@ -1408,6 +1408,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				case 'bag':
 					$icon = Kemet_Svg_Icons::get_icons( 'bag' );
 					break;
+				case 'dcart':
+					$icon = Kemet_Svg_Icons::get_icons( 'dcart' );
+					break;
 			}
 			switch ( $cart_display ) {
 				case 'icon':

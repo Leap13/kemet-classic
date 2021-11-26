@@ -48,6 +48,7 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 			'section-preformance' => array(
 				'priority' => 65,
 				'title'    => __( 'Preformance', 'kemet' ),
+				'infoLink' => esc_url( 'https://kemet.io/docs/performance/' ),
 			),
 		);
 

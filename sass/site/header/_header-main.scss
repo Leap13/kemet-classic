@@ -166,33 +166,42 @@
       padding: var(--padding);
     }
   }
-  &[data-effect="border-bottom"] {
+    &[data-effect="style1"] {
     > .menu-item,
-    > .page_item {
+    > .page-item {
       > a {
-        &:not(:hover) {
-          border-bottom-color: transparent;
-        }
-        border-bottom: var(--effectBorder);
+        line-height: 40px;
+        position: relative;
+       &::before {
+          height: 3px;
+          position: absolute;
+          content: '';
+          -webkit-transition: all 0.35s ease;
+          transition: all 0.35s ease;
+          background-color: currentColor;
+          width: 0;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+      }
+    }
+    }
+     > .menu-item:hover {
+      > a {
+      &::before {
+        width: 100%;
       }
     }
   }
-  &[data-effect="border-top"] {
-    > .menu-item,
-    > .page_item {
-      > a {
-        border-top-color: transparent;
-        border-top: var(--effectBorder);
-      }
-    }
   }
-  &[data-effect="background"] {
+  &[data-effect="style2"] {
     > .menu-item,
     > .page_item {
       > a {
         position: relative;
         &:hover {
-          --linksHoverColor: var(--linksColor);
+          color: var(--buttonColor);;
           &::after {
             width: 100%;
           }
@@ -215,6 +224,41 @@
         }
       }
     }
+  }
+    &[data-effect="style3"] {
+    > .menu-item,
+    > .page-item {
+      > a {
+        line-height: 40px;
+        position: relative;
+       &::before,
+       &::after {
+          height: 3px;
+          position: absolute;
+          content: '';
+          -webkit-transition: all 0.35s ease;
+          transition: all 0.35s ease;
+          background-color: currentColor;
+          width: 0;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+      }
+      &::after {
+        bottom: 0;
+        right: 0;
+      }
+    }
+    }
+     > .menu-item:hover {
+      > a {
+      &::before,
+      &::after {
+        width: 100%;
+      }
+    }
+  }
   }
   ul.sub-menu,
   ul.children {
@@ -407,15 +451,12 @@
   justify-content: flex-end;
 }
 .site-header-section {
-  > * {
-    padding: 0 10px;
-  }
   > div {
     &:last-child {
-      padding-right: 0;
+      margin-right: 0px;
     }
     &:first-child {
-      padding-left: 0;
+      margin-left: 0;
     }
   }
 }

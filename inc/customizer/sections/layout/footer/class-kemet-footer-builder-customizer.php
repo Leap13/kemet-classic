@@ -193,6 +193,7 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 		$footer_builder_panels = array(
 			'panel-footer-builder-group' => array(
 				'priority' => 60,
+				'infoLink' => esc_url( 'https://kemet.io/docs/how-to-customize-kemet-footer/' ),
 				'title'    => __( 'Footer Builder', 'kemet' ),
 			),
 		);

@@ -712,8 +712,15 @@ div.kmt-type-control span,
 	color: #50575e;
 	font-family: dashicons;
 	font-size: 20px;
+	font-weight: 400;
+	font-style: normal;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1;
+	text-align: center;
 	text-decoration: none;
+	text-transform: none;
 	content: "\f223";
+	text-rendering: auto;
 }
 
 .customize-control-kmt-color-palettes header a:hover::before {
@@ -2069,7 +2076,7 @@ span.kmt-color-description {
 .kmt-docs-link {
 	display: inline-block;
 	outline: none !important;
-	color: #2d3748;
+	color: #50575e;
 	box-shadow: none !important;
 	text-decoration: none;
 }
@@ -2246,7 +2253,7 @@ span.kmt-color-description {
 	display: block;
 	width: 100%;
 	margin: 0;
-	padding: 5px;
+	padding: 15px;
 	border: 1px solid #f1f1f1;
 	color: #ccc;
 	background-color: #fff;
@@ -2254,6 +2261,8 @@ span.kmt-color-description {
 }
 
 .customize-control-kmt-icon-select .icon-select .icon-select-label svg {
+	height: 20px;
+
 	fill: #ccc;
 }
 
@@ -2367,7 +2376,7 @@ span.kmt-color-description {
 	width: 30px;
 	height: calc(100% - 2px);
 	opacity: 0.7;
-	color: #2d3748;
+	color: #50575e;
 }
 
 .kmt-option-number > a:before,
@@ -2504,6 +2513,20 @@ span.kmt-color-description {
 }
 
 .customize-control-kmt-readymade-headers label.active img {
+	border: 1px solid #0085ba;
+	background-color: #0085ba;
+	-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+	box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+}
+
+.customize-control-kmt-readymade-headers label:focus img {
+	border: 1px solid #0085ba;
+	background-color: #0085ba;
+	-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+	box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+}
+
+.customize-control-kmt-readymade-headers label:checked img {
 	border: 1px solid #0085ba;
 	background-color: #0085ba;
 	-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
@@ -2787,6 +2810,11 @@ span.kmt-color-description {
 	outline: none !important;
 }
 
+.css-ln2ltz-Thumb {
+	border-width: 2px !important;
+	box-shadow: none !important;
+}
+
 .customize-control-kmt-sortable .kmt-sortable ul {
 	cursor: default;
 }
@@ -2941,7 +2969,7 @@ span.kmt-color-description {
 }
 
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper .kmt-spacing-input-item-link .kmt-spacing-disconnected {
-	color: #2d3748;
+	color: #50575e;
 }
 
 input::-webkit-outer-spin-button,
@@ -3117,7 +3145,7 @@ input[type="number"] {
 .customize-control-kmt-title .customize-control-title > a {
 	margin-right: 5px;
 	outline: none;
-	color: #2d3748;
+	color: #50575e;
 	box-shadow: none;
 	text-decoration: none;
 }
@@ -4755,7 +4783,7 @@ input[type="checkbox"]:focus {
 	box-shadow: 0 0 0 0 transparent;
 	font-size: 12px !important;
 	line-height: normal;
-	transition: box-shadow 0.1s linear, background 0.1s linear,	border-radius 0.1s linear, border-color 0.1s linear;
+	transition: box-shadow 0.1s linear, background 0.1s linear, border-radius 0.1s linear, border-color 0.1s linear;
 }
 
 .kmt-upload-icon-container {
@@ -5033,7 +5061,7 @@ input[type="checkbox"]:focus {
 }
 
 #customize-theme-controls .accordion-section-content {
-	color: #2d3748;
+	color: #50575e;
 }
 
 .kmt-compontent-tabs {
@@ -5120,6 +5148,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .site-branding .site-description .customize-partial-edit-shortcut {
 	display: none;
+}
+
+.customize-control-kmt-available .kmt-available-items {
+	margin-bottom: 15px;
 }
 
 .menu-toggle-open .customize-partial-edit-shortcut {
@@ -5617,6 +5649,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-item-start button.kmt-builder-item:hover {
 	background: #fbfbfc;
+}
+
+.kmt-available-items-container .kmt-builder-item-start:last-child {
+	margin-bottom: 0;
 }
 
 #accordion-section-section-header-builder {
@@ -6141,7 +6177,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .customize-control-kmt-focus-button {
 	padding-top: 10px;
-	border-top: 1px solid #ddd;
 }
 
 .kmt-builder-areas.kmt-builder-mode-header.popup-vertical-group .kmt-row-actions {
@@ -6291,7 +6326,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-available-items-container {
 	min-width: 80px;
-	padding: 20px 10px 10px;
+	padding: 10px 10px 10px;
 	border: 1px dashed #a0aec0;
 	color: #777;
 	background: #fff;
@@ -7365,7 +7400,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	padding: 0;
 	border-radius: 2px;
 	outline: 0 none;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;
@@ -7411,7 +7446,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	margin-top: -1px;
 	padding: 0;
 	border-radius: 1px 0 4px 4px;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;
