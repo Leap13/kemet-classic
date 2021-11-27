@@ -22934,6 +22934,15 @@ var ReadymadeHeaders = function ReadymadeHeaders(props) {
           main_right: ['desktop-toggle']
         }
       }
+    },
+    header3: {
+      title: __('Header 3', 'kemet'),
+      image: kemetReactControls.theme_url + 'assets/images/page-title-layout-02.png',
+      value: {
+        bottom: {
+          bottom_center: ['logo']
+        }
+      }
     }
   };
 
