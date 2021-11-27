@@ -89,11 +89,12 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-icon-color' => array(
-								'transport' => 'postMessage',
-								'divider'   => true,
-								'type'      => 'kmt-color',
-								'label'     => __( 'Icon Colors', 'kemet' ),
-								'pickers'   => array(
+								'transport'  => 'postMessage',
+								'divider'    => true,
+								'responsive' => true,
+								'type'       => 'kmt-color',
+								'label'      => __( 'Icon Colors', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
@@ -103,39 +104,43 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'hover',
 									),
 								),
-								'preview'   => array(
-									'initial' => array(
+								'preview'    => array(
+									'responsive' => true,
+									'initial'    => array(
 										'selector' => $parent_selector . ' .kemet-search-icon',
 										'property' => '--linksColor',
 									),
-									'hover'   => array(
+									'hover'      => array(
 										'selector' => $parent_selector . ' .kemet-search-icon',
 										'property' => '--linksHoverColor',
 									),
 								),
 							),
 							self::$prefix . '-form-bg-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Background Color', 'kemet' ),
-								'pickers'   => array(
+								'transport'  => 'postMessage',
+								'type'       => 'kmt-color',
+								'responsive' => true,
+								'label'      => __( 'Background Color', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
-								'preview'   => array(
-									'initial' => array(
+								'preview'    => array(
+									'responsive' => true,
+									'initial'    => array(
 										'selector' => $parent_selector . ' form',
 										'property' => 'background-color',
 									),
 								),
 							),
 							self::$prefix . '-input-text-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Text Color', 'kemet' ),
-								'pickers'   => array(
+								'transport'  => 'postMessage',
+								'type'       => 'kmt-color',
+								'responsive' => true,
+								'label'      => __( 'Text Color', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
@@ -145,22 +150,24 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'focus',
 									),
 								),
-								'preview'   => array(
-									'initial' => array(
+								'preview'    => array(
+									'responsive' => true,
+									'initial'    => array(
 										'selector' => $selector,
 										'property' => '--inputColor',
 									),
-									'focus'   => array(
+									'focus'      => array(
 										'selector' => $selector,
 										'property' => '--inputFocusColor',
 									),
 								),
 							),
 							self::$prefix . '-input-bg-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Input Background Color', 'kemet' ),
-								'pickers'   => array(
+								'transport'  => 'postMessage',
+								'type'       => 'kmt-color',
+								'responsive' => true,
+								'label'      => __( 'Input Background Color', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
@@ -170,12 +177,13 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'focus',
 									),
 								),
-								'preview'   => array(
-									'initial' => array(
+								'preview'    => array(
+									'responsive' => true,
+									'initial'    => array(
 										'selector' => $selector,
 										'property' => '--inputBackgroundColor',
 									),
-									'focus'   => array(
+									'focus'      => array(
 										'selector' => $selector,
 										'property' => '--inputFocusBackgroundColor',
 									),

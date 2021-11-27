@@ -24,14 +24,14 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 				$parent_selector    = '.kmt-header-item-search-box';
 				$width              = kemet_get_option( 'search-box-width' );
 				$height             = kemet_get_option( 'search-box-height' );
-				$text_color         = kemet_get_sub_option( 'search-box-text-color', 'initial' );
-				$text_focus_color   = kemet_get_sub_option( 'search-box-text-color', 'focus' );
-				$icon_color         = kemet_get_sub_option( 'search-box-icon-color', 'initial', $text_color );
-				$border_color       = kemet_get_sub_option( 'search-box-border-color', 'initial' );
-				$border_focus_color = kemet_get_sub_option( 'search-box-border-color', 'focus' );
-				$icon_h_color       = kemet_get_sub_option( 'search-box-icon-color', 'hover' );
-				$bg_color           = kemet_get_sub_option( 'search-box-bg-color', 'initial' );
-				$bg_focus_color     = kemet_get_sub_option( 'search-box-bg-color', 'focus' );
+				$text_color         = kemet_get_option( 'search-box-text-color' );
+				$text_focus_color   = kemet_get_option( 'search-box-text-color' );
+				$icon_color         = kemet_get_option( 'search-box-icon-color' );
+				$border_color       = kemet_get_option( 'search-box-border-color' );
+				$border_focus_color = kemet_get_option( 'search-box-border-color' );
+				$icon_h_color       = kemet_get_option( 'search-box-icon-color' );
+				$bg_color           = kemet_get_option( 'search-box-bg-color' );
+				$bg_focus_color     = kemet_get_option( 'search-box-bg-color' );
 				$border_width       = kemet_get_option( 'search-box-border-width' );
 				$border_radius      = kemet_get_option( 'search-box-radius' );
 
@@ -40,22 +40,22 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 						'border-radius'               => 'var(--borderRadius)',
 						'width'                       => kemet_responsive_slider( $width, 'desktop' ),
 						'height'                      => kemet_responsive_slider( $height, 'desktop' ),
-						'--inputColor'                => esc_attr( $text_color ),
-						'--inputBackgroundColor'      => esc_attr( $bg_color ),
+						'--inputColor'                => kemet_responsive_color( $text_color, 'initial', 'desktop' ),
+						'--inputBackgroundColor'      => kemet_responsive_color( $bg_color, 'initial', 'desktop' ),
 						'--inputBorderWidth'          => kemet_responsive_slider( $border_width, 'desktop' ),
-						'--inputBorderColor'          => esc_attr( $border_color ),
-						'--inputFocusColor'           => esc_attr( $text_focus_color ),
-						'--inputFocusBackgroundColor' => esc_attr( $bg_focus_color ),
-						'--inputFocusBorderColor'     => esc_attr( $border_focus_color ),
+						'--inputBorderColor'          => kemet_responsive_color( $border_color, 'initial', 'desktop' ),
+						'--inputFocusColor'           => kemet_responsive_color( $text_focus_color, 'focus', 'desktop' ),
+						'--inputFocusBackgroundColor' => kemet_responsive_color( $bg_focus_color, 'focus', 'desktop' ),
+						'--inputFocusBorderColor'     => kemet_responsive_color( $border_focus_color, 'focus', 'desktop' ),
 						'--borderRadius'              => kemet_responsive_spacing( $border_radius, 'all', 'desktop' ),
 					),
 					$parent_selector . ' .kmt-search-box-form .icon-search' => array(
 						'color'       => 'var(--iconColor)',
 						'font-size'   => 'var(--fontSize)',
-						'--iconColor' => esc_attr( $icon_color ),
+						'--iconColor' => kemet_responsive_color( $icon_color, 'initial', 'desktop' ),
 					),
 					$parent_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search' => array(
-						'--iconColor' => esc_attr( $icon_h_color ),
+						'--iconColor' => kemet_responsive_color( $icon_h_color, 'hover', 'desktop' ),
 					),
 				);
 
@@ -64,10 +64,22 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 
 				$tablet = array(
 					$selector => array(
-						'width'              => kemet_responsive_slider( $width, 'tablet' ),
-						'height'             => kemet_responsive_slider( $height, 'tablet' ),
-						'--inputBorderWidth' => kemet_responsive_slider( $border_width, 'tablet' ),
-						'--borderRadius'     => kemet_responsive_spacing( $border_radius, 'all', 'tablet' ),
+						'width'                       => kemet_responsive_slider( $width, 'tablet' ),
+						'height'                      => kemet_responsive_slider( $height, 'tablet' ),
+						'--inputBorderWidth'          => kemet_responsive_slider( $border_width, 'tablet' ),
+						'--borderRadius'              => kemet_responsive_spacing( $border_radius, 'all', 'tablet' ),
+						'--inputColor'                => kemet_responsive_color( $text_color, 'initial', 'tablet' ),
+						'--inputBackgroundColor'      => kemet_responsive_color( $bg_color, 'initial', 'tablet' ),
+						'--inputBorderColor'          => kemet_responsive_color( $border_color, 'initial', 'tablet' ),
+						'--inputFocusColor'           => kemet_responsive_color( $text_focus_color, 'focus', 'tablet' ),
+						'--inputFocusBackgroundColor' => kemet_responsive_color( $bg_focus_color, 'focus', 'tablet' ),
+						'--inputFocusBorderColor'     => kemet_responsive_color( $border_focus_color, 'focus', 'tablet' ),
+					),
+					$parent_selector . ' .kmt-search-box-form .icon-search' => array(
+						'--iconColor' => kemet_responsive_color( $icon_color, 'initial', 'tablet' ),
+					),
+					$parent_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search' => array(
+						'--iconColor' => kemet_responsive_color( $icon_h_color, 'hover', 'tablet' ),
 					),
 				);
 
@@ -76,10 +88,22 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 
 				$mobile = array(
 					$selector => array(
-						'width'              => kemet_responsive_slider( $width, 'mobile' ),
-						'height'             => kemet_responsive_slider( $height, 'mobile' ),
-						'--inputBorderWidth' => kemet_responsive_slider( $border_width, 'mobile' ),
-						'--borderRadius'     => kemet_responsive_spacing( $border_radius, 'all', 'mobile' ),
+						'width'                       => kemet_responsive_slider( $width, 'mobile' ),
+						'height'                      => kemet_responsive_slider( $height, 'mobile' ),
+						'--inputBorderWidth'          => kemet_responsive_slider( $border_width, 'mobile' ),
+						'--borderRadius'              => kemet_responsive_spacing( $border_radius, 'all', 'mobile' ),
+						'--inputColor'                => kemet_responsive_color( $text_color, 'initial', 'mobile' ),
+						'--inputBackgroundColor'      => kemet_responsive_color( $bg_color, 'initial', 'mobile' ),
+						'--inputBorderColor'          => kemet_responsive_color( $border_color, 'initial', 'mobile' ),
+						'--inputFocusColor'           => kemet_responsive_color( $text_focus_color, 'focus', 'mobile' ),
+						'--inputFocusBackgroundColor' => kemet_responsive_color( $bg_focus_color, 'focus', 'mobile' ),
+						'--inputFocusBorderColor'     => kemet_responsive_color( $border_focus_color, 'focus', 'mobile' ),
+					),
+					$parent_selector . ' .kmt-search-box-form .icon-search' => array(
+						'--iconColor' => kemet_responsive_color( $icon_color, 'initial', 'mobile' ),
+					),
+					$parent_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search' => array(
+						'--iconColor' => kemet_responsive_color( $icon_h_color, 'hover', 'mobile' ),
 					),
 				);
 
