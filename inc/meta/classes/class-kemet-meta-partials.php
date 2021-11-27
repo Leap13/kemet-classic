@@ -105,7 +105,11 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				return true;
 			}
 
-			return false;
+			if ( ! $sticky_top_header && 'enable' === $sticky_header ) {
+				return false;
+			}
+
+			return $default;
 		}
 
 		/**
@@ -121,7 +125,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 			if ( 'enable' === $sticky_header && ! $sticky_main_header ) {
 				return true;
 			}
-			error_log( $sticky_main_header );
+
 			if ( $sticky_main_header ) {
 				return false;
 			}
@@ -143,7 +147,11 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				return true;
 			}
 
-			return false;
+			if ( ! $sticky_bottom_header && 'enable' === $sticky_header ) {
+				return false;
+			}
+
+			return $default;
 		}
 
 		/**
