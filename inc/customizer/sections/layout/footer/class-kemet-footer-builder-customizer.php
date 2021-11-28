@@ -114,6 +114,7 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 		$layout_options = array(
 			'footer-availble-items'        => array(
 				'label'       => __( 'Available Items', 'kemet' ),
+				'infoLink'    => esc_url( 'https://kemet.io/docs/footer-elements/' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-available',
 				'input_attrs' => array(

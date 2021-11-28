@@ -320,6 +320,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'header-mobile-availble-items' => array(
 								'label'       => __( 'Available Items', 'kemet' ),
 								'transport'   => 'postMessage',
+								'infoLink'    => esc_url( 'https://kemet.io/docs/header-elements/' ),
 								'type'        => 'kmt-available',
 								'input_attrs' => array(
 									'group' => 'header-mobile-items',
