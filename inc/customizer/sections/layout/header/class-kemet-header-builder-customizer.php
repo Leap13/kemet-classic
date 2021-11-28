@@ -309,7 +309,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 									'group' => 'header-desktop-items',
 									'zones' => array( 'popup', 'top', 'main', 'bottom' ),
 								),
-								'infoLink' => esc_url( 'https://kemet.io/docs/header-elements/' ),
+								'infoLink'    => esc_url( 'https://kemet.io/docs/header-elements/' ),
 								'context'     => array(
 									array(
 										'setting' => 'device',
@@ -341,9 +341,9 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'overlay-header-enable'        => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Enable Overlay Header', 'kemet' ),
-								'divider'      => true,
+								'type'    => 'kmt-switcher',
+								'label'   => __( 'Enable Overlay Header', 'kemet' ),
+								'divider' => true,
 							),
 							'overlay-header-enable-device' => array(
 								'label'   => __( 'Overlay Header Visibility', 'kemet' ),

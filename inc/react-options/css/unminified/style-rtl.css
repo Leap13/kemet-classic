@@ -4783,7 +4783,7 @@ input[type="checkbox"]:focus {
 	box-shadow: 0 0 0 0 transparent;
 	font-size: 12px !important;
 	line-height: normal;
-	transition: box-shadow 0.1s linear, background 0.1s linear, border-radius 0.1s linear, border-color 0.1s linear;
+	transition: box-shadow 0.1s linear, background 0.1s linear,	border-radius 0.1s linear, border-color 0.1s linear;
 }
 
 .kmt-upload-icon-container {
@@ -6321,7 +6321,12 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-available-items-title {
+	display: flex;
 	padding: 10px 0;
+}
+
+.kmt-available-items-title .kmt-docs-link {
+	margin-right: 5px;
 }
 
 .kmt-available-items-container {
@@ -7400,7 +7405,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	padding: 0;
 	border-radius: 2px;
 	outline: 0 none;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;
@@ -7446,7 +7451,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	margin-top: -1px;
 	padding: 0;
 	border-radius: 1px 0 4px 4px;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;

@@ -38,6 +38,11 @@
       --buttonBorderColor: #e0e1e4;
     }
   }
+  &:disabled {
+    --buttonBgColor: #cbcbcb !important;
+    --buttonColor: #ffffff !important;
+    pointer-events: none;
+  }
 }
 .toplevel_page_kemet_panel {
   background-color: #fff;

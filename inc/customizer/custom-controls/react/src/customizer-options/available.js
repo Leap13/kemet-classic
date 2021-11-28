@@ -6,7 +6,7 @@ const { Dashicon, Button } = wp.components;
 const { kmtEvents } = window.KmtOptionComponent;
 const AvailableComponent = (props) => {
   let defaultParams = {};
-
+  const { infoLink } = props.params;
   let controlParams = props.params.input_attrs
     ? {
       ...defaultParams,
@@ -93,6 +93,7 @@ const AvailableComponent = (props) => {
         <span className="customize-control-title">
           {__("Available Elements", "kemet")}
         </span>
+        {infoLink && <a href={infoLink} className="kmt-docs-link" target="_blank"><Dashicon icon='editor-help' /></a>}
       </div>
       <div className="kmt-available-items-container">
         {Object.keys(choices).map((item) => {

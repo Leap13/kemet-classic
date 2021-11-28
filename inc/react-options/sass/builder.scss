@@ -1435,6 +1435,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 .kmt-available-items-title {
   padding: 10px 0;
+  display: flex;
+  .kmt-docs-link {
+    margin-left: 5px;
+  }
 }
 .kmt-available-items-container {
   min-width: 80px;
