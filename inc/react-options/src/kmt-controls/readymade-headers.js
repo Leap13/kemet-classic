@@ -8,30 +8,6 @@ import kmtEvents from '../common/events';
 const ReadymadeHeaders = props => {
     const value = props.value ? props.value : {};
     const { label, ref } = props.params;
-    const defaultHeaderValue = {
-        popup: { popup_content: [] },
-        top: {
-            top_left: [],
-            top_left_center: [],
-            top_center: [],
-            top_right_center: [],
-            top_right: [],
-        },
-        main: {
-            main_left: [],
-            main_left_center: [],
-            main_center: [],
-            main_right_center: [],
-            main_right: [],
-        },
-        bottom: {
-            bottom_left: [],
-            bottom_left_center: [],
-            bottom_center: [],
-            bottom_right_center: [],
-            bottom_right: [],
-        },
-    };
 
     const headers = {
         header1: {
@@ -116,22 +92,43 @@ const ReadymadeHeaders = props => {
     };
 
     const getReadymadeHeader = (headerValue) => {
-        const ReadymadeHeader = defaultHeaderValue;
+        const ReadymadeHeader = {
+            popup: { popup_content: [] },
+            top: {
+                top_left: [],
+                top_left_center: [],
+                top_center: [],
+                top_right_center: [],
+                top_right: [],
+            },
+            main: {
+                main_left: [],
+                main_left_center: [],
+                main_center: [],
+                main_right_center: [],
+                main_right: [],
+            },
+            bottom: {
+                bottom_left: [],
+                bottom_left_center: [],
+                bottom_center: [],
+                bottom_right_center: [],
+                bottom_right: [],
+            },
+        };
         Object.keys(headerValue).map(row => {
             Object.keys(headerValue[row]).map(zone => {
                 ReadymadeHeader[row][zone] = headerValue[row][zone];
             })
         })
-
         return ReadymadeHeader;
     }
 
     const onChangeHandler = (values) => {
         if (wp.customize) {
             kmtEvents.trigger('UpdateBuilderValues', { values, id: ref });
-        } else {
-            props.onChange(values);
         }
+        props.onChange(values);
     }
 
     return <Fragment>
@@ -140,8 +137,10 @@ const ReadymadeHeaders = props => {
             <Grid columns={1} gap={1}>
                 {Object.keys(headers).map(headerKey => {
                     const headerData = headers[headerKey];
-                    return <label className={`header-image`} onClick={() => {
-                        let updatedvalue = getReadymadeHeader(headerData.value);
+                    const headerValue = getReadymadeHeader(headerData.value);
+                    const activeClass = JSON.stringify(value) === JSON.stringify(headerValue) ? ' active' : '';
+                    return <label className={`header-image${activeClass}`} onClick={() => {
+                        let updatedvalue = headerValue;
                         onChangeHandler(updatedvalue);
                     }}>
                         <img src={headerData.image} alt={headerData.title} />

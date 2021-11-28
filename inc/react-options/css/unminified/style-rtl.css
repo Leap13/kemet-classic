@@ -2035,7 +2035,7 @@ span.kmt-color-description {
 }
 
 .block-editor-page .kmt-option-modal {
-	--modal-x-offset: 20px !important;
+	--modal-x-offset: 17px !important;
 }
 
 [class*="kmt-tooltip"]:before,
