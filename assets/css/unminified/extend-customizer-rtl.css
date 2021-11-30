@@ -2,25 +2,25 @@
   #customize-theme-controls
   .customize-pane-child.current-panel-parent,
 #customize-theme-controls .customize-pane-child.current-section-parent {
-	transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 /* Nested Customizer Section CSS */
 #customize-controls
   .control-section.control-section-kmt_section
   .accordion-section-title {
-	border-right: 4px solid #fff;
-	border-bottom: 1px solid #ddd;
-	color: #555d66;
-	background-color: #fff;
-	transition: 0.15s color ease-in-out, 0.15s background-color ease-in-out,
-	0.15s border-color ease-in-out;
+  color: #555d66;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  border-right: 4px solid #fff;
+  transition: 0.15s color ease-in-out, 0.15s background-color ease-in-out,
+    0.15s border-color ease-in-out;
 }
 
 #customize-controls
   .control-section.control-section-kmt_section
   .accordion-section-title:after {
-	color: #a0a5aa;
+  color: #a0a5aa;
 }
 
 #customize-controls
@@ -29,19 +29,19 @@
 #customize-controls
   .control-section.control-section-kmt_section
   .accordion-section-title:focus {
-	border-right-color: #0073aa;
-	color: #0073aa;
-	background: #f3f3f5;
+  color: #0073aa;
+  background: #f3f3f5;
+  border-right-color: #0073aa;
 }
 
 #customize-controls
   .control-section.control-section-kmt_section
   .accordion-section-title:hover:after {
-	color: #0073aa;
+  color: #0073aa;
 }
 
 #customize-controls .control-section-kmt_section .accordion-section,
 .control-section-kmt_section .accordion-section {
-	margin-right: -20px;
-	margin-left: -20px;
+  margin-right: -20px;
+  margin-left: -20px;
 }

@@ -1,152 +1,134 @@
 .customize-control-title .dashicons-editor-help {
-	position: relative;
-	top: 0.1em;
+  position: relative;
+  top: 0.1em;
 }
-
 .customize-control-title {
-	cursor: auto;
+  cursor: auto;
 }
-
 #customize-header-actions .spinner {
-	margin-right: 4px;
+  margin-right: 4px;
 }
 
 /* slider control */
 .customize-control-slider input[type="range"] {
-	width: calc(100% - 74px);
-	height: 5px;
-	padding: 0;
-	background-color: rgba(0, 0, 0, 0.1);
-	transition: background 0.3s;
-
-	-webkit-appearance: none;
+  -webkit-appearance: none;
+  transition: background 0.3s;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 5px;
+  width: calc(100% - 74px);
+  padding: 0;
 }
-
 .customize-control-slider input[type="range"]:focus {
-	outline: none;
-	box-shadow: none;
+  box-shadow: none;
+  outline: none;
 }
-
 .customize-control-slider input[type="range"]:hover {
-	background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
 }
-
 .customize-control-slider input[type="range"]::-webkit-slider-thumb {
-	width: 15px;
-	height: 15px;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	background-color: #3498d9;
-
-	-webkit-appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #3498d9;
 }
-
 .customize-control-slider input[type="range"]::-webkit-slider-thumb {
-	width: 15px;
-	height: 15px;
-	border: none;
-	border-radius: 50%;
-	background-color: #3498d9;
-
-	-webkit-appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: #3498d9;
 }
-
 .customize-control-slider input[type="range"]::-moz-range-thumb {
-	width: 15px;
-	height: 15px;
-	border: none;
-	border-radius: 50%;
-	background-color: #3498d9;
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: #3498d9;
 }
-
 .customize-control-slider input[type="range"]::-ms-thumb {
-	width: 15px;
-	height: 15px;
-	border: 0;
-	border-radius: 50%;
-	background-color: #3498d9;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #3498d9;
 }
-
 .customize-control-slider input[type="range"]::-moz-range-track {
-	border: inherit;
-	background: transparent;
+  border: inherit;
+  background: transparent;
 }
-
 .customize-control-slider input[type="range"]::-ms-track {
-	border: inherit;
-	color: transparent;
-	background: transparent;
+  border: inherit;
+  color: transparent;
+  background: transparent;
 }
-
 .customize-control-slider input[type="range"]::-ms-fill-lower,
 .customize-control-slider input[type="range"]::-ms-fill-upper {
-	background: transparent;
+  background: transparent;
 }
-
 .customize-control-slider input[type="range"]::-ms-tooltip {
-	display: none;
+  display: none;
 }
-
 .customize-control-slider .kmt-range-value {
-	display: inline-block;
-	position: relative;
-	top: 1px;
-	padding: 0 5px;
+  display: inline-block;
+  padding: 0 5px;
+  position: relative;
+  top: 1px;
 }
-
 .customize-control-slider input#kmt-range-value-input {
-	width: 42px;
-	height: 23px;
-	font-size: 13px;
+  width: 42px;
+  height: 23px;
+  font-size: 13px;
 }
-
 .customize-control-slider .kmt-slider-reset {
-	float: left;
-	color: rgba(0, 0, 0, 0.2);
-	transition: color 0.5s ease-in;
+  color: rgba(0, 0, 0, 0.2);
+  float: left;
+  transition: color 0.5s ease-in;
 }
-
 .customize-control-slider .kmt-slider-reset span {
-	font-size: 16px;
-	line-height: 22px;
-	cursor: pointer;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
 }
-
 .customize-control-slider .kmt-slider-reset span:hover {
-	color: red;
+  color: red;
 }
 
 .kmt-hide {
-	display: none !important;
+  display: none !important;
 }
 
 /**
  * Typography Control Style
  */
 .customize-control.controls-inline {
-	display: inline-block;
-	clear: none;
-	box-sizing: border-box;
-	width: 50%;
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  clear: none;
 }
-
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
-	display: flex;
-
-	-js-display: flex;
+  -js-display: flex;
+  display: flex;
 }
 
-.customize-pane-child > li[id$="-content-layout"] > label
+.customize-pane-child
+  > li[id$="-content-layout"]
+  > label
   .customize-control-title,
-.customize-pane-child > li[id$="-sidebar-layout"] > label
+.customize-pane-child
+  > li[id$="-sidebar-layout"]
+  > label
   .customize-control-title,
 .customize-pane-child > li[id$="-content-layout"] > label select,
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
-	flex: 1;
+  flex: 1;
 }
 
 .customize-pane-child > li[id$="-content-layout"] > label select,
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
-	margin-right: 10px;
+  margin-right: 10px;
 }
