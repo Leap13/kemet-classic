@@ -22,7 +22,7 @@
   outline: none;
 }
 
-.kmt-button:hover {
+.kmt-button:hover, .kmt-button:focus {
   color: var(--buttonColor);
 }
 
