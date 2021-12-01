@@ -1400,18 +1400,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$cart_display       = kemet_get_option( 'cart-icon-display' );
 			$cart_icon          = kemet_get_option( 'shop-cart-icon' );
 			$display            = '';
-			$icon               = '';
-			switch ( $cart_icon ) {
-				case 'cart':
-					$icon = Kemet_Svg_Icons::get_icons( 'cart' );
-					break;
-				case 'bag':
-					$icon = Kemet_Svg_Icons::get_icons( 'bag' );
-					break;
-				case 'dcart':
-					$icon = Kemet_Svg_Icons::get_icons( 'dcart' );
-					break;
-			}
+
 			switch ( $cart_display ) {
 				case 'icon':
 					$display = '';
@@ -1439,7 +1428,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 								<span class="count">
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {
-										echo $icon . wp_kses_post( $display );
+										echo Kemet_Svg_Icons::get_icons( $cart_icon ) . wp_kses_post( $display );
 									}
 									?>
 								</span>
