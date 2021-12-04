@@ -3799,24 +3799,6 @@ body:not(.kmt-separate-container) {
     }
   }
 }
-.summary {
-  .product_meta {
-    span.posted_in {
-      &:before {
-        content: "\f214";
-        font-family: dashicons;
-        margin-right: 5px;
-      }
-    }
-    span.tagged_as {
-      &:before {
-        content: "\f323";
-        font-family: dashicons;
-        margin-right: 5px;
-      }
-    }
-  }
-}
 .woocommerce-tabs {
   .entry-content {
     overflow: hidden;
@@ -3878,23 +3860,6 @@ body:not(.kmt-separate-container) {
         font-weight: inherit;
         font-family: inherit;
         text-transform: inherit;
-        &:before {
-          content: "\f164";
-          font-family: dashicons;
-          display: inline-block;
-          vertical-align: middle;
-          margin-right: 10px;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          line-height: inherit;
-          overflow: hidden;
-          font-size: 18px;
-          text-align: center;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-        }
       }
       .yith-wcwl-add-to-wishlist {
         .yith-wcwl-wishlistexistsbrowse {
@@ -4189,18 +4154,6 @@ ul.products {
         font-size: 14px;
         justify-content: center;
         margin-left: 10px;
-      }
-      .prev {
-        &:before {
-          font-family: dashicons;
-          content: "\f341";
-        }
-      }
-      .next {
-        &:before {
-          font-family: dashicons;
-          content: "\f345";
-        }
       }
     }
   }
