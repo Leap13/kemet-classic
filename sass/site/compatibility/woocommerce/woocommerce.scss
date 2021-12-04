@@ -268,7 +268,7 @@ p.demo_store,
     width: 24px;
     height: 24px;
     text-align: center;
-    line-height: 21px;
+    line-height: 20px;
     border-radius: 100%;
     text-decoration: none;
     border-width: 1px;
@@ -280,7 +280,7 @@ p.demo_store,
     font-size: 18px;
     width: 24px;
     height: 24px;
-    line-height: 21px;
+    line-height: 20px;
   }
 
   small.note {
@@ -3483,10 +3483,6 @@ ul.product_list_widget {
     background: transparent;
   }
   .checkout.wc-forward {
-    &::before {
-      content: "\f147";
-      font-family: dashicons;
-    }
     margin-left: 5px;
     margin-right: 0;
   }
