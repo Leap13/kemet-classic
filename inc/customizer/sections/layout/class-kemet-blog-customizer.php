@@ -402,6 +402,15 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-title',
 								'label' => __( 'Overlay Image Style', 'kemet' ),
 							),
+							'overlay-image-icon'           => array(
+								'type'    => 'kmt-radio',
+								'default' => 'disable',
+								'label'   => __( 'Overlay Icon (+)', 'kemet' ),
+								'choices' => array(
+									'enable'  => __( 'Enable', 'kemet' ),
+									'disable' => __( 'Disable', 'kemet' ),
+								),
+							),
 							'overlay-image-style'          => array(
 								'type'    => 'kmt-select',
 								'label'   => __( 'Overlay Styles', 'kemet' ),

@@ -27,6 +27,7 @@
 
 .kmt-site-identity {
   padding: var(--padding, 24px 0px);
+  margin: var(--margin);
 }
 
 .kmt-menu-toggle {
@@ -77,8 +78,12 @@
     }
   }
 }
+.kmt-header-item.kmt-header-item-search {
+  margin: var(--margin);
+}
 .kmt-search-box-form {
   position: relative;
+  margin: var(--margin);
   .search-field {
     &:focus {
       outline: none;

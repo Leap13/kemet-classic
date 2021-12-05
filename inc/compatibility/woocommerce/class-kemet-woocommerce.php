@@ -753,8 +753,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			<div class="kmt-product-navigation">
 				<div class="kmt-product-links">
 					<?php
-						previous_post_link( '%link', '<span class="prev"></span>' );
-						next_post_link( '%link', '<span class="next"></span>' );
+						previous_post_link( '%link', '<span class="prev">' . Kemet_Svg_Icons::get_icons( 'arrow-right' ) . '</span>' );
+						next_post_link( '%link', '<span class="next">' . Kemet_Svg_Icons::get_icons( 'arrow-left' ) . '</span>' );
 					?>
 				</div>
 			</div>

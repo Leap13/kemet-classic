@@ -34,9 +34,13 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 				$bg_focus_color     = kemet_get_sub_option( 'search-box-bg-color', 'focus' );
 				$border_width       = kemet_get_option( 'search-box-border-width' );
 				$border_radius      = kemet_get_option( 'search-box-radius' );
+				$margin             = kemet_get_option( 'search-box-margin' );
 
 				$css_output = array(
-					$selector => array(
+					$parent_selector => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+					),
+					$selector        => array(
 						'border-radius'               => 'var(--borderRadius)',
 						'width'                       => kemet_responsive_slider( $width, 'desktop' ),
 						'height'                      => kemet_responsive_slider( $height, 'desktop' ),
@@ -48,6 +52,10 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 						'--inputFocusBackgroundColor' => esc_attr( $bg_focus_color ),
 						'--inputFocusBorderColor'     => esc_attr( $border_focus_color ),
 						'--borderRadius'              => kemet_responsive_spacing( $border_radius, 'all', 'desktop' ),
+
+					),
+					$parent_selector . ' .kemet-search-svg-icon-wrap' => array(
+						'--right' => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
 					),
 					$parent_selector . ' .kmt-search-box-form .icon-search' => array(
 						'color'       => 'var(--iconColor)',
@@ -63,7 +71,13 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 				$parse_css = kemet_parse_css( $css_output );
 
 				$tablet = array(
-					$selector => array(
+					$parent_selector . ' .kemet-search-svg-icon-wrap' => array(
+						'--right' => kemet_responsive_spacing( $margin, 'right', 'tablet' ),
+					),
+					$parent_selector => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
+					),
+					$selector        => array(
 						'width'              => kemet_responsive_slider( $width, 'tablet' ),
 						'height'             => kemet_responsive_slider( $height, 'tablet' ),
 						'--inputBorderWidth' => kemet_responsive_slider( $border_width, 'tablet' ),
@@ -75,7 +89,13 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 				$parse_css .= kemet_parse_css( $tablet, '', '768' );
 
 				$mobile = array(
-					$selector => array(
+					$parent_selector . ' .kemet-search-svg-icon-wrap' => array(
+						'--right' => kemet_responsive_spacing( $margin, 'right', 'mobile' ),
+					),
+					$parent_selector => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
+					),
+					$selector        => array(
 						'width'              => kemet_responsive_slider( $width, 'mobile' ),
 						'height'             => kemet_responsive_slider( $height, 'mobile' ),
 						'--inputBorderWidth' => kemet_responsive_slider( $border_width, 'mobile' ),

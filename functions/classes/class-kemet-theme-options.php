@@ -148,6 +148,16 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,
 					'offcanvas-menu-border-bottom-width'   => Kemet_Customizer::responsive_default_value( 1, 'px' ),
+					'primary-menu-link-border-hover'       => array(
+						'style' => 'solid',
+						'width' => 1,
+						'color' => 'var(--linksHoverColor)',
+					),
+					'secondary-menu-link-border-hover'     => array(
+						'style' => 'solid',
+						'width' => 1,
+						'color' => 'var(--linksHoverColor)',
+					),
 					// Footer Builder
 					'footer-items'                         => array(
 						'top'    => array(

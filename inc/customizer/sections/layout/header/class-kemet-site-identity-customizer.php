@@ -163,6 +163,27 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'responsive' => true,
 				),
 			),
+			'site-identity-margin'  => array(
+				'type'           => 'kmt-spacing',
+				'transport'      => 'postMessage',
+				'responsive'     => true,
+				'divider'        => true,
+				'label'          => __( 'Margin', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+				'preview'        => array(
+					'selector'   => '.kmt-site-identity',
+					'property'   => '--margin',
+					'sides'      => false,
+					'responsive' => true,
+				),
+			),
 		);
 
 		$register_options = array(

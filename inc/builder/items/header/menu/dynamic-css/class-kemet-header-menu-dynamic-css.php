@@ -35,6 +35,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$link_active_border_radius    = kemet_get_option( $prefix . '-link-active-border-radius' );
 				$link_h_border                = kemet_get_option( $prefix . '-link-border-hover' );
 				$menu_spacing                 = kemet_get_option( $prefix . '-spacing' );
+				$menu_margin                  = kemet_get_option( $prefix . '-margin' );
 				$menu_link_spacing            = kemet_get_option( $prefix . '-item-spacing' );
 				$submenu_width                = kemet_get_option( $prefix . '-submenu-width' );
 				$submenu_bg_color             = kemet_get_sub_option( $prefix . '-submenu-bg-color', 'initial' );
@@ -50,6 +51,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					$selector                             => array(
 						'--backgroundColor' => esc_attr( $bg_color ),
 						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
+						'--margin'          => kemet_responsive_spacing( $menu_margin, 'all', 'desktop' ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
 					),
@@ -103,6 +105,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$tablet = array(
 					$selector               => array(
 						'--padding' => kemet_responsive_spacing( $menu_spacing, 'all', 'tablet' ),
+						'--margin'  => kemet_responsive_spacing( $menu_margin, 'all', 'tablet' ),
 					),
 					$selector . ' > li > a' => array(
 						'--padding' => kemet_responsive_spacing( $menu_link_spacing, 'all', 'tablet' ),
@@ -118,6 +121,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$mobile = array(
 					$selector               => array(
 						'--padding' => kemet_responsive_spacing( $menu_spacing, 'all', 'mobile' ),
+						'--margin'  => kemet_responsive_spacing( $menu_margin, 'all', 'mobile' ),
 					),
 					$selector . ' > li > a' => array(
 						'--padding' => kemet_responsive_spacing( $menu_link_spacing, 'all', 'mobile' ),
