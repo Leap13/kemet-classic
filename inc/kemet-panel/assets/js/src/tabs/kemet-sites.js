@@ -4,10 +4,10 @@ import PanelContext from "../store/panel-store";
 import pushHistory from "../common/push-history";
 
 const { __ } = wp.i18n;
-const KemetAddons = () => {
+const KemetSites = () => {
     const [isLoading, setIsLoading] = useState(false)
     const { pluginsStatus, doAction, pluginActions: actions } = useContext(PanelContext);
-    const slug = KemetPanelData.addons_plugin;
+    const slug = KemetPanelData.sites_plugin;
     const status = pluginsStatus[slug];
     const updatePluginStatus = async (action) => {
         if (!isLoading) {
@@ -15,7 +15,7 @@ const KemetAddons = () => {
         }
         await doAction(action, slug);
         if (!action.includes("install")) {
-            pushHistory('kemet-addons');
+            pushHistory('kemet-sites');
             window.location.reload();
         }
         setIsLoading(false);
@@ -24,13 +24,13 @@ const KemetAddons = () => {
     const { title: btnTitle, action, class: btnClass } = actions[status];
 
     return <Container>
-        <div className='kmt-addons-tab'>
-            <h1>{__('Kemet Addons', 'kemet')}</h1>
+        <div className='kmt-sites-tab'>
+            <h1>{__('Kemet Sites', 'kemet')}</h1>
             <p className="description" dangerouslySetInnerHTML={{
-                __html: __('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')
+                __html: __('Kemet Sites plugin…', 'kemet')
             }}>
             </p>
-            <img src={KemetPanelData.images_url + 'kemet-addons-banner.png'} alt='kemet-addons' />
+            <img src={KemetPanelData.images_url + 'kemet-addons-banner.png'} alt='kemet-sites' />
             <div className="actions">
                 <a
                     onClick={() => updatePluginStatus(action)}
@@ -42,4 +42,4 @@ const KemetAddons = () => {
     </Container>
 }
 
-export default KemetAddons
+export default KemetSites

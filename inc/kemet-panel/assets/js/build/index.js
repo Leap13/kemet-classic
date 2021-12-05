@@ -714,6 +714,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_Container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./common/Container */ "./src/common/Container.js");
 /* harmony import */ var _store_panel_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./store/panel-store */ "./src/store/panel-store.js");
 /* harmony import */ var _common_push_history__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./common/push-history */ "./src/common/push-history.js");
+/* harmony import */ var _tabs_kemet_sites__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./tabs/kemet-sites */ "./src/tabs/kemet-sites.js");
+
 
 
 
@@ -772,10 +774,19 @@ var RendeTabs = function RendeTabs(_ref) {
       props: {}
     }
   }, {
+    name: 'kemet-sites',
+    title: __('Kemet Sites', 'kemet'),
+    className: 'kemet-sites',
+    priority: 15,
+    data: {
+      Component: _tabs_kemet_sites__WEBPACK_IMPORTED_MODULE_12__["default"],
+      props: {}
+    }
+  }, {
     name: 'plugins',
     title: __('Recommended Plugins', 'kemet'),
     className: 'plugins',
-    priority: 15,
+    priority: 20,
     data: {
       Component: _tabs_plugins__WEBPACK_IMPORTED_MODULE_3__["default"],
       props: {}
@@ -793,7 +804,7 @@ var RendeTabs = function RendeTabs(_ref) {
     name: 'system',
     title: __('System Info', 'kemet'),
     className: 'system',
-    priority: 25,
+    priority: 30,
     data: {
       Component: _tabs_system__WEBPACK_IMPORTED_MODULE_4__["default"],
       props: {}
@@ -814,7 +825,7 @@ var RendeTabs = function RendeTabs(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_layout_Header__WEBPACK_IMPORTED_MODULE_7__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(TabPanel, {
     className: "kemet-dashboard-tab-panel",
     activeClass: "active-tab",
-    initialTabName: KemetPanelData.kemet_addons_redirect,
+    initialTabName: KemetPanelData.kemet_redirect,
     onSelect: onSelectHandler,
     tabs: tabs.sort(compare)
   }, function (tab) {
@@ -1080,17 +1091,17 @@ var PanelProvider = function PanelProvider(props) {
 
   var pluginActions = {
     deactivate: {
-      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Deactivate', 'kemet-addons'),
+      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Deactivate', 'kemet'),
       class: 'secondary',
       action: 'kemet-deactivate-plugin'
     },
     activate: {
-      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Activate', 'kemet-addons'),
+      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Activate', 'kemet'),
       class: 'primary',
       action: 'kemet-activate-plugin'
     },
     install: {
-      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Install', 'kemet-addons'),
+      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Install', 'kemet'),
       class: 'primary',
       action: 'kemet-install-plugin'
     }
@@ -1138,7 +1149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Dashicon = wp.components.Dashicon;
+var __ = wp.i18n.__;
 
 var KemetAddons = function KemetAddons() {
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(false),
@@ -1147,16 +1158,11 @@ var KemetAddons = function KemetAddons() {
       setIsLoading = _useState2[1];
 
   var _useContext = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_store_panel_store__WEBPACK_IMPORTED_MODULE_5__["default"]),
-      plugins = _useContext.plugins,
       pluginsStatus = _useContext.pluginsStatus,
       doAction = _useContext.doAction,
       actions = _useContext.pluginActions;
 
   var slug = KemetPanelData.addons_plugin;
-  var _plugins$slug = plugins[slug],
-      name = _plugins$slug.name,
-      description = _plugins$slug.description,
-      banner = _plugins$slug.banner;
   var status = pluginsStatus[slug];
 
   var updatePluginStatus = /*#__PURE__*/function () {
@@ -1199,13 +1205,13 @@ var KemetAddons = function KemetAddons() {
       btnClass = _actions$status.class;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_Container__WEBPACK_IMPORTED_MODULE_4__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-addons-tab"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h1", null, name), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h1", null, __('Kemet Addons', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
     className: "description",
     dangerouslySetInnerHTML: {
-      __html: description
+      __html: __('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
-    src: banner,
+    src: KemetPanelData.images_url + 'kemet-addons-banner.png',
     alt: "kemet-addons"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "actions"
@@ -1218,6 +1224,112 @@ var KemetAddons = function KemetAddons() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (KemetAddons);
+
+/***/ }),
+
+/***/ "./src/tabs/kemet-sites.js":
+/*!*********************************!*\
+  !*** ./src/tabs/kemet-sites.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _common_Container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/Container */ "./src/common/Container.js");
+/* harmony import */ var _store_panel_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/panel-store */ "./src/store/panel-store.js");
+/* harmony import */ var _common_push_history__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/push-history */ "./src/common/push-history.js");
+
+
+
+
+
+
+
+
+var __ = wp.i18n.__;
+
+var KemetSites = function KemetSites() {
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(false),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      isLoading = _useState2[0],
+      setIsLoading = _useState2[1];
+
+  var _useContext = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_store_panel_store__WEBPACK_IMPORTED_MODULE_5__["default"]),
+      pluginsStatus = _useContext.pluginsStatus,
+      doAction = _useContext.doAction,
+      actions = _useContext.pluginActions;
+
+  var slug = KemetPanelData.sites_plugin;
+  var status = pluginsStatus[slug];
+
+  var updatePluginStatus = /*#__PURE__*/function () {
+    var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(action) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!isLoading) {
+                setIsLoading(true);
+              }
+
+              _context.next = 3;
+              return doAction(action, slug);
+
+            case 3:
+              if (!action.includes("install")) {
+                Object(_common_push_history__WEBPACK_IMPORTED_MODULE_6__["default"])('kemet-sites');
+                window.location.reload();
+              }
+
+              setIsLoading(false);
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function updatePluginStatus(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var _actions$status = actions[status],
+      btnTitle = _actions$status.title,
+      action = _actions$status.action,
+      btnClass = _actions$status.class;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_Container__WEBPACK_IMPORTED_MODULE_4__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-sites-tab"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h1", null, __('Kemet Sites', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+    className: "description",
+    dangerouslySetInnerHTML: {
+      __html: __('Kemet Sites plugin…', 'kemet')
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
+    src: KemetPanelData.images_url + 'kemet-addons-banner.png',
+    alt: "kemet-sites"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "actions"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
+    onClick: function onClick() {
+      return updatePluginStatus(action);
+    },
+    className: "kmt-button ".concat(btnClass)
+  }, btnTitle))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (KemetSites);
 
 /***/ }),
 
@@ -1308,12 +1420,51 @@ var Plugins = function Plugins() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _common_Container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Container */ "./src/common/Container.js");
+/* harmony import */ var _common_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Card */ "./src/common/Card.js");
+/* harmony import */ var _common_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/Container */ "./src/common/Container.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 
 
+
+
+var __ = wp.i18n.__;
 
 var Support = function Support() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Container__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h1", null, "Support"));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Container__WEBPACK_IMPORTED_MODULE_2__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["__experimentalGrid"], {
+    columns: 3,
+    className: "kmt-support"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-title"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, __('Knowledge Base', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Here you will find answers for your questions and inquiries. We are always working on enhancing the Theme documention library for make the process easier for you.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-action"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    className: "kmt-button primary",
+    target: "_blank",
+    href: "#"
+  }, __('Visit', 'kemet')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-title"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, __('Need Help', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Kemet Theme has a professional support team who will pamper you by handling your issues and answering your questions and inquiries with 24-48 hours.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-action"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    className: "kmt-button primary",
+    target: "_blank",
+    href: "#"
+  }, __('Visit', 'kemet')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-title"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, __('Follow us', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Join our Facebook community to fellow Leap13 users creating effective websites! Share your site, ask questions and help others.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-card-action"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    className: "kmt-button primary",
+    target: "_blank",
+    href: "#"
+  }, __('Visit', 'kemet'))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Support);
@@ -1397,6 +1548,17 @@ var System = function System() {
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["regeneratorRuntime"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["components"]; }());
 
 /***/ }),
 

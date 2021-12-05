@@ -69,15 +69,26 @@
   margin-bottom: 25px;
 }
 
-#kmt-dashboard .kmt-addons-tab {
+#kmt-dashboard .kmt-support .kmt-card {
   text-align: center;
 }
 
-#kmt-dashboard .kmt-addons-tab .description {
+#kmt-dashboard .kmt-support .kmt-card-body {
+  height: 105px;
+}
+
+#kmt-dashboard .kmt-addons-tab,
+#kmt-dashboard .kmt-sites-tab {
+  text-align: center;
+}
+
+#kmt-dashboard .kmt-addons-tab .description,
+#kmt-dashboard .kmt-sites-tab .description {
   margin: 1em auto;
 }
 
-#kmt-dashboard .kmt-addons-tab .actions {
+#kmt-dashboard .kmt-addons-tab .actions,
+#kmt-dashboard .kmt-sites-tab .actions {
   margin-top: 2em;
 }
 

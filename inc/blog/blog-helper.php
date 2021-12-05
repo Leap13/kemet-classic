@@ -96,7 +96,7 @@ if ( ! function_exists( 'kemet_get_the_post_thumbnail_background' ) ) {
 /**
  * Kemet Addons get post thumbnail image.
  */
-if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
+if ( ! function_exists( 'kemet_get_thumbnail_with_overlay' ) ) {
 
 	/**
 	 * Kemet Addons get post thumbnail image
@@ -106,7 +106,7 @@ if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
 	 * @param boolean $echo   Output print or return.
 	 * @return string|void
 	 */
-	function kemet_addons_get_thumbnail_with_overlay( $before = '', $after = '', $echo = true ) {
+	function kemet_get_thumbnail_with_overlay( $before = '', $after = '', $echo = true ) {
 
 		$output = '';
 

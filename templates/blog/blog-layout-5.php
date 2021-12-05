@@ -14,7 +14,7 @@ $enable_overlay  = kemet_get_option( 'overlay-image-style' );
 
 ?>
 <div <?php kemet_blog_layout_class( 'blog-post-layout-5' ); ?>>
-	<?php $overlay_image = 'none' != $enable_overlay ? kemet_addons_get_thumbnail_with_overlay( '<div class="kmt-blog-featured-section post-thumb">', '</div>' ) : kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb">', '</div>' ); ?>
+	<?php $overlay_image = 'none' != $enable_overlay ? kemet_get_thumbnail_with_overlay( '<div class="kmt-blog-featured-section post-thumb">', '</div>' ) : kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb">', '</div>' ); ?>
 	<div class="post-content">
 		<?php do_action( 'kemet_archive_entry_header_before' ); ?> 
 		<header class="entry-header">

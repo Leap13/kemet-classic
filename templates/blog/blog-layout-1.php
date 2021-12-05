@@ -22,7 +22,7 @@ $divs_class      = 'blog-layout-1' == $blog_layout ? 'kmt-col-md-12' : '';
 		<?php
 		switch ( $item ) {
 			case 'image':
-				$overlay_image = 'none' != $enable_overlay ? kemet_addons_get_thumbnail_with_overlay( '<div class="kmt-blog-featured-section post-thumb ' . $divs_class . '">', '</div>' ) : kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb ' . $divs_class . '">', '</div>' );
+				$overlay_image = 'none' != $enable_overlay ? kemet_get_thumbnail_with_overlay( '<div class="kmt-blog-featured-section post-thumb ' . $divs_class . '">', '</div>' ) : kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb ' . $divs_class . '">', '</div>' );
 
 				break;
 

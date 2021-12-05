@@ -57,7 +57,16 @@
   font-size: 14px;
   min-height: 100%;
   margin-bottom: 25px;
-  .kmt-addons-tab {
+  .kmt-support {
+    .kmt-card {
+      text-align: center;
+    }
+    .kmt-card-body {
+      height: 105px;
+    }
+  }
+  .kmt-addons-tab,
+  .kmt-sites-tab {
     text-align: center;
     .description {
       margin: 1em auto;
