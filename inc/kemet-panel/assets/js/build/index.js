@@ -486,6 +486,7 @@ var SinglePlugin = function SinglePlugin(_ref) {
 
   var updatePluginStatus = /*#__PURE__*/function () {
     var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(action) {
+      var url;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -498,8 +499,9 @@ var SinglePlugin = function SinglePlugin(_ref) {
               return doAction(action, slug);
 
             case 3:
-              if (KemetPanelData.addons_plugin === slug && action.includes("activate")) {
-                Object(_push_history__WEBPACK_IMPORTED_MODULE_6__["default"])('kemet-addons');
+              if ((KemetPanelData.addons_plugin === slug || KemetPanelData.sites_plugin === slug) && action.includes("activate")) {
+                url = KemetPanelData.sites_plugin === slug ? KemetPanelData.sites_plugin : KemetPanelData.addons_plugin;
+                Object(_push_history__WEBPACK_IMPORTED_MODULE_6__["default"])(url);
                 window.location.reload();
               }
 
@@ -1206,11 +1208,8 @@ var KemetAddons = function KemetAddons() {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_Container__WEBPACK_IMPORTED_MODULE_4__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-addons-tab"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h1", null, __('Kemet Addons', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
-    className: "description",
-    dangerouslySetInnerHTML: {
-      __html: __('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
+    className: "description"
+  }, __('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
     src: KemetPanelData.images_url + 'kemet-addons-banner.png',
     alt: "kemet-addons"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -1312,11 +1311,8 @@ var KemetSites = function KemetSites() {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_Container__WEBPACK_IMPORTED_MODULE_4__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-sites-tab"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h1", null, __('Kemet Sites', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
-    className: "description",
-    dangerouslySetInnerHTML: {
-      __html: __('Kemet Sites plugin…', 'kemet')
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
+    className: "description"
+  }, __('Kemet Sites plugin…', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
     src: KemetPanelData.images_url + 'kemet-addons-banner.png',
     alt: "kemet-sites"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {

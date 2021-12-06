@@ -19,7 +19,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
-			'widget-tabs'       => array(
+			'widget-tabs'        => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -89,44 +89,17 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'widget_list-title' => array(
+			'widget_list-title'  => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'List Settings', 'kemet' ),
 			),
-			'widget-list-tabs'  => array(
-				'type' => 'kmt-tabs',
-				'tabs' => array(
-					'general' => array(
-						'title'   => __( 'General', 'kemet' ),
-						'options' => array(
-							'enable-widget-list-separator' => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Enable Widget List Separator', 'kemet' ),
-							),
-						),
-					),
-					'design'  => array(
-						'title'   => __( 'Design', 'kemet' ),
-						'options' => array(
-							'widget-list-border-color' => array(
-								'type'      => 'kmt-color',
-								'transport' => 'postMessage',
-								'label'     => __( 'Separator Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Initial', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => '.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )',
-										'property' => '--borderBottomColor',
-									),
-								),
-							),
-						),
-					),
+			'widget-list-border' => array(
+				'type'      => 'kmt-border',
+				'transport' => 'postMessage',
+				'label'     => __( 'Separator', 'kemet' ),
+				'preview'   => array(
+					'selector' => '.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )',
+					'property' => '--borderBottom',
 				),
 			),
 		);

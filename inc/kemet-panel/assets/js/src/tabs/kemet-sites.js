@@ -26,9 +26,8 @@ const KemetSites = () => {
     return <Container>
         <div className='kmt-sites-tab'>
             <h1>{__('Kemet Sites', 'kemet')}</h1>
-            <p className="description" dangerouslySetInnerHTML={{
-                __html: __('Kemet Sites plugin…', 'kemet')
-            }}>
+            <p className="description">
+                {__('Kemet Sites plugin…', 'kemet')}
             </p>
             <img src={KemetPanelData.images_url + 'kemet-addons-banner.png'} alt='kemet-sites' />
             <div className="actions">

@@ -26,9 +26,8 @@ const KemetAddons = () => {
     return <Container>
         <div className='kmt-addons-tab'>
             <h1>{__('Kemet Addons', 'kemet')}</h1>
-            <p className="description" dangerouslySetInnerHTML={{
-                __html: __('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')
-            }}>
+            <p className="description">
+                {__('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')}
             </p>
             <img src={KemetPanelData.images_url + 'kemet-addons-banner.png'} alt='kemet-addons' />
             <div className="actions">

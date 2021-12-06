@@ -966,9 +966,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$cart_dropdown_border_size  = kemet_get_option( 'cart-dropdown-border-size' );
 			$cart_dropdown_border_color = kemet_get_sub_option( 'cart-dropdown-border-color', 'initial', $global_border_color );
 			$cart_dropdown_bg_color     = kemet_get_sub_option( 'cart-dropdown-bg-color', 'initial', $global_bg_color );
-			// Widget Separator.
-			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_sub_option( 'widget-list-border-color', 'initial', $global_border_color );
 			// Single Product.
 			$image_width = ! empty( kemet_get_option( 'woo-single-image-width' ) ) ? kemet_get_option( 'woo-single-image-width' ) : array(
 				'value' => 50,
@@ -1206,17 +1203,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$css_output .= Kemet_Dynamic_Css_Generator::typography_css( 'woo-shop-product-content', '.woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description' );
 			$css_output .= Kemet_Dynamic_Css_Generator::typography_css( 'woo-shop-product-price', '.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins' );
 
-			if ( $widget_list_border ) {
-				$widget_list_style = array(
-					'ul.product_list_widget > li, #secondary ul.product_list_widget > li' => array(
-						'border-bottom-style' => esc_attr( 'solid' ),
-						'border-bottom-width' => esc_attr( '1px' ),
-						'border-bottom-color' => esc_attr( $widget_list_border_color ),
-					),
-				);
-				$css_output       .= kemet_parse_css( $widget_list_style );
-			}
-
 			$tablet_typography = array(
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
 					'--headingColor' => esc_attr( $product_title_font_color ),
@@ -1397,9 +1383,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			global $woocommerce;
 
 			$view_shopping_cart = apply_filters( 'kemet_woo_view_shopping_cart_title', __( 'View your shopping cart', 'kemet' ) );
-			$cart_display       = kemet_get_option( 'cart-icon-display' );
 			$cart_icon          = kemet_get_option( 'shop-cart-icon' );
-			$display            = '';
 			$icon               = '';
 			switch ( $cart_icon ) {
 				case 'cart':
@@ -1407,20 +1391,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					break;
 				case 'bag':
 					$icon = Kemet_Svg_Icons::get_icons( 'bag' );
-					break;
-			}
-			switch ( $cart_display ) {
-				case 'icon':
-					$display = '';
-					break;
-				case 'icon-total':
-					$display = $woocommerce->cart->get_cart_total();
-					break;
-				case 'icon-count':
-					$display = $woocommerce->cart->cart_contents_count;
-					break;
-				case 'icon-count-total':
-					$display = $woocommerce->cart->cart_contents_count . ' ' . $woocommerce->cart->get_cart_total();
 					break;
 			}
 			?>
@@ -1436,7 +1406,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 								<span class="count">
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {
-										echo $icon . wp_kses_post( $display );
+										echo $icon;
+										echo '<span class="cart-count">' . $this->get_cart_display() . '</span>';
 									}
 									?>
 								</span>
@@ -1451,6 +1422,33 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		}
 
 		/**
+		 * get_cart_display
+		 *
+		 * @return string
+		 */
+		public function get_cart_display() {
+			global $woocommerce;
+			$cart_display = kemet_get_option( 'cart-icon-display' );
+			$display      = '';
+			switch ( $cart_display ) {
+				case 'icon':
+					$display = '';
+					break;
+				case 'icon-total':
+					$display = $woocommerce->cart->get_cart_total();
+					break;
+				case 'icon-count':
+					$display = $woocommerce->cart->cart_contents_count;
+					break;
+				case 'icon-count-total':
+					$display = $woocommerce->cart->cart_contents_count . ' ' . $woocommerce->cart->get_cart_total();
+					break;
+			}
+
+			return $display;
+		}
+
+		/**
 		 * Cart Fragments
 		 * Ensure cart contents update when products are added to the cart via AJAX
 		 *
@@ -1459,8 +1457,14 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		public function cart_link_fragment( $fragments ) {
 			ob_start();
-			$this->kemet_get_cart_link();
-			$fragments['a.cart-container'] = ob_get_clean();
+			?>
+			<span class="cart-count">
+				<?php
+				echo $this->get_cart_display();
+				?>
+			</span>
+			<?php
+			$fragments['span.cart-count'] = ob_get_clean();
 
 			return $fragments;
 		}

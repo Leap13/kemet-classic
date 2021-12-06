@@ -60,6 +60,11 @@
   .kmt-support {
     .kmt-card {
       text-align: center;
+      .kmt-card-title {
+        h2 {
+          margin: 0;
+        }
+      }
     }
     .kmt-card-body {
       height: 105px;

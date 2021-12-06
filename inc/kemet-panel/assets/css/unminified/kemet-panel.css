@@ -73,6 +73,10 @@
   text-align: center;
 }
 
+#kmt-dashboard .kmt-support .kmt-card .kmt-card-title h2 {
+  margin: 0;
+}
+
 #kmt-dashboard .kmt-support .kmt-card-body {
   height: 105px;
 }
