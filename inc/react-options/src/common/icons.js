@@ -160,11 +160,101 @@ const Icons = {
                 <path d="M0,0V39H66V0ZM2,37V2h9V37Zm20,0H13V2h9Zm11,0H24V2h9Zm11,0H35V2h9Zm20,0H46V2H64Z" />
             </svg>
         ),
+        sixcol: (
+            <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="66"
+                height="39"
+                viewBox="0 0 66 39"
+            >
+                <path
+                    d="M13,15V54H79V15Zm2,37V17h8V52Zm19,0H25V17h9Zm11,0H36V17h9Zm11,0H47V17h9Zm11,0H58V17h9Zm10,0H69V17h8Z"
+                    transform="translate(-13 -15)"
+                />
+            </svg>
+        ),
+        lsixheavy: (
+            <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="65"
+                height="39"
+                viewBox="0 0 65 39"
+            >
+                <path
+                    d="M13,15V54H78V15Zm2,37V17H31V52Zm25,0H33V17h7Zm9,0H42V17h7Zm9,0H51V17h7Zm9,0H60V17h7Zm9,0H69V17h7Z"
+                    transform="translate(-13 -15)"
+                />
+            </svg>
+        ),
+        csixheavy: (
+            <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="66"
+                height="39"
+                viewBox="0 0 66 39"
+            >
+                <path
+                    d="M13,15V54H79V15Zm2,37V17h6V52Zm14,0H23V17h6Zm16,0H31V17H45Zm16,0H47V17H61Zm8,0H63V17h6Zm8,0H71V17h6Z"
+                    transform="translate(-13 -15)"
+                />
+            </svg>
+        ),
+        rsixheavy: (
+            <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="65"
+                height="39"
+                viewBox="0 0 65 39"
+            >
+                <path
+                    d="M13,15V54H78V15Zm2,37V17h7V52Zm16,0H24V17h7Zm9,0H33V17h7Zm9,0H42V17h7Zm9,0H51V17h7Zm18,0H60V17H76Z"
+                    transform="translate(-13 -15)"
+                />
+            </svg>
+        ),
     },
-    'kmt-cart': <svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23.41 24"><title>cart-outline</title><path d="M22.71,4.08A3,3,0,0,0,20.41,3H4.24l0-.35A3,3,0,0,0,1.22,0H1A1,1,0,0,0,1,2h.22a1,1,0,0,1,1,.88l1.38,11.7a5,5,0,0,0,5,4.42H19a1,1,0,0,0,0-2H8.56a3,3,0,0,1-2.82-2H17.66a5,5,0,0,0,4.92-4.11l.78-4.36A3,3,0,0,0,22.71,4.08ZM21.4,6.18l-.79,4.35A3,3,0,0,1,17.66,13H5.42L4.48,5H20.41a1,1,0,0,1,1,1A1.11,1.11,0,0,1,21.4,6.18Z" /><circle cx="7" cy="22" r="2" /><circle cx="17" cy="22" r="2" /></svg>,
-    'kmt-bag': <svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><title>bag-outline</title><path d="M21,6H18A6,6,0,0,0,6,6H3A3,3,0,0,0,0,9V19a5,5,0,0,0,5,5H19a5,5,0,0,0,5-5V9A3,3,0,0,0,21,6ZM12,2a4,4,0,0,1,4,4H8A4,4,0,0,1,12,2ZM22,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V9A1,1,0,0,1,3,8H6v2a1,1,0,0,0,2,0V8h8v2a1,1,0,0,0,2,0V8h3a1,1,0,0,1,1,1Z" /></svg>,
-    'kmt-dcart': <svg id="Outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><rect x="0" fill="none" width="20" height="20" /><g><path d="M6 13h9c.55 0 1 .45 1 1s-.45 1-1 1H5c-.55 0-1-.45-1-1V4H2c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1v2h13l-4 7H6v1zm-.5 3c.83 0 1.5.67 1.5 1.5S6.33 19 5.5 19 4 18.33 4 17.5 4.67 16 5.5 16zm9 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" /></g></svg>
-
+    "kmt-cart": (
+        <svg
+            id="Outline"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 23.41 24"
+        >
+            <title>cart-outline</title>
+            <path d="M22.71,4.08A3,3,0,0,0,20.41,3H4.24l0-.35A3,3,0,0,0,1.22,0H1A1,1,0,0,0,1,2h.22a1,1,0,0,1,1,.88l1.38,11.7a5,5,0,0,0,5,4.42H19a1,1,0,0,0,0-2H8.56a3,3,0,0,1-2.82-2H17.66a5,5,0,0,0,4.92-4.11l.78-4.36A3,3,0,0,0,22.71,4.08ZM21.4,6.18l-.79,4.35A3,3,0,0,1,17.66,13H5.42L4.48,5H20.41a1,1,0,0,1,1,1A1.11,1.11,0,0,1,21.4,6.18Z" />
+            <circle cx="7" cy="22" r="2" />
+            <circle cx="17" cy="22" r="2" />
+        </svg>
+    ),
+    "kmt-bag": (
+        <svg
+            id="Outline"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+        >
+            <title>bag-outline</title>
+            <path d="M21,6H18A6,6,0,0,0,6,6H3A3,3,0,0,0,0,9V19a5,5,0,0,0,5,5H19a5,5,0,0,0,5-5V9A3,3,0,0,0,21,6ZM12,2a4,4,0,0,1,4,4H8A4,4,0,0,1,12,2ZM22,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V9A1,1,0,0,1,3,8H6v2a1,1,0,0,0,2,0V8h8v2a1,1,0,0,0,2,0V8h3a1,1,0,0,1,1,1Z" />
+        </svg>
+    ),
+    "kmt-dcart": (
+        <svg id="Outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <rect x="0" fill="none" width="20" height="20" />
+            <g>
+                <path d="M6 13h9c.55 0 1 .45 1 1s-.45 1-1 1H5c-.55 0-1-.45-1-1V4H2c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1v2h13l-4 7H6v1zm-.5 3c.83 0 1.5.67 1.5 1.5S6.33 19 5.5 19 4 18.33 4 17.5 4.67 16 5.5 16zm9 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" />
+            </g>
+        </svg>
+    ),
 };
 
 export default Icons;
