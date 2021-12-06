@@ -49,6 +49,7 @@ if ( ! function_exists( 'kemet_get_the_post_thumbnail_background' ) ) {
 	function kemet_get_the_post_thumbnail_background( $post_id, $size ) {
 		$thumbnail_format = kemet_get_post_thumbnail_format( $post_id, $size );
 		$overlay_style    = kemet_get_option( 'overlay-image-style' );
+		$overlay_icon     = 'enable' === kemet_get_option( 'overlay-image-icon' ) ? ' overlay-icon' : '';
 		$output           = '';
 		if ( kemet_is_valid_url( $thumbnail_format ) ) {
 			$output .= '<div class="kmt-blog-featured-section post-thumb">';
@@ -56,7 +57,7 @@ if ( ! function_exists( 'kemet_get_the_post_thumbnail_background' ) ) {
 			$output .= '<a class="link-post" href=' . esc_url( get_permalink() ) . '></a>';
 			$output .= '</div>';
 			if ( 'none' != $overlay_style ) {
-				$output .= '<div class="overlay-image">';
+				$output .= '<div class="overlay-image' . esc_attr( $overlay_icon ) . '">';
 				$output .= '<div class="overlay-color">';
 				if ( 'bordered' == $overlay_style ) {
 					$output .= '<div class="color-section-1"><div class="color-section-2"></div></div>';
@@ -75,7 +76,7 @@ if ( ! function_exists( 'kemet_get_the_post_thumbnail_background' ) ) {
 			$output .= '<div class="kmt-default-featured-section post-thumb' . $thumbnail_format . '">';
 			$output .= '<a class="link-post" href=' . esc_url( get_permalink() ) . '></a>';
 			if ( 'none' != $overlay_style ) {
-				$output .= '<div class="overlay-image">';
+				$output .= '<div class="overlay-image' . esc_attr( $overlay_icon ) . '">';
 				$output .= '<div class="overlay-color">';
 				if ( 'bordered' == $overlay_style ) {
 					$output .= '<div class="color-section-1"><div class="color-section-2"></div></div>';
@@ -95,7 +96,7 @@ if ( ! function_exists( 'kemet_get_the_post_thumbnail_background' ) ) {
 /**
  * Kemet Addons get post thumbnail image.
  */
-if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
+if ( ! function_exists( 'kemet_get_thumbnail_with_overlay' ) ) {
 
 	/**
 	 * Kemet Addons get post thumbnail image
@@ -105,7 +106,7 @@ if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
 	 * @param boolean $echo   Output print or return.
 	 * @return string|void
 	 */
-	function kemet_addons_get_thumbnail_with_overlay( $before = '', $after = '', $echo = true ) {
+	function kemet_get_thumbnail_with_overlay( $before = '', $after = '', $echo = true ) {
 
 		$output = '';
 
@@ -118,6 +119,8 @@ if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
 		$blog_post_thumb = kemet_get_option( 'blog-post-structure' );
 
 		$overlay_style = kemet_get_option( 'overlay-image-style' );
+
+		$overlay_icon = 'enable' === kemet_get_option( 'overlay-image-icon' ) ? ' overlay-icon' : '';
 
 		if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 
@@ -137,7 +140,7 @@ if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
 				if ( '' != $post_thumb && ! is_singular( 'post' ) ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
 					$output .= $post_thumb;
-					$output .= '<div class="overlay-image">';
+					$output .= '<div class="overlay-image' . esc_attr( $overlay_icon ) . '">';
 					$output .= '<div class="overlay-color">';
 					if ( 'bordered' == $overlay_style ) {
 						$output .= '<div class="color-section-1"><div class="color-section-2"></div></div>';

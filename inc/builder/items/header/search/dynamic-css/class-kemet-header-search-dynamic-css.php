@@ -31,8 +31,12 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 				$input_bg_color       = kemet_get_option( 'search-input-bg-color' );
 				$text_focus_color     = kemet_get_option( 'search-input-text-color' );
 				$input_bg_focus_color = kemet_get_option( 'search-input-bg-color' );
+				$margin               = kemet_get_option( 'search-box-margin' );
 
 				$css_output = array(
+					$parent_selector           => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+					),
 					$parent_selector . ' form' => array(
 						'background-color' => kemet_responsive_color( $bg_color, 'initial', 'desktop' ),
 					),
@@ -57,6 +61,9 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 				$parse_css = kemet_parse_css( $css_output );
 
 				$tablet = array(
+					$parent_selector           => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
+					),
 					$parent_selector . ' form' => array(
 						'background-color' => kemet_responsive_color( $bg_color, 'initial', 'tablet' ),
 					),
@@ -78,6 +85,9 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 				$parse_css .= kemet_parse_css( $tablet, '', '768' );
 
 				$mobile = array(
+					$parent_selector           => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
+					),
 					$parent_selector . ' form' => array(
 						'background-color' => kemet_responsive_color( $bg_color, 'initial', 'mobile' ),
 					),

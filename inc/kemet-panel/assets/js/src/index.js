@@ -9,6 +9,7 @@ import Card from './common/Card';
 import Container from './common/Container';
 import PanelContext, { PanelProvider } from './store/panel-store'
 import pushHistory from './common/push-history'
+import KemetSites from './tabs/kemet-sites'
 
 const { __ } = wp.i18n;
 const { TabPanel, Panel, PanelBody } = wp.components;
@@ -46,10 +47,20 @@ const RendeTabs = ({ options }) => {
             }
         },
         {
+            name: 'kemet-sites',
+            title: __('Kemet Sites', 'kemet'),
+            className: 'kemet-sites',
+            priority: 15,
+            data: {
+                Component: KemetSites,
+                props: {}
+            }
+        },
+        {
             name: 'plugins',
             title: __('Recommended Plugins', 'kemet'),
             className: 'plugins',
-            priority: 15,
+            priority: 20,
             data: {
                 Component: Plugins,
                 props: {}
@@ -69,7 +80,7 @@ const RendeTabs = ({ options }) => {
             name: 'system',
             title: __('System Info', 'kemet'),
             className: 'system',
-            priority: 25,
+            priority: 30,
             data: {
                 Component: System,
                 props: {}
@@ -86,7 +97,7 @@ const RendeTabs = ({ options }) => {
         <Header />
         <TabPanel className="kemet-dashboard-tab-panel"
             activeClass="active-tab"
-            initialTabName={KemetPanelData.kemet_addons_redirect}
+            initialTabName={KemetPanelData.kemet_redirect}
             onSelect={onSelectHandler}
             tabs={tabs.sort(compare)}>
             {

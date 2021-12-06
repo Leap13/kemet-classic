@@ -65,17 +65,17 @@ export const PanelProvider = (props) => {
 
     const pluginActions = {
         deactivate: {
-            title: __('Deactivate', 'kemet-addons'),
+            title: __('Deactivate', 'kemet'),
             class: 'secondary',
             action: 'kemet-deactivate-plugin'
         },
         activate: {
-            title: __('Activate', 'kemet-addons'),
+            title: __('Activate', 'kemet'),
             class: 'primary',
             action: 'kemet-activate-plugin'
         },
         install: {
-            title: __('Install', 'kemet-addons'),
+            title: __('Install', 'kemet'),
             class: 'primary',
             action: 'kemet-install-plugin'
         }

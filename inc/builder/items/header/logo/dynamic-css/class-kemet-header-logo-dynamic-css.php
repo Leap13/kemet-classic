@@ -24,6 +24,7 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 				$site_title_h_color    = kemet_get_sub_option( 'site-title-color', 'hover' );
 				$tagline_color         = kemet_get_sub_option( 'tagline-color', 'initial' );
 				$site_identity_spacing = kemet_get_option( 'site-identity-spacing' );
+				$site_identity_margin  = kemet_get_option( 'site-identity-margin' );
 				$header_logo_width     = kemet_get_option( 'kmt-header-responsive-logo-width' );
 
 				$css_output = array(
@@ -52,6 +53,7 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 					/* Site Identity Spacing */
 					'.kmt-site-identity'             => array(
 						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'desktop' ),
+						'--margin'  => kemet_responsive_spacing( $site_identity_margin, 'all', 'desktop' ),
 					),
 					'.site-header .site-description' => array(
 						'font-family' => 'var(--fontFamily)',
@@ -73,6 +75,7 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 					/* Site Identity Spacing */
 					'.kmt-site-identity'             => array(
 						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'tablet' ),
+						'--margin'  => kemet_responsive_spacing( $site_identity_margin, 'all', 'tablet' ),
 					),
 					'.site-header .site-description' => array(
 						'color' => esc_attr( $tagline_color ),
@@ -92,6 +95,7 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 					/* Site Identity Spacing */
 					'.kmt-site-identity'             => array(
 						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'mobile' ),
+						'--margin'  => kemet_responsive_spacing( $site_identity_margin, 'all', 'mobile' ),
 					),
 					'.site-header .site-description' => array(
 						'color' => esc_attr( $tagline_color ),

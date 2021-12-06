@@ -101,6 +101,12 @@ class Kemet_Svg_Icons {
 					<path d="M6.29,10.88a1,1,0,0,0,1.42,0L11,7.59V18a1,1,0,0,0,2,0V7.59l3.29,3.29a1,1,0,0,0,1.44-1.39l0,0L14.12,5.88a3,3,0,0,0-4.24,0h0L6.29,9.47A1,1,0,0,0,6.29,10.88Z" transform="translate(-6 -5)"/>
 					</svg>';
 				break;
+			case 'arrow-left':
+				$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="7.16" height="13.98" viewBox="0 0 7.16 13.98"><title>arrow-left</title><path d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0-1.42-1.42L9.19,9.88a3,3,0,0,0,0,4.24l4.58,4.59a1,1,0,0,0,1.42-1.42Z" transform="translate(-8.31 -5.01)"/></svg>';
+				break;
+			case 'arrow-right':
+				$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="7.17" height="13.97" viewBox="0 0 7.17 13.97"><title>arrow-right</title><path d="M15.4,9.88,10.81,5.29A1,1,0,0,0,9.4,6.71L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.41,0l4.59-4.59A3,3,0,0,0,15.4,9.88Z" transform="translate(-9.11 -5.03)"/></svg>';
+				break;
 			case 'arrow-up':
 				$output = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
 						<path d="M7 13l4.030-6 3.97 6h-8z"></path>

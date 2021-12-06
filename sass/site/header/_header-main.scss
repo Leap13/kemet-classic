@@ -27,6 +27,7 @@
 
 .kmt-site-identity {
   padding: var(--padding, 24px 0px);
+  margin: var(--margin);
 }
 
 .kmt-menu-toggle {
@@ -77,8 +78,12 @@
     }
   }
 }
+.kmt-header-item.kmt-header-item-search {
+  margin: var(--margin);
+}
 .kmt-search-box-form {
   position: relative;
+  margin: var(--margin);
   .search-field {
     &:focus {
       outline: none;
@@ -166,34 +171,34 @@
       padding: var(--padding);
     }
   }
-    &[data-effect="style1"] {
+  &[data-effect="style1"] {
     > .menu-item,
     > .page-item {
       > a {
         line-height: 40px;
         position: relative;
-       &::before {
+        &::before {
           height: 3px;
           position: absolute;
-          content: '';
+          content: "";
           -webkit-transition: all 0.35s ease;
           transition: all 0.35s ease;
           background-color: currentColor;
           width: 0;
-      }
-      &::before {
-        top: 0;
-        left: 0;
+        }
+        &::before {
+          top: 0;
+          left: 0;
+        }
       }
     }
-    }
-     > .menu-item:hover {
+    > .menu-item:hover {
       > a {
-      &::before {
-        width: 100%;
+        &::before {
+          width: 100%;
+        }
       }
     }
-  }
   }
   &[data-effect="style2"] {
     > .menu-item,
@@ -201,7 +206,7 @@
       > a {
         position: relative;
         &:hover {
-          color: var(--buttonColor);;
+          color: var(--buttonColor);
           &::after {
             width: 100%;
           }
@@ -225,40 +230,40 @@
       }
     }
   }
-    &[data-effect="style3"] {
+  &[data-effect="style3"] {
     > .menu-item,
     > .page-item {
       > a {
         line-height: 40px;
         position: relative;
-       &::before,
-       &::after {
+        &::before,
+        &::after {
           height: 3px;
           position: absolute;
-          content: '';
+          content: "";
           -webkit-transition: all 0.35s ease;
           transition: all 0.35s ease;
           background-color: currentColor;
           width: 0;
-      }
-      &::before {
-        top: 0;
-        left: 0;
-      }
-      &::after {
-        bottom: 0;
-        right: 0;
+        }
+        &::before {
+          top: 0;
+          left: 0;
+        }
+        &::after {
+          bottom: 0;
+          right: 0;
+        }
       }
     }
-    }
-     > .menu-item:hover {
+    > .menu-item:hover {
       > a {
-      &::before,
-      &::after {
-        width: 100%;
+        &::before,
+        &::after {
+          width: 100%;
+        }
       }
     }
-  }
   }
   ul.sub-menu,
   ul.children {

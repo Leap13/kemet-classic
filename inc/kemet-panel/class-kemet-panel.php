@@ -246,20 +246,18 @@ if ( ! class_exists( 'Kemet_Panel' ) ) {
 				'kemet-panel-js',
 				'KemetPanelData',
 				array(
-					'options'               => self::panel_options(),
-					'values'                => array(
-						'options' => get_option( 'kemet_addons_options', array() ),
-					),
-					'nonce'                 => wp_create_nonce( 'kemet-panel' ),
-					'plugin_manager_nonce'  => wp_create_nonce( 'kemet-plugins-manager' ),
-					'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-					'plugins_data'          => Kemet_Panel_Plugins_Data::get_instance()->get_plugins_data(),
-					'plugins_cache'         => Kemet_Panel_Plugins_Data::get_instance()->plugins_status(),
-					'system_info'           => self::get_system_info(),
-					'customizer_url'        => esc_url( admin_url( 'customize.php' ) ),
-					'images_url'            => KEMET_ADDONS_PANEL_URL . 'assets/images/',
-					'addons_plugin'         => esc_html( 'kemet-addons' ),
-					'kemet_addons_redirect' => isset( $_GET['tab'] ) ? $_GET['tab'] : '',
+					'options'              => self::panel_options(),
+					'nonce'                => wp_create_nonce( 'kemet-panel' ),
+					'plugin_manager_nonce' => wp_create_nonce( 'kemet-plugins-manager' ),
+					'ajaxurl'              => admin_url( 'admin-ajax.php' ),
+					'plugins_data'         => Kemet_Panel_Plugins_Data::get_instance()->get_plugins_data(),
+					'plugins_cache'        => Kemet_Panel_Plugins_Data::get_instance()->plugins_status(),
+					'system_info'          => self::get_system_info(),
+					'customizer_url'       => esc_url( admin_url( 'customize.php' ) ),
+					'images_url'           => KEMET_ADDONS_PANEL_URL . 'assets/images/',
+					'addons_plugin'        => esc_html( 'kemet-addons' ),
+					'sites_plugin'         => esc_html( 'kemet-sites' ),
+					'kemet_redirect'       => isset( $_GET['tab'] ) ? $_GET['tab'] : '',
 				)
 			);
 		}

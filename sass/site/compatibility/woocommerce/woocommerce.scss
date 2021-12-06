@@ -4139,7 +4139,7 @@ ul.products {
 .kmt-product-navigation {
   float: right;
   .kmt-product-links {
-    a {
+    > a > {
       display: inline-block;
       span {
         display: inline-flex;
@@ -4154,6 +4154,10 @@ ul.products {
         font-size: 14px;
         justify-content: center;
         margin-left: 10px;
+      }
+      .prev {
+      }
+      .next {
       }
     }
   }

@@ -44,10 +44,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'label'     => __( 'Hover Effect', 'kemet' ),
 					'choices'   => array(
-						'none'    => __( 'None', 'kemet' ),
-						'style1'  => __( 'Style 1', 'kemet' ),
-						'style2'  => __( 'Style 2', 'kemet' ),
-						'style3'  => __( 'Style 3', 'kemet' ),
+						'none'   => __( 'None', 'kemet' ),
+						'style1' => __( 'Style 1', 'kemet' ),
+						'style2' => __( 'Style 2', 'kemet' ),
+						'style3' => __( 'Style 3', 'kemet' ),
 					),
 					'preview'   => array(
 						'selector' => $selector,
@@ -158,11 +158,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'type'      => 'kmt-border',
 					'divider'   => true,
-					'default'   => array(
-						'style' => 'none',
-						'width' => 1,
-						'color' => 'var(--linksHoverColor)',
-					),
 					'label'     => __( 'Link Border on Hover', 'kemet' ),
 					'preview'   => array(
 						'selector' => $selector . ' > li > a',
@@ -207,6 +202,27 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'preview'        => array(
 						'selector'   => $selector . ' li > a',
 						'property'   => '--padding',
+						'sides'      => false,
+						'responsive' => true,
+					),
+				),
+				$prefix . '-margin'                    => array(
+					'type'           => 'kmt-spacing',
+					'transport'      => 'postMessage',
+					'responsive'     => true,
+					'divider'        => true,
+					'label'          => __( 'Menu Margin', 'kemet' ),
+					'linked_choices' => true,
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'kemet' ),
+						'right'  => __( 'Right', 'kemet' ),
+						'bottom' => __( 'Bottom', 'kemet' ),
+						'left'   => __( 'Left', 'kemet' ),
+					),
+					'preview'        => array(
+						'selector'   => $selector,
+						'property'   => '--margin',
 						'sides'      => false,
 						'responsive' => true,
 					),

@@ -218,6 +218,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$space_widget              = kemet_get_option( 'widget-padding' );
 			$widget_margin_bottom      = kemet_get_option( 'widget-margin-bottom' );
 			$sidebar_content_font_size = kemet_get_option( 'sidebar-content-font-size' );
+			$widget_list_border        = kemet_get_option( 'widget-list-border' );
 
 			/**
 			 * Apply text hover color depends on link hover color
@@ -701,9 +702,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Widgets
 				'.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(
-					'border-bottom-style' => 'var(--borderBottomStyle)',
-					'border-bottom-width' => 'var(--borderBottomWidth)',
-					'border-bottom-color' => 'var(--borderBottomColor)',
+					'border-bottom'  => 'var(--borderBottom)',
+					'--borderBottom' => kemet_border( $widget_list_border ),
 				),
 				'.widget .widget-head'                    => array(
 					'border-bottom-style' => 'var(--borderBottomStyle)',
@@ -1125,30 +1125,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'',
 				'920'
 			);
-
-			// Widget list Border.
-			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_sub_option( 'widget-list-border-color', 'initial', $global_border_color );
-			if ( $widget_list_border ) {
-				$widget_list_style = array(
-					'.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(
-						'--borderBottomStyle' => esc_attr( 'solid' ),
-						'--borderBottomWidth' => esc_attr( '1px' ),
-						'--borderBottomColor' => esc_attr( $widget_list_border_color ),
-					),
-					'.widget_shopping_cart .total' => array(
-						'border-color' => esc_attr( $widget_list_border_color ),
-					),
-				);
-				$parse_css        .= kemet_parse_css( $widget_list_style );
-			} else {
-				$widget_list_style = array(
-					'#secondary .widget_shopping_cart .total' => array(
-						'border' => esc_attr( 'none' ),
-					),
-				);
-				$parse_css        .= kemet_parse_css( $widget_list_style );
-			}
 
 			// Preview
 			$customizer_preview_css = array(

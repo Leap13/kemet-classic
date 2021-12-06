@@ -13,8 +13,9 @@ const SinglePlugin = ({ slug }) => {
             setIsLoading(true);
         }
         await doAction(action, slug);
-        if (KemetPanelData.addons_plugin === slug && action.includes("activate")) {
-            pushHistory('kemet-addons');
+        if ((KemetPanelData.addons_plugin === slug || KemetPanelData.sites_plugin === slug) && action.includes("activate")) {
+            const url = KemetPanelData.sites_plugin === slug ? KemetPanelData.sites_plugin : KemetPanelData.addons_plugin;
+            pushHistory(url);
             window.location.reload();
         }
         setIsLoading(false);
