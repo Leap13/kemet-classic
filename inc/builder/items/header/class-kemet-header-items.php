@@ -56,6 +56,7 @@ if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 			require KEMET_HEADER_ITEMS_DIR . 'offcanvas-menu/class-kemet-header-off-canvas-menu-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'overlay-header/class-kemet-overlay-header.php';
 			require KEMET_HEADER_ITEMS_DIR . 'sticky-header/class-kemet-sticky-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'divider/class-kemet-header-divider.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}

@@ -52,6 +52,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
 			add_action( 'kemet_header_search_box', array( $this, 'search_box_markup' ) );
+			add_action( 'kemet_header_divider', array( $this, 'divider_markup' ) );
 			add_action( 'kemet_header_button', array( $this, 'button_markup' ) );
 			add_action( 'kemet_header_mobile_button', array( $this, 'button_markup' ) );
 			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
@@ -500,6 +501,17 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		public function add_search_icon( $markup ) {
 			$markup = str_replace( '</form>', '<div class="kemet-search-svg-icon-wrap">' . Kemet_Svg_Icons::get_icons( 'search' ) . '</div></form>', $markup );
 			return $markup;
+		}
+
+		/**
+		 * Divider
+		 */
+		public function divider_markup() {
+			$divider_style       = kemet_get_option( 'divider-item-style' );
+			$divider_html  = '<div class="kmt-divider-container ' . esc_attr($divider_style) . '">';
+			$divider_html .= '</div>';
+
+			echo $divider_html;
 		}
 
 		/**

@@ -76,6 +76,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'admin-links',
 							'section' => 'section-desktop-toggle-button',
 						),
+						'divider'  => array(
+							'name'    => __( 'Divider', 'kemet' ),
+							'icon'    => 'minus',
+							'section' => 'section-header-divider',
+						),
 						'header-html-1'   => array(
 							'name'    => __( 'HTML 1', 'kemet' ),
 							'icon'    => 'text',
@@ -206,6 +211,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
 							'section' => 'sidebar-widgets-header-widget-2',
+						),
+						'divider'  => array(
+							'name'    => __( 'Divider', 'kemet' ),
+							'icon'    => 'minus',
+							'section' => 'section-header-divider',
 						),
 					)
 				),
