@@ -41,9 +41,9 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
             self::$prefix . '-width'       => array(
                 'transport'   => 'postMessage',
                 'type'        => 'kmt-border',
-                'label'       => __( 'Width', 'kemet' ),
+                'label'       => __( 'Weight', 'kemet' ),
                 'preview'     => array(
-                    'selector' => '.kmt-divider-container',
+                    'selector' => $selector,
                     'property' => 'border-right',
                 ),
             ),
@@ -60,8 +60,28 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector'   => '.kmt-divider-container',
+					'selector'   => $selector,
 					'property'   => 'height',
+					'responsive' => true,
+				),
+            ),
+			self::$prefix . '-margin'       => array(
+				'type'         => 'kmt-spacing',
+				'transport'      => 'postMessage',
+				'responsive'   => 'true',
+				'label'          => __( 'Margin', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+				'preview'      => array(
+					'selector'   => $selector,
+					'property'   => 'margin',
+					'sides'    => false,
 					'responsive' => true,
 				),
             ),
