@@ -76,7 +76,7 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		protected function content_template() {
 			?>
 		<li class="panel-meta customize-info accordion-section <# if ( ! data.description ) { #> cannot-expand<# } #>">
-			<button class="customize-panel-back" tabindex="-1"><span class="screen-reader-text"><?php _e( 'Back' ); ?></span></button>
+			<button class="customize-panel-back" tabindex="-1"><span class="screen-reader-text"><?php echo __( 'Back', 'kemet' ); ?></span></button>
 			<div class="accordion-section-title">
 				<span class="preview-notice">
 				<?php
@@ -84,12 +84,12 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 									<a href='{{data.infoLink}}' class='kmt-docs-link' target='_blank'><span class='dashicons dashicons-editor-help'></span></a>
 								<# } #>";
 					/* translators: %s: The site/panel title in the Customizer. */
-					printf( __( 'You are customizing <strong class="panel-title">%1$s%2$s</strong>' ), '{{ data.title }}', $info_link );
+					printf( '%1$s <strong class="panel-title">%2$s%3$s</strong>', __( 'You are customizing', 'kemet' ), '{{ data.title }}', $info_link );
 				?>
 				
 				</span>
 				<# if ( data.description ) { #>
-					<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+					<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php echo __( 'Help', 'kemet' ); ?></span></button>
 				<# } #>
 			</div>
 			<# if ( data.description ) { #>

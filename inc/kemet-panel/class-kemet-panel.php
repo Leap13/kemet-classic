@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kemet_Panel' ) ) {
 			global $wpdb;
 
 			$info = array(
-				'home_url'          => get_option( 'home' ),
+				'home_url'          => home_url(),
 				'site_url'          => get_option( 'siteurl' ),
 				'version'           => get_bloginfo( 'version' ),
 				'multisite'         => is_multisite(),

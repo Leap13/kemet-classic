@@ -884,7 +884,7 @@ var Header = function Header() {
     href: "https://kemet.io/docs/",
     className: "docs kmt-button secondary",
     target: "_blank"
-  }, __('Documentation', 'kemet')));
+  }, __('Theme Documentation', 'kemet')));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
