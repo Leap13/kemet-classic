@@ -84,6 +84,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			// Add Cart icon in Menu.
 			add_filter( 'kemet_header_cart', array( $this, 'woo_mini_cart_markup' ) );
 			add_filter( 'header_desktop_items', array( $this, 'add_cart_header_item' ) );
+			add_filter( 'header_mobile_items', array( $this, 'add_cart_header_item' ) );
 
 			// Add Cart option in dropdown.
 			add_filter( 'kemet_header_elements', array( $this, 'header_section_elements' ) );

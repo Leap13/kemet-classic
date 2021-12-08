@@ -76,7 +76,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'admin-links',
 							'section' => 'section-desktop-toggle-button',
 						),
-						'divider'  => array(
+						'divider'         => array(
 							'name'    => __( 'Divider', 'kemet' ),
 							'icon'    => 'minus',
 							'section' => 'section-header-divider',
@@ -162,25 +162,20 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'search',
 							'section' => 'section-header-search-box',
 						),
+						'primary-menu'           => array(
+							'name'    => __( 'Primary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-primary-menu',
+						),
+						'secondary-menu'         => array(
+							'name'    => __( 'Secondary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-secondary-menu',
+						),
 						'offcanvas-menu'         => array(
 							'name'    => __( 'Off Canvas Menu', 'kemet' ),
 							'icon'    => 'menu',
 							'section' => 'section-header-offcanvas-menu',
-						),
-						'mobile-toggle'          => array(
-							'name'    => __( 'Trigger', 'kemet' ),
-							'icon'    => 'admin-links',
-							'section' => 'section-mobile-toggle-button',
-						),
-						'header-mobile-html-1'   => array(
-							'name'    => __( 'HTML 1', 'kemet' ),
-							'icon'    => 'text',
-							'section' => 'section-header-mobile-html-1',
-						),
-						'header-mobile-html-2'   => array(
-							'name'    => __( 'HTML 2', 'kemet' ),
-							'icon'    => 'text',
-							'section' => 'section-header-mobile-html-2',
 						),
 						'header-mobile-button-1' => array(
 							'name'    => __( 'Button 1', 'kemet' ),
@@ -192,15 +187,25 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'button',
 							'section' => 'section-header-mobile-button-2',
 						),
-						'primary-menu'           => array(
-							'name'    => __( 'Primary Menu', 'kemet' ),
-							'icon'    => 'menu',
-							'section' => 'section-header-primary-menu',
+						'mobile-toggle'          => array(
+							'name'    => __( 'Trigger', 'kemet' ),
+							'icon'    => 'admin-links',
+							'section' => 'section-mobile-toggle-button',
 						),
-						'secondary-menu'         => array(
-							'name'    => __( 'Secondary Menu', 'kemet' ),
-							'icon'    => 'menu',
-							'section' => 'section-header-secondary-menu',
+						'divider'                => array(
+							'name'    => __( 'Divider', 'kemet' ),
+							'icon'    => 'minus',
+							'section' => 'section-header-divider',
+						),
+						'header-mobile-html-1'   => array(
+							'name'    => __( 'HTML 1', 'kemet' ),
+							'icon'    => 'text',
+							'section' => 'section-header-mobile-html-1',
+						),
+						'header-mobile-html-2'   => array(
+							'name'    => __( 'HTML 2', 'kemet' ),
+							'icon'    => 'text',
+							'section' => 'section-header-mobile-html-2',
 						),
 						'header-widget-1'        => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
@@ -211,11 +216,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
 							'section' => 'sidebar-widgets-header-widget-2',
-						),
-						'divider'  => array(
-							'name'    => __( 'Divider', 'kemet' ),
-							'icon'    => 'minus',
-							'section' => 'section-header-divider',
 						),
 					)
 				),
@@ -330,7 +330,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'header-mobile-availble-items' => array(
 								'label'       => __( 'Available Items', 'kemet' ),
 								'transport'   => 'postMessage',
-								'infoLink'    => esc_url( 'https://kemet.io/docs/header-elements/' ),
+								'infoLink'    => esc_url( 'https://kemet.io/docs/mobile-header-elements/' ),
 								'type'        => 'kmt-available',
 								'input_attrs' => array(
 									'group' => 'header-mobile-items',
