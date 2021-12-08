@@ -24467,8 +24467,8 @@ var FontOptions = function FontOptions(_ref) {
         },
         'em': {
           min: 0,
-          max: 50,
-          step: 1
+          max: 12,
+          step: 0.1
         }
       }
     },
@@ -24498,8 +24498,8 @@ var FontOptions = function FontOptions(_ref) {
         },
         'em': {
           min: 0,
-          max: 100,
-          step: 1
+          max: 12,
+          step: 0.1
         }
       }
     },
@@ -24525,7 +24525,7 @@ var FontOptions = function FontOptions(_ref) {
         'px': {
           min: -20,
           max: 20,
-          step: 1
+          step: 0.1
         },
         'em': {
           min: -5,
