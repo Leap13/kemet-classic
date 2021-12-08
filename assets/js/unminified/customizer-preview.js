@@ -1274,4 +1274,12 @@ function kemet_change_attr(control, selector, attr) {
       }
     })
   });
+  wp.customize(settingName('divider-item-style'), function (value) {
+    value.bind(function (new_value) {
+      $('.kmt-divider-container').removeClass('divider-vertical divider-horizontal');
+      if (new_value) {
+        $('.kmt-divider-container').addClass(new_value);
+      }
+    })
+  });
 })(jQuery);

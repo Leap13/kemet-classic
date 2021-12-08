@@ -1072,17 +1072,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
 					'background-color' => 'var(--globalBackgroundColor)',
 				),
-				// '.woocommerce-js .yith-woocompare-widget a.compare' => array(
-				// 'color'            => esc_attr( $btn_color ),
-				// 'background-color' => esc_attr( $btn_bg_color ),
-				// 'border'           => 'solid',
-				// 'border-color'     => esc_attr( $btn_border_color ),
-				// 'border-width'     => kemet_get_css_value( $btn_border_size, 'px' ),
-				// 'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
-				// 'padding'      => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
-				// ),
 				'.single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-icon, .single-product div.product .entry-summary .compare:before' => array(
-					'background-color' => esc_attr( kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ),
+					'background-color' => esc_attr( kemet_color_brightness( $global_bg_color, 0.8, 'dark' ) ),
 				),
 				'.single-product div.product .entry-summary .compare' => array(
 					'border' => 'none',

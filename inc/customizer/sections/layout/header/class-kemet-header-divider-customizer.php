@@ -27,31 +27,31 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		self::$prefix    = 'divider';
 		$selector        = '.kmt-divider-container';
-		$divider_options  = array(
-        self::$prefix . '-item-style'        => array(
-            'type'      => 'kmt-radio',
-            'default'   => 'none',
-            'transport' => 'postMessage',
-            'label'     => __( 'Divider Style', 'kemet' ),
-            'choices'   => array(
-                'divider-vertical'    => __( 'Vertical', 'kemet' ),
-                'divider-horisontal'  => __( 'Horisontal', 'kemet' ),
-            	),
+		$divider_options = array(
+			self::$prefix . '-item-style' => array(
+				'type'      => 'kmt-radio',
+				'default'   => 'none',
+				'transport' => 'postMessage',
+				'label'     => __( 'Divider Style', 'kemet' ),
+				'choices'   => array(
+					'divider-vertical'   => __( 'Vertical', 'kemet' ),
+					'divider-horizontal' => __( 'Horizontal', 'kemet' ),
+				),
 			),
-            self::$prefix . '-width'       => array(
-                'transport'   => 'postMessage',
-                'type'        => 'kmt-border',
-                'label'       => __( 'Weight', 'kemet' ),
-                'preview'     => array(
-                    'selector' => $selector,
-                    'property' => 'border-right',
-                ),
-            ),
-            self::$prefix . '-height'       => array(
+			self::$prefix . '-width'      => array(
+				'transport' => 'postMessage',
+				'type'      => 'kmt-border',
+				'label'     => __( 'Weight', 'kemet' ),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--border',
+				),
+			),
+			self::$prefix . '-size'       => array(
 				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
-				'label'        => __( 'Enter Height', 'kemet' ),
+				'label'        => __( 'Size', 'kemet' ),
 				'unit_choices' => array(
 					'px' => array(
 						'min'  => 0,
@@ -61,14 +61,14 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 				),
 				'preview'      => array(
 					'selector'   => $selector,
-					'property'   => 'height',
+					'property'   => '--size',
 					'responsive' => true,
 				),
-            ),
-			self::$prefix . '-margin'       => array(
-				'type'         => 'kmt-spacing',
+			),
+			self::$prefix . '-margin'     => array(
+				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
-				'responsive'   => 'true',
+				'responsive'     => true,
 				'label'          => __( 'Margin', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -78,14 +78,14 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
 				),
-				'preview'      => array(
+				'preview'        => array(
 					'selector'   => $selector,
 					'property'   => 'margin',
-					'sides'    => false,
+					'sides'      => false,
 					'responsive' => true,
 				),
-            ),
-	);
+			),
+		);
 
 		$divider_options = array(
 			self::$prefix . '-options' => array(
@@ -109,8 +109,8 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 	public function register_sections( $sections ) {
 		$divider_sections = array(
 			'section-header-' . self::$prefix => array(
-				'title'    => __( 'Divider', 'kemet' ),
-				'panel'    => 'panel-header-builder-group',
+				'title' => __( 'Divider', 'kemet' ),
+				'panel' => 'panel-header-builder-group',
 			),
 		);
 

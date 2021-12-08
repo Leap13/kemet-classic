@@ -88,9 +88,9 @@ const AvailableComponent = (props) => {
     );
   };
   return (
-    <div className="kmt-control-field kmt-available-items">
+    <div className="kmt-available-items">
       <div className="kmt-available-items-title">
-        <span className="customize-control-title">
+        <span className="customize-control-title kmt-control-title">
           {__("Available Elements", "kemet")}
         </span>
         {infoLink && <a href={infoLink} className="kmt-docs-link" target="_blank"><Dashicon icon='editor-help' /></a>}

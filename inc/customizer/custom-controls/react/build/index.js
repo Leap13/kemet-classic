@@ -5648,11 +5648,11 @@ var AvailableComponent = function AvailableComponent(props) {
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-control-field kmt-available-items"
+    className: "kmt-available-items"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "customize-control-title"
+    className: "customize-control-title kmt-control-title"
   }, __("Available Elements", "kemet")), infoLink && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
     href: infoLink,
     className: "kmt-docs-link",
