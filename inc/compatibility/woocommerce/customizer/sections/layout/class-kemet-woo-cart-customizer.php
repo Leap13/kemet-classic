@@ -1,6 +1,6 @@
 <?php
 /**
- * Woocommerce cart item options
+ * WooCommerce cart item options
  *
  * @package Kemet
  */
@@ -36,10 +36,10 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 								'transport' => 'postMessage',
 								'label'     => __( 'Icon Display', 'kemet' ),
 								'choices'   => array(
-									'cart' => array(
+									'cart'  => array(
 										'icon' => 'kmt-cart',
 									),
-									'bag'  => array(
+									'bag'   => array(
 										'icon' => 'kmt-bag',
 									),
 									'dcart' => array(

@@ -1451,7 +1451,7 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/section-container.php:29
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:29
-msgid "Woocommerce"
+msgid "WooCommerce"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/section-container.php:33

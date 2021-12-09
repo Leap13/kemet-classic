@@ -638,8 +638,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'tablet_unit'  => 'px',
 						'mobile_unit'  => 'px',
 					),
-					//Woocommerce
-					'shop-cart-icon'    =>  'kmt-bag',
+					// WooCommerce
+					'shop-cart-icon'                       => 'kmt-bag',
 				)
 			);
 		}

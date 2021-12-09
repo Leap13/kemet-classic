@@ -111,7 +111,7 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 			$title = '';
 			if ( is_author() ) {
 				$title = get_the_author();
-			} elseif ( is_category() || ( class_exists( 'Woocommerce' ) && is_product_category() ) ) {
+			} elseif ( is_category() || ( class_exists( 'WooCommerce' ) && is_product_category() ) ) {
 				$title = single_cat_title();
 			} elseif ( is_tag() ) {
 				$title = single_tag_title();

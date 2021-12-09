@@ -273,6 +273,7 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 				'title'    => __( 'Go Top Button', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'priority' => 55,
+				'infoLink' => esc_url( 'https://kemet.io/docs/go-top-button/' ),
 			),
 		);
 

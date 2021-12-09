@@ -325,7 +325,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 		$register_section = array(
 			$section_name => array(
 				'title'    => __( 'Sidebar', 'kemet' ),
-				'infoLink' => esc_url( 'https://kemet.io/?post_type=docs&p=1067' ),
+				'infoLink' => esc_url( 'https://kemet.io/docs/sidebar-widgets/' ),
 				'panel'    => 'panel-layout',
 				'priority' => 30,
 			),

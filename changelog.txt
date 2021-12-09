@@ -23,14 +23,14 @@ v 1.1.12 version
 - Added: Header options enhancements.
 - Added: Menu items color options.
 - Fixed: Top bar menu style issue.
-- Fixed: Woocommerce button style.
+- Fixed: WooCommerce button style.
 - Fixed: Posts tags style issue in listing.
 
 v 1.1.11 version
 - Fixed: RTL sub menu style
 
 v 1.1.10 version
-- Added: Woocommerce product list style.
+- Added: WooCommerce product list style.
 - Added: Last menu item options.
 - Added: Font style option to typography group control.
 - Added: Font size options for buttons.
@@ -49,7 +49,7 @@ v 1.1.8 version
 
 v 1.1.7 version
 - Fixed: Header styling issues with RTL.
-- Tweak: Improve Woocommerce listing style in responsive.
+- Tweak: Improve WooCommerce listing style in responsive.
 
 v 1.1.6 version
 - Fixed: Submenu style issues in responsive menu.
@@ -79,7 +79,7 @@ v 1.1.1 version
 - Fixed: Responsive menu issue.
 
 v 1.1.0 version
-- Added: Woocommerce Layouts
+- Added: WooCommerce Layouts
 - Added: Background option for active menu item.
 - Fixed: Responsive control style issue.
 

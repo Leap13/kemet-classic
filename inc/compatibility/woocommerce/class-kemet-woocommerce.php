@@ -1226,16 +1226,16 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			/* Parse CSS from array()*/
 			$css_output .= kemet_parse_css( $mobile_typography, '', '544' );
 
-			/* Woocommerce Shop Archive width */
+			/* WooCommerce Shop Archive width */
 			if ( 'custom' === $woo_shop_archive_width ) :
-				// Woocommerce shop archive custom width.
+				// WooCommerce shop archive custom width.
 				$site_width  = array(
 					'.kmt-woo-shop-archive .site-content > .kmt-container' => array(
 						'max-width' => kemet_slider( $woo_shop_archive_max_width ),
 					),
 				);
 				$css_output .= kemet_parse_css( $site_width, '769' );else :
-					// Woocommerce shop archive default width.
+					// WooCommerce shop archive default width.
 					$site_width = array(
 						'.kmt-woo-shop-archive .site-content > .kmt-container' => array(
 							'max-width' => kemet_get_css_value( $site_content_width['value'] + 40, 'px' ),
@@ -1324,7 +1324,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			return $items;
 		}
 		/**
-		 * Woocommerce mini cart markup markup
+		 * WooCommerce mini cart markup markup
 		 *
 		 * @return html
 		 */

@@ -101,7 +101,7 @@ const IconPicker = ({ value, onChange, params }) => {
                                 </div>
                             </Fragment>
                         ) : (
-                            <div >{__("Select", "emet")}</div>
+                            <div >{__("Select", "kemet")}</div>
                         )}
                     </OutsideComponent>
                     <div className="kmt-btn-reset-wrap">

@@ -26,7 +26,7 @@ if ( ! function_exists( 'kemet_woo_container_layout' ) ) {
 	function kemet_woo_container_layout( $options ) {
 		$options['woo-container-title']          = array(
 			'type'  => 'kmt-title',
-			'label' => __( 'Woocommerce', 'kemet' ),
+			'label' => __( 'WooCommerce', 'kemet' ),
 		);
 		$options['woocommerce-container-layout'] = array(
 			'type'    => 'kmt-select',

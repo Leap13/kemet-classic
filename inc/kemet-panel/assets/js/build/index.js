@@ -1434,33 +1434,33 @@ var Support = function Support() {
     className: "kmt-card-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, __('Knowledge Base', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-body"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Here you will find answers for your questions and inquiries. We are always working on enhancing the Theme documention library for make the process easier for you.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Kemet Theme documentation library will guide you to build your next Kemet website easily without any need to touch a single line of code.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-action"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     className: "kmt-button primary",
     target: "_blank",
     href: "#"
-  }, __('Visit', 'kemet')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, __('Documentation', 'kemet')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, __('Need Help', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-body"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Kemet Theme has a professional support team who will pamper you by handling your issues and answering your questions and inquiries with 24-48 hours.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Have a question? Kemet support team is here to help you by answering your questions and handling your issues within 24-48 hours.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-action"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     className: "kmt-button primary",
     target: "_blank",
     href: "#"
-  }, __('Visit', 'kemet')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, __('Submit a Ticket', 'kemet')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, __('Follow us', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-body"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Join our Facebook community to fellow Leap13 users creating effective websites! Share your site, ask questions and help others.', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, __('Come and join our Facebook group! Share your thoughts, opinions, suggestions, and help others. You will always be more than welcome!', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-card-action"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     className: "kmt-button primary",
     target: "_blank",
     href: "#"
-  }, __('Visit', 'kemet'))))));
+  }, __('Facebook Group', 'kemet'))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Support);

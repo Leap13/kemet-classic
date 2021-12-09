@@ -1,6 +1,6 @@
 <?php
 /**
- * Register customizer panels & sections fro Woocommerce.
+ * Register customizer panels & sections fro WooCommerce.
  *
  * @package     Kemet
  * @author      Kemet

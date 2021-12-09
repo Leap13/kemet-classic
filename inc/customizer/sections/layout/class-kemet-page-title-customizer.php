@@ -294,11 +294,13 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 				'title'    => __( 'Breadcrumbs', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'priority' => 50,
+				'infoLink' => esc_url( 'https://kemet.io/docs/page-title-breadcrumbs/' ),
 			),
 			'section-' . self::$prefix => array(
 				'title'    => __( 'Page Title', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'priority' => 45,
+				'infoLink' => esc_url( 'https://kemet.io/docs/page-title-breadcrumbs/' ),
 			),
 		);
 

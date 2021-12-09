@@ -22134,7 +22134,7 @@ var IconPicker = function IconPicker(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-tooltip-top"
-  }, __("Remove Icon", "kemet"))))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, __("Select", "emet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }, __("Remove Icon", "kemet"))))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, __("Select", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
     className: "kmt-reset-btn ",

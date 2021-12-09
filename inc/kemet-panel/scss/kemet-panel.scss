@@ -63,11 +63,9 @@
       .kmt-card-title {
         h2 {
           margin: 0;
+          text-transform: capitalize;
         }
       }
-    }
-    .kmt-card-body {
-      height: 105px;
     }
   }
   .kmt-addons-tab,

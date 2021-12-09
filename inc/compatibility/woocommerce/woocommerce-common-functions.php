@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom functions that used for Woocommerce compatibility.
+ * Custom functions that used for WooCommerce compatibility.
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
@@ -214,12 +214,12 @@ if ( ! function_exists( 'kemet_woo_shop_thumbnail_wrap_end' ) ) {
 }
 
 /**
- * Woocommerce filter - Widget Products Tags
+ * WooCommerce filter - Widget Products Tags
  */
 if ( ! function_exists( 'kemet_widget_product_tag_cloud_args' ) ) {
 
 	/**
-	 * Woocommerce filter - Widget Products Tags
+	 * WooCommerce filter - Widget Products Tags
 	 *
 	 * @param  array $args Tag arguments.
 	 * @return array       Modified tag arguments.
@@ -239,12 +239,12 @@ if ( ! function_exists( 'kemet_widget_product_tag_cloud_args' ) ) {
 }
 
 /**
- * Woocommerce shop/product div close tag.
+ * WooCommerce shop/product div close tag.
  */
 if ( ! function_exists( 'kemet_woocommerce_div_wrapper_close' ) ) :
 
 	/**
-	 * Woocommerce shop/product div close tag.
+	 * WooCommerce shop/product div close tag.
 	 *
 	 * @return void
 	 */
@@ -256,7 +256,7 @@ if ( ! function_exists( 'kemet_woocommerce_div_wrapper_close' ) ) :
 endif;
 
 /**
- * Woocommerce shop/product details div tag.
+ * WooCommerce shop/product details div tag.
  */
 function product_list_details() {
 	echo '<div class="product-list-details">';
@@ -266,7 +266,7 @@ function product_list_details() {
 }
 add_action( 'woocommerce_before_shop_loop_item', 'product_list_details', 8 );
 /**
- * Woocommerce shop/product details div close tag.
+ * WooCommerce shop/product details div close tag.
  */
 function after_shop_loop_item_title() {
 	do_action( 'kemet_product_list_image_bottom' );

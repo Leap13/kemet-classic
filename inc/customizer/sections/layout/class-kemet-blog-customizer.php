@@ -744,6 +744,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				'title'    => __( 'Blog/Archive', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-blog-group',
+				'infoLink' => esc_url( 'https://kemet.io/docs/blog-archive/' ),
 			),
 		);
 
