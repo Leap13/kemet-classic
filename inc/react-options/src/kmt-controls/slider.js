@@ -72,6 +72,7 @@ class ResponsiveSliderComponent extends Component {
         let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
         let dataAttributes = ''
         let units = [];
+
         if (this.unit_choices) {
             for (const [key, value] of Object.entries(this.unit_choices)) {
                 units.push(key)
@@ -135,7 +136,7 @@ class ResponsiveSliderComponent extends Component {
                         />
                         <div className="kemet_range_value">
                             <input type="number" value={sliderValue} step={dataAttributes.step}
-                                max={dataAttributes.max} min={dataAttributes.min} onChange={({ target: { value } }) => this.updateValues(value)} />
+                                max={dataAttributes.max} min={dataAttributes.min} onChange={({ target: { value } }) => this.updateValues(Number(value))} />
                             {suffixContent}
                         </div>
 

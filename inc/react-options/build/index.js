@@ -23354,7 +23354,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         min: dataAttributes.min,
         onChange: function onChange(_ref) {
           var value = _ref.target.value;
-          return _this2.updateValues(value);
+          return _this2.updateValues(Number(value));
         }
       }), suffixContent)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
         className: "kmt-slider-reset",
@@ -23683,7 +23683,7 @@ var SpacingComponent = function SpacingComponent(props) {
           className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
           onChange: function onChange(_ref) {
             var value = _ref.target.value;
-            return onSpacingChange(value, choiceID);
+            return onSpacingChange(Number(value), choiceID);
           },
           value: inputValue,
           "data-id": choiceID,

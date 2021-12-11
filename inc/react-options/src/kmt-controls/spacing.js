@@ -65,7 +65,6 @@ const SpacingComponent = (props) => {
         let updateState = {
             ...state,
         };
-
         let deviceUpdateState = responsive
             ? {
                 ...updateState[device],
@@ -111,7 +110,6 @@ const SpacingComponent = (props) => {
                 let inputValue = responsive
                     ? state[device][choiceID]
                     : state[`value`][choiceID];
-
                 let html = (
                     <li
                         key={choiceID}
@@ -120,7 +118,7 @@ const SpacingComponent = (props) => {
                     >
                         <input type="number"
                             className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
-                            onChange={({ target: { value } }) => onSpacingChange(value, choiceID)}
+                            onChange={({ target: { value } }) => onSpacingChange(Number(value), choiceID)}
                             value={inputValue}
                             data-id={choiceID}
                             data-element-connect={id}
