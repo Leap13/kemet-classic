@@ -60,7 +60,11 @@ const NumberComponent = ({ value, params, onChange }) => {
                             )
                         }
                     />
-                    <input type="number" value={value} step={step} onChange={({ target: { value } }) => onChange(value)} />
+                    <input
+                        type="number"
+                        value={value}
+                        step={step}
+                        onChange={({ target: { value } }) => onChange(value)} />
                 </div>
             </div>
             <div className="kmt-btn-reset-wrap">

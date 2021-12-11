@@ -135,8 +135,12 @@ class ResponsiveSliderComponent extends Component {
                             withInputField={false}
                         />
                         <div className="kemet_range_value">
-                            <input type="number" value={sliderValue} step={dataAttributes.step}
-                                max={dataAttributes.max} min={dataAttributes.min} onChange={({ target: { value } }) => this.updateValues(Number(value))} />
+                            <input type="number"
+                                value={sliderValue}
+                                step={dataAttributes.step}
+                                max={dataAttributes.max}
+                                min={dataAttributes.min}
+                                onChange={({ target: { value } }) => this.updateValues(Number(value))} />
                             {suffixContent}
                         </div>
 
