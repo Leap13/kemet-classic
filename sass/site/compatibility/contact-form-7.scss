@@ -28,8 +28,6 @@
   input:not([type="submit"]):focus,
   textarea:focus,
   select:focus {
-    background: #fff;
-    border-color: $color-border-input;
     outline: 0;
     box-shadow: none;
   }
@@ -38,17 +36,11 @@
   textarea,
   select {
     width: 100%;
-    padding: 0.75em;
   }
 
   input[type="file"] {
-    color: $color-text-input;
     height: auto;
-    border-width: 1px;
-    border-style: solid;
-    border-color: $color-border-input;
     border-radius: 2px;
-    background: #fafafa;
     box-shadow: none;
     box-sizing: border-box;
     @include kmt-transition();
@@ -59,8 +51,6 @@
   input[type="radio"],
   input[type="checkbox"] {
     display: inline-block;
-    background: #e9eef2;
-    color: #555;
     clear: none;
     cursor: pointer;
     line-height: 0;

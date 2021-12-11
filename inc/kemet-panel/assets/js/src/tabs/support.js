@@ -7,7 +7,7 @@ const { __ } = wp.i18n;
 
 const Support = () => {
     return <Container>
-        <Grid columns={3} className='kmt-support'>
+        <Grid columns={3} gap={8} className='kmt-support'>
             <Card>
                 <div className='kmt-card-title'>
                     <h2>{__('Knowledge Base', 'kemet')}</h2>
@@ -21,7 +21,7 @@ const Support = () => {
             </Card>
             <Card>
                 <div className='kmt-card-title'>
-                    <h2>{__('Need Help', 'kemet')}</h2>
+                    <h2>{__('Need Help?', 'kemet')}</h2>
                 </div>
                 <div className='kmt-card-body'>
                     <p>{__('Have a question? Kemet support team is here to help you by answering your questions and handling your issues within 24-48 hours.', 'kemet')}</p>

@@ -55,3 +55,16 @@ a.wp-block-button__link,
     }
   }
 }
+.elementor-button-wrapper .elementor-button {
+  color: var(--buttonColor);
+  background-color: var(--buttonBackgroundColor);
+  border-color: var(--borderColor);
+  border-width: var(--borderWidth);
+  border-radius: var(--borderRadius);
+  padding: var(--padding);
+  &:hover {
+    color: var(--buttonHoverColor);
+    background-color: var(--buttonBackgroundHoverColor);
+    border-color: var(--borderHoverColor);
+  }
+}

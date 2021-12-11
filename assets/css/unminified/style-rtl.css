@@ -1942,6 +1942,21 @@ a.wp-block-button__link:focus,
 	background-color: transparent;
 }
 
+.elementor-button-wrapper .elementor-button {
+	padding: var(--padding);
+	border-width: var(--borderWidth);
+	border-color: var(--borderColor);
+	border-radius: var(--borderRadius);
+	color: var(--buttonColor);
+	background-color: var(--buttonBackgroundColor);
+}
+
+.elementor-button-wrapper .elementor-button:hover {
+	border-color: var(--borderHoverColor);
+	color: var(--buttonHoverColor);
+	background-color: var(--buttonBackgroundHoverColor);
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
