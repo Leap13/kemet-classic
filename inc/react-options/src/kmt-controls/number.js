@@ -1,5 +1,4 @@
 import classnames from 'classnames'
-import OnlyNumberValue from '../common/OnlyNumber'
 import _ from 'underscore'
 
 const round = (value) => Math.round(value * 10) / 10
@@ -61,10 +60,7 @@ const NumberComponent = ({ value, params, onChange }) => {
                             )
                         }
                     />
-                    <OnlyNumberValue
-                        value={value}
-                        step={step}
-                        onChange={(val) => onChange(val)} />
+                    <input type="number" value={value} step={step} onChange={({ target: { value } }) => onChange(value)} />
                 </div>
             </div>
             <div className="kmt-btn-reset-wrap">

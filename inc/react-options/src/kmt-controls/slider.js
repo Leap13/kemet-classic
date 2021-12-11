@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import Responsive from '../common/responsive';
 const { RangeControl } = wp.components;
 const { Component, Fragment } = wp.element;
-import OnlyNumberValue from '../common/OnlyNumber'
 
 class ResponsiveSliderComponent extends Component {
     constructor() {
@@ -135,20 +134,8 @@ class ResponsiveSliderComponent extends Component {
                             withInputField={false}
                         />
                         <div className="kemet_range_value">
-                            <OnlyNumberValue
-                                classNames="kmt-range-value__input"
-                                value={sliderValue}
-                                step={dataAttributes.step}
-                                onChange={(val) => this.updateValues(
-                                    _.isNumber(parseFloat(val)) ? Math.min(
-                                        Math.max(
-                                            parseFloat(val).toFixed(1),
-                                            dataAttributes.min
-                                        ),
-                                        dataAttributes.max
-                                    ) : parseFloat(val).toFixed(1)
-                                )} />
-
+                            <input type="number" value={sliderValue} step={dataAttributes.step}
+                                max={dataAttributes.max} min={dataAttributes.min} onChange={({ target: { value } }) => this.updateValues(value)} />
                             {suffixContent}
                         </div>
 
