@@ -1201,7 +1201,7 @@ function kemet_change_attr(control, selector, attr) {
         }
         break;
       case "kmt-box-shadow":
-        kemet_box_shadow(control, data.selector);
+        kemet_css(control, data.property, data.selector);
         break;
       case "kmt-spacing":
         if (data.responsive) {
@@ -1227,24 +1227,24 @@ function kemet_change_attr(control, selector, attr) {
   // Other preview
   var btnSelector = 'button, .button, .kmt-button, input[type=button], input[type=reset], input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button';
   var btnHoverSelector = 'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover';
-  wp.customize(settingName('button-effect'), function (value) {
-    value.bind(function (new_value) {
-      var dynamicStyle = '';
-      if (new_value) {
-        dynamicStyle = btnSelector + "{"
-          + "--buttonShadow: 2px 2px 10px -3px var(--buttonBackgroundColor) !important;"
-          + "}"
-      } else {
-        dynamicStyle = btnSelector + "{"
-          + "--buttonShadow: none;"
-          + "}"
-      }
-      kemet_add_dynamic_css(
-        settingName('button-effect'),
-        dynamicStyle
-      );
-    })
-  })
+  // wp.customize(settingName('button-effect'), function (value) {
+  //   value.bind(function (new_value) {
+  //     var dynamicStyle = '';
+  //     if (new_value) {
+  //       dynamicStyle = btnSelector + "{"
+  //         + "--buttonShadow: 2px 2px 10px -3px var(--buttonBackgroundColor) !important;"
+  //         + "}"
+  //     } else {
+  //       dynamicStyle = btnSelector + "{"
+  //         + "--buttonShadow: none;"
+  //         + "}"
+  //     }
+  //     kemet_add_dynamic_css(
+  //       settingName('button-effect'),
+  //       dynamicStyle
+  //     );
+  //   })
+  // })
 
   wp.customize(settingName('button-hover-effect'), function (value) {
     value.bind(function (new_value) {

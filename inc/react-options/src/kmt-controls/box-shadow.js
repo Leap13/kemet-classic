@@ -4,6 +4,7 @@ import classnames from "classnames";
 import ColorComponent from "./color";
 import { Fragment } from "react";
 import Responsive from '../common/responsive';
+import ResponsiveSliderComponent from './slider'
 const { __ } = wp.i18n;
 const convert = (min, max, value) => Math.max(min, Math.min(max, value))
 
@@ -72,53 +73,119 @@ const BoxShadow = ({ value, onChange, params }) => {
             </header>
             <div className={`kmt-shadow__wrapper`}>
                 <div className={classnames("kmt-option-shadow")}>
-                    <div
-                        // className={classnames("kmt-value-changer", {
-                        //     ["active"]: isOpen,
-                        //     ["kmt-disabled"]: shadowValue.style === "none",
-                        // })}
-                    >
-                        <ColorComponent
-                            onChangeComplete={(colorValue) =>
-                                handleChangeComplete(colorValue, 'color')
-                            }
-                            picker={{
-                                id: "default",
-                                title: __("Initial", "kemet"),
+                    <ColorComponent
+                        onChangeComplete={(colorValue) =>
+                            handleChangeComplete(colorValue, 'color')
+                        }
+                        picker={{
+                            id: "default",
+                            title: __("Initial", "kemet"),
+                        }}
+                        value={{ default: shadowValue.color }}
+                    />
+                    <div key="offsetX" className={`customize-control-kmt-slider`}>
+                        <ResponsiveSliderComponent
+                            value={value['offsetX']}
+                            values={value}
+                            id='offsetX'
+                            params={{
+                                id: 'size',
+                                label: __('offsetX', 'kemet'),
+                                value: 0,
+                                responsive: true,
+                                unit_choices: {
+                                    'px': {
+                                        min: -100,
+                                        max: 100,
+                                       // step: 1,
+                                    },
+                                },
                             }}
-                            value={{ default: shadowValue.color }}
+                            onChange={(newValue) =>
+                                onChange({
+                                    ...value,
+                                    size: newValue,
+                                })}
                         />
-                        <input
-                            type="number"
-                            value={shadowValue.offsetX}
-                            onChange={({ target: { value: offsetX } }) => {
-                                updateStyle(convert(1, 10, parseInt(offsetX, 10) || 1), "offsetX")
+                    </div>
+                    <div key="offsetY" className={`customize-control-kmt-slider`}>
+                        <ResponsiveSliderComponent
+                            value={value['offsetY']}
+                            values={value}
+                            id='offsetY'
+                            params={{
+                                id: 'size',
+                                label: __('offsetY', 'kemet'),
+                                value: 0,
+                                responsive: true,
+                                unit_choices: {
+                                    'px': {
+                                        min: -100,
+                                        max: 100,
+                                       // step: 1,
+                                    },
+                                },
                             }}
+                            onChange={(newValue) =>
+                                onChange({
+                                    ...value,
+                                    size: newValue,
+                                })}
                         />
+                    </div>
+                    <div key="blur" className={`customize-control-kmt-slider`}>
+                        <ResponsiveSliderComponent
+                            value={value['blur']}
+                            values={value}
+                            id='blur'
+                            params={{
+                                id: 'size',
+                                label: __('Blur', 'kemet'),
+                                value: 0,
+                                responsive: true,
+                                unit_choices: {
+                                    'px': {
+                                        min: -100,
+                                        max: 100,
+                                      //  step: 1,
+                                    },
+                                },
+                            }}
+                            onChange={(newValue) =>
+                                onChange({
+                                    ...value,
+                                    size: newValue,
+                                })}
+                        />
+                    </div>
 
-                        <input
-                            type="number"
-                            value={shadowValue.offsetY}
-                            onChange={({ target: { value: offsetY } }) => {
-                                updateStyle(convert(1, 10, parseInt(offsetY, 10) || 1), "offsetY")
+                    <div key="spread" className={`customize-control-kmt-slider`}>
+                        <ResponsiveSliderComponent
+                            value={value['spread']}
+                            values={value}
+                            id='spread'
+                            params={{
+                                id: 'size',
+                                label: __('Spread', 'kemet'),
+                                value: 0,
+                                responsive: true,
+                                unit_choices: {
+                                    'px': {
+                                        min: -100,
+                                        max: 100,
+                                     //   step: 1,
+                                    },
+                                },
                             }}
+                            onChange={(newValue) =>
+                                onChange({
+                                    ...value,
+                                    size: newValue,
+                                })}
                         />
+                    </div>
 
-                        <input
-                            type="number"
-                            value={shadowValue.blur}
-                            onChange={({ target: { value: blur } }) => {
-                                updateStyle(convert(1, 10, parseInt(blur, 10) || 1), "blur")
-                            }}
-                        />
 
-                        <input
-                            type="number"
-                            value={shadowValue.spread}
-                            onChange={({ target: { value: spread } }) => {
-                                updateStyle(convert(1, 10, parseInt(spread, 10) || 1), "spread")
-                            }}
-                        />
 
                         <span className="kmt-value-divider"></span>
 
@@ -137,7 +204,6 @@ const BoxShadow = ({ value, onChange, params }) => {
                     </Fragment>}
                 </div>
             </div>
-        </div>
     );
 };
 

@@ -69,8 +69,8 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							// ),
 							'buttons-shadow'        => array(
 								'type'     => 'kmt-box-shadow',
-								'transport'   => 'postMessage',
-								'secondColor' => true,
+								//'transport'   => 'postMessage',
+								//'secondColor' => true,
 								'label'    => __( 'Box Shadow', 'kemet' ),
 								'priority' => 1,
 					            'preview'     => array(
