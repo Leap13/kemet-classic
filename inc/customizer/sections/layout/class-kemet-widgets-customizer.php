@@ -25,7 +25,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							'widget-padding'       => array(
+							'widget-padding'         => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
@@ -45,7 +45,27 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							'widget-margin-bottom' => array(
+							'widget-content-padding' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'label'          => __( 'Content Padding', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => '.sidebar-main .widget .widget-content',
+									'property'   => 'padding',
+									'sides'      => false,
+									'responsive' => true,
+								),
+							),
+							'widget-margin-bottom'   => array(
 								'type'         => 'kmt-slider',
 								'divider'      => true,
 								'transport'    => 'postMessage',

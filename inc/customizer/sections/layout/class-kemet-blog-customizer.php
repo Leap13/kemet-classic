@@ -706,6 +706,33 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'readmore-margin'         => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'divider'        => true,
+								'label'          => __( 'Read More Margin', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => '.content-area .read-more .button',
+									'property'   => '--margin',
+									'sides'      => false,
+									'responsive' => true,
+								),
+								'context'        => array(
+									array(
+										'setting' => 'readmore-as-button',
+										'value'   => true,
+									),
+								),
+							),
 						),
 					),
 				),

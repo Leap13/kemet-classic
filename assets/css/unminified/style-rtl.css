@@ -2513,7 +2513,7 @@ select {
 	margin-bottom: 1em;
 }
 
-#secondary li:last-child {
+#secondary li:not(.wp-social-link):last-child {
 	margin-bottom: 0;
 }
 
@@ -4472,7 +4472,7 @@ h4.widget-title {
 }
 
 @media (min-width: 769px) {
-	.kmt-separate-container.kmt-two-container #secondary .widget:last-child {
+	.kmt-separate-container.kmt-two-container #secondary .widget:not(.wp-social-link):last-child {
 		margin-bottom: 0;
 	}
 }

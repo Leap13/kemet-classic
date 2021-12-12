@@ -40,7 +40,7 @@
     margin-bottom: 1em;
   }
 
-  li:last-child {
+  li:not(.wp-social-link):last-child {
     margin-bottom: 0;
   }
 }
