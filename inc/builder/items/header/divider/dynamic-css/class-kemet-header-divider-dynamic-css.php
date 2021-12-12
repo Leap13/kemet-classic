@@ -57,14 +57,12 @@ if ( ! class_exists( 'Kemet_Header_Divider_Dynamic_Css' ) ) {
 				$mobile = array(
 					$selector => array(
 						'margin' => kemet_responsive_spacing( $divider_margin, 'all', 'mobile' ),
-						'--size' => kemet_responsive_slider( $divider_size, 'desktop' ),
+						'--size' => kemet_responsive_slider( $divider_size, 'mobile' ),
 					),
 				);
 
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $mobile, '', '544' );
-
-				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'search', $selector );
 
 				$dynamic_css .= $parse_css;
 			}

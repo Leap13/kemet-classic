@@ -49,11 +49,32 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
 			add_action( 'rest_request_after_callbacks', array( $this, 'theme_color_support' ), 999, 3 );
-			add_filter( 'kemet_dynamic_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'kemet_theme_dynamic_css', array( $this, 'dynamic_css' ) );
 		}
 
 		public function dynamic_css( $dynamic_css ) {
+			$btn_border_size    = kemet_get_option( 'btn-border-size' );
+			$btn_border_color   = kemet_get_sub_option( 'btn-border-color', 'initial' );
+			$btn_border_h_color = kemet_get_sub_option( 'btn-border-color', 'hover' );
+			$btn_effect         = kemet_get_option( 'button-effect' );
+			$btn_hover_effect   = kemet_get_option( 'button-hover-effect' );
+			$btn_padding        = kemet_get_option( 'button-spacing' );
+			$btn_border_radius  = kemet_get_option( 'button-radius' );
+
 			$css_content = array(
+				'.elementor-button-wrapper .elementor-button' => array(
+					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
+					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
+					'--borderStyle'      => 'solid',
+					'--borderColor'      => esc_attr( $btn_border_color ),
+					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
+					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
+					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
+				),
+				'.elementor-button-wrapper .elementor-button:hover' => array(
+					'box-shadow'     => 'var(--buttonShadow)',
+					'--buttonShadow' => $btn_hover_effect ? '2px 2px 10px -3px var(--buttonBackgroundHoverColor,var(--buttonBackgroundColor))' : 'none',
+				),
 				':root' => array(
 					'--e-global-color-kemet_color1' => 'var(--paletteColor1)',
 					'--e-global-color-kemet_color2' => 'var(--paletteColor2)',
@@ -67,8 +88,31 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 			$parse_css = kemet_parse_css( $css_content );
 
+			$tablet = array(
+				'.elementor-button-wrapper .elementor-button' => array(
+					'--borderRadius' => kemet_responsive_spacing( $btn_border_radius, 'all', 'tablet' ),
+					'--padding'      => kemet_responsive_spacing( $btn_padding, 'all', 'tablet' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= kemet_parse_css( $tablet, '', '768' );
+
+			$mobile = array(
+				'.elementor-button-wrapper .elementor-button' => array(
+					'--borderRadius' => kemet_responsive_spacing( $btn_border_radius, 'all', 'mobile' ),
+					'--padding'      => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= kemet_parse_css( $mobile, '', '544' );
+
+			$parse_css .= \Kemet_Dynamic_Css_Generator::typography_css( 'buttons', '.elementor-button-wrapper .elementor-button' );
+
 			return $dynamic_css . $parse_css;
 		}
+
 		public function theme_color_support( $response, $handler, $request ) {
 			$route   = $request->get_route();
 			$rest_id = substr( $route, strrpos( $route, '/' ) + 1 );

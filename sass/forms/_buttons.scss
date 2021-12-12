@@ -61,10 +61,13 @@ a.wp-block-button__link,
   border-color: var(--borderColor);
   border-width: var(--borderWidth);
   border-radius: var(--borderRadius);
-  padding: var(--padding);
+  padding: var(--padding, 0.6em 1em);
   &:hover {
-    color: var(--buttonHoverColor);
-    background-color: var(--buttonBackgroundHoverColor);
+    color: var(--buttonHoverColor, var(--buttonColor));
+    background-color: var(
+      --buttonBackgroundHoverColor,
+      var(--buttonBackgroundColor)
+    );
     border-color: var(--borderHoverColor);
   }
 }

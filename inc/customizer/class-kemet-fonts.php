@@ -150,7 +150,7 @@ final class Kemet_Fonts {
 			$family      = '';
 			$font_name   = str_replace( ' ', '+', $font_name );
 			$family      = 'family=' . $font_name;
-			$weight_text = ':wght@';
+			$weight_text = 'wght@';
 			$wghts       = array();
 			if ( ! empty( $font_weight ) && count( $font_weight ) > 1 ) {
 				foreach ( $font_weight as  $weight ) {
@@ -165,16 +165,20 @@ final class Kemet_Fonts {
 				sort( $weights['normal'] );
 
 				if ( ! empty( $weights['normal'] ) ) {
+					$weights['normal'] = array_unique( $weights['normal'] );
 					foreach ( $weights['normal'] as $wght ) {
-						$wghts[] = '0,' . $wght;
+						$wghts[] = ! empty( $weights['italic'] ) ? '0,' . $wght : $wght;
 					}
 				}
 
 				if ( ! empty( $weights['italic'] ) ) {
-					$family .= 'ital,';
+					$family           .= ':ital,';
+					$weights['italic'] = array_unique( $weights['italic'] );
 					foreach ( $weights['italic'] as $wght ) {
 						$wghts[] = '1,' . $wght;
 					}
+				} else {
+					$weight_text = ':wght@';
 				}
 
 				$weight_text .= implode( ';', $wghts );

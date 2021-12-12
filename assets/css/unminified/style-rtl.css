@@ -1640,6 +1640,10 @@ h6,
 	--lineHeight: 1.7;
 }
 
+.entry-content .elementor-heading-title {
+	line-height: var(--lineHeight);
+}
+
 
 /*--------------------------------------------------------------
 # Elements
@@ -1943,7 +1947,7 @@ a.wp-block-button__link:focus,
 }
 
 .elementor-button-wrapper .elementor-button {
-	padding: var(--padding);
+	padding: var(--padding, 0.6em 1em);
 	border-width: var(--borderWidth);
 	border-color: var(--borderColor);
 	border-radius: var(--borderRadius);
@@ -1953,8 +1957,8 @@ a.wp-block-button__link:focus,
 
 .elementor-button-wrapper .elementor-button:hover {
 	border-color: var(--borderHoverColor);
-	color: var(--buttonHoverColor);
-	background-color: var(--buttonBackgroundHoverColor);
+	color: var(--buttonHoverColor, var(--buttonColor));
+	background-color: var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor));
 }
 
 input[type="text"],

@@ -36,3 +36,7 @@ h6,
 .entry-content h6 {
   --lineHeight: #{$line-height-h6};
 }
+
+.entry-content .elementor-heading-title {
+  line-height: var(--lineHeight);
+}

@@ -1800,6 +1800,10 @@ var toggleClass = function (el, className) {
       $body.classList.contains("kmt-sticky-sidebar") ||
       $body.classList.contains("kmt-sticky-sidebar-widget")
     ) {
+      if (!$body.querySelector("#primary") || !$body.querySelector("#secondary")) {
+        return;
+      }
+
       var primaryHeight = $body.querySelector("#primary").offsetHeight;
       var secondary = $body.querySelector("#secondary");
 
