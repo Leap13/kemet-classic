@@ -18641,74 +18641,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./src/common/OnlyNumber.js":
-/*!**********************************!*\
-  !*** ./src/common/OnlyNumber.js ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var OnlyNumberValue = function OnlyNumberValue(_ref) {
-  var classNames = _ref.classNames,
-      value = _ref.value,
-      _onChange = _ref.onChange,
-      step = _ref.step,
-      choiceID = _ref.choiceID,
-      id = _ref.id;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
-    type: "text",
-    value: value,
-    className: classNames,
-    "data-id": choiceID,
-    "data-element-connect": id,
-    onKeyDown: function onKeyDown(e) {
-      if ([46, 8, 9, 27, 13, 110, 190, 27].indexOf(e.keyCode) > -1 || e.keyCode == 65 && e.ctrlKey === true || e.keyCode == 109 || e.keyCode == 189 || e.keyCode == 173 || e.keyCode == 67 && e.ctrlKey === true || e.keyCode == 88 && e.ctrlKey === true || e.keyCode >= 35 && e.keyCode <= 39 && e.keyCode !== 38 && e.keyCode !== 40) {
-        return;
-      }
-
-      var valueForComputation = "undeclared";
-
-      if (value.toString().trim().length === 0) {
-        valueForComputation = 0;
-      } else {
-        var maybeValue = parseFloat(value);
-
-        if (maybeValue || maybeValue === 0) {
-          valueForComputation = maybeValue;
-        }
-      }
-
-      var actualStep = e.shiftKey ? step * 10 : step;
-
-      if (e.keyCode === 38 && value !== "undeclared") {
-        _onChange(valueForComputation + actualStep, true);
-      }
-
-      if (e.keyCode === 40 && value !== "undeclared") {
-        _onChange(valueForComputation - actualStep, true);
-      }
-
-      if ((e.shiftKey || e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105)) {
-        e.preventDefault();
-      }
-    },
-    onChange: function onChange(_ref2) {
-      var value = _ref2.target.value;
-      return _onChange(value);
-    }
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (OnlyNumberValue);
-
-/***/ }),
-
 /***/ "./src/common/events.js":
 /*!******************************!*\
   !*** ./src/common/events.js ***!
@@ -21975,7 +21907,6 @@ var IconSelectComponent = function IconSelectComponent(props) {
         key = _ref2[0],
         icon = _ref2[1];
 
-    console.log(_common_icons__WEBPACK_IMPORTED_MODULE_4__["default"], _common_icons__WEBPACK_IMPORTED_MODULE_4__["default"][icon['icon']]);
     var iconHtml = _common_icons__WEBPACK_IMPORTED_MODULE_4__["default"][icon['icon']] ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, _common_icons__WEBPACK_IMPORTED_MODULE_4__["default"][icon['icon']]) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
       className: "dashicons ".concat(icon['icon'])
     });
@@ -22457,9 +22388,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _common_OnlyNumber__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/OnlyNumber */ "./src/common/OnlyNumber.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -22497,11 +22426,13 @@ var NumberComponent = function NumberComponent(_ref) {
     onClick: function onClick() {
       return _onChange(value ? Math.min(Math.max(parseFloat(value) + parseFloat(step), min), max) : step);
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
+    type: "number",
     value: value,
     step: step,
-    onChange: function onChange(val) {
-      return _onChange(val);
+    onChange: function onChange(_ref2) {
+      var value = _ref2.target.value;
+      return _onChange(value);
     }
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-btn-reset-wrap"
@@ -23228,7 +23159,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
-/* harmony import */ var _common_OnlyNumber__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/OnlyNumber */ "./src/common/OnlyNumber.js");
 
 
 
@@ -23253,7 +23183,6 @@ var RangeControl = wp.components.RangeControl;
 var _wp$element = wp.element,
     Component = _wp$element.Component,
     Fragment = _wp$element.Fragment;
-
 
 var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(ResponsiveSliderComponent, _Component);
@@ -23417,12 +23346,15 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         withInputField: false
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "kemet_range_value"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        classNames: "kmt-range-value__input",
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
+        type: "number",
         value: sliderValue,
         step: dataAttributes.step,
-        onChange: function onChange(val) {
-          return _this2.updateValues(_.isNumber(parseFloat(val)) ? Math.min(Math.max(parseFloat(val).toFixed(1), dataAttributes.min), dataAttributes.max) : parseFloat(val).toFixed(1));
+        max: dataAttributes.max,
+        min: dataAttributes.min,
+        onChange: function onChange(_ref) {
+          var value = _ref.target.value;
+          return _this2.updateValues(Number(value));
         }
       }), suffixContent)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
         className: "kmt-slider-reset",
@@ -23627,7 +23559,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
-/* harmony import */ var _common_OnlyNumber__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/OnlyNumber */ "./src/common/OnlyNumber.js");
 
 
 
@@ -23636,7 +23567,6 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
 
 
 
@@ -23748,15 +23678,16 @@ var SpacingComponent = function SpacingComponent(props) {
           key: choiceID
         }, inputAttrs, {
           className: "kmt-spacing-input-item"
-        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_8__["default"], {
-          classNames: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
-          choiceID: choiceID,
-          value: inputValue,
-          onChange: function onChange(v) {
-            return onSpacingChange(v, choiceID);
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+          type: "number",
+          className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
+          onChange: function onChange(_ref) {
+            var value = _ref.target.value;
+            return onSpacingChange(Number(value), choiceID);
           },
-          id: id,
-          step: 1
+          value: inputValue,
+          "data-id": choiceID,
+          "data-element-connect": id
         }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
           className: "kmt-spacing-title"
         }, choices[choiceID]));

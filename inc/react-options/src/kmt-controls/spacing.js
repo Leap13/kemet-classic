@@ -3,7 +3,6 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "react";
 import { Fragment } from "react";
 import Responsive from "../common/responsive";
-import OnlyNumberValue from '../common/OnlyNumber'
 
 const SpacingComponent = (props) => {
     let value = props.value;
@@ -66,7 +65,6 @@ const SpacingComponent = (props) => {
         let updateState = {
             ...state,
         };
-
         let deviceUpdateState = responsive
             ? {
                 ...updateState[device],
@@ -112,20 +110,18 @@ const SpacingComponent = (props) => {
                 let inputValue = responsive
                     ? state[device][choiceID]
                     : state[`value`][choiceID];
-
                 let html = (
                     <li
                         key={choiceID}
                         {...inputAttrs}
                         className="kmt-spacing-input-item"
                     >
-                        <OnlyNumberValue
-                            classNames={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
-                            choiceID={choiceID}
+                        <input type="number"
+                            className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
+                            onChange={({ target: { value } }) => onSpacingChange(Number(value), choiceID)}
                             value={inputValue}
-                            onChange={(v) => onSpacingChange(v, choiceID)}
-                            id={id}
-                            step={1}
+                            data-id={choiceID}
+                            data-element-connect={id}
                         />
                         <span className="kmt-spacing-title">
                             {choices[choiceID]}
