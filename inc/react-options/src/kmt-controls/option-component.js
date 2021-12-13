@@ -16,7 +16,6 @@ import ColorPalettes from './color-pallet';
 import NumberComponent from './number';
 import Visibility from './visibility'
 import IconPicker from "./icon";
-import EditSettings from "./uploadFont";
 import Border from "./border";
 import ReadymadeHeaders from './readymade-headers'
 import TabsComponent from './tabs'
@@ -80,9 +79,6 @@ const OptionComponent = (type) => {
             break;
         case "icon-picker":
             OptionComponent = IconPicker;
-            break;
-        case "font-upload":
-            OptionComponent = EditSettings;
             break;
         case "kmt-border":
             OptionComponent = Border;

@@ -159,6 +159,31 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 999 );
 			add_action( 'customize_controls_print_footer_scripts', array( '_WP_Editors', 'force_uncompressed_tinymce' ), 1 );
 			add_action( 'customize_controls_print_footer_scripts', array( '_WP_Editors', 'print_default_editor_scripts' ), 45 );
+			add_action( 'wp_ajax_kemet_clear_fonts_folder', array( $this, 'clear_fonts_folder' ) );
+		}
+
+		/**
+		 * clear font cache
+		 */
+		public function clear_fonts_folder() {
+
+			check_ajax_referer( 'kemet-customizer', 'nonce' );
+
+			if ( ! current_user_can( 'edit_theme_options' ) ) {
+				wp_send_json_error( 'invalid_permissions' );
+			}
+
+			if ( kemet_get_option( 'load-google-fonts-locally' ) ) {
+				$webfont = new Kemet_WebFont_Loader( '' );
+				$clear   = $webfont->delete_fonts_folder();
+
+				if ( ! $clear ) {
+					wp_send_json_error( 'failed_to_flush' );
+				}
+				wp_send_json_success();
+			}
+
+			wp_send_json_error( 'no_font_loader' );
 		}
 
 		/**
@@ -489,6 +514,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					'contexts'          => self::get_contexts_arr(),
 					'setting'           => KEMET_THEME_SETTINGS . '[setting_name]',
 					'has_widget_editor' => kemet_has_widget_editor(),
+					'nonce'             => wp_create_nonce( 'kemet-customizer' ),
+					'ajaxurl'           => admin_url( 'admin-ajax.php' ),
 				)
 			);
 
@@ -742,6 +769,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			add_filter( 'intermediate_image_sizes_main', 'Kemet_Customizer::logo_image_sizes', 10, 2 );
 			self::generate_logo_by_width( $custom_logo_id );
+
+			if ( kemet_get_option( 'load-google-fonts-locally' ) ) {
+				$webfont = new Kemet_WebFont_Loader( '' );
+				$clear   = $webfont->delete_fonts_folder();
+			}
 
 			do_action( 'kemet_customizer_save' );
 		}

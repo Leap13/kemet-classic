@@ -18,7 +18,7 @@ import TypographyModal from "./typography/typo-modal";
 
 
 
-const Typography = ({ value, onChange, params: { label, default: optionDefault } }) => {
+const Typography = ({ value, onChange, params, params: { label, default: optionDefault } }) => {
 
     let defaultValue = {
         family: "System Default",
@@ -269,6 +269,7 @@ const Typography = ({ value, onChange, params: { label, default: optionDefault }
                                             },
                                             ...popoverProps,
                                         }}
+                                        option={params}
                                         onChange={onChange}
                                         value={value}
                                         initialView={item}

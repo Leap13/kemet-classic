@@ -473,6 +473,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h1-typography'                        => array(
+						'family'      => 'Default',
+						'variation'   => 'Default',
 						'size'        => array(
 							'desktop'      => 48,
 							'tablet'       => '',
@@ -491,6 +493,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h2-typography'                        => array(
+						'family'      => 'Default',
+						'variation'   => 'Default',
 						'size'        => array(
 							'desktop'      => 42,
 							'tablet'       => '',
@@ -509,6 +513,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h3-typography'                        => array(
+						'family'      => 'Default',
+						'variation'   => 'Default',
 						'size'        => array(
 							'desktop'      => 30,
 							'tablet'       => '',
@@ -527,6 +533,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h4-typography'                        => array(
+						'family'      => 'Default',
+						'variation'   => 'Default',
 						'size'        => array(
 							'desktop'      => 20,
 							'tablet'       => '',
@@ -545,6 +553,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h5-typography'                        => array(
+						'family'      => 'Default',
+						'variation'   => 'Default',
 						'size'        => array(
 							'desktop'      => 18,
 							'tablet'       => '',
@@ -563,6 +573,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h6-typography'                        => array(
+						'family'      => 'Default',
+						'variation'   => 'Default',
 						'size'        => array(
 							'desktop'      => 15,
 							'tablet'       => '',

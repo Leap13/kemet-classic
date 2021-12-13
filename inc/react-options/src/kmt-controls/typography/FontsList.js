@@ -49,7 +49,7 @@ const SingleFont = ({ family, onPickFamily, value }) => {
 				}}
 				className="kmt-font-preview">
 				Simply dummy text
-            </span>
+			</span>
 		</div>
 	)
 }
@@ -64,7 +64,9 @@ const FontsList = ({
 
 	useEffect(() => {
 		if (value.family && listRef.current) {
-			listRef.current.querySelector('.active').scrollIntoView();
+			if (listRef.current.querySelector('.active')) {
+				listRef.current.querySelector('.active').scrollIntoView();
+			}
 		}
 	}, [])
 

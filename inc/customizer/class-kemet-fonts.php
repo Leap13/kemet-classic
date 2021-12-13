@@ -118,9 +118,43 @@ final class Kemet_Fonts {
 		}
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
+		$load_fonts      = kemet_get_option( 'load-google-fonts-locally' );
 		if ( $google_font_url ) {
-			wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), null );
+			if ( $load_fonts && ! is_customize_preview() && ! is_admin() ) {
+				$preload_fonts = kemet_get_option( 'preload-google-fonts' );
+				if ( $preload_fonts ) {
+					self::load_preload_local_fonts( $google_font_url );
+				}
+				wp_enqueue_style( 'kemet-google-fonts', kemet_get_webfont_url( $google_font_url ), array(), null );
+			} else {
+				wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), null );
+			}
 		}
+	}
+
+	/**
+	 * Get the file preloads.
+	 *
+	 * @param string $url    The URL of the remote webfont.
+	 * @param string $format The font-format. If you need to support IE, change this to "woff".
+	 */
+	public static function load_preload_local_fonts( $url, $format = 'woff2' ) {
+
+		$local_font_files = get_site_option( 'kemet_local_font_files', false );
+
+		if ( is_array( $local_font_files ) && ! empty( $local_font_files ) ) {
+			foreach ( $local_font_files as $key => $local_font ) {
+				if ( $local_font ) {
+					echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+			}
+			return;
+		}
+
+		// Now preload font data after processing it, as we didn't get stored data.
+		$font = new Kemet_WebFont_Loader( $url );
+		$font->set_font_format( $format );
+		$font->preload_local_fonts();
 	}
 
 	/**

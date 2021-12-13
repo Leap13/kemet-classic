@@ -301,7 +301,6 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 			$css_output = array(
 				$selector => array(
 					'--fontSize'       => kemet_responsive_slider( $font_size, 'desktop' ),
-					'--fontFamily'     => kemet_get_font_family( $font_family ),
 					'--fontWeight'     => esc_attr( $font_weight ),
 					'--letterSpacing'  => kemet_responsive_slider( $letter_spacing, 'desktop' ),
 					'--lineHeight'     => kemet_responsive_slider( $line_height, 'desktop' ),
@@ -310,6 +309,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					'--textDecoration' => esc_attr( $text_decoration ),
 				),
 			);
+
+			if ( 'Default' !== $font_family ) {
+				$css_output[ $selector ]['--fontFamily'] = kemet_get_font_family( $font_family );
+			}
 
 			/* Parse CSS from array() */
 			$parse_css = kemet_parse_css( $css_output );

@@ -26,6 +26,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 			),
 			'body-typography'           => array(
 				'type'      => 'kmt-typography',
+				'isDefault' => true,
 				'transport' => 'postMessage',
 				'label'     => __( 'Typography', 'kemet' ),
 				'preview'   => array(
@@ -104,6 +105,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 			),
 			'headings-typography'       => array(
 				'type'      => 'kmt-typography',
+				'isDefault' => true,
 				'transport' => 'postMessage',
 				'label'     => __( 'Headings Typography', 'kemet' ),
 				'preview'   => array(

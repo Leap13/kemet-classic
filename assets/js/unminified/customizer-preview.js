@@ -599,8 +599,10 @@ function kemet_typography_css(control, selector) {
             jQuery("head").append(link);
           }
         }
-        if (value.family) {
+        if (value.family && value.family !== 'Default') {
           dynamicStyle += '--fontFamily: ' + value.family + ';';
+        } else {
+          document.querySelector(selector).style.removeProperty('--fontFamily');
         }
         if (weight) {
           dynamicStyle += '--fontWeight: ' + weight + ';';

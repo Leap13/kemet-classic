@@ -1,5 +1,7 @@
-export const getDefaultFonts = () => {
-
+export const getDefaultFonts = ({ isDefault }) => {
+  if (isDefault) {
+    delete KmtFontFamilies[`system`].Default;
+  }
   let systemFonts = Object.entries(KmtFontFamilies[`system`]).map((familyValue) => ({
     family: familyValue[0],
     variations: [],

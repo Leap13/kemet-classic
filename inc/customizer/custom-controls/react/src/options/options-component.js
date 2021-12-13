@@ -5,6 +5,7 @@ import AvailableComponent from '../customizer-options/available'
 import BuilderTabs from '../customizer-options/builder-tabs'
 import FocusComponent from '../customizer-options/focus'
 import RowLayoutComponent from '../customizer-options/row-layout'
+import ClearCacheButton from '../customizer-options/clear-cache-button'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -25,6 +26,9 @@ export const CustomizerOptionComponent = (type) => {
             break;
         case 'kmt-row-layout':
             OptionComponent = RowLayoutComponent;
+            break;
+        case 'kmt-clear-cache':
+            OptionComponent = ClearCacheButton;
             break;
     }
 

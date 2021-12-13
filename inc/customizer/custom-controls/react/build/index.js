@@ -142,6 +142,54 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+module.exports = _asyncToGenerator;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
@@ -5730,6 +5778,133 @@ var BuilderTabs = function BuilderTabs(_ref) {
 
 /***/ }),
 
+/***/ "./src/customizer-options/clear-cache-button.js":
+/*!******************************************************!*\
+  !*** ./src/customizer-options/clear-cache-button.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+var __ = wp.i18n.__;
+
+var ClearCacheButton = function ClearCacheButton(_ref) {
+  var params = _ref.params;
+
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(false),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      isLoading = _useState2[0],
+      setIsLoading = _useState2[1];
+
+  var btnTxt = __('Flush Local Font Files', 'kemet');
+
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(btnTxt),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      buttonText = _useState4[0],
+      setButtonText = _useState4[1];
+
+  var label = params.label,
+      description = params.description;
+  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "customize-control-title kmt-control-title"
+  }, label) : null;
+
+  var clearCache = /*#__PURE__*/function () {
+    var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee() {
+      var body, response, _yield$response$json, success;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setIsLoading(true);
+              body = new FormData();
+              body.append('action', 'kemet_clear_fonts_folder');
+              body.append('nonce', KemetCustomizerData.nonce);
+              _context.prev = 4;
+              _context.next = 7;
+              return fetch(KemetCustomizerData.ajaxurl, {
+                method: 'POST',
+                body: body
+              });
+
+            case 7:
+              response = _context.sent;
+
+              if (!(response.status === 200)) {
+                _context.next = 14;
+                break;
+              }
+
+              _context.next = 11;
+              return response.json();
+
+            case 11:
+              _yield$response$json = _context.sent;
+              success = _yield$response$json.success;
+
+              if (success) {
+                setButtonText(__('Successfully Flushed', 'kemet'));
+                setTimeout(function () {
+                  setButtonText(btnTxt);
+                  setIsLoading(false);
+                }, 500);
+              }
+
+            case 14:
+              _context.next = 19;
+              break;
+
+            case 16:
+              _context.prev = 16;
+              _context.t0 = _context["catch"](4);
+              alert(_context.t0);
+
+            case 19:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[4, 16]]);
+    }));
+
+    return function clearCache() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "customize-control-content"
+  }, description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+    className: "description customize-control-description"
+  }, description), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+    isSecondary: true,
+    disabled: isLoading,
+    onClick: clearCache
+  }, buttonText)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ClearCacheButton);
+
+/***/ }),
+
 /***/ "./src/customizer-options/focus.js":
 /*!*****************************************!*\
   !*** ./src/customizer-options/focus.js ***!
@@ -7328,6 +7503,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customizer_options_builder_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../customizer-options/builder-tabs */ "./src/customizer-options/builder-tabs.js");
 /* harmony import */ var _customizer_options_focus__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../customizer-options/focus */ "./src/customizer-options/focus.js");
 /* harmony import */ var _customizer_options_row_layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../customizer-options/row-layout */ "./src/customizer-options/row-layout.js");
+/* harmony import */ var _customizer_options_clear_cache_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../customizer-options/clear-cache-button */ "./src/customizer-options/clear-cache-button.js");
+
 
 
 
@@ -7361,6 +7538,10 @@ var CustomizerOptionComponent = function CustomizerOptionComponent(type) {
 
     case 'kmt-row-layout':
       OptionComponent = _customizer_options_row_layout__WEBPACK_IMPORTED_MODULE_9__["default"];
+      break;
+
+    case 'kmt-clear-cache':
+      OptionComponent = _customizer_options_clear_cache_button__WEBPACK_IMPORTED_MODULE_10__["default"];
       break;
   }
 
@@ -7538,6 +7719,28 @@ var OptionsComponent = function OptionsComponent(_ref2) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (OptionsComponent);
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/*!*************************************!*\
+  !*** external "regeneratorRuntime" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["regeneratorRuntime"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["components"]; }());
 
 /***/ }),
 

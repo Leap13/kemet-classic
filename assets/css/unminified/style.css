@@ -91,6 +91,7 @@ td {
 	padding: 0;
 	border: 0;
 	outline: 0;
+	font-family: var(--fontFamily);
 	font-size: var(--fontSize);
 	font-weight: var(--fontWeight);
 	font-style: var(--fontStyle);
@@ -4472,7 +4473,7 @@ h4.widget-title {
 }
 
 @media (min-width: 769px) {
-	.kmt-separate-container.kmt-two-container #secondary .widget:not(.wp-social-link):last-child {
+	.kmt-separate-container.kmt-two-container #secondary .widget:last-child {
 		margin-bottom: 0;
 	}
 }

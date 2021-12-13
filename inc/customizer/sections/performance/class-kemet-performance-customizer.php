@@ -19,10 +19,38 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
-			'disable-emojis-script' => array(
+			'disable-emojis-script'     => array(
 				'type'        => 'kmt-switcher',
 				'label'       => __( 'Disable Emojis Script', 'kemet' ),
 				'description' => __( 'Enable this option if you want to remove WordPress emojis script in order to improve the performance.', 'kemet' ),
+			),
+			'load-google-fonts-locally' => array(
+				'type'      => 'kmt-switcher',
+				'transport' => 'postMessage',
+				'label'     => __( 'Load Google Fonts Locally', 'kemet' ),
+			),
+			'preload-google-fonts'      => array(
+				'type'      => 'kmt-switcher',
+				'transport' => 'postMessage',
+				'label'     => __( 'Preload Local Fonts', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'load-google-fonts-locally',
+						'value'   => true,
+					),
+				),
+			),
+			'clear-google-fonts-cache'  => array(
+				'type'        => 'kmt-clear-cache',
+				'transport'   => 'postMessage',
+				'label'       => __( 'Flush Local Fonts Cache', 'kemet' ),
+				'description' => __( 'Click the button to reset the local fonts cache.', 'kemet' ),
+				'context'     => array(
+					array(
+						'setting' => 'load-google-fonts-locally',
+						'value'   => true,
+					),
+				),
 			),
 		);
 		$register_options = array(
