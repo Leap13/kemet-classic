@@ -553,7 +553,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
 					'color'              => 'var(--buttonColor)',
 					'background-color'   => 'var(--buttonBackgroundColor)',
-					'box-shadow'         => kemet_responsive_box_shadow( $btn_shadow, 'desktop' ),
+					'box-shadow'         => kemet_box_shadow( $btn_shadow, 'desktop'),
 					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
 					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
 					'--borderStyle'      => 'solid',
