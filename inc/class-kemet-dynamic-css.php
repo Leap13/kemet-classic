@@ -553,7 +553,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
 					'color'              => 'var(--buttonColor)',
 					'background-color'   => 'var(--buttonBackgroundColor)',
-					'box-shadow'         => 'var(--buttonShadow)',
+					'box-shadow'         => kemet_responsive_box_shadow( $btn_shadow, 'desktop' ),
 					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
 					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
 					'--borderStyle'      => 'solid',
@@ -561,7 +561,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 					//'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
-					'--buttonShadow'	 => kemet_box_shadow( $btn_shadow ),
+					//'--buttonShadow'	 => kemet_responsive_box_shadow( $btn_shadow, 'all' ),
 				),
 				'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
 					'color'            => 'var(--buttonHoverColor, var(--buttonColor))',

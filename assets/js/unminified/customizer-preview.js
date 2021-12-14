@@ -1200,8 +1200,12 @@ function kemet_change_attr(control, selector, attr) {
           kemet_border_css(control, data.property, data.selector);
         }
         break;
-      case "kmt-box-shadow":
-        kemet_css(control, data.property, data.selector);
+      case "kmt-responsive-box-shadow":
+        if (data.responsive) {
+          delete data.responsive;
+          kemet_responsive_box_shadow(control, data.property, data.selector);
+        }
+
         break;
       case "kmt-spacing":
         if (data.responsive) {

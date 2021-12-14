@@ -6,21 +6,29 @@ import { Fragment } from "react";
 import Responsive from '../common/responsive';
 import ResponsiveSliderComponent from './slider'
 const { __ } = wp.i18n;
-const convert = (min, max, value) => Math.max(min, Math.min(max, value))
 
-const BoxShadow = ({ value, onChange, params }) => {
+const BoxShadow = ({ 
+    value, 
+    onChange, 
+    params, 
+    defaults
+}) => {
     let { secondColor, label, responsive } = params;
     const [isOpen, setIsOpen] = useState(false);
     const [device, setDevice] = useState(wp.customize && wp.customize.previewedDevice() ? wp.customize.previewedDevice() : 'desktop');
     let defaultValue = {
         /* offset-x | offset-y | blur-radius | spread-radius | color */
         //secondColor: true,
-        offsetX: "none",
+        offsetX: "",
         offsetY: "",
         blur: "",
         spread: "",
         color: "",
     };
+    
+
+
+
     let ResDefaultParam = {
         desktop: { ...defaultValue },
         tablet: { ...defaultValue },
@@ -33,11 +41,12 @@ const BoxShadow = ({ value, onChange, params }) => {
         ? params.default
         : defaultValues;
 
-    value = value ? value : defaultVals;
+    value = value ? value : defaultValues;
 
 
     const [state, setState] = useState(value);
     let shadowValue = responsive ? state[device] : state;
+    
 
     const handleChangeComplete = (color, id) => {
         let obj = { ...state };
@@ -56,12 +65,6 @@ const BoxShadow = ({ value, onChange, params }) => {
         setState(obj);
         onChange({ ...obj, flag: !value.flag });
     };
-    const updateStyle = (style, name) => {
-        let obj = { ...state };
-        responsive ? obj[device][name] = style : obj[name] = style;
-        setState(obj);
-        onChange({ ...obj, flag: !value.flag })
-    }
     return (
         <div className={`kmt-shadow-container`}>
             <header>
@@ -85,36 +88,38 @@ const BoxShadow = ({ value, onChange, params }) => {
                     />
                     <div key="offsetX" className={`customize-control-kmt-slider`}>
                         <ResponsiveSliderComponent
-                            value={value['offsetX']}
+                            value={value.offsetX}
                             values={value}
-                            id='offsetX'
+                            id="offsetX"
                             params={{
-                                id: 'size',
+                                id: 'offsetX',
                                 label: __('offsetX', 'kemet'),
-                                value: 0,
+                                value: 10,
                                 responsive: true,
+                                //default: default.offsetX ? default.offsetX : '',
                                 unit_choices: {
                                     'px': {
                                         min: -100,
                                         max: 100,
-                                       // step: 1,
+                                        step: 1,
                                     },
                                 },
                             }}
                             onChange={(newValue) =>
                                 onChange({
                                     ...value,
-                                    size: newValue,
-                                })}
+                                    offsetX: newValue,
+                                })
+                            }
                         />
                     </div>
                     <div key="offsetY" className={`customize-control-kmt-slider`}>
                         <ResponsiveSliderComponent
-                            value={value['offsetY']}
+                            value= {value.offsetY}
                             values={value}
                             id='offsetY'
                             params={{
-                                id: 'size',
+                                id: 'offsetY',
                                 label: __('offsetY', 'kemet'),
                                 value: 0,
                                 responsive: true,
@@ -129,17 +134,17 @@ const BoxShadow = ({ value, onChange, params }) => {
                             onChange={(newValue) =>
                                 onChange({
                                     ...value,
-                                    size: newValue,
+                                    offsetY: newValue,
                                 })}
                         />
                     </div>
                     <div key="blur" className={`customize-control-kmt-slider`}>
                         <ResponsiveSliderComponent
-                            value={value['blur']}
+                            value={value.blur}
                             values={value}
                             id='blur'
                             params={{
-                                id: 'size',
+                                id: 'blur',
                                 label: __('Blur', 'kemet'),
                                 value: 0,
                                 responsive: true,
@@ -154,7 +159,7 @@ const BoxShadow = ({ value, onChange, params }) => {
                             onChange={(newValue) =>
                                 onChange({
                                     ...value,
-                                    size: newValue,
+                                    blur: newValue,
                                 })}
                         />
                     </div>
@@ -165,7 +170,7 @@ const BoxShadow = ({ value, onChange, params }) => {
                             values={value}
                             id='spread'
                             params={{
-                                id: 'size',
+                                id: 'spread',
                                 label: __('Spread', 'kemet'),
                                 value: 0,
                                 responsive: true,
@@ -180,7 +185,7 @@ const BoxShadow = ({ value, onChange, params }) => {
                             onChange={(newValue) =>
                                 onChange({
                                     ...value,
-                                    size: newValue,
+                                    spread: newValue,
                                 })}
                         />
                     </div>

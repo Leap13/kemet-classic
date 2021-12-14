@@ -299,7 +299,7 @@ if ( ! function_exists( 'kemet_border' ) ) {
 /**
  * Get Border
  */
-if ( ! function_exists( 'kemet_box_shadow' ) ) {
+if ( ! function_exists( 'kemet_responsive_box_shadow' ) ) {
 
 	/**
 	 * Get Spacing value
@@ -309,31 +309,33 @@ if ( ! function_exists( 'kemet_box_shadow' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function kemet_box_shadow( $option, $default = array() ) {
-		if ( ! is_array( $option ) || ( '' == $option && empty( $default ) ) ) {
+	function kemet_responsive_box_shadow( $option, $device = 'desktop', $default = array() ) {
+		if ( ! is_array( $option ) || ( '' == $option && empty( $default ) ) || ! isset( $option[ $device ] ) ) {
 			return '';
 		}
 /* offset-x | offset-y | blur-radius | spread-radius | color */
 		$default_value = array(
-			'offsetX' => '',
-			'offsetY' => '',
-			'blur' => '',
-			'spread' => '',
-			'color' => '',
+			'offsetX' => 1,
+			'offsetY' => 1,
+			'blur' => 1,
+			'spread' => 1,
+			'color' => 1,
 		);
+		//$option ='buttons-shadow';
 		$default       = array_merge( $default_value, $default );
-		$value         = $option;
-		// if ( 'none' === $value['style'] ) {
-		// 	return 'none';
-		// }
+		$value         = $option[ $device ];
+		
 		$offsetX  = $value['offsetX'] ? $value['offsetX'] : $default['offsetX'];
+		//var_dump($offsetX);
 		$offsetY  = $value['offsetY'] ? $value['offsetY'] : $default['offsetY'];
 		$blur  = $value['blur'] ? $value['blur'] : $default['blur'];
 		$spread  = $value['spread'] ? $value['spread'] : $default['spread'];
 		$color  = $value['color'] ? $value['color'] : $default['color'];
 		$boxShadow = kemet_get_css_value( $offsetX, 'px' ) . ' ' . kemet_get_css_value( $offsetY, 'px' )  . ' ' . kemet_get_css_value( $blur, 'px' )  . ' ' . kemet_get_css_value( $spread, 'px' )  . ' ' . $color;
-
+		//var_dump($boxShadow);
+		var_dump(kemet_get_css_value( $offsetX, 'px' ));
 		return $boxShadow;
+		
 	}
 }
 
