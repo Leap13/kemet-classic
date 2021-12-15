@@ -23,6 +23,7 @@
 }
 .main-navigation {
   display: inline-block;
+  --lineHeight: 80px;
   ul {
     list-style: none;
     margin: var(--margin, 0);
@@ -41,7 +42,6 @@
 
   li {
     position: relative;
-    line-height: 80px;
     &:hover > ul,
     &.focus > ul {
       left: 0;

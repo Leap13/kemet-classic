@@ -108,7 +108,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 			'tagline-typography'    => array(
 				'type'      => 'kmt-typography',
 				'transport' => 'postMessage',
-				'label'     => __( 'Title Typography', 'kemet' ),
+				'label'     => __( 'Tagline Typography', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'display-site-tagline',

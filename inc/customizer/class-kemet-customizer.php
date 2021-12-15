@@ -728,16 +728,16 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Update variables.
 			Kemet_Theme_Options::refresh();
 
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
-			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
-			}
+			// $js_prefix  = '.min.js';
+			// $css_prefix = '.min.css';
+			// $dir        = 'minified';
+			// if ( SCRIPT_DEBUG ) {
+			// $js_prefix  = '.js';
+			// $css_prefix = '.css';
+			// $dir        = 'unminified';
+			// }
 
-			wp_enqueue_script( 'kemet-customizer-preview-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), KEMET_THEME_VERSION, null );
+			wp_enqueue_script( 'kemet-customizer-preview-js', KEMET_THEME_URI . 'inc/customizer/custom-controls/react/preview/preview.js', array( 'customize-preview' ), KEMET_THEME_VERSION, null );
 			$localize_data = apply_filters(
 				'kemet_customizer_locatize',
 				array(

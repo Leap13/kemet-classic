@@ -32,6 +32,8 @@
   },
   "scripts": {
     "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "start:custom": "wp-scripts start src/preview/preview.js --output-path=preview",
+    "build:custom": "wp-scripts build src/preview/preview.js --output-path=preview"
   }
 }

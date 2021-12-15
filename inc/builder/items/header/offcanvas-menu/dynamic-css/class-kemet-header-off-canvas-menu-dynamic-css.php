@@ -33,6 +33,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				$link_spacing              = kemet_get_option( $prefix . '-item-spacing' );
 				$css_output                = array(
 					$selector => array(
+						'--lineHeight'      => 'inherit',
 						'--backgroundColor' => 'transparent',
 						'--linksColor'      => kemet_responsive_color( $link_color, 'initial', 'desktop' ),
 						'--backgroundColor' => 'transparent',

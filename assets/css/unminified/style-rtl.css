@@ -2895,6 +2895,8 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .main-navigation {
 	display: inline-block;
+
+	--lineHeight: 80px;
 }
 
 .main-navigation ul {
@@ -2914,7 +2916,6 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .main-header-menu li {
 	position: relative;
-	line-height: 80px;
 }
 
 .main-header-menu li:hover > ul,

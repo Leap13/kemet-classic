@@ -220,8 +220,13 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'kemet-theme-css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_output() ) );
-			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
+			$dynamic_css_type = kemet_get_option( 'dynamic-css-type' );
+			if ( 'file' === $dynamic_css_type ) {
+				wp_enqueue_style( 'kemet-dynamic-css', self::get_dynamic_css_file(), array(), self::get_current_timestamp(), 'all' );
+			} else {
+				wp_add_inline_style( 'kemet-theme-css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_output() ) );
+				wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
+			}
 
 			$kemet_localize = array(
 				'break_point' => kemet_header_break_point(),    // Header Break Point.
@@ -235,6 +240,38 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			}
 		}
 
+		/**
+		 * Css
+		 *
+		 * @return mixed
+		 */
+		public static function get_dynamic_css_file() {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			global $wp_filesystem;
+			$upload_dir = wp_upload_dir();
+			$dir        = trailingslashit( $upload_dir['basedir'] ) . 'kemet/';
+
+			WP_Filesystem();
+			$wp_filesystem->mkdir( $dir );
+			file_put_contents( $dir . 'kemet-dynamic-css.css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_output() ) );
+			file_put_contents( $dir . 'kemet-dynamic-css.css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_meta_output( true ) ), FILE_APPEND | LOCK_EX );
+			$wp_upload_dir = $upload_dir['baseurl'] . '/' . 'kemet/';
+			$file          = $wp_upload_dir . 'kemet-dynamic-css.css';
+
+			return $file;
+		}
+
+		/**
+		 * Gets the current timestamp.
+		 *
+		 * @return string $timestamp Timestamp.
+		 */
+		public static function get_current_timestamp() {
+			$date      = new DateTime();
+			$timestamp = $date->getTimestamp();
+
+			return $timestamp;
+		}
 		/**
 		 * Trim CSS
 		 *

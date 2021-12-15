@@ -52,6 +52,17 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			'dynamic-css-type'          => array(
+				'type'        => 'kmt-radio',
+				'default'     => 'inline',
+				'transport'   => 'postMessage',
+				'label'       => __( 'Dynamic CSS Output', 'kemet' ),
+				'description' => __( 'The strategy of outputting the dynamic CSS. File - all the CSS code will be placed in a static file, otherwise it will be placed inline in head.', 'kemet' ),
+				'choices'     => array(
+					'inline' => __( 'Inline', 'kemet' ),
+					'file'   => __( 'File', 'kemet' ),
+				),
+			),
 		);
 		$register_options = array(
 			'preformance-options' => array(

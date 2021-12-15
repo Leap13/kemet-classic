@@ -18,7 +18,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$global_headings  = 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a';
+		$global_headings  = 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title';
 		$register_options = array(
 			'kmt-content-styling-title' => array(
 				'type'  => 'kmt-title',

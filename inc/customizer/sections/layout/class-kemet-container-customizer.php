@@ -106,6 +106,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 									'selector'   => '.site-content #primary',
 									'property'   => 'padding',
 									'responsive' => true,
+									'sides'      => true,
 								),
 							),
 							'container-inner-spacing' => array(

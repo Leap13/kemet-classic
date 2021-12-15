@@ -417,7 +417,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'content-separator-color'              => '',
 					// Typography.
 					'site-title-typography'                => array(
-						'size' => array(
+						'family'    => 'Default',
+						'variation' => 'Default',
+						'size'      => array(
 							'desktop'      => 35,
 							'tablet'       => '',
 							'mobile'       => '',
