@@ -63,6 +63,11 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 					'file'   => __( 'File', 'kemet' ),
 				),
 			),
+			'enable-lightbox'           => array(
+				'type'      => 'kmt-switcher',
+				'transport' => 'postMessage',
+				'label'     => __( 'Enable Lightbox', 'kemet' ),
+			),
 		);
 		$register_options = array(
 			'preformance-options' => array(

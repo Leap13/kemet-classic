@@ -97,6 +97,10 @@ module.exports = function (grunt) {
             "inc/kemet-panel/assets/css/unminified/kemet-panel.css":
               "inc/kemet-panel/scss/kemet-panel.scss",
           },
+          {
+            "assets/css/unminified/lib/simpleLightbox.css":
+              "sass/lib/simpleLightbox.scss",
+          },
           /* Common Style */
           {
             expand: true,
@@ -244,6 +248,10 @@ module.exports = function (grunt) {
           {
             src: "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css",
             dest: "assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css",
+          },
+          {
+            src: "assets/css/unminified/simpleLightbox-rtl.css",
+            dest: "assets/css/minified/simpleLightbox.min-rtl.css",
           },
         ],
       },

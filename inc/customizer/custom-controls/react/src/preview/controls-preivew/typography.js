@@ -21,7 +21,12 @@ const typographyPreview = (controlId, controlData) => {
                         appendFontLink(href, controlId);
                     }
                 }
-                dynamicStyle += `--fontFamily: ${family};`;
+                if (family === 'Default') {
+                    const element = document.querySelector(selector);
+                    element.style.removeProperty('--fontFamily');
+                } else {
+                    dynamicStyle += `--fontFamily: ${family};`;
+                }
                 dynamicStyle += `--fontWeight: ${weight};`;
                 dynamicStyle += `--fontStyle: ${style};`;
             }

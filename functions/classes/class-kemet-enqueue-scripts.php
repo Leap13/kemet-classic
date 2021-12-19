@@ -48,6 +48,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'editor_scripts' ) );
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
+			add_filter( 'kemet_theme_assets', array( $this, 'lightbox_library' ) );
 		}
 
 		/**
@@ -127,6 +128,22 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			);
 
 			return apply_filters( 'kemet_theme_assets', $default_assets );
+		}
+
+		/**
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 */
+		public function lightbox_library( $assets ) {
+			$enable_lightbox = kemet_get_option( 'enable-lightbox' );
+			if ( $enable_lightbox ) {
+				$assets['js']['simpleLightbox']  = 'simpleLightbox';
+				$assets['js']['lightbox-init']   = 'lightbox-init';
+				$assets['css']['simpleLightbox'] = 'simpleLightbox';
+			}
+			return $assets;
 		}
 
 		/**
