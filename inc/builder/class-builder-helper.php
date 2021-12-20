@@ -111,11 +111,12 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 				foreach ( $items as $row => $columns ) {
 
 					if ( is_array( $columns ) && ! empty( $columns ) ) {
+
 						$loaded_items = array_merge( $loaded_items, array_values( $columns ) );
 					}
 				}
 
-				$current_items = ! empty( $loaded_items ) ? $loaded_items : array();
+				$current_items = ! empty( $loaded_items ) ? call_user_func_array( 'array_merge', $loaded_items ) : array();
 			}
 
 			switch ( $device ) {
@@ -135,6 +136,9 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			return false || is_customize_preview();
 		}
 
+		public function merge_array( $array ) {
+			var_dump( $array );
+		}
 		/**
 		 * Get Widget
 		 *

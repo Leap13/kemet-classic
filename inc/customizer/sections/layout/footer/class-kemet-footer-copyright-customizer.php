@@ -79,6 +79,14 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Typography', 'kemet' ),
+								'transport' => 'postMessage',
+								'preview'   => array(
+									'selector' => $selector,
+								),
+							),
 							self::$prefix . '-color'      => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',

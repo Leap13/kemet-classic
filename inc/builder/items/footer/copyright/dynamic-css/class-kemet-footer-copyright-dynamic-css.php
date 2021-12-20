@@ -29,7 +29,7 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 				$margin                   = kemet_get_option( $prefix . '-spacing' );
 
 				$css_output = array(
-					$selector => array(
+					$selector        => array(
 						'margin'            => 'var(--margin)',
 						'color'             => 'var(--textColor)',
 						'--textColor'       => esc_attr( $color ),
@@ -38,6 +38,9 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 						'--justifyContnet'  => kemet_get_sub_option( $prefix . '-horizontal-align', 'desktop' ),
 						'--alignItems'      => kemet_get_sub_option( $prefix . '-vertical-align', 'desktop' ),
 						'--margin'          => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+					),
+					$selector . ' p' => array(
+						'--marginBottom' => 0,
 					),
 				);
 
@@ -65,6 +68,8 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $mobile, '', '544' );
+
+				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix, $selector );
 
 				$dynamic_css .= $parse_css;
 			}

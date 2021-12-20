@@ -49,7 +49,7 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Item' ) ) {
 		 */
 		public function add_fonts() {
 			if ( Kemet_Builder_Helper::is_item_loaded( 'copyright', 'footer' ) ) {
-				$typography = kemet_get_option( 'copyright-typography' );
+				$typography = kemet_get_option( 'footer-copyright-typography' );
 				Kemet_Fonts::add_font_form_typography( $typography );
 			}
 		}

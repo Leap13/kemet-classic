@@ -39,7 +39,7 @@ const BuilderComponent = (props) => {
   let layouts = controlParams.layouts ? controlParams.layouts : [];
 
   const prevItems = [];
-
+  console.log(value);
   const [state, setState] = useState({
     value: value,
     columns: columns,
@@ -331,7 +331,7 @@ const BuilderComponent = (props) => {
           columns: newParams.columns
         }));
 
-        updateValues(newParams);
+        updateValues({});
       }
     })
   };

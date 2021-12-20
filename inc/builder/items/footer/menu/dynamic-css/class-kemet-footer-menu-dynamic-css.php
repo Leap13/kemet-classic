@@ -35,6 +35,7 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					$selector                     => array(
+						'--lineHeight'      => '1em',
 						'--backgroundColor' => esc_attr( $bg_color ),
 						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
 						'--linksColor'      => esc_attr( $link_color ),
