@@ -1,5 +1,5 @@
 import { createPortal, useRef } from '@wordpress/element'
-//import PickerModal from './picker-modal'
+import PickerModal from './picker-modal'
 import { Transition } from 'react-spring/renderprops'
 import bezierEasing from 'bezier-easing'
 import classnames from 'classnames'
@@ -107,108 +107,7 @@ const BoxShadowModal = ({
                             </div>
 
                             <div className="shadow-sliders">
-                                <GenericOptionType
-                                    value={value.offsetY}
-                                    values={value}
-                                    id="offsetY"
-                                    option={{
-                                        id: 'offsetY',
-                                        label: __(
-                                            'Horizontal Offset',
-                                            'blocksy'
-                                        ),
-                                        type: 'kmt-slider',
-                                        steps: 'half',
-                                        value: option.value.offsetY,
-                                        min: -100,
-                                        max: 100,
-                                        design: 'compact',
-                                        ref: hOffsetRef,
-                                        // skipInput: true
-                                    }}
-                                    hasRevertButton={false}
-                                    onChange={(newValue) =>
-                                        onChange({
-                                            ...value,
-                                            h_offset: newValue,
-                                        })
-                                    }
-                                />
-
-                                <GenericOptionType
-                                    value={value.offsetX}
-                                    values={value}
-                                    id="offsetX"
-                                    option={{
-                                        steps: 'half',
-                                        id: 'offsetX',
-                                        label: __('Vertical Offset', 'blocksy'),
-                                        type: 'kmt-slider',
-                                        value: option.value.offsetX,
-                                        min: -100,
-                                        max: 100,
-                                        design: 'compact',
-                                        ref: vOffsetRef,
-                                        // skipInput: true
-                                    }}
-                                    hasRevertButton={false}
-                                    onChange={(newValue) =>
-                                        onChange({
-                                            ...value,
-                                            v_offset: newValue,
-                                        })
-                                    }
-                                />
-
-                                <GenericOptionType
-                                    value={value.blur}
-                                    values={value}
-                                    id="blur"
-                                    option={{
-                                        steps: 'positive',
-                                        id: 'blur',
-                                        label: __('Blur', 'blocksy'),
-                                        type: 'kmt-slider',
-                                        value: option.value.blur,
-                                        min: 0,
-                                        max: 100,
-                                        design: 'compact',
-                                        ref: blurRef,
-                                        // skipInput: true
-                                    }}
-                                    hasRevertButton={false}
-                                    onChange={(newValue) => {
-                                        onChange({
-                                            ...value,
-                                            blur: newValue,
-                                        })
-                                    }}
-                                />
-
-                                <GenericOptionType
-                                    value={value.spread}
-                                    values={value}
-                                    id="spread"
-                                    option={{
-                                        steps: 'half',
-                                        id: 'spread',
-                                        label: __('Spread', 'blocksy'),
-                                        type: 'kmt-slider',
-                                        value: option.value.spread,
-                                        min: -100,
-                                        max: 100,
-                                        design: 'compact',
-                                        ref: spreadRef,
-                                        // skipInput: true
-                                    }}
-                                    hasRevertButton={false}
-                                    onChange={(newValue) =>
-                                        onChange({
-                                            ...value,
-                                            spread: newValue,
-                                        })
-                                    }
-                                />
+                                <span>helloooooo</span>
                             </div>
 
                             {!option.hide_shadow_placement && (

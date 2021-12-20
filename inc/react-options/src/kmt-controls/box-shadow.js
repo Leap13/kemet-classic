@@ -205,6 +205,30 @@ const BoxShadow = ({ value, onChange, params }) => {
 
                             />
                         </div>
+                <BoxShadowModal
+                    el={el}
+                    value={value}
+                    onChange={onChange}
+                    isPicking={isPicking}
+                    isTransitioning={isTransitioning}
+                    searchString={searchString}
+                    setSearchString={setSearchString}
+                    picker={{
+                        id: "obj",
+                    }}
+                    onPickingChange={(isPicking) => {
+                        setAnimationState({
+                            isTransitioning: "obj",
+                            isPicking,
+                        });
+                    }}
+                    stopTransitioning={() =>
+                        setAnimationState({
+                            isPicking,
+                            isTransitioning: false,
+                        })
+                    }
+                />
 
                     </div>
 

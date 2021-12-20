@@ -327,10 +327,10 @@ if ( ! function_exists( 'kemet_box_shadow' ) ) {
 
 		$value         = $option;
 
-		$offsetX = kemet_responsive_slider( $value['offsetX'], $device = 'desktop', 'px' );
-		$offsetY = kemet_responsive_slider( $value['offsetY'], $device = 'desktop', 'px' );
-		$blur = kemet_responsive_slider( $value['blur'], $device = 'desktop', 'px' );
-		$spread = kemet_responsive_slider( $value['spread'], $device = 'desktop', 'px' );
+		$offsetX = kemet_responsive_slider( $value['offsetX'], $device = 'desktop', '' );
+		$offsetY = kemet_responsive_slider( $value['offsetY'], $device = 'desktop', '' );
+		$blur = kemet_responsive_slider( $value['blur'], $device = 'desktop', '' );
+		$spread = kemet_responsive_slider( $value['spread'], $device = 'desktop', '' );
 		$color  = $value['color'] ? $value['color'] : $default['color'];
 		$boxShadow = $offsetX . ' ' . $offsetY  . ' ' . $blur . ' ' . $spread . ' ' . $color;
 
