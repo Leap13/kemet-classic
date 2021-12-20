@@ -1,20 +1,23 @@
-import { useState } from "@wordpress/element";
+import { useState, useRef } from "@wordpress/element";
 import OutsideClickHandler from "../common/outside-component";
 import classnames from "classnames";
-import ResponsiveSliderComponent from './slider'
 import ColorComponent from "./color";
-import { Fragment } from "react";
 import Responsive from '../common/responsive';
+import BoxShadowModal from './boxshadow/modal';
 const { __ } = wp.i18n;
 const convert = (min, max, value) => Math.max(min, Math.min(max, value))
 
 const BoxShadow = ({ value, onChange, params }) => {
     let { secondColor, label, responsive } = params;
+     const [{ isPicking, isTransitioning }, setAnimationState] = useState({
+        isPicking: null,
+        isTransitioning: null,
+    })
     const [isOpen, setIsOpen] = useState(false);
     const [device, setDevice] = useState(wp.customize && wp.customize.previewedDevice() ? wp.customize.previewedDevice() : 'desktop');
     let defaultValue = {
         /* offset-x | offset-y | blur-radius | spread-radius | color */
-        //secondColor: true,
+
         offsetX: "none",
         offsetY: "",
         blur: "",
@@ -56,12 +59,10 @@ const BoxShadow = ({ value, onChange, params }) => {
         setState(obj);
         onChange({ ...obj, flag: !value.flag });
     };
-    const updateStyle = (style, name) => {
-        let obj = { ...state };
-        responsive ? obj[device][name] = style : obj[name] = style;
-        setState(obj);
-        onChange({ ...obj, flag: !value.flag })
-    }
+    const colorPicker = useRef()
+    const modalRef = useRef()
+    const el = useRef();
+
     return (
         <div className={`kmt-shadow-container`}>
             <header>
@@ -73,13 +74,9 @@ const BoxShadow = ({ value, onChange, params }) => {
             </header>
             <div className={`kmt-shadow__wrapper`}>
                 <div className={classnames("kmt-option-shadow")}>
-                    <div
-                    // className={classnames("kmt-value-changer", {
-                    //     ["active"]: isOpen,
-                    //     ["kmt-disabled"]: shadowValue.style === "none",
-                    // })}
-                    >
+                    <div >
                         <ColorComponent
+                            innerRef={colorPicker}
                             onChangeComplete={(colorValue) =>
                                 handleChangeComplete(colorValue, 'color')
                             }
@@ -89,147 +86,84 @@ const BoxShadow = ({ value, onChange, params }) => {
                             }}
                             value={{ default: shadowValue.color }}
                         />
-                        <div key="offsetX" className={`customize-control-kmt-slider`}>
-                            <ResponsiveSliderComponent
-                                value={value.offsetX}
-                                values={value}
-                                id='offsetX'
-                                params={{
-                                    id: 'offsetX',
-                                    label: __('offsetX', 'kemet'),
-                                    value: 0,
-                                    value: 10,
-                                    responsive: true,
-                                    //default: default.offsetX ? default.offsetX : '',
-                                    unit_choices: {
-                                        'px': {
-                                            min: -100,
-                                            max: 100,
-                                            // step: 1,
-                                            step: 1,
-                                        },
-                                    },
-                                }}
-                                onChange={(newValue) =>
-                                    onChange({
-                                        ...value,
-                                        offsetX: newValue,
-                                    })}
-                                
-                        />
-                    </div>
-                        <div key="offsetY" className={`customize-control-kmt-slider`}>
-                            <ResponsiveSliderComponent
-                                value={value.offsetY}
-                                values={value}
-                                id='offsetY'
-                                params={{
-                                    id: 'offsetY',
-                                    label: __('offsetY', 'kemet'),
-                                    value: 0,
-                                    value: 10,
-                                    responsive: true,
-                                    //default: default.offsetX ? default.offsetX : '',
-                                    unit_choices: {
-                                        'px': {
-                                            min: -100,
-                                            max: 100,
-                                            // step: 1,
-                                            step: 1,
-                                        },
-                                    },
-                                }}
-                                onChange={(newValue) =>
-                                    onChange({
-                                        ...value,
-                                        offsetY: newValue,
-                                    })}
 
-                            />
-                        </div>
-                        <div key="blur" className={`customize-control-kmt-slider`}>
-                            <ResponsiveSliderComponent
-                                value={value.blur}
-                                values={value}
-                                id='blur'
-                                params={{
-                                    id: 'blur',
-                                    label: __('Blur', 'kemet'),
-                                    value: 0,
-                                    value: 10,
-                                    responsive: true,
-                                    //default: default.offsetX ? default.offsetX : '',
-                                    unit_choices: {
-                                        'px': {
-                                            min: -100,
-                                            max: 100,
-                                            // step: 1,
-                                            step: 1,
-                                        },
-                                    },
-                                }}
-                                onChange={(newValue) =>
-                                    onChange({
-                                        ...value,
-                                        blur: newValue,
-                                    })}
+                        <OutsideClickHandler
+				useCapture={false}
+				disabled={!isPicking}
+                onOutsideClick={() => {
+					if (!isPicking) {
+						return
+					}
 
-                            />
-                        </div>
-                        <div key="spread" className={`customize-control-kmt-slider`}>
-                            <ResponsiveSliderComponent
-                                value={value.offsetY}
-                                values={value}
-                                id='spread'
-                                params={{
-                                    id: 'spread',
-                                    label: __('spread', 'kemet'),
-                                    value: 0,
-                                    value: 10,
-                                    responsive: true,
-                                    //default: default.offsetX ? default.offsetX : '',
-                                    unit_choices: {
-                                        'px': {
-                                            min: -100,
-                                            max: 100,
-                                            // step: 1,
-                                            step: 1,
-                                        },
-                                    },
-                                }}
-                                onChange={(newValue) =>
-                                    onChange({
-                                        ...value,
-                                        spread: newValue,
-                                    })}
+					setAnimationState({
+						isTransitioning: isPicking.split(':')[0],
+						isPicking: null,
+					})
+				}}
+				className="kmt-box-shadow-values"
+				additionalRefs={[colorPicker, modalRef]}
+                wrapperProps={{
+                            onClick: (e) => {
+                                e.preventDefault();
+                                let futureIsPicking = isPicking
+                                    ? isPicking.split(":")[0] === "obj"
+                                        ? null
+                                        : `obj:${isPicking.split(":")[0]}`
+                                    : "obj";
 
-                            />
-                        </div>
-                <BoxShadowModal
-                    el={el}
-                    value={value}
-                    onChange={onChange}
-                    isPicking={isPicking}
-                    isTransitioning={isTransitioning}
-                    searchString={searchString}
-                    setSearchString={setSearchString}
-                    picker={{
-                        id: "obj",
-                    }}
-                    onPickingChange={(isPicking) => {
+                                setAnimationState({
+                                    isTransitioning: "obj",
+                                    isPicking: futureIsPicking,
+                                });
+
+                            },
+                        }}
+				>
+				<span>	
+                             { __('Adjust', 'kemet')}
+				</span>
+			</OutsideClickHandler>
+             <BoxShadowModal
+                            el={el}
+                            value={value}
+                            onChange={(value) =>
+                                onChange({
+                                    ...value,
+                                    inherit: false,
+                                })
+                            }
+                            isPicking={isPicking}
+                            isTransitioning={isTransitioning}
+                            picker={{
+                                id: 'obj',
+                            }}
+                            onPickingChange={(isPicking) => {
                         setAnimationState({
                             isTransitioning: "obj",
                             isPicking,
                         });
                     }}
-                    stopTransitioning={() =>
+                            stopTransitioning={() =>
                         setAnimationState({
                             isPicking,
                             isTransitioning: false,
                         })
                     }
-                />
-
+                        />
+                        <div className="kmt-btn-reset-wrap">
+                    <button
+                        className="kmt-reset-btn "
+                        disabled={
+                            JSON.stringify(defaultVals) ===
+                            JSON.stringify(state)
+                        }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setState({ ...defaultVals });
+                            onChange({ ...defaultVals });
+                        }}
+                    ></button>
+                </div>
                     </div>
 
                 </div>

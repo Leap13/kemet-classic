@@ -1,33 +1,22 @@
 import { createPortal, useRef } from '@wordpress/element'
-import PickerModal from './picker-modal'
 import { Transition } from 'react-spring/renderprops'
 import bezierEasing from 'bezier-easing'
-import classnames from 'classnames'
-import usePopoverMaker from '../../common/popover-component';
+import ResponsiveSliderComponent from '../slider'
+import usePopoverMaker from '../../common/popover-component'
 const { __ } = wp.i18n;
 
 const BoxShadowModal = ({
-    option,
     value,
     onChange,
     picker,
-
-    onPickingChange,
     stopTransitioning,
-
     el,
-
-    hOffsetRef,
-    vOffsetRef,
-    blurRef,
-    spreadRef,
-
     isTransitioning,
     isPicking,
 }) => {
     const { styles, popoverProps } = usePopoverMaker({
         ref: el,
-        defaultHeight: !option.hide_shadow_placement ? 507 : 437,
+        defaultHeight: 437,
         shouldCalculate:
             isTransitioning === picker.id ||
             (isPicking || '').split(':')[0] === picker.id,
@@ -93,51 +82,116 @@ const BoxShadowModal = ({
                                 e.nativeEvent.stopImmediatePropagation()
                                 e.nativeEvent.stopPropagation()
                             }}>
-                            <div className="kmt-shadow-trigger">
-                                <label>{__('Enable/Disable', 'blocksy')}</label>
-                                {/* <Switch
-                                    value={value.enable ? 'yes' : 'no'}
-                                    onChange={() => {
-                                        onChange({
-                                            ...value,
-                                            enable: !value.enable,
-                                        })
-                                    }}
-                                /> */}
-                            </div>
 
                             <div className="shadow-sliders">
-                                <span>helloooooo</span>
-                            </div>
+                                <div key="offsetX" className={`customize-control-kmt-slider`}>
+                                    <ResponsiveSliderComponent
+                                        value={value.offsetX}
+                                        values={value}
+                                        id='offsetX'
+                                        params={{
+                                            id: 'offsetX',
+                                            label: __('OffsetX', 'kemet'),
+                                            value: 0,
+                                            responsive: true,
+                                            unit_choices: {
+                                                'px': {
+                                                    min: -100,
+                                                    max: 100,
+                                                    step: 1,
+                                                },
+                                            },
+                                        }}
+                                        onChange={(newValue) =>
+                                            onChange({
+                                                ...value,
+                                                offsetX: newValue,
+                                            })}
 
-                            {!option.hide_shadow_placement && (
-                                <ul className="kmt-shadow-style">
-                                    <li
-                                        onClick={() =>
+                                    />
+                                </div>
+                                <div key="offsetY" className={`customize-control-kmt-slider`}>
+                                    <ResponsiveSliderComponent
+                                        value={value.offsetY}
+                                        values={value}
+                                        id='offsetY'
+                                        params={{
+                                            id: 'offsetY',
+                                            label: __('OffsetY', 'kemet'),
+                                            value: 0,
+                                            value: 10,
+                                            responsive: true,
+                                            unit_choices: {
+                                                'px': {
+                                                    min: -100,
+                                                    max: 100,
+                                                    step: 1,
+                                                },
+                                            },
+                                        }}
+                                        onChange={(newValue) =>
                                             onChange({
                                                 ...value,
-                                                inset: false,
-                                            })
-                                        }
-                                        className={classnames({
-                                            active: !value.inset,
-                                        })}>
-                                        Outline
-									</li>
-                                    <li
-                                        onClick={() =>
+                                                offsetY: newValue,
+                                            })}
+
+                                    />
+                                </div>
+                                <div key="blur" className={`customize-control-kmt-slider`}>
+                                    <ResponsiveSliderComponent
+                                        value={value.blur}
+                                        values={value}
+                                        id='blur'
+                                        params={{
+                                            id: 'blur',
+                                            label: __('Blur', 'kemet'),
+                                            value: 0,
+                                            value: 10,
+                                            responsive: true,
+                                            unit_choices: {
+                                                'px': {
+                                                    min: -100,
+                                                    max: 100,
+                                                    step: 1,
+                                                },
+                                            },
+                                        }}
+                                        onChange={(newValue) =>
                                             onChange({
                                                 ...value,
-                                                inset: true,
-                                            })
-                                        }
-                                        className={classnames({
-                                            active: value.inset,
-                                        })}>
-                                        Inset
-									</li>
-                                </ul>
-                            )}
+                                                blur: newValue,
+                                            })}
+
+                                    />
+                                </div>
+                                <div key="spread" className={`customize-control-kmt-slider`}>
+                                    <ResponsiveSliderComponent
+                                        value={value.offsetY}
+                                        values={value}
+                                        id='spread'
+                                        params={{
+                                            id: 'spread',
+                                            label: __('Spread', 'kemet'),
+                                            value: 0,
+                                            value: 10,
+                                            responsive: true,
+                                            unit_choices: {
+                                                'px': {
+                                                    min: -100,
+                                                    max: 100,
+                                                    step: 1,
+                                                },
+                                            },
+                                        }}
+                                        onChange={(newValue) =>
+                                            onChange({
+                                                ...value,
+                                                spread: newValue,
+                                            })}
+
+                                    />
+                                </div>
+                            </div>
                         </div>
                     ))
                 }
