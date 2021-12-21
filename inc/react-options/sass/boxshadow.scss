@@ -1,4 +1,37 @@
-.kmt-shadow__wrapper {
-  display: flex;
-  align-items: center;
+.kmt-shadow-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .kmt-shadow__wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .kmt-option-shadow {
+      display: flex;
+      margin-right: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .kmt-box-shadow-values {
+      display: flex;
+      position: relative;
+      box-sizing: border-box;
+      min-width: 75px;
+      height: 30px;
+      padding: 1px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background: #fff;
+      transition: background .1s ease,border-color .1s ease;
+      align-items: center;
+      margin-left: 10px;
+      order: 2;
+      cursor: pointer;
+      span {
+        margin: 0px auto;
+      }
+      &:hover {
+        color: var(--primaryColor);
+      }
+    }
 }

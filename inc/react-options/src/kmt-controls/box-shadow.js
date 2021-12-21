@@ -74,7 +74,6 @@ const BoxShadow = ({ value, onChange, params }) => {
             </header>
             <div className={`kmt-shadow__wrapper`}>
                 <div className={classnames("kmt-option-shadow")}>
-                    <div >
                         <ColorComponent
                             innerRef={colorPicker}
                             onChangeComplete={(colorValue) =>
@@ -150,7 +149,9 @@ const BoxShadow = ({ value, onChange, params }) => {
                         })
                     }
                         />
-                        <div className="kmt-btn-reset-wrap">
+                    </div>
+                
+                <div className="kmt-btn-reset-wrap">
                     <button
                         className="kmt-reset-btn "
                         disabled={
@@ -163,9 +164,6 @@ const BoxShadow = ({ value, onChange, params }) => {
                             onChange({ ...defaultVals });
                         }}
                     ></button>
-                </div>
-                    </div>
-
                 </div>
             </div>
         </div>

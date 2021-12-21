@@ -11520,3 +11520,50 @@ i.fipicon-angle-left:before {
 
 	align-items: center;
 }
+
+.kmt-shadow-container {
+	display: flex;
+
+	align-items: center;
+	justify-content: space-between;
+}
+
+.kmt-shadow-container .kmt-shadow__wrapper {
+	display: flex;
+
+	align-items: center;
+}
+
+.kmt-shadow-container .kmt-option-shadow {
+	display: flex;
+	margin-right: 8px;
+
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.kmt-shadow-container .kmt-box-shadow-values {
+	display: flex;
+	position: relative;
+	box-sizing: border-box;
+	min-width: 75px;
+	height: 30px;
+	margin-left: 10px;
+	padding: 1px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	background: #fff;
+	cursor: pointer;
+	transition: background 0.1s ease,border-color 0.1s ease;
+
+	align-items: center;
+	order: 2;
+}
+
+.kmt-shadow-container .kmt-box-shadow-values span {
+	margin: 0 auto;
+}
+
+.kmt-shadow-container .kmt-box-shadow-values:hover {
+	color: var(--primaryColor);
+}
