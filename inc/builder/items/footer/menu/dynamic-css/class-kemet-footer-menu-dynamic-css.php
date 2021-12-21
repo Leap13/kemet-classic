@@ -34,13 +34,17 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 				$align               = kemet_get_option( $prefix . '-items-align' );
 
 				$css_output = array(
+					'.kmt-footer-item-menu'       => array(
+						'display'          => 'flex',
+						'--justifyContent' => esc_attr( $align ),
+						'justify-content'  => 'var(--justifyContent)',
+					),
 					$selector                     => array(
 						'--lineHeight'      => '1em',
 						'--backgroundColor' => esc_attr( $bg_color ),
 						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
-						'--justifyContent'  => esc_attr( $align ),
 						'justify-content'   => 'var(--justifyContent)',
 					),
 					$selector . ' > li'           => array(

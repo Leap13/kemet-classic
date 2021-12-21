@@ -391,7 +391,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => 'var(--globalBackgroundColor)',
 					'color'            => 'var(--textColor)',
 				),
-				'body, div, button, input, select, textarea, .button, a.wp-block-button__link' => array(
+				'body, button, input, select, textarea, .button, a.wp-block-button__link' => array(
 					'font-family'     => 'var(--fontFamily, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif)',
 					'font-weight'     => 'var(--fontWeight)',
 					'font-size'       => 'var(--fontSize)',

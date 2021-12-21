@@ -33,67 +33,116 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 			$selector       = '.kmt-' . $prefix . '-area';
 			$num            = explode( 'footer-widget-', $prefix )[1];
 			$widget_options = array(
-				$prefix . '-content-color' => array(
-					'transport' => 'postMessage',
-					'type'      => 'kmt-color',
-					'label'     => __( 'Content Color', 'kemet' ),
-					'pickers'   => array(
-						array(
-							'title' => __( 'Initial', 'kemet' ),
-							'id'    => 'initial',
+				$prefix . '-tabs' => array(
+					'type' => 'kmt-tabs',
+					'tabs' => array(
+						'general' => array(
+							'title'   => __( 'General', 'kemet' ),
+							'options' => array(
+								$prefix . '-horizontal-align' => array(
+									'transport'  => 'postMessage',
+									'type'       => 'kmt-radio',
+									'responsive' => true,
+									'divider'    => true,
+									'label'      => __( 'Horizontal Alignment', 'kemet' ),
+									'choices'    => array(
+										'flex-start' => __( 'Left', 'kemet' ),
+										'center'     => __( 'Center', 'kemet' ),
+										'flex-end'   => __( 'Right', 'kemet' ),
+									),
+									'preview'    => array(
+										'selector'   => $selector,
+										'property'   => '--justifyContnet',
+										'responsive' => true,
+									),
+								),
+								$prefix . '-vertical-align' => array(
+									'transport'  => 'postMessage',
+									'type'       => 'kmt-radio',
+									'responsive' => true,
+									'divider'    => true,
+									'label'      => __( 'Vertical Alignment', 'kemet' ),
+									'choices'    => array(
+										'flex-start' => __( 'Top', 'kemet' ),
+										'center'     => __( 'Center', 'kemet' ),
+										'flex-end'   => __( 'Bottom', 'kemet' ),
+									),
+									'preview'    => array(
+										'selector'   => $selector,
+										'property'   => '--alignItems',
+										'responsive' => true,
+									),
+								),
+							),
 						),
-					),
-					'preview'   => array(
-						'initial' => array(
-							'selector' => $selector,
-							'property' => '--textColor',
+						'design'  => array(
+							'title'   => __( 'Design', 'kemet' ),
+							'options' => array(
+								$prefix . '-content-color' => array(
+									'transport' => 'postMessage',
+									'type'      => 'kmt-color',
+									'label'     => __( 'Content Color', 'kemet' ),
+									'pickers'   => array(
+										array(
+											'title' => __( 'Initial', 'kemet' ),
+											'id'    => 'initial',
+										),
+									),
+									'preview'   => array(
+										'initial' => array(
+											'selector' => $selector,
+											'property' => '--textColor',
+										),
+									),
+								),
+								$prefix . '-link-color'    => array(
+									'transport' => 'postMessage',
+									'type'      => 'kmt-color',
+									'label'     => __( 'Link Colors', 'kemet' ),
+									'pickers'   => array(
+										array(
+											'title' => __( 'Initial', 'kemet' ),
+											'id'    => 'initial',
+										),
+										array(
+											'title' => __( 'Hover', 'kemet' ),
+											'id'    => 'hover',
+										),
+									),
+									'preview'   => array(
+										'initial' => array(
+											'selector' => $selector,
+											'property' => '--linksColor',
+										),
+										'hover'   => array(
+											'selector' => $selector,
+											'property' => '--linksHoverColor',
+										),
+									),
+								),
+								$prefix . '-margin'        => array(
+									'type'           => 'kmt-spacing',
+									'transport'      => 'postMessage',
+									'label'          => __( 'Margin', 'kemet' ),
+									'responsive'     => true,
+									'divider'        => true,
+									'linked_choices' => true,
+									'unit_choices'   => array( 'px', 'em', '%' ),
+									'choices'        => array(
+										'top'    => __( 'Top', 'kemet' ),
+										'right'  => __( 'Right', 'kemet' ),
+										'bottom' => __( 'Bottom', 'kemet' ),
+										'left'   => __( 'Left', 'kemet' ),
+									),
+									'preview'        => array(
+										'selector'   => $selector,
+										'property'   => '--margin',
+										'responsive' => true,
+										'sides'      => false,
+									),
+								),
+							),
 						),
-					),
-				),
-				$prefix . '-link-color'    => array(
-					'transport' => 'postMessage',
-					'type'      => 'kmt-color',
-					'label'     => __( 'Link Colors', 'kemet' ),
-					'pickers'   => array(
-						array(
-							'title' => __( 'Initial', 'kemet' ),
-							'id'    => 'initial',
-						),
-						array(
-							'title' => __( 'Hover', 'kemet' ),
-							'id'    => 'hover',
-						),
-					),
-					'preview'   => array(
-						'initial' => array(
-							'selector' => $selector,
-							'property' => '--linksColor',
-						),
-						'hover'   => array(
-							'selector' => $selector,
-							'property' => '--linksHoverColor',
-						),
-					),
-				),
-				$prefix . '-margin'        => array(
-					'type'           => 'kmt-spacing',
-					'transport'      => 'postMessage',
-					'label'          => __( 'Margin', 'kemet' ),
-					'responsive'     => true,
-					'divider'        => true,
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'kemet' ),
-						'right'  => __( 'Right', 'kemet' ),
-						'bottom' => __( 'Bottom', 'kemet' ),
-						'left'   => __( 'Left', 'kemet' ),
-					),
-					'preview'        => array(
-						'selector'   => $selector,
-						'property'   => '--margin',
-						'responsive' => true,
-						'sides'      => false,
 					),
 				),
 			);

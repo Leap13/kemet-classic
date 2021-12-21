@@ -341,20 +341,22 @@ body:not(.kmt-separate-container) {
   .kmt-right-sidebar {
     #primary {
       border-right-width: 1px;
-      border-style: solid;
+      border-right-style: solid;
     }
     #secondary {
       border-left-width: 1px;
-      border-style: solid;
+      border-left-style: solid;
       margin-left: -1px;
     }
   }
   .kmt-left-sidebar {
     #primary {
-      border-left: 1px solid;
+      border-left-width: 1px;
+      border-left-style: solid;
     }
     #secondary {
-      border-right: 1px solid;
+      border-right-width: 1px;
+      border-right-style: solid;
       margin-right: -1px;
     }
   }

@@ -1,7 +1,5 @@
 html,
 body,
-div,
-span,
 applet,
 object,
 iframe,
@@ -64,6 +62,18 @@ td {
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+  letter-spacing: var(--letterSpacing);
+  line-height: var(--lineHeight);
+  text-transform: var(--textTransform);
+  text-decoration: var(--textDecoration);
+}
+
+div[class*="kmt"],
+span[class*="kmt"] {
+  font-size: var(--fontSize);
+  font-style: var(--fontStyle);
+  font-family: var(--fontFamily);
+  font-weight: var(--fontWeight);
   letter-spacing: var(--letterSpacing);
   line-height: var(--lineHeight);
   text-transform: var(--textTransform);

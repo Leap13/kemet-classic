@@ -32,8 +32,6 @@
 
 html,
 body,
-div,
-span,
 applet,
 object,
 iframe,
@@ -97,6 +95,20 @@ td {
 	font-style: var(--fontStyle);
 	line-height: var(--lineHeight);
 	vertical-align: baseline;
+	text-decoration: var(--textDecoration);
+	letter-spacing: var(--letterSpacing);
+	text-transform: var(--textTransform);
+
+	-webkit-text-decoration: var(--textDecoration);
+}
+
+div[class*="kmt"],
+span[class*="kmt"] {
+	font-family: var(--fontFamily);
+	font-size: var(--fontSize);
+	font-weight: var(--fontWeight);
+	font-style: var(--fontStyle);
+	line-height: var(--lineHeight);
 	text-decoration: var(--textDecoration);
 	letter-spacing: var(--letterSpacing);
 	text-transform: var(--textTransform);
@@ -2805,23 +2817,25 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 @media (min-width: 769px) {
 	.kmt-right-sidebar #primary {
-		border-style: solid;
 		border-right-width: 1px;
+		border-right-style: solid;
 	}
 
 	.kmt-right-sidebar #secondary {
 		margin-left: -1px;
-		border-style: solid;
 		border-left-width: 1px;
+		border-left-style: solid;
 	}
 
 	.kmt-left-sidebar #primary {
-		border-left: 1px solid;
+		border-left-width: 1px;
+		border-left-style: solid;
 	}
 
 	.kmt-left-sidebar #secondary {
 		margin-right: -1px;
-		border-right: 1px solid;
+		border-right-width: 1px;
+		border-right-style: solid;
 	}
 
 	.kmt-separate-container.kmt-right-sidebar #primary,

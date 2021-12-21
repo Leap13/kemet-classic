@@ -69,12 +69,6 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 									'selector' => $selector,
 									'property' => '--justifyContent',
 								),
-								'context'   => array(
-									array(
-										'setting' => self::$prefix . '-items-direction',
-										'value'   => '100%',
-									),
-								),
 							),
 						),
 					),
