@@ -41,12 +41,13 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 							'options' => array(
 								$prefix . '-label'         => array(
 									'type'      => 'kmt-text',
-									'default'   => __( 'Button', 'kemet' ),
+									'default'   => __( 'Click Here', 'kemet' ),
 									'transport' => 'postMessage',
-									'label'     => __( 'Label', 'kemet' ),
+									'label'     => __( 'Text', 'kemet' ),
 								),
 								$prefix . '-url'           => array(
 									'type'      => 'kmt-text',
+									'default'   => '#',
 									'divider'   => true,
 									'transport' => 'postMessage',
 									'label'     => __( 'URL', 'kemet' ),

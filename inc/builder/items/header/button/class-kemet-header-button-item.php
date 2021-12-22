@@ -81,7 +81,8 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 			$header_button = apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) );
 
 			foreach ( $header_button as $button ) {
-				$defaults[ $button . '-label' ] = __( 'Button', 'kemet' );
+				$defaults[ $button . '-label' ] = __( 'Click Here', 'kemet' );
+				$defaults[ $button . '-url' ]   = '#';
 			}
 			return $defaults;
 		}

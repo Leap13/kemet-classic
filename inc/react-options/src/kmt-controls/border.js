@@ -14,7 +14,7 @@ const Border = ({ value, onChange, params }) => {
     let defaultValue = {
         secondColor: true,
         style: "none",
-        width: "",
+        width: 1,
         color: "",
         secondColor: "",
     };

@@ -17750,7 +17750,7 @@ var Border = function Border(_ref) {
   var defaultValue = _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({
     secondColor: true,
     style: "none",
-    width: "",
+    width: 1,
     color: ""
   }, "secondColor", "");
 

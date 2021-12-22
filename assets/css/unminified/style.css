@@ -7110,11 +7110,11 @@ Hide From Devices
 }
 
 .kmt-go-top-button.go-top-left {
-	left: var(--sideOffset);
+	left: var(--sideOffset, 50px);
 }
 
 .kmt-go-top-button.go-top-right {
-	right: var(--sideOffset);
+	right: var(--sideOffset, 50px);
 }
 
 .kmt-go-top-button.is-opacity {

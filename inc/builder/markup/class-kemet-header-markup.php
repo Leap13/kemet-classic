@@ -507,8 +507,8 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Divider
 		 */
 		public function divider_markup() {
-			$divider_style       = kemet_get_option( 'divider-item-style' );
-			$divider_html  = '<div class="kmt-divider-container ' . esc_attr($divider_style) . '">';
+			$divider_style = kemet_get_option( 'divider-item-style' );
+			$divider_html  = '<div class="kmt-divider-container ' . esc_attr( $divider_style ) . '">';
 			$divider_html .= '</div>';
 
 			echo $divider_html;

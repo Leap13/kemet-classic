@@ -30,7 +30,7 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 		$divider_options = array(
 			self::$prefix . '-item-style' => array(
 				'type'      => 'kmt-radio',
-				'default'   => 'none',
+				'default'   => 'divider-vertical',
 				'transport' => 'postMessage',
 				'label'     => __( 'Divider Style', 'kemet' ),
 				'choices'   => array(
@@ -41,7 +41,7 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 			self::$prefix . '-width'      => array(
 				'transport' => 'postMessage',
 				'type'      => 'kmt-border',
-				'label'     => __( 'Weight', 'kemet' ),
+				'label'     => __( 'Style', 'kemet' ),
 				'preview'   => array(
 					'selector' => $selector,
 					'property' => '--border',
@@ -50,6 +50,7 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 			self::$prefix . '-size'       => array(
 				'type'         => 'kmt-slider',
 				'responsive'   => true,
+				'default'      => Kemet_Customizer::responsive_default_value( 20, 'px' ),
 				'transport'    => 'postMessage',
 				'label'        => __( 'Size', 'kemet' ),
 				'unit_choices' => array(

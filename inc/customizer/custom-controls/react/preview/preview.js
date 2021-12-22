@@ -1500,6 +1500,12 @@ document.addEventListener("DOMContentLoaded", function () {
   Object(_elements_preview_toggleButton__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_elements_preview_headerRows__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
+document.addEventListener("kmtPartialContentRendered", function () {
+  Object(_elements_preview_headerButtons__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_elements_preview_headerPopup__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_elements_preview_toggleButton__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_elements_preview_headerRows__WEBPACK_IMPORTED_MODULE_4__["default"])();
+});
 
 /***/ }),
 

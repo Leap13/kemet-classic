@@ -19,10 +19,10 @@
   line-height: normal;
   padding: 0.4em 0.4em 0.4em 0.4em;
   &.go-top-left {
-    left: var(--sideOffset);
+    left: var(--sideOffset, 50px);
   }
   &.go-top-right {
-    right: var(--sideOffset);
+    right: var(--sideOffset, 50px);
   }
   &.is-opacity {
     opacity: 1;

@@ -6138,7 +6138,6 @@ var BuilderComponent = function BuilderComponent(props) {
   var columns = controlParams.columns ? controlParams.columns : [];
   var layouts = controlParams.layouts ? controlParams.layouts : [];
   var prevItems = [];
-  console.log(value);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])({
     value: value,

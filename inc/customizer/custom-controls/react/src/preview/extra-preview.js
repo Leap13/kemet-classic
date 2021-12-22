@@ -139,3 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleButtonsPreview();
     headerRowsPreview();
 });
+
+
+document.addEventListener("kmtPartialContentRendered", () => {
+    buttonsPreview();
+    popupPreview();
+    toggleButtonsPreview();
+    headerRowsPreview();
+});
