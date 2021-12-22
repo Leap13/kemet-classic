@@ -20,6 +20,7 @@ import EditSettings from "./uploadFont";
 import Border from "./border";
 import ReadymadeHeaders from './readymade-headers'
 import TabsComponent from './tabs'
+import BoxShadow from './box-shadow';
 
 const OptionComponent = (type) => {
     let OptionComponent;
@@ -89,6 +90,9 @@ const OptionComponent = (type) => {
             break;
         case "kmt-readymade-headers":
             OptionComponent = ReadymadeHeaders;
+            break;
+        case "kmt-box-shadow":
+            OptionComponent = BoxShadow;
             break;
     }
 
