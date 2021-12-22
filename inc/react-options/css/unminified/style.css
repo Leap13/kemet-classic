@@ -11567,3 +11567,12 @@ i.fipicon-angle-left:before {
 .kmt-shadow-container .kmt-box-shadow-values:hover {
 	color: var(--primaryColor);
 }
+
+.kmt-box-shadow-modal {
+	padding-top: 17px;
+}
+
+.kmt-box-shadow-modal .customize-control-kmt-slider {
+	padding-right: 17px;
+	padding-left: 17px;
+}

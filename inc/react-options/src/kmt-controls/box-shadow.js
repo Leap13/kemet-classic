@@ -8,7 +8,7 @@ const { __ } = wp.i18n;
 const convert = (min, max, value) => Math.max(min, Math.min(max, value))
 
 const BoxShadow = ({ value, onChange, params }) => {
-    let { secondColor, label, responsive } = params;
+    let { label, responsive } = params;
      const [{ isPicking, isTransitioning }, setAnimationState] = useState({
         isPicking: null,
         isTransitioning: null,
@@ -89,7 +89,7 @@ const BoxShadow = ({ value, onChange, params }) => {
                         <OutsideClickHandler
 				useCapture={false}
 				disabled={!isPicking}
-                onOutsideClick={() => {
+                onOutsideClick={(e) => {
 					if (!isPicking) {
 						return
 					}
@@ -100,7 +100,7 @@ const BoxShadow = ({ value, onChange, params }) => {
 					})
 				}}
 				className="kmt-box-shadow-values"
-				additionalRefs={[colorPicker, modalRef]}
+				additionalRefs={[]}
                 wrapperProps={{
                             onClick: (e) => {
                                 e.preventDefault();
@@ -122,49 +122,32 @@ const BoxShadow = ({ value, onChange, params }) => {
                              { __('Adjust', 'kemet')}
 				</span>
 			</OutsideClickHandler>
+                    
              <BoxShadowModal
                             el={el}
                             value={value}
-                            onChange={(value) =>
-                                onChange({
-                                    ...value,
-                                    inherit: false,
-                                })
-                            }
+                            onChange={onChange}
                             isPicking={isPicking}
                             isTransitioning={isTransitioning}
                             picker={{
                                 id: 'obj',
                             }}
                             onPickingChange={(isPicking) => {
-                        setAnimationState({
-                            isTransitioning: "obj",
-                            isPicking,
-                        });
-                    }}
+                                setAnimationState({
+                                    isTransitioning: "obj",
+                                    isPicking,
+                                });
+                            }}
                             stopTransitioning={() =>
-                        setAnimationState({
-                            isPicking,
-                            isTransitioning: false,
-                        })
-                    }
+                                setAnimationState({
+                                    isPicking,
+                                    isTransitioning: false,
+                                })
+                            }
                         />
                     </div>
                 
-                <div className="kmt-btn-reset-wrap">
-                    <button
-                        className="kmt-reset-btn "
-                        disabled={
-                            JSON.stringify(defaultVals) ===
-                            JSON.stringify(state)
-                        }
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setState({ ...defaultVals });
-                            onChange({ ...defaultVals });
-                        }}
-                    ></button>
-                </div>
+                
             </div>
         </div>
     );

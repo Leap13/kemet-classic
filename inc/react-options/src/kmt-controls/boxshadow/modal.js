@@ -1,8 +1,9 @@
-import { createPortal, useRef } from '@wordpress/element'
-import { Transition } from 'react-spring/renderprops'
-import bezierEasing from 'bezier-easing'
+import { createPortal } from "@wordpress/element";
+import PopoverComponent from "../../common/popover-component";
+import { Transition, animated } from "@react-spring/web";
+import bezierEasing from "bezier-easing";
 import ResponsiveSliderComponent from '../slider'
-import usePopoverMaker from '../../common/popover-component'
+
 const { __ } = wp.i18n;
 
 const BoxShadowModal = ({
@@ -14,17 +15,15 @@ const BoxShadowModal = ({
     isTransitioning,
     isPicking,
 }) => {
-    const { styles, popoverProps } = usePopoverMaker({
+    const { styles, popoverProps } = PopoverComponent({
         ref: el,
-        defaultHeight: 437,
-        shouldCalculate:
-            isTransitioning === picker.id ||
-            (isPicking || '').split(':')[0] === picker.id,
+        defaultHeight: 400,
+        shouldCalculate: false,
     })
 
     return (
         (isTransitioning === picker.id ||
-            (isPicking || '').split(':')[0] === picker.id) &&
+            (isPicking || "").split("")[0] === picker.id) &&
         createPortal(
             <Transition
                 items={isPicking}
@@ -32,11 +31,12 @@ const BoxShadowModal = ({
                     stopTransitioning()
                 }}
                 config={{
+                    delay: 50,
                     duration: 100,
                     easing: bezierEasing(0.25, 0.1, 0.25, 1.0),
                 }}
                 from={
-                    (isPicking || '').indexOf(':') === -1
+                    (isPicking || "").indexOf("") === -1
                         ? {
                             transform: 'scale3d(0.95, 0.95, 1)',
                             opacity: 0,
@@ -44,7 +44,7 @@ const BoxShadowModal = ({
                         : { opacity: 1 }
                 }
                 enter={
-                    (isPicking || '').indexOf(':') === -1
+                    (isPicking || "").indexOf("") === -1
                         ? {
                             transform: 'scale3d(1, 1, 1)',
                             opacity: 1,
@@ -54,7 +54,7 @@ const BoxShadowModal = ({
                         }
                 }
                 leave={
-                    (isPicking || '').indexOf(':') === -1
+                    (isPicking || "").indexOf("") === -1
                         ? {
                             transform: 'scale3d(0.95, 0.95, 1)',
                             opacity: 0,
@@ -63,11 +63,12 @@ const BoxShadowModal = ({
                             opacity: 1,
                         }
                 }>
-                {(isPicking) =>
-                    (isPicking || '').split(':')[0] === picker.id &&
-                    ((props) => (
+
+
+                {() =>
+                    isPicking && (
                         <div
-                            style={{ ...props, ...styles }}
+                            style={styles }
                             {...popoverProps}
                             className="kmt-option-modal kmt-box-shadow-modal"
                             onClick={(e) => {
@@ -193,12 +194,12 @@ const BoxShadowModal = ({
                                 </div>
                             </div>
                         </div>
-                    ))
+                    )
                 }
             </Transition>,
             document.body
         )
-    )
-}
+    );
+};
 
 export default BoxShadowModal
