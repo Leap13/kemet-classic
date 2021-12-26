@@ -171,61 +171,62 @@
       padding: var(--padding);
     }
   }
-  &[data-effect="style1"] {
+  &[data-effect="underline-stroke"] {
     > .menu-item,
     > .page-item {
       > a {
-        line-height: 40px;
         position: relative;
-        &::before {
-          height: 3px;
+        &::after {
           position: absolute;
-          content: "";
-          -webkit-transition: all 0.35s ease;
-          transition: all 0.35s ease;
-          background-color: currentColor;
-          width: 0;
-        }
-        &::before {
-          top: 0;
+          bottom: 0;
           left: 0;
+          right: 0;
+          margin: auto;
+          width: 0%;
+          content: '';
+          background: currentColor;
+          height: 1px;
+          transition: all .5s;
         }
       }
     }
     > .menu-item:hover {
       > a {
-        &::before {
+        &::after {
           width: 100%;
         }
       }
     }
   }
-  &[data-effect="style2"] {
+  &[data-effect="underline-fill"] {
     > .menu-item,
-    > .page_item {
+    > .page-item {
       > a {
         position: relative;
-        &:hover {
-          color: var(--buttonColor);
-          &::after {
-            width: 100%;
-          }
-        }
         &::after {
+          text-align: left;
+          content: '.';
+          margin: 0;
+          opacity: 0;
           position: absolute;
-          content: "";
-          display: block;
-          transition: opacity 0.3s ease, width 0.3s ease;
-          width: 0;
-          top: 0;
           bottom: 0;
-          pointer-events: none;
-          margin: 0 auto;
           left: 0;
           right: 0;
-          height: 100%;
-          z-index: -1;
-          background-color: var(--themeColor);
+          width: 0%;
+          color: red;
+          background: blue;
+          height: 1px;
+        }
+      }
+    }
+    > .menu-item:hover {
+      > a {
+        &::after {
+          z-index: -10;
+          animation: fill 1s forwards;
+          -webkit-animation: fill 1s forwards;
+          -moz-animation: fill 1s forwards;
+          opacity: 1;
         }
       }
     }

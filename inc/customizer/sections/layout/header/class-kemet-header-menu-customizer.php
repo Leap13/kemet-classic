@@ -39,15 +39,17 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'label' => __( 'Menu Settings', 'kemet' ),
 				),
 				$prefix . '-items-hover-effect'        => array(
-					'type'      => 'kmt-radio',
+					'type'      => 'kmt-select',
 					'default'   => 'none',
 					'transport' => 'postMessage',
 					'label'     => __( 'Hover Effect', 'kemet' ),
 					'choices'   => array(
 						'none'   => __( 'None', 'kemet' ),
-						'style1' => __( 'Style 1', 'kemet' ),
-						'style2' => __( 'Style 2', 'kemet' ),
-						'style3' => __( 'Style 3', 'kemet' ),
+						'underline-stroke' => __( 'Underline Stroke', 'kemet' ),
+						'underline-fill' => __( 'Underline Fill', 'kemet' ),
+						'underline-dots' => __( 'Underline Dots', 'kemet' ),
+						'textcolor-fill' => __( 'Text Color Fill', 'kemet' ),
+						'drawing-circle' => __( 'Drawing Circle', 'kemet' ),
 					),
 					'preview'   => array(
 						'selector' => $selector,
