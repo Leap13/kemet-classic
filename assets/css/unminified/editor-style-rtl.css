@@ -351,10 +351,10 @@ th {
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
  */
 .kmt-container {
-	margin-left: auto;
 	margin-right: auto;
-	padding-left: 20px;
+	margin-left: auto;
 	padding-right: 20px;
+	padding-left: 20px;
 }
 
 .kmt-container::after {
@@ -388,10 +388,10 @@ th {
 }
 
 .kmt-container-fluid {
-	margin-left: auto;
 	margin-right: auto;
-	padding-left: 20px;
+	margin-left: auto;
 	padding-right: 20px;
+	padding-left: 20px;
 }
 
 .kmt-container-fluid::after {
@@ -401,8 +401,8 @@ th {
 }
 
 .kmt-row {
-	margin-left: -20px;
 	margin-right: -20px;
+	margin-left: -20px;
 }
 
 .kmt-row::after {
@@ -473,8 +473,8 @@ th {
 .kmt-col-xl-12 {
 	position: relative;
 	min-height: 1px;
-	padding-left: 20px;
 	padding-right: 20px;
+	padding-left: 20px;
 }
 
 .kmt-col-xs-1,
@@ -1669,8 +1669,8 @@ ol {
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
 	margin-right: 1.5em;
+	margin-bottom: 0;
 }
 
 dt {
@@ -1815,8 +1815,8 @@ ol {
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
 	margin-right: 1.5em;
+	margin-bottom: 0;
 }
 
 dt {
@@ -2049,8 +2049,8 @@ textarea {
 .aligncenter:not([class^="wp-block"]) {
 	display: block;
 	clear: both;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
 }
 
 .align-right {
@@ -2134,8 +2134,8 @@ object {
 
 .wp-caption img[class*="wp-image-"] {
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
 }
 
 .wp-caption .wp-caption-text {
@@ -2371,8 +2371,8 @@ select {
 }
 
 .single .entry-content .gallery {
-	margin-left: -10px;
 	margin-right: -10px;
+	margin-left: -10px;
 }
 
 .gallery-caption {
@@ -2427,8 +2427,8 @@ select {
 .kmt-oembed-container audio {
 	position: absolute;
 	top: 0;
-	bottom: 0;
 	right: 0;
+	bottom: 0;
 	width: 100%;
 	height: 100%;
 }
@@ -2480,8 +2480,8 @@ p {
 }
 
 .mce-item-table {
-	border-left-width: 0;
 	border-bottom-width: 0;
+	border-left-width: 0;
 }
 
 .elementor-editor-active elementor-element > .elementor-element-overlay {

@@ -111,6 +111,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			// Wishlist.
 			add_filter( 'wp_nav_menu_items', array( $this, 'menu_wishlist_icon' ), 10, 2 );
 			add_filter( 'yith_wcwl_product_already_in_wishlist_text_button', array( $this, 'kemet_added_to_wishlist' ) );
+			add_filter( 'yith_wcwl_product_added_to_wishlist_message_button', array( $this, 'kemet_added_to_wishlist' ), 10, 1 );
 			add_action( 'kemet_woo_shop_add_to_cart_after', array( $this, 'kemet_get_wishlist' ) );
 			add_filter( 'yith_wcwl_browse_wishlist_label', '__return_false' );
 			add_filter( 'yith_wcwl_loop_positions', array( $this, 'kemet_wishlist_position' ) );
@@ -143,8 +144,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		public function theme_defaults( $defaults ) {
 			$defaults['woo-shop-product-structure']         = array(
-				'category',
-				'add_cart',
+				'title',
+				'price',
 			);
 			$defaults['woo-shop-no-of-products']            = 12;
 			$defaults['woo-shop-product-content-alignment'] = 'center';
@@ -230,7 +231,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			if ( class_exists( 'YITH_WCWL' ) ) {
 				if ( 'yes' == get_option( 'yith_wcwl_show_on_loop', 'no' ) ) {
-					echo '<div class="woo-wishlist-btn button">' . do_shortcode( '[yith_wcwl_add_to_wishlist]' ) . '</div>';
+					echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
 				}
 			}
 		}
@@ -242,7 +243,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return string
 		 */
 		public function kemet_added_to_wishlist( $default ) {
-			$default = __( 'Added', 'kemet' );
+			$default = '';
 			return $default;
 		}
 
@@ -424,7 +425,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 				$classes[] = 'kmt-woo-shop-archive';
 			}
-			$classes[] = 'shop-grid';
+			$classes[] = 'woo-style1';
 
 			return $classes;
 		}
@@ -641,8 +642,34 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				/**
 				 * Shop Page Product Content Sorting
 				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'kemet_woo_woocommerce_shop_product_content', 2 );
+				add_action( 'woocommerce_shop_loop_item_title', 'kemet_woo_woocommerce_shop_product_content', 2 );
+
+				// Add to cart.
+				add_filter( 'woocommerce_loop_add_to_cart_link', array( $this, 'filter_add_to_cart_link_link' ), 9, 3 );
 			}
+		}
+
+		/**
+		 * Adds Arrow to add to cart button.
+		 *
+		 * @param string $button Current classes.
+		 * @param object $product Product object.
+		 * @param array  $args The Product args.
+		 */
+		public function filter_add_to_cart_link_link( $button, $product, $args = array() ) {
+			$args['class'] = explode( ' ', $args['class'] );
+			if ( 'button' === $args['class'][0] ) {
+				unset( $args['class'][0] );
+			}
+			$button = sprintf(
+				'<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
+				esc_url( $product->add_to_cart_url() ),
+				esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
+				esc_attr( isset( $args['class'] ) ? implode( ' ', $args['class'] ) : 'button' ),
+				isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
+				Kemet_Svg_Icons::get_icons( 'cart' )
+			);
+			return $button;
 		}
 
 		/**
@@ -1079,23 +1106,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.single-product div.product .entry-summary .compare' => array(
 					'border' => 'none',
 				),
-				'.added_to_cart'                         => array(
-					'background-color' => 'var(--buttonBackgroundColor)',
-					'--linksColor'     => 'var(--buttonColor)',
-				),
-				'.shop-grid .added_to_cart'              => array(
-					'--linksColor' => 'var(--textColor)',
-				),
-				'.added_to_cart:hover, .added_to_cart:focus' => array(
-					'background-color'  => 'var(--buttonBackgroundHoverColor)',
-					'--linksHoverColor' => 'var(--buttonHoverColor, var(--buttonColor))',
-				),
-				'.shop-grid ul.products li.product .button , .shop-grid ul.products li.product .added_to_cart' => array(
-					'color' => 'var(--linksColor)',
-				),
-				'.shop-grid ul.products li.product .button:hover , .woocommerce-info .button:hover, .woocommerce-info a:hover, .shop-grid ul.products li.product .added_to_cart:hover' => array(
-					'color' => 'var(--themeColor)',
-				),
 				'.single-product .product a.compare.button, .woocommerce .widget_shopping_cart a:not(.button)' => array(
 					'color' => 'var(--linksColor)',
 				),
@@ -1107,9 +1117,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				),
 				'.single-product .product a.compare.button:hover, .woocommerce .widget_shopping_cart a:not(.button):hover' => array(
 					'color' => 'var(--themeColor)',
-				),
-				'.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
-					'border-color' => 'var(--borderColor)',
 				),
 				'.woocommerce .woocommerce-message,.woocommerce .woocommerce-info' => array(
 					'border-top-color' => 'var(--borderColor)',

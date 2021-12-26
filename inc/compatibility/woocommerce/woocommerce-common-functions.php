@@ -152,46 +152,21 @@ if ( ! function_exists( 'kemet_woo_woocommerce_shop_product_content' ) ) {
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
 	function kemet_woo_woocommerce_shop_product_content() {
-		$shop_structure = apply_filters( 'kemet_woo_shop_product_structure', kemet_get_option( 'woo-shop-product-structure' ) );
+		do_action( 'kemet_woo_shop_before_overlay_buttons' );
+		echo '<div class="kemet-shop-overlay-buttons">';
+		do_action( 'kemet_woo_shop_overlay_buttons_top' );
 
-		if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
+		do_action( 'kemet_woo_shop_add_to_cart_before' );
+		woocommerce_template_loop_add_to_cart();
+		do_action( 'kemet_woo_shop_add_to_cart_after' );
 
-			do_action( 'kemet_woo_shop_before_summary_wrap' );
-			echo '<div class="kemet-shop-summary-wrap">';
-			do_action( 'kemet_woo_shop_summary_wrap_top' );
-
-			foreach ( $shop_structure as $value ) {
-
-				switch ( $value ) {
-					case 'short_desc':
-						do_action( 'kemet_woo_shop_short_description_before' );
-						kemet_woo_shop_product_short_description();
-						do_action( 'kemet_woo_shop_short_description_after' );
-						break;
-					case 'add_cart':
-						do_action( 'kemet_woo_shop_add_to_cart_before' );
-						woocommerce_template_loop_add_to_cart();
-						do_action( 'kemet_woo_shop_add_to_cart_after' );
-						break;
-					case 'category':
-						/**
-						 * Add and/or Remove Categories from shop archive page.
-						 */
-						do_action( 'kemet_woo_shop_category_before' );
-						kemet_woo_shop_parent_category();
-						do_action( 'kemet_woo_shop_category_after' );
-						break;
-					default:
-						break;
-				}
-			}
-
-			do_action( 'kemet_woo_shop_summary_wrap_bottom' );
-			echo '</div>';
-			do_action( 'kemet_woo_shop_after_summary_wrap' );
-		}
+		do_action( 'kemet_woo_shop_overlay_buttons_bottom' );
+		echo '</div>';
+		do_action( 'kemet_woo_shop_after_overlay_buttons' );
 	}
 }
+
+
 
 if ( ! function_exists( 'kemet_woo_shop_thumbnail_wrap_start' ) ) {
 
@@ -265,6 +240,60 @@ function product_list_details() {
 	echo '<a href="' . esc_url( get_the_permalink() ) . '" class="kmt-loop-product__link">';
 }
 add_action( 'woocommerce_before_shop_loop_item', 'product_list_details', 8 );
+
+/**
+ * kemet_shop_loop_item_structure
+ */
+function kemet_shop_loop_item_structure() {
+	$shop_structure = apply_filters( 'kemet_woo_shop_product_structure', kemet_get_option( 'woo-shop-product-structure' ) );
+
+	foreach ( $shop_structure as $value ) {
+
+		switch ( $value ) {
+			case 'title':
+				/**
+				 * Add Product Title on shop page for all products.
+				 */
+				do_action( 'kemet_woo_shop_title_before' );
+				kemet_woo_shop_products_title();
+				do_action( 'kemet_woo_shop_title_after' );
+				break;
+			case 'price':
+				/**
+				 * Add Product Price on shop page for all products.
+				 */
+				do_action( 'kemet_woo_shop_price_before' );
+				woocommerce_template_loop_price();
+				do_action( 'kemet_woo_shop_price_after' );
+				break;
+			case 'rating':
+				/**
+				 * Add rating on shop page for all products.
+				 */
+				do_action( 'kemet_woo_shop_rating_before' );
+				woocommerce_template_loop_rating();
+				do_action( 'kemet_woo_shop_rating_after' );
+				break;
+			case 'short_desc':
+				do_action( 'kemet_woo_shop_short_description_before' );
+				kemet_woo_shop_product_short_description();
+				do_action( 'kemet_woo_shop_short_description_after' );
+				break;
+			case 'category':
+				/**
+				 * Add and/or Remove Categories from shop archive page.
+				 */
+				do_action( 'kemet_woo_shop_category_before' );
+				kemet_woo_shop_parent_category();
+				do_action( 'kemet_woo_shop_category_after' );
+				break;
+			default:
+				break;
+		}
+	}
+
+}
+
 /**
  * WooCommerce shop/product details div close tag.
  */
@@ -273,25 +302,7 @@ function after_shop_loop_item_title() {
 	echo '</a>';
 	echo '</div>';
 	echo '<div class="product-info">';
-	/**
-	 * Add Product Title on shop page for all products.
-	 */
-	do_action( 'kemet_woo_shop_title_before' );
-	kemet_woo_shop_products_title();
-	do_action( 'kemet_woo_shop_title_after' );
-	/**
-	 * Add Product Price on shop page for all products.
-	 */
-	do_action( 'kemet_woo_shop_price_before' );
-	woocommerce_template_loop_price();
-	do_action( 'kemet_woo_shop_price_after' );
-	/**
-	 * Add rating on shop page for all products.
-	 */
-	do_action( 'kemet_woo_shop_rating_before' );
-	woocommerce_template_loop_rating();
-	do_action( 'kemet_woo_shop_rating_after' );
-
+	kemet_shop_loop_item_structure();
 	echo '</div>';
 	echo '</a>';
 	do_action( 'kemet_product_list_details_bottom' );

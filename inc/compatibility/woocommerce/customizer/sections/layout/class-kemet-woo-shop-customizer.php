@@ -37,8 +37,10 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				'type'    => 'kmt-sortable',
 				'label'   => __( 'Product Structure', 'kemet' ),
 				'choices' => array(
+					'title'      => __( 'Title', 'kemet' ),
+					'price'      => __( 'Price', 'kemet' ),
+					'rating'     => __( 'Rating', 'kemet' ),
 					'short_desc' => __( 'Short Description', 'kemet' ),
-					'add_cart'   => __( 'Add To Cart', 'kemet' ),
 					'category'   => __( 'Category', 'kemet' ),
 				),
 			),
