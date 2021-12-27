@@ -351,7 +351,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 
 			if ( 'kmt-tabs' === $args['type'] ) {
-					return $this->add_tabs_settings( $args['tabs'], $wp_customize );
+				return $this->add_tabs_settings( $args['tabs'], $wp_customize );
 			}
 
 			$default = $this->get_default( $id, $args );

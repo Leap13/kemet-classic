@@ -152,8 +152,9 @@ if ( ! function_exists( 'kemet_woo_woocommerce_shop_product_content' ) ) {
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
 	function kemet_woo_woocommerce_shop_product_content() {
+		$icons_style = kemet_get_option( 'woo-shop-icons-style', 'simple' );
 		do_action( 'kemet_woo_shop_before_overlay_buttons' );
-		echo '<div class="kemet-shop-overlay-buttons">';
+		echo '<div class="kemet-shop-overlay-buttons" data-style=' . esc_attr( $icons_style ) . '>';
 		do_action( 'kemet_woo_shop_overlay_buttons_top' );
 
 		do_action( 'kemet_woo_shop_add_to_cart_before' );

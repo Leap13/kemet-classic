@@ -7,7 +7,7 @@ import FocusComponent from '../customizer-options/focus'
 import RowLayoutComponent from '../customizer-options/row-layout'
 import ClearCacheButton from '../customizer-options/clear-cache-button'
 
-let wpOptions = ["custom_logo", "blogname", "blogdescription"];
+let wpOptions = ["custom_logo", "blogname", "blogdescription", "woocommerce_shop_page_display", "woocommerce_category_archive_display", "woocommerce_default_catalog_orderby"];
 
 export const CustomizerOptionComponent = (type) => {
     let OptionComponent;
@@ -165,7 +165,35 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
     </div>;
 }
 
+const sortProperties = (obj, sortedBy, isNumericSort, reverse) => {
+    sortedBy = sortedBy || 1; // by default first key
+    isNumericSort = isNumericSort || false; // by default text sort
+    reverse = reverse || false; // by default no reverse
+
+    var reversed = (reverse) ? -1 : 1;
+
+    var sortable = [];
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            sortable.push([key, obj[key]]);
+        }
+    }
+    if (isNumericSort)
+        sortable.sort(function (a, b) {
+            return reversed * (a[1][sortedBy] - b[1][sortedBy]);
+        });
+    else
+        sortable.sort(function (a, b) {
+            var x = a[1][sortedBy].toLowerCase(),
+                y = b[1][sortedBy].toLowerCase();
+            return x < y ? reversed * -1 : x > y ? reversed : 0;
+        });
+    const newObject = sortable.reduce((obj, ent) => { obj[ent[0]] = ent[1]; return obj; }, /** @type {Any} */({}));
+    return newObject; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}
+
 export const renderOptions = (options) => {
+    options = sortProperties(options, 'priority', true, false);
     return Object.keys(options).map((optionId) => {
         const controlName = getSettingId(optionId);
         let control = wp.customize(controlName);

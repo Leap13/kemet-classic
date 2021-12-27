@@ -7515,7 +7515,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var wpOptions = ["custom_logo", "blogname", "blogdescription"];
+var wpOptions = ["custom_logo", "blogname", "blogdescription", "woocommerce_shop_page_display", "woocommerce_category_archive_display", "woocommerce_default_catalog_orderby"];
 var CustomizerOptionComponent = function CustomizerOptionComponent(type) {
   var OptionComponent;
 
@@ -7694,7 +7694,40 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
   })));
 };
 
+var sortProperties = function sortProperties(obj, sortedBy, isNumericSort, reverse) {
+  sortedBy = sortedBy || 1; // by default first key
+
+  isNumericSort = isNumericSort || false; // by default text sort
+
+  reverse = reverse || false; // by default no reverse
+
+  var reversed = reverse ? -1 : 1;
+  var sortable = [];
+
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      sortable.push([key, obj[key]]);
+    }
+  }
+
+  if (isNumericSort) sortable.sort(function (a, b) {
+    return reversed * (a[1][sortedBy] - b[1][sortedBy]);
+  });else sortable.sort(function (a, b) {
+    var x = a[1][sortedBy].toLowerCase(),
+        y = b[1][sortedBy].toLowerCase();
+    return x < y ? reversed * -1 : x > y ? reversed : 0;
+  });
+  var newObject = sortable.reduce(function (obj, ent) {
+    obj[ent[0]] = ent[1];
+    return obj;
+  },
+  /** @type {Any} */
+  {});
+  return newObject; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+};
+
 var renderOptions = function renderOptions(options) {
+  options = sortProperties(options, 'priority', true, false);
   return Object.keys(options).map(function (optionId) {
     var controlName = getSettingId(optionId);
     var control = wp.customize(controlName);

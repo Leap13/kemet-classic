@@ -24,6 +24,9 @@ $wp_customize->get_setting( 'custom_logo' )->transport      = 'postMessage';
 
 if ( class_exists( 'WooCommerce' ) ) {
 	$wp_customize->get_setting( 'woocommerce_demo_store_notice' )->default = esc_html__( '“Free Shipping on All Orders Until February 28. Hurry Up!”.', 'kemet' );
+	$wp_customize->remove_control( 'woocommerce_shop_page_display' );
+	$wp_customize->remove_control( 'woocommerce_category_archive_display' );
+	$wp_customize->remove_control( 'woocommerce_default_catalog_orderby' );
 }
 
 /**

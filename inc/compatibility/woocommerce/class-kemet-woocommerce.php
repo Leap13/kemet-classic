@@ -1000,11 +1000,33 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'unit'  => '%',
 			);
 
-			// sale
+			// sale.
 			$sale_color    = kemet_get_sub_option( 'sale-text-color', 'initial' );
 			$sale_bg_color = kemet_get_sub_option( 'sale-background-color', 'initial' );
 
+			// layout.
+			$overlay_bg_color = kemet_get_sub_option( 'woo-shop-overlay-bg-color', 'initial' );
+			$icons_border     = kemet_get_option( 'woo-shop-icons-border' );
+			$icons_color      = kemet_get_sub_option( 'woo-shop-icons-color', 'initial' );
+			$icons_h_color    = kemet_get_sub_option( 'woo-shop-icons-color', 'hover' );
+			$icons_bg_color   = kemet_get_sub_option( 'woo-shop-icons-bg-color', 'initial' );
+			$icons_bg_h_color = kemet_get_sub_option( 'woo-shop-icons-bg-color', 'hover' );
+
 			$css_output = array(
+				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons' => array(
+					'background-color' => esc_attr( $overlay_bg_color ),
+				),
+				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style=outline]' => array(
+					'--border' => kemet_border( $icons_border ),
+				),
+				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style=solid]' => array(
+					'--iconsBackgroundColor'      => esc_attr( $icons_bg_color ),
+					'--iconsBackgroundHoverColor' => esc_attr( $icons_bg_h_color ),
+				),
+				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a' => array(
+					'--linksColor'      => esc_attr( $icons_color ),
+					'--linksHoverColor' => esc_attr( $icons_h_color ),
+				),
 				'.kmt-site-header-cart-li a.cart-container' => array(
 					'--linksColor'      => esc_attr( $cart_icon_color ),
 					'--linksHoverColor' => esc_attr( $cart_icon_h_color ),
