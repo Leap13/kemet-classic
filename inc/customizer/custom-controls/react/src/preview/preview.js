@@ -21,9 +21,6 @@ if (previewData.preview) {
             case "kmt-spacing":
                 spacingPreview(control, data);
                 break;
-            case "kmt-spacing":
-                spacingPreview(control, data);
-                break;
             case "kmt-color":
                 colorPreview(control, data);
                 break;

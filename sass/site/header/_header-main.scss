@@ -202,7 +202,10 @@
     > .menu-item,
     > .page-item {
       > a {
+        display: block;
         position: relative;
+        transition: all 1.5s;
+        display: block;
         &::after {
           text-align: left;
           content: '.';
@@ -213,55 +216,133 @@
           left: 0;
           right: 0;
           width: 0%;
-          color: red;
-          background: blue;
+          color: transparent;
+          background: var(--linksHoverColor);
           height: 1px;
         }
       }
     }
     > .menu-item:hover {
       > a {
+        z-index: 1;
+        color: #fff;
         &::after {
-          z-index: -10;
-          animation: fill 1s forwards;
-          -webkit-animation: fill 1s forwards;
-          -moz-animation: fill 1s forwards;
-          opacity: 1;
+            z-index: -10;
+            animation: fill 1s forwards;
+            -webkit-animation: fill 1s forwards;
+            -moz-animation: fill 1s forwards;
+            opacity: 1;
+            width: 100%;
+            height: 100%;
         }
       }
     }
   }
-  &[data-effect="style3"] {
+  &[data-effect="underline-dots"] {
     > .menu-item,
     > .page-item {
       > a {
-        line-height: 40px;
         position: relative;
-        &::before,
-        &::after {
-          height: 3px;
-          position: absolute;
-          content: "";
-          -webkit-transition: all 0.35s ease;
-          transition: all 0.35s ease;
-          background-color: currentColor;
-          width: 0;
-        }
         &::before {
-          top: 0;
-          left: 0;
-        }
-        &::after {
-          bottom: 0;
-          right: 0;
+          position: absolute;
+          top: 35%;
+          left: 50%;
+          color: transparent;
+          content: "•";
+          text-shadow: transparent 0px 0px;
+          font-size: 1.2em;
+          transform: translateX(-50%);
+          pointer-events: none;
+          transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
         }
       }
     }
     > .menu-item:hover {
       > a {
-        &::before,
+        &::before{
+          color: currentColor;
+          text-shadow: 10px 0 currentColor, -10px 0 currentColor;
+        }
+      }
+    }
+  }
+  &[data-effect="textcolor-fill"] {
+    > .menu-item,
+    > .page-item {
+      > a {
+        background: 
+        linear-gradient(var(--linksHoverColor), var(--linksHoverColor)) left no-repeat,
+        var(--linksColor);
+      background-size:0% 100%;
+      background-clip: text;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: 2s;
+      }
+    }
+    > .menu-item:hover {
+      > a {
+        background-size:100% 100%;
+      }
+    }
+  }
+  &[data-effect="topbottom-lines"] {
+    > .menu-item,
+    > .page-item {
+      > a {
+        &::after,
+        &::before {
+          position: absolute;
+          width: 45px;
+          height: 2px;
+          background: var(--linksHoverColor);
+          content: '';
+          opacity: 0.2;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          transition: all 0.3s;
+          pointer-events: none;
+        }
+        &::before {
+          top: 15%;
+          left: 0;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          transform: rotate(90deg);
+          -webkit-transform-origin: 0 0;
+          -moz-transform-origin: 0 0;
+          transform-origin: 0 0;
+          opacity: 0;
+        }
         &::after {
-          width: 100%;
+          right: 0;
+          bottom: 15%;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          transform: rotate(90deg);
+          -webkit-transform-origin: 100% 0;
+          -moz-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+          opacity: 0;
+        }
+      }
+    }
+    > .menu-item:hover {
+      > a {
+        &::before {
+            left: 50%;
+            -webkit-transform: rotate(0deg) translateX(-50%);
+            -moz-transform: rotate(0deg) translateX(-50%);
+            transform: rotate(0deg) translateX(-50%);
+            opacity: 1;
+        }
+        &::after {
+            right: 50%;
+            -webkit-transform: rotate(0deg) translateX(50%);
+            -moz-transform: rotate(0deg) translateX(50%);
+            transform: rotate(0deg) translateX(50%);
+            opacity: 1;
         }
       }
     }
@@ -759,4 +840,20 @@
   -webkit-transform-origin: 10% 57%;
   -ms-transform-origin: 10% 57%;
   transform-origin: 10% 57%;
+}
+/* Keyframes */
+@keyframes fill {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: var(--linksHoverColor);
+  }
 }

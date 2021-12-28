@@ -21,33 +21,9 @@ import TypographyModal from "./typography/typo-modal";
 const Typography = ({ value, onChange, params, params: { label, default: optionDefault } }) => {
 
     let defaultValue = {
-        family: "System Default",
+        family: "Default",
         variation: 'n4',
-        size: {
-            desktop: "15",
-            "desktop-unit": "px",
-            tablet: "",
-            "tablet-unit": "px",
-            mobile: "",
-            "mobile-unit": "px",
-        },
-        "line-height": {
-            desktop: "",
-            "desktop-unit": "px",
-            tablet: "",
-            "tablet-unit": "px",
-            mobile: "",
-            "mobile-unit": "px",
-        },
-        "letter-spacing": {
-            desktop: "",
-            "desktop-unit": "px",
-            tablet: "",
-            "tablet-unit": "px",
-            mobile: "",
-            "mobile-unit": "px",
-        },
-
+        size: "Default",
         "text-transform": "none",
         "text-decoration": "none",
     };
@@ -158,7 +134,7 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
 
                             >
                                 {value.family === "Default"
-                                    ? "Default Family"
+                                    ? __("Default Family", "kemet")
                                     : familyToDisplay(value.family)}
                             </span>
                         </span>
@@ -181,11 +157,12 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
 
 
                         >
-                            <span
-
-                            >
-                                {`${value.size[device]}${value.size[`${device}-unit`]
-                                    } `}
+                            <span>
+                                {value.size === "Default"
+                                    ? __("Default size", "kemet")
+                                    : `${value.size[device]}${value.size[`${device}-unit`]
+                                    } `
+                                    }
                             </span>
                         </span>
 

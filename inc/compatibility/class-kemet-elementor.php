@@ -76,6 +76,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 					'--buttonShadow' => $btn_hover_effect ? '2px 2px 10px -3px var(--buttonBackgroundHoverColor,var(--buttonBackgroundColor))' : 'none',
 				),
 				':root' => array(
+					'--fontFamily' => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
 					'--e-global-color-kemet_color1' => 'var(--paletteColor1)',
 					'--e-global-color-kemet_color2' => 'var(--paletteColor2)',
 					'--e-global-color-kemet_color3' => 'var(--paletteColor3)',
