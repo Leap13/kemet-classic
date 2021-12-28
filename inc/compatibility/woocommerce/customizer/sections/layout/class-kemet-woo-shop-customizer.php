@@ -236,11 +236,11 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => '.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a',
+										'selector' => '.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a, .woo-style1 ul.products li.product .kemet-shop-overlay-buttons .yith-wcwl-wishlistexistsbrowse',
 										'property' => '--linksColor',
 									),
 									'hover'   => array(
-										'selector' => '.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a',
+										'selector' => '.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a, .woo-style1 ul.products li.product .kemet-shop-overlay-buttons .yith-wcwl-wishlistexistsbrowse',
 										'property' => '--linksHoverColor',
 									),
 								),

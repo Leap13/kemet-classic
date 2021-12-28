@@ -1023,7 +1023,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'--iconsBackgroundColor'      => esc_attr( $icons_bg_color ),
 					'--iconsBackgroundHoverColor' => esc_attr( $icons_bg_h_color ),
 				),
-				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a' => array(
+				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons a, .woo-style1 ul.products li.product .kemet-shop-overlay-buttons .yith-wcwl-wishlistexistsbrowse' => array(
 					'--linksColor'      => esc_attr( $icons_color ),
 					'--linksHoverColor' => esc_attr( $icons_h_color ),
 				),

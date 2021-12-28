@@ -1300,6 +1300,15 @@ p.demo_store a,
 	box-shadow: none;
 }
 
+.woocommerce ul.products li.product img,
+.woocommerce-page ul.products li.product img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	box-shadow: none;
+}
+
 .woocommerce ul.products li.product strong,
 .woocommerce-page ul.products li.product strong {
 	display: block;
@@ -4956,7 +4965,12 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 }
 
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons .kmt-loop-product__link {
-	display: none !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent !important;
 }
 
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons a {
@@ -5028,6 +5042,19 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 	justify-content: center;
 }
 
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .added,
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] .added {
+	margin-right: -44px;
+}
+
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .added_to_cart,
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] .added_to_cart {
+	width: 44px;
+	height: 44px;
+	border: 0;
+	background: transparent !important;
+}
+
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .kmt-svg-icon,
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .yith-wcwl-add-button,
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .add_to_wishlist,
@@ -5041,6 +5068,17 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 	display: inline-flex;
 
 	align-items: center;
+}
+
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .yith-wcwl-wishlistexistsbrowse,
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] .yith-wcwl-wishlistexistsbrowse {
+	width: auto;
+	color: var(--linksColor);
+}
+
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .yith-wcwl-wishlistexistsbrowse:hover,
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] .yith-wcwl-wishlistexistsbrowse:hover {
+	color: var(--linksHoverColor);
 }
 
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] {
