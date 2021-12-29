@@ -32,7 +32,7 @@ const applySpacingValue = (value) => {
             })
         } else {
             if (!allEmpty(Object.values(newValue))) {
-                dynamicStyle += `${selector}{${property}: ${Object.values(newValue).map(value => value + unit).join(" ")}}`;
+                dynamicStyle += `${selector}{${property}: ${Object.values(newValue).map(value => !value ? 0 : value + unit).join(" ")}}`;
             }
         }
 
@@ -74,14 +74,13 @@ const applyResponsiveValue = (value) => {
             }
         } else {
             if (desktop && !allEmpty(Object.values(desktop))) {
-                console.log(desktop);
-                dynamicStyle += `${selector}{${property}: ${Object.values(desktop).map(value => value + (desktopUnit || defaultUnit)).join(" ")}}`;
+                dynamicStyle += `${selector}{${property}: ${Object.values(desktop).map(value => !value ? 0 : value + (desktopUnit || defaultUnit)).join(" ")}}`;
             }
             if (tablet && !allEmpty(Object.values(tablet))) {
-                dynamicStyle += `@media (max-width: 768px) { ${selector}{${property}: ${Object.values(tablet).map(value => value + (tabletUnit || defaultUnit)).join(" ")}} }`;
+                dynamicStyle += `@media (max-width: 768px) { ${selector}{${property}: ${Object.values(tablet).map(value => !value ? 0 : value + (tabletUnit || defaultUnit)).join(" ")}} }`;
             }
             if (mobile && !allEmpty(Object.values(mobile))) {
-                dynamicStyle += `@media (max-width: 544px) { ${selector}{${property}: ${Object.values(mobile).map(value => value + (mobileUnit || defaultUnit)).join(" ")}} }`;
+                dynamicStyle += `@media (max-width: 544px) { ${selector}{${property}: ${Object.values(mobile).map(value => !value ? 0 : value + (mobileUnit || defaultUnit)).join(" ")}} }`;
             }
         }
 

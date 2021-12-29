@@ -2,7 +2,6 @@ import sliderPreview from "./controls-preivew/slider";
 import spacingPreview from "./controls-preivew/spacing";
 import colorPreview from "./controls-preivew/color";
 import radioPreview from "./controls-preivew/radio";
-import selectPreview from "./controls-preivew/select";
 import numberPreview from "./controls-preivew/number";
 import borderPreview from "./controls-preivew/border";
 import backgroundPreview from "./controls-preivew/background";
@@ -29,10 +28,8 @@ if (previewData.preview) {
                 break;
             case "kmt-radio":
             case "kmt-icon-select":
-                radioPreview(control, data);
-                break;
             case "kmt-select":
-                selectPreview(control, data);
+                radioPreview(control, data);
                 break;
             case "kmt-number":
                 numberPreview(control, data);

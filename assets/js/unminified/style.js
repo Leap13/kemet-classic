@@ -1845,4 +1845,25 @@ var toggleClass = function (el, className) {
     stickySidebar();
   });
   stickySidebar();
+
+  // cart popup
+  let cartBtn = document.querySelector('.kmt-cart-tigger');
+  if (cartBtn) {
+    let popup = document.querySelector('#kmt-cart-popup');
+    let closeBtn = popup.querySelector('#kmt-toggle-button-close');
+    let overlay = popup.querySelector('.kmt-popup-overlay');
+    cartBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      popup.classList.add("active");
+    });
+    closeBtn.addEventListener('click', function () {
+      close_popup();
+    });
+    overlay.addEventListener('click', function () {
+      close_popup();
+    });
+    function close_popup() {
+      popup.classList.remove('active');
+    }
+  }
 })();

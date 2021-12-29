@@ -184,55 +184,39 @@ p.demo_store a,
 	padding: 1em 1.5em;
 }
 
-.kmt-site-header-cart .widget_shopping_cart .product_list_widget li {
+.kmt-site-header-cart.hide-cart .kmt-site-header-cart-li {
+	display: none;
+}
+
+/* Cart container in header. */
+.widget_shopping_cart .product_list_widget li {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
 
-.kmt-site-header-cart .widget_shopping_cart .product_list_widget li a {
+.widget_shopping_cart .product_list_widget li a {
 	display: block;
 	padding: 0;
 }
 
-.kmt-site-header-cart .widget_shopping_cart .product_list_widget li:last-child {
+.widget_shopping_cart .product_list_widget li:last-child {
 	border-bottom: 0;
 }
 
-.kmt-site-header-cart .widget_shopping_cart .product_list_widget li img {
+.widget_shopping_cart .product_list_widget li img {
 	max-width: 4em;
 	margin: 0 0 0.5em 1em;
 }
 
-.kmt-site-header-cart .widget_shopping_cart p.buttons,
-.kmt-site-header-cart .widget_shopping_cart p.total {
+.widget_shopping_cart p.buttons,
+.widget_shopping_cart p.total {
 	margin: 0;
 	padding: 1em 1.5em;
 	text-align: center;
 }
 
-.kmt-site-header-cart .widget_shopping_cart .woocommerce-mini-cart__empty-message {
+.widget_shopping_cart .woocommerce-mini-cart__empty-message {
 	margin: 1.41575em;
-}
-
-.kmt-site-header-cart.hide-cart .kmt-site-header-cart-li {
-	display: none;
-}
-
-.header-main-layout-1.reverse .main-header-bar-wrap .kmt-site-header-cart .widget_shopping_cart {
-	right: 0;
-	left: auto;
-	transition: right 0s;
-}
-
-.header-main-layout-1.reverse .main-header-bar-wrap .kmt-site-header-cart .widget_shopping_cart:before,
-.header-main-layout-1.reverse .main-header-bar-wrap .kmt-site-header-cart .widget_shopping_cart:after {
-	right: 15px;
-	left: auto;
-}
-
-.header-main-layout-1.reverse .main-header-bar-wrap .kmt-site-header-cart .widget_shopping_cart:before {
-	right: 11px;
-	left: auto;
 }
 
 .kmt-cart-menu-wrap {
@@ -5458,4 +5442,9 @@ ul.products li.product .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse
 
 	-ms-border-radius: 50%;
 	justify-content: center;
+}
+
+#kmt-cart-popup .kmt-popup-content {
+	max-width: 400px;
+	padding: 0 1.5em 1.5em;
 }

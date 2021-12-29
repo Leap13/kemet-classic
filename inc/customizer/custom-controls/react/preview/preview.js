@@ -682,40 +682,6 @@ var radioPreview = function radioPreview(controlId, controlData) {
 
 /***/ }),
 
-/***/ "./src/preview/controls-preivew/select.js":
-/*!************************************************!*\
-  !*** ./src/preview/controls-preivew/select.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kemet_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./kemet-css */ "./src/preview/controls-preivew/kemet-css.js");
-
-var control = '';
-var data = {};
-
-var selectPreview = function selectPreview(controlId, controlData) {
-  wp.customize(controlId, function (valueData) {
-    valueData.bind(function (value) {
-      var responsive = controlData.responsive;
-      data = controlData;
-      control = controlId;
-
-      if (responsive) {
-        Object(_kemet_css__WEBPACK_IMPORTED_MODULE_0__["applyResponsiveCssValue"])(value, data, control);
-      } else {
-        Object(_kemet_css__WEBPACK_IMPORTED_MODULE_0__["applyCssValue"])(value, data, control);
-      }
-    });
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (selectPreview);
-
-/***/ }),
-
 /***/ "./src/preview/controls-preivew/slider.js":
 /*!************************************************!*\
   !*** ./src/preview/controls-preivew/slider.js ***!
@@ -848,7 +814,7 @@ var applySpacingValue = function applySpacingValue(value) {
     } else {
       if (!allEmpty(Object.values(newValue))) {
         dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(Object.values(newValue).map(function (value) {
-          return value + unit;
+          return !value ? 0 : value + unit;
         }).join(" "), "}");
       }
     }
@@ -900,21 +866,20 @@ var applyResponsiveValue = function applyResponsiveValue(value) {
       }
     } else {
       if (desktop && !allEmpty(Object.values(desktop))) {
-        console.log(desktop);
         dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(Object.values(desktop).map(function (value) {
-          return value + (desktopUnit || defaultUnit);
+          return !value ? 0 : value + (desktopUnit || defaultUnit);
         }).join(" "), "}");
       }
 
       if (tablet && !allEmpty(Object.values(tablet))) {
         dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{").concat(property, ": ").concat(Object.values(tablet).map(function (value) {
-          return value + (tabletUnit || defaultUnit);
+          return !value ? 0 : value + (tabletUnit || defaultUnit);
         }).join(" "), "} }");
       }
 
       if (mobile && !allEmpty(Object.values(mobile))) {
         dynamicStyle += "@media (max-width: 544px) { ".concat(selector, "{").concat(property, ": ").concat(Object.values(mobile).map(function (value) {
-          return value + (mobileUnit || defaultUnit);
+          return !value ? 0 : value + (mobileUnit || defaultUnit);
         }).join(" "), "} }");
       }
     }
@@ -1560,14 +1525,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controls_preivew_spacing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controls-preivew/spacing */ "./src/preview/controls-preivew/spacing.js");
 /* harmony import */ var _controls_preivew_color__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controls-preivew/color */ "./src/preview/controls-preivew/color.js");
 /* harmony import */ var _controls_preivew_radio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controls-preivew/radio */ "./src/preview/controls-preivew/radio.js");
-/* harmony import */ var _controls_preivew_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controls-preivew/select */ "./src/preview/controls-preivew/select.js");
-/* harmony import */ var _controls_preivew_number__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controls-preivew/number */ "./src/preview/controls-preivew/number.js");
-/* harmony import */ var _controls_preivew_border__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controls-preivew/border */ "./src/preview/controls-preivew/border.js");
-/* harmony import */ var _controls_preivew_background__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controls-preivew/background */ "./src/preview/controls-preivew/background.js");
-/* harmony import */ var _controls_preivew_editor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controls-preivew/editor */ "./src/preview/controls-preivew/editor.js");
-/* harmony import */ var _controls_preivew_typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controls-preivew/typography */ "./src/preview/controls-preivew/typography.js");
-/* harmony import */ var _extra_preview__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./extra-preview */ "./src/preview/extra-preview.js");
-
+/* harmony import */ var _controls_preivew_number__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controls-preivew/number */ "./src/preview/controls-preivew/number.js");
+/* harmony import */ var _controls_preivew_border__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controls-preivew/border */ "./src/preview/controls-preivew/border.js");
+/* harmony import */ var _controls_preivew_background__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controls-preivew/background */ "./src/preview/controls-preivew/background.js");
+/* harmony import */ var _controls_preivew_editor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controls-preivew/editor */ "./src/preview/controls-preivew/editor.js");
+/* harmony import */ var _controls_preivew_typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controls-preivew/typography */ "./src/preview/controls-preivew/typography.js");
+/* harmony import */ var _extra_preview__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./extra-preview */ "./src/preview/extra-preview.js");
 
 
 
@@ -1603,31 +1566,28 @@ if (previewData.preview) {
 
       case "kmt-radio":
       case "kmt-icon-select":
+      case "kmt-select":
         Object(_controls_preivew_radio__WEBPACK_IMPORTED_MODULE_3__["default"])(control, data);
         break;
 
-      case "kmt-select":
-        Object(_controls_preivew_select__WEBPACK_IMPORTED_MODULE_4__["default"])(control, data);
-        break;
-
       case "kmt-number":
-        Object(_controls_preivew_number__WEBPACK_IMPORTED_MODULE_5__["default"])(control, data);
+        Object(_controls_preivew_number__WEBPACK_IMPORTED_MODULE_4__["default"])(control, data);
         break;
 
       case "kmt-border":
-        Object(_controls_preivew_border__WEBPACK_IMPORTED_MODULE_6__["default"])(control, data);
+        Object(_controls_preivew_border__WEBPACK_IMPORTED_MODULE_5__["default"])(control, data);
         break;
 
       case "kmt-background":
-        Object(_controls_preivew_background__WEBPACK_IMPORTED_MODULE_7__["default"])(control, data);
+        Object(_controls_preivew_background__WEBPACK_IMPORTED_MODULE_6__["default"])(control, data);
         break;
 
       case 'kmt-editor':
-        Object(_controls_preivew_editor__WEBPACK_IMPORTED_MODULE_8__["default"])(control, data);
+        Object(_controls_preivew_editor__WEBPACK_IMPORTED_MODULE_7__["default"])(control, data);
         break;
 
       case 'kmt-typography':
-        Object(_controls_preivew_typography__WEBPACK_IMPORTED_MODULE_9__["default"])(control, data);
+        Object(_controls_preivew_typography__WEBPACK_IMPORTED_MODULE_8__["default"])(control, data);
         break;
     }
   });

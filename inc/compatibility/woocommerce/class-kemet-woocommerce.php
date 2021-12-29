@@ -1052,7 +1052,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.woocommerce ul.product_list_widget li img , ul.product_list_widget li img' => array(
 					'border-color' => 'var(--borderColor)',
 				),
-				'.kmt-site-header-cart .widget_shopping_cart .product_list_widget li, .kmt-site-header-cart .widget_shopping_cart .total' => array(
+				'.widget_shopping_cart .product_list_widget li, .widget_shopping_cart .total' => array(
 					'border-color' => 'var(--borderColor)',
 				),
 				'.kmt-site-header-cart .widget_shopping_cart' => array(
@@ -1177,7 +1177,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				/**
 				 * Cart in menu
 				 */
-				'.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
+				'.widget_shopping_cart .total .woocommerce-Price-amount' => array(
 					'color' => 'var(--linksColor)',
 				),
 				'.woocommerce a.remove, .woocommerce-page a.remove' => array(
@@ -1358,13 +1358,19 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return html
 		 */
 		public function woo_mini_cart_markup() {
+			$cart_style = kemet_get_option( 'shop-cart-style' );
 			if ( is_cart() ) {
 				$class = 'current-menu-item';
 			} else {
 				$class = '';
 			}
 
-			$cart_menu_classes = apply_filters( 'kemet_cart_in_menu_class', array( 'kmt-menu-cart-with-border' ) );
+			$cart_menu_classes = apply_filters( 'kemet_cart_in_menu_class', array() );
+			if ( 'dropdown' === $cart_style ) {
+				$cart_menu_classes[] = 'kmt-menu-cart-with-border';
+			} else {
+				$cart_menu_classes[] = 'kmt-cart-tigger';
+			}
 
 			ob_start();
 			?>
@@ -1372,12 +1378,40 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				<div class="kmt-site-header-cart-li <?php echo esc_attr( $class ); ?>">
 					<?php $this->kemet_get_cart_link(); ?>
 				</div>
+				<?php if ( 'dropdown' === $cart_style ) : ?>
 				<div class="kmt-site-header-cart-data">
 					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 				</div>
+					<?php
+				else :
+					add_action( 'wp_footer', array( $this, 'cart_popup' ), 5 );
+				endif;
+				?>
 			</div>
 			<?php
 			echo ob_get_clean();
+		}
+
+		/**
+		 * cart_popup
+		 */
+		public function cart_popup() {
+			$popup_side = kemet_get_option( 'shop-cart-popup-side', 'right' );
+			?>
+			<div id="kmt-cart-popup" class="kmt-popup-main kmt-popup-<?php echo $popup_side; ?>">
+				<div class="kmt-popup-overlay"></div>
+				<div class="kmt-popup-content">
+					<button id="kmt-toggle-button-close" class="toggle-button-close">
+						<span class="kmt-close-icon">
+							<?php echo Kemet_Svg_Icons::get_icons( 'close' ); ?> 
+						</span>
+					</button>
+					<div class="kmt-site-header-cart-data widget_shopping_cart">
+						<?php woocommerce_mini_cart(); ?>
+					</div>
+				</div>
+			</div>
+			<?php
 		}
 
 		/**

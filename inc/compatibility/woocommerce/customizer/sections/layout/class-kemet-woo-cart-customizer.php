@@ -79,6 +79,14 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 									'property' => 'width',
 								),
 							),
+							'shop-cart-style'       => array(
+								'type'    => 'kmt-radio',
+								'label'   => __( 'Cart Style', 'kemet' ),
+								'choices' => array(
+									'dropdown' => __( 'Dropdown', 'kemet' ),
+									'popup'    => __( 'Popup', 'kemet' ),
+								),
+							),
 							'cart-dropdown-width'   => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
@@ -93,6 +101,29 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 								'preview'      => array(
 									'selector' => '.kmt-site-header-cart .widget_shopping_cart',
 									'property' => 'width',
+								),
+								'context'      => array(
+									array(
+										'setting' => 'shop-cart-style',
+										'value'   => 'dropdown',
+									),
+								),
+							),
+							'shop-cart-popup-side'  => array(
+								'type'      => 'kmt-radio',
+								'divider'   => true,
+								'default'   => 'right',
+								'transport' => 'postMessage',
+								'label'     => __( 'Slide-Out Side', 'kemet' ),
+								'choices'   => array(
+									'left'  => __( 'Left', 'kemet' ),
+									'right' => __( 'Right', 'kemet' ),
+								),
+								'context'   => array(
+									array(
+										'setting' => 'shop-cart-style',
+										'value'   => 'popup',
+									),
 								),
 							),
 						),
@@ -222,7 +253,7 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function add_partials( $partials ) {
 		$new_partials = array_fill_keys(
-			array( 'cart-icon-display', 'shop-cart-icon', 'disable-cart-if-empty' ),
+			array( 'cart-icon-display', 'shop-cart-icon', 'disable-cart-if-empty', 'shop-cart-style' ),
 			array(
 				'selector'            => '#kmt-site-header-cart',
 				'container_inclusive' => false,
