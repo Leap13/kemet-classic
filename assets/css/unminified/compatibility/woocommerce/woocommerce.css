@@ -4954,7 +4954,16 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	border: none !important;
 	background-color: transparent !important;
+}
+
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons .yith-wcwl-wishlistexistsbrowse {
+	color: var(--linksColor);
+}
+
+.woo-style1 ul.products li.product .kemet-shop-overlay-buttons .yith-wcwl-wishlistexistsbrowse:hover {
+	color: var(--linksHoverColor);
 }
 
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons a {
@@ -5057,12 +5066,6 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .yith-wcwl-wishlistexistsbrowse,
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] .yith-wcwl-wishlistexistsbrowse {
 	width: auto;
-	color: var(--linksColor);
-}
-
-.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] .yith-wcwl-wishlistexistsbrowse:hover,
-.woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] .yith-wcwl-wishlistexistsbrowse:hover {
-	color: var(--linksHoverColor);
 }
 
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] {

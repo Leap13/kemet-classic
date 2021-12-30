@@ -81,31 +81,32 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 							),
 							'shop-cart-style'       => array(
 								'type'    => 'kmt-radio',
+								'default' => 'dropdown',
 								'label'   => __( 'Cart Style', 'kemet' ),
 								'choices' => array(
 									'dropdown' => __( 'Dropdown', 'kemet' ),
 									'popup'    => __( 'Popup', 'kemet' ),
 								),
 							),
-							'cart-dropdown-width'   => array(
+							'cart-popup-width'      => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
-								'label'        => __( 'Cart Dropdown Width', 'kemet' ),
+								'label'        => __( 'Popup Max Width', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
 										'min'  => 200,
 										'step' => 1,
-										'max'  => 600,
+										'max'  => 1000,
 									),
 								),
 								'preview'      => array(
-									'selector' => '.kmt-site-header-cart .widget_shopping_cart',
-									'property' => 'width',
+									'selector' => '#kmt-cart-popup .kmt-popup-content',
+									'property' => 'max-width',
 								),
 								'context'      => array(
 									array(
 										'setting' => 'shop-cart-style',
-										'value'   => 'dropdown',
+										'value'   => 'popup',
 									),
 								),
 							),

@@ -3707,6 +3707,13 @@ body:not(.kmt-separate-container) {
           top: 0;
           left: 0;
           background-color: transparent !important;
+          border: none !important;
+        }
+        .yith-wcwl-wishlistexistsbrowse {
+          color: var(--linksColor);
+          &:hover {
+            color: var(--linksHoverColor);
+          }
         }
         a {
           --linksHoverColor: var(--linksColor);
@@ -3785,10 +3792,6 @@ body:not(.kmt-separate-container) {
           }
           .yith-wcwl-wishlistexistsbrowse {
             width: auto;
-            color: var(--linksColor);
-            &:hover {
-              color: var(--linksHoverColor);
-            }
           }
         }
         &[data-style="outline"] {

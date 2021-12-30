@@ -994,6 +994,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$cart_dropdown_border_size  = kemet_get_option( 'cart-dropdown-border-size' );
 			$cart_dropdown_border_color = kemet_get_sub_option( 'cart-dropdown-border-color', 'initial', $global_border_color );
 			$cart_dropdown_bg_color     = kemet_get_sub_option( 'cart-dropdown-bg-color', 'initial', $global_bg_color );
+			$cart_popup_width           = kemet_get_option( 'cart-popup-width' );
 			// Single Product.
 			$image_width = ! empty( kemet_get_option( 'woo-single-image-width' ) ) ? kemet_get_option( 'woo-single-image-width' ) : array(
 				'value' => 50,
@@ -1054,6 +1055,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				),
 				'.widget_shopping_cart .product_list_widget li, .widget_shopping_cart .total' => array(
 					'border-color' => 'var(--borderColor)',
+				),
+				'#kmt-cart-popup .kmt-popup-content'     => array(
+					'max-width' => kemet_slider( $cart_popup_width ),
 				),
 				'.kmt-site-header-cart .widget_shopping_cart' => array(
 					'border-color'     => 'var(--borderColor)',
@@ -1358,7 +1362,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return html
 		 */
 		public function woo_mini_cart_markup() {
-			$cart_style = kemet_get_option( 'shop-cart-style' );
+			$cart_style = kemet_get_option( 'shop-cart-style', 'dropdown' );
 			if ( is_cart() ) {
 				$class = 'current-menu-item';
 			} else {
