@@ -978,6 +978,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$woo_shop_archive_width     = kemet_get_option( 'shop-archive-width' );
 			$woo_shop_archive_max_width = kemet_get_option( 'shop-archive-max-width' );
 			$product_title_font_color   = kemet_get_sub_option( 'woo-shop-product-title-color', 'initial' );
+			$product_title_font_h_color = kemet_get_sub_option( 'woo-shop-product-title-color', 'hover' );
 			$product_content_font_color = kemet_get_sub_option( 'woo-shop-product-content-color', 'initial' );
 			$product_price_font_color   = kemet_get_sub_option( 'woo-shop-product-price-color', 'initial' );
 			$rating_color               = kemet_get_sub_option( 'rating-color', 'initial', $theme_color );
@@ -1013,7 +1014,15 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$icons_bg_color   = kemet_get_sub_option( 'woo-shop-icons-bg-color', 'initial' );
 			$icons_bg_h_color = kemet_get_sub_option( 'woo-shop-icons-bg-color', 'hover' );
 
+			// categories.
+			$category_link_color   = kemet_get_sub_option( 'woo-shop-categories-link-color', 'initial' );
+			$category_link_h_color = kemet_get_sub_option( 'woo-shop-categories-link-color', 'hover' );
+
 			$css_output = array(
+				'.woocommerce ul.products li.product.product-category .woocommerce-loop-category__title, .woocommerce-page ul.products li.product.product-category .woocommerce-loop-category__title' => array(
+					'--headingColor'    => esc_attr( $category_link_color ),
+					'--linksHoverColor' => esc_attr( $category_link_h_color ),
+				),
 				'.woo-style1 ul.products li.product .kemet-shop-overlay-buttons' => array(
 					'background-color' => esc_attr( $overlay_bg_color ),
 				),
@@ -1202,9 +1211,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => 'var(--themeColor)',
 				),
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
-					'--headingColor' => esc_attr( $product_title_font_color ),
-					'font-family'    => 'var(--fontFamily)',
-					'margin'         => kemet_responsive_spacing( $product_title_spacing, 'all', 'desktop' ),
+					'--linksColor'      => esc_attr( $product_title_font_color ),
+					'--linksHoverColor' => esc_attr( $product_title_font_h_color ),
+					'font-family'       => 'var(--fontFamily)',
+					'margin'            => kemet_responsive_spacing( $product_title_spacing, 'all', 'desktop' ),
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins' => array(
 					'color' => esc_attr( $product_price_font_color ),

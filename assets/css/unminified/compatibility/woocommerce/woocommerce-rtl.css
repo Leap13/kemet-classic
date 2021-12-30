@@ -1354,7 +1354,7 @@ p.demo_store a,
 
 .woocommerce nav.woocommerce-pagination,
 .woocommerce-page nav.woocommerce-pagination {
-	text-align: right;
+	text-align: left;
 }
 
 .woocommerce nav.woocommerce-pagination ul,
@@ -2841,7 +2841,13 @@ p.demo_store a,
 	padding: 0;
 	text-align: center;
 
-	--fontSize: 1em;
+	--fontSize: 20px;
+	--headingColor: var(--linksColor);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title:hover,
+.woocommerce-page ul.products li.product .woocommerce-loop-product__title:hover {
+	--headingColor: var(--linksHoverColor);
 }
 
 .woocommerce ul.products li.product .kmt-woo-product-category,
@@ -2875,9 +2881,16 @@ p.demo_store a,
 	background-color: white;
 }
 
+.woocommerce ul.products li.product.product-category mark,
+.woocommerce-page ul.products li.product.product-category mark {
+	color: var(--headingColor);
+}
+
 .woocommerce ul.products li.product.product-category > a:hover .woocommerce-loop-category__title,
 .woocommerce-page ul.products li.product.product-category > a:hover .woocommerce-loop-category__title {
 	background-color: white;
+
+	--headingColor: var(--linksHoverColor);
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-category__title,
@@ -4996,7 +5009,7 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 	padding: 0;
 	border: none;
 	background-color: transparent;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iT3V0bGluZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjMuNDEiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyMy40MSAyNCI+PHRpdGxlPmNhcnQtb3V0bGluZTwvdGl0bGU+PHBhdGggZD0iTTIyLjcxLDQuMDhBMywzLDAsMCwwLDIwLjQxLDNINC4yNGwwLS4zNUEzLDMsMCwwLDAsMS4yMiwwSDFBMSwxLDAsMCwwLDEsMmguMjJhMSwxLDAsMCwxLDEsLjg4bDEuMzgsMTEuN2E1LDUsMCwwLDAsNSw0LjQySDE5YTEsMSwwLDAsMCwwLTJIOC41NmEzLDMsMCwwLDEtMi44Mi0ySDE3LjY2YTUsNSwwLDAsMCw0LjkyLTQuMTFsLjc4LTQuMzZBMywzLDAsMCwwLDIyLjcxLDQuMDhaTTIxLjQsNi4xOGwtLjc5LDQuMzVBMywzLDAsMCwxLDE3LjY2LDEzSDUuNDJMNC40OCw1SDIwLjQxYTEsMSwwLDAsMSwxLDFBMS4xMSwxLjExLDAsMCwxLDIxLjQsNi4xOFoiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMjIiIHI9IjIiLz48Y2lyY2xlIGN4PSIxNyIgY3k9IjIyIiByPSIyIi8+PC9zdmc+);
+	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDE4LjM2IDE3Ljk0Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzMzMzt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPnNob3BwaW5nLWNhcnQ8L3RpdGxlPjxnIGlkPSJTaG9wcGluZ19DYXJ0IiBkYXRhLW5hbWU9IlNob3BwaW5nIENhcnQiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgsMTYuODJBMi4zOSwyLjM5LDAsMCwxLDUuNiwxNC42M0w0Ljc3LDQuNzUsMy40NCw0LjUyQS43NS43NSwwLDAsMSwzLjcsM2wxLjg5LjMzYS43NC43NCwwLDAsMSwuNjIuNjhsLjIxLDIuNDljMTMsMCwxMywwLDEzLjA3LDBhMiwyLDAsMCwxLDEuNjcsMi4yM2wtLjg3LDZhMi4zOSwyLjM5LDAsMCwxLTIuMzYsMi4wNUg4Wk02LjU1LDhsLjU0LDYuNDZhLjkuOSwwLDAsMCwuODkuODJoMTBhLjg5Ljg5LDAsMCwwLC44OC0uNzZsLjg2LTZhLjQ3LjQ3LDAsMCwwLS40LS41NGMtLjE5LDAtOCwwLTEyLjcyLDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjgyIC0zLjAzKSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE2LjQ2LDExLjQxSDEzLjk0YS43NS43NSwwLDAsMSwwLTEuNWgyLjUyYS43NS43NSwwLDAsMSwwLDEuNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIuODIgLTMuMDMpIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNOC44MywxOS43MkExLjI1LDEuMjUsMCwwLDEsNy41OCwyMWExLjI3LDEuMjcsMCwwLDEtLjg4LS4zNiwxLjMyLDEuMzIsMCwwLDEtLjM3LS44OCwxLjI1LDEuMjUsMCwwLDEsMi41LDBaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMi44MiAtMy4wMykiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xOS4xMSwxOS43MkExLjI2LDEuMjYsMCwwLDEsMTcuODYsMjFhMS4yNSwxLjI1LDAsMSwxLDEuMjUtMS4yNVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjgyIC0zLjAzKSIvPjwvZz48L3N2Zz4=);
 	background-repeat: no-repeat;
 	background-position: center;
 	font-size: 0;
@@ -5027,7 +5040,7 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] > *,
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="outline"] > * {
 	display: inline-flex;
-	margin: 0;
+	margin: var(--margin, 0 5px);
 	padding: var(--padding, 10px);
 
 	align-items: center;
@@ -5082,7 +5095,6 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 
 .woo-style1 ul.products li.product .kemet-shop-overlay-buttons[data-style="solid"] > * {
 	display: inline-flex;
-	margin: 0;
 	padding: var(--padding, 10px);
 	background-color: var(--iconsBackgroundColor);
 

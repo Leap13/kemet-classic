@@ -157,6 +157,38 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 								'priority' => 5,
 								'label'    => __( 'Layout Style', 'kemet' ),
 							),
+							self::$prefix . '-categories-link-color' => array(
+								'type'      => 'kmt-color',
+								'priority'  => 25,
+								'transport' => 'postMessage',
+								'label'     => __( 'Category Links Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'id'    => 'initial',
+										'title' => __( 'Initial', 'kemet' ),
+									),
+									array(
+										'id'    => 'hover',
+										'title' => __( 'Hover', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.woocommerce ul.products li.product.product-category .woocommerce-loop-category__title, .woocommerce-page ul.products li.product.product-category .woocommerce-loop-category__title',
+										'property' => '--headingColor',
+									),
+									'hover'   => array(
+										'selector' => '.woocommerce ul.products li.product.product-category .woocommerce-loop-category__title, .woocommerce-page ul.products li.product.product-category .woocommerce-loop-category__title',
+										'property' => '--linksHoverColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting' => 'woocommerce_shop_page_display',
+										'value'   => 'subcategories',
+									),
+								),
+							),
 							self::$prefix . '-hover-style' => array(
 								'type'     => 'kmt-select',
 								'priority' => 10,
@@ -313,11 +345,19 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'initial',
 										'title' => __( 'Initial', 'kemet' ),
 									),
+									array(
+										'id'    => 'hover',
+										'title' => __( 'Hover', 'kemet' ),
+									),
 								),
 								'preview'   => array(
 									'initial' => array(
 										'selector' => '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title',
-										'property' => '--headingColor',
+										'property' => '--linksColor',
+									),
+									'hover'   => array(
+										'selector' => '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title',
+										'property' => '--linksHoverColor',
 									),
 								),
 							),
