@@ -3592,7 +3592,10 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .main-header-menu[data-effect="underline-fill"] > .menu-item > a,
 .main-header-menu[data-effect="underline-fill"] > .page-item > a {
+	display: block;
+	display: block;
 	position: relative;
+	transition: all 1.5s;
 }
 
 .main-header-menu[data-effect="underline-fill"] > .menu-item > a::after,
@@ -3605,53 +3608,109 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	height: 1px;
 	margin: 0;
 	opacity: 0;
-	color: red;
-	background: blue;
+	color: transparent;
+	background: var(--linksHoverColor);
 	text-align: right;
 	content: ".";
 }
 
+.main-header-menu[data-effect="underline-fill"] > .menu-item:hover > a {
+	z-index: 1;
+	color: #fff;
+}
+
 .main-header-menu[data-effect="underline-fill"] > .menu-item:hover > a::after {
 	z-index: -10;
+	width: 100%;
+	height: 100%;
 	opacity: 1;
 	-webkit-animation: fill 1s forwards;
 	-moz-animation: fill 1s forwards;
 	animation: fill 1s forwards;
 }
 
-.main-header-menu[data-effect="style3"] > .menu-item > a,
-.main-header-menu[data-effect="style3"] > .page-item > a {
+.main-header-menu[data-effect="underline-dots"] > .menu-item > a,
+.main-header-menu[data-effect="underline-dots"] > .page-item > a {
 	position: relative;
-	line-height: 40px;
 }
 
-.main-header-menu[data-effect="style3"] > .menu-item > a::before,
-.main-header-menu[data-effect="style3"] > .menu-item > a::after,
-.main-header-menu[data-effect="style3"] > .page-item > a::before,
-.main-header-menu[data-effect="style3"] > .page-item > a::after {
+.main-header-menu[data-effect="underline-dots"] > .menu-item > a::before,
+.main-header-menu[data-effect="underline-dots"] > .page-item > a::before {
 	position: absolute;
-	width: 0;
-	height: 3px;
-	background-color: currentColor;
+	top: 35%;
+	right: 50%;
+	color: transparent;
+	text-shadow: transparent 0 0;
+	font-size: 1.2em;
+	content: "•";
+	transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
+	transform: translateX(50%);
+	pointer-events: none;
+}
+
+.main-header-menu[data-effect="underline-dots"] > .menu-item:hover > a::before {
+	color: currentColor;
+	text-shadow: -10px 0 currentColor, 10px 0 currentColor;
+}
+
+.main-header-menu[data-effect="textcolor-fill"] > .menu-item > a,
+.main-header-menu[data-effect="textcolor-fill"] > .page-item > a {
+	color: transparent;
+	background: linear-gradient(var(--linksHoverColor), var(--linksHoverColor)) right no-repeat, var(--linksColor);
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-size: 0 100%;
+	transition: 2s;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.main-header-menu[data-effect="textcolor-fill"] > .menu-item:hover > a {
+	background-size: 100% 100%;
+}
+
+.main-header-menu[data-effect="topbottom-lines"] > .menu-item > a::after,
+.main-header-menu[data-effect="topbottom-lines"] > .menu-item > a::before,
+.main-header-menu[data-effect="topbottom-lines"] > .page-item > a::after,
+.main-header-menu[data-effect="topbottom-lines"] > .page-item > a::before {
+	position: absolute;
+	width: 45px;
+	height: 2px;
+	opacity: 0.2;
+	background: var(--linksHoverColor);
 	content: "";
-	transition: all 0.35s ease;
+	transition: all 0.3s;
+	pointer-events: none;
 }
 
-.main-header-menu[data-effect="style3"] > .menu-item > a::before,
-.main-header-menu[data-effect="style3"] > .page-item > a::before {
-	top: 0;
+.main-header-menu[data-effect="topbottom-lines"] > .menu-item > a::before,
+.main-header-menu[data-effect="topbottom-lines"] > .page-item > a::before {
+	top: 15%;
 	right: 0;
+	opacity: 0;
+	transform: rotate(-90deg);
+	transform-origin: 100% 0;
 }
 
-.main-header-menu[data-effect="style3"] > .menu-item > a::after,
-.main-header-menu[data-effect="style3"] > .page-item > a::after {
-	bottom: 0;
+.main-header-menu[data-effect="topbottom-lines"] > .menu-item > a::after,
+.main-header-menu[data-effect="topbottom-lines"] > .page-item > a::after {
+	bottom: 15%;
 	left: 0;
+	opacity: 0;
+	transform: rotate(-90deg);
+	transform-origin: 0 0;
 }
 
-.main-header-menu[data-effect="style3"] > .menu-item:hover > a::before,
-.main-header-menu[data-effect="style3"] > .menu-item:hover > a::after {
-	width: 100%;
+.main-header-menu[data-effect="topbottom-lines"] > .menu-item:hover > a::before {
+	right: 50%;
+	opacity: 1;
+	transform: rotate(0deg) translateX(50%);
+}
+
+.main-header-menu[data-effect="topbottom-lines"] > .menu-item:hover > a::after {
+	left: 50%;
+	opacity: 1;
+	transform: rotate(0deg) translateX(-50%);
 }
 
 .main-header-menu ul.sub-menu > .menu-item > a,
@@ -4170,6 +4229,25 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	width: 18px;
 	transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 	transform-origin: 90% 57%;
+}
+
+/* Keyframes */
+@keyframes fill {
+	0% {
+		width: 0;
+		height: 1px;
+	}
+
+	50% {
+		width: 100%;
+		height: 1px;
+	}
+
+	100% {
+		width: 100%;
+		height: 100%;
+		background: var(--linksHoverColor);
+	}
 }
 
 /* 3 - Header Toggle Buttons */
@@ -7095,7 +7173,7 @@ Hide From Devices
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,	visibility 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 	transition: all 0.5s ease-in-out;
 	transform: translate3d(0, 15px, 0);
 

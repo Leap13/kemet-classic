@@ -33,11 +33,11 @@ if ( ! class_exists( 'Kemet_Header_Divider_Dynamic_Css' ) ) {
 					),
 					$selector . '.divider-vertical'   => array(
 						'border-right' => 'var(--border)',
-						'height'       => 'var(--size, 20px)',
+						'height'       => 'var(--size, 25px)',
 					),
 					$selector . '.divider-horizontal' => array(
 						'border-top' => 'var(--border)',
-						'width'      => 'var(--size, 20px)',
+						'width'      => 'var(--size, 25px)',
 					),
 				);
 
