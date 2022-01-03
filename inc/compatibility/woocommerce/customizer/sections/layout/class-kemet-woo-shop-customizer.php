@@ -43,23 +43,23 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 							'woocommerce_shop_page_display' => array(
 								'type'        => 'kmt-select',
 								'priority'    => 5,
-								'label'       => __( 'Shop page display', 'kemet' ),
+								'label'       => __( 'Shop Page Display', 'kemet' ),
 								'description' => __( 'Choose what to display on the main shop page.', 'kemet' ),
 								'choices'     => array(
-									''              => __( 'Show products', 'kemet' ),
-									'subcategories' => __( 'Show categories', 'kemet' ),
-									'both'          => __( 'Show categories & products', 'kemet' ),
+									''              => __( 'Products', 'kemet' ),
+									'subcategories' => __( 'Categories', 'kemet' ),
+									'both'          => __( 'Products and Categories', 'kemet' ),
 								),
 							),
 							'woocommerce_category_archive_display' => array(
 								'type'        => 'kmt-select',
 								'priority'    => 5,
-								'label'       => __( 'Shop page display', 'kemet' ),
+								'label'       => __( 'Product Category Page Display', 'kemet' ),
 								'description' => __( 'Choose what to display on product category pages.', 'kemet' ),
 								'choices'     => array(
-									''              => __( 'Show products', 'kemet' ),
-									'subcategories' => __( 'Show subcategories', 'kemet' ),
-									'both'          => __( 'Show subcategories & products', 'kemet' ),
+									''              => __( 'Products', 'kemet' ),
+									'subcategories' => __( 'Subcategories', 'kemet' ),
+									'both'          => __( 'Products and Subcategories', 'kemet' ),
 								),
 							),
 							'woocommerce_default_catalog_orderby' => array(
