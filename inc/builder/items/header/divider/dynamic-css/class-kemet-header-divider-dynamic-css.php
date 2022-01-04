@@ -32,11 +32,11 @@ if ( ! class_exists( 'Kemet_Header_Divider_Dynamic_Css' ) ) {
 						'--size'   => kemet_responsive_slider( $divider_size, 'desktop' ),
 					),
 					$selector . '.divider-vertical'   => array(
-						'border-right' => 'var(--border)',
+						'border-right' => 'var(--border, 1px solid var(--borderColor))',
 						'height'       => 'var(--size, 25px)',
 					),
 					$selector . '.divider-horizontal' => array(
-						'border-top' => 'var(--border)',
+						'border-top' => 'var(--border, 1px solid var(--borderColor))',
 						'width'      => 'var(--size, 25px)',
 					),
 				);

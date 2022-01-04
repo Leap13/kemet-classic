@@ -148,7 +148,9 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		public static function get_custom_widget( $widget_id = '' ) {
 			ob_start();
 			echo '<div class="kmt-widget-area kmt-' . esc_attr( $widget_id ) . '-area">';
+			echo '<div class="kmt-widget-area-inner">';
 			kemet_get_sidebar( $widget_id );
+			echo '</div>';
 			echo '</div>';
 			echo ob_get_clean();
 		}

@@ -41,6 +41,11 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 			self::$prefix . '-width'      => array(
 				'transport' => 'postMessage',
 				'type'      => 'kmt-border',
+				'default'   => array(
+					'style' => 'solid',
+					'width' => 1,
+					'color' => 'var(--borderColor)',
+				),
 				'label'     => __( 'Style', 'kemet' ),
 				'preview'   => array(
 					'selector' => $selector,
