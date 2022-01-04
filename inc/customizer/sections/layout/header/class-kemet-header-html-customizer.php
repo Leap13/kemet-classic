@@ -118,8 +118,7 @@ class Kemet_Header_Html_Customizer extends Kemet_Customizer_Register {
 									),
 									'preview'        => array(
 										'selector' => $selector,
-										'property' => '--margin',
-										'sides'    => false,
+										'property' => 'margin',
 									),
 								),
 							),

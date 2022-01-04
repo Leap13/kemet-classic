@@ -87,7 +87,7 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 				),
 				'preview'        => array(
 					'selector' => $btn_selector,
-					'property' => '--borderWidth',
+					'property' => '--border',
 					'sides'    => false,
 				),
 			),
@@ -119,7 +119,7 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 			'footer-button-radius'       => array(
 				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
-				'responsive'     => true,
+				'responsive'     => false,
 				'label'          => __( 'Border Radius', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -131,9 +131,8 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 				),
 				'preview'        => array(
 					'selector'   => $btn_selector,
-					'property'   => '--borderRadius',
-					'sides'      => false,
-					'responsive' => true,
+					'property'   => '--border-radius',
+					'responsive' => false,
 				),
 			),
 		);

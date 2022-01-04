@@ -147,7 +147,10 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 					'border-color'     => 'var(--inputBorderColor)',
 					'border-radius'    => 'var(--inputBorderRadius)',
 					'border-width'     => 'var(--inputBorderWidth)',
-					'padding'          => 'var(--padding) !important',
+					'padding-top'      => 'var(--padding-top)!important',
+					'padding-left'     => 'var(--padding-left)!important',
+					'padding-bottom'   => 'var(--padding-bottom)!important',
+					'padding-right'    => 'var(--padding-right)!important',
 				),
 			);
 

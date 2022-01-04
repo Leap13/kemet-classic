@@ -44,17 +44,29 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector => array(
 						'--buttonColor'                => esc_attr( $color ),
 						'--buttonBackgroundColor'      => esc_attr( $bg_color ),
-						'--borderWidth'                => kemet_spacing( $border_width, 'all' ),
+						'--border-top'                 => kemet_spacing( $border_width, 'top' ),
+						'--border-left'                => kemet_spacing( $border_width, 'left' ),
+						'--border-bottom'              => kemet_spacing( $border_width, 'bottom' ),
+						'--border-right'               => kemet_spacing( $border_width, 'right' ),
 						'--borderColor'                => esc_attr( $border_color ),
 						'--buttonHoverColor'           => esc_attr( $hover_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $hover_bg_color ),
 						'--borderHoverColor'           => esc_attr( $hover_border_color ),
-						'--padding'                    => kemet_spacing( $padding, 'all' ),
-						'--margin'                     => kemet_spacing( $margin, 'all' ),
+						'--padding-top'                => kemet_spacing( $padding, 'top' ),
+						'--padding-left'               => kemet_spacing( $padding, 'left' ),
+						'--padding-bottom'             => kemet_spacing( $padding, 'bottom' ),
+						'--padding-right'              => kemet_spacing( $padding, 'right' ),
+						'margin-top'                   => kemet_spacing( $margin, 'top' ),
+						'margin-left'                  => kemet_spacing( $margin, 'left' ),
+						'margin-bottom'                => kemet_spacing( $margin, 'bottom' ),
+						'margin-right'                 => kemet_spacing( $margin, 'right' ),
 						'--fontSize'                   => kemet_slider( $font_size ),
 						'--letterSpacing'              => kemet_slider( $letter_spacing ),
 						'--lineHeight'                 => kemet_slider( $line_height ),
-						'--borderRadius'               => kemet_spacing( $border_radius, 'all' ),
+						'--border-radius-top'          => kemet_spacing( $border_radius, 'top' ),
+						'--border-radius-left'         => kemet_spacing( $border_radius, 'left' ),
+						'--border-radius-bottom'       => kemet_spacing( $border_radius, 'bottom' ),
+						'--border-radius-right'        => kemet_spacing( $border_radius, 'right' ),
 					),
 				);
 
@@ -85,13 +97,15 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$css_output = array(
 					$selector => array(
-						'margin'            => 'var(--margin)',
 						'font-family'       => 'var(--fontFamily)',
 						'--textColor'       => esc_attr( $content_color ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
 						'color'             => 'var(--textColor)',
-						'--margin'          => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+						'margin-top'        => kemet_responsive_spacing( $margin, 'top', 'desktop' ),
+						'margin-right'      => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
+						'margin-bottom'     => kemet_responsive_spacing( $margin, 'bottom', 'desktop' ),
+						'margin-left'       => kemet_responsive_spacing( $margin, 'left', 'desktop' ),
 					),
 				);
 
@@ -99,7 +113,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$tablet = array(
 					$selector => array(
-						'--margin' => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
+						'margin-top'    => kemet_responsive_spacing( $margin, 'top', 'tablet' ),
+						'margin-right'  => kemet_responsive_spacing( $margin, 'right', 'tablet' ),
+						'margin-bottom' => kemet_responsive_spacing( $margin, 'bottom', 'tablet' ),
+						'margin-left'   => kemet_responsive_spacing( $margin, 'left', 'tablet' ),
 					),
 				);
 
@@ -108,7 +125,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$mobile = array(
 					$selector => array(
-						'--margin' => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
+						'margin-top'    => kemet_responsive_spacing( $margin, 'top', 'mobile' ),
+						'margin-right'  => kemet_responsive_spacing( $margin, 'right', 'mobile' ),
+						'margin-bottom' => kemet_responsive_spacing( $margin, 'bottom', 'mobile' ),
+						'margin-left'   => kemet_responsive_spacing( $margin, 'left', 'mobile' ),
 					),
 				);
 
@@ -138,11 +158,13 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$css_output = array(
 					$selector => array(
 						'color'             => 'var(--textColor)',
-						'margin'            => 'var(--margin)',
 						'--textColor'       => esc_attr( $color ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_hover_color ),
-						'--margin'          => kemet_spacing( $margin, 'all' ),
+						'margin-top'        => kemet_spacing( $margin, 'top' ),
+						'margin-right'      => kemet_spacing( $margin, 'right' ),
+						'margin-bottom'     => kemet_spacing( $margin, 'bottom' ),
+						'margin-left'       => kemet_spacing( $margin, 'left' ),
 					),
 				);
 
@@ -200,11 +222,13 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'background-color' => 'var(--backgroundColor, var(--borderColor))',
 						'border'           => 'var(--borderWidth, 1px) var(--borderStyle, solid) var(--borderColor)',
 						'border-radius'    => 'var(--borderRadius)',
-						'margin'           => 'var(--margin)',
 						'--borderRadius'   => kemet_slider( $btn_radius ),
 						'--color'          => esc_attr( $icon_color ),
 						'--hoverColor'     => esc_attr( $icon_h_color ),
-						'--margin'         => kemet_spacing( $margin, 'all' ),
+						'margin-top'       => kemet_spacing( $margin, 'top' ),
+						'margin-right'     => kemet_spacing( $margin, 'right' ),
+						'margin-bottom'    => kemet_spacing( $margin, 'bottom' ),
+						'margin-left'      => kemet_spacing( $margin, 'left' ),
 					),
 					$btn_selector . ' .kmt-svg-icon'       => array(
 						'font-size' => kemet_slider( $toggle_size ),
@@ -237,14 +261,20 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--backgroundColor'      => esc_attr( $icon_bg_color ),
 						'--backgroundHoverColor' => esc_attr( $icon_bg_h_color ),
 						'border'                 => 'none',
-						'padding'                => kemet_spacing( $padding, 'all' ),
+						'padding-top'            => kemet_spacing( $padding, 'top' ),
+						'padding-right'          => kemet_spacing( $padding, 'right' ),
+						'padding-bottom'         => kemet_spacing( $padding, 'bottom' ),
+						'padding-left'           => kemet_spacing( $padding, 'left' ),
 					),
 					$btn_selector . '[data-style="outline"]' => array(
 						'--buttonColor'      => esc_attr( $icon_color ),
 						'--borderColor'      => esc_attr( $border_color ),
 						'--borderHoverColor' => esc_attr( $border_h_color ),
 						'background'         => 'transparent',
-						'padding'            => kemet_spacing( $padding, 'all' ),
+						'padding-top'        => kemet_spacing( $padding, 'top' ),
+						'padding-right'      => kemet_spacing( $padding, 'right' ),
+						'padding-bottom'     => kemet_spacing( $padding, 'bottom' ),
+						'padding-left'       => kemet_spacing( $padding, 'left' ),
 					),
 				);
 				/* Parse CSS from array()*/
@@ -496,7 +526,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--minHeight' => kemet_responsive_slider( $height, 'desktop' ),
 					),
 					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section' => array(
-						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'desktop' ),
+						'--padding-top'    => kemet_responsive_spacing( $columns_padding, 'top', 'desktop' ),
+						'--padding-left'   => kemet_responsive_spacing( $columns_padding, 'left', 'desktop' ),
+						'--padding-bottom' => kemet_responsive_spacing( $columns_padding, 'bottom', 'desktop' ),
+						'--padding-right'  => kemet_responsive_spacing( $columns_padding, 'right', 'desktop' ),
 					),
 					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'desktop' ),
@@ -522,7 +555,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--minHeight' => kemet_responsive_slider( $height, 'tablet' ),
 					),
 					$selector . ' > .site-footer-section' => array(
-						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'tablet' ),
+						'--padding-top'    => kemet_responsive_spacing( $columns_padding, 'top', 'tablet' ),
+						'--padding-left'   => kemet_responsive_spacing( $columns_padding, 'left', 'tablet' ),
+						'--padding-bottom' => kemet_responsive_spacing( $columns_padding, 'bottom', 'tablet' ),
+						'--padding-right'  => kemet_responsive_spacing( $columns_padding, 'right', 'tablet' ),
 					),
 					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'tablet' ),
@@ -543,7 +579,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--minHeight' => kemet_responsive_slider( $height, 'mobile' ),
 					),
 					$selector . ' > .site-footer-section' => array(
-						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'mobile' ),
+						'--padding-top'    => kemet_responsive_spacing( $columns_padding, 'top', 'mobile' ),
+						'--padding-left'   => kemet_responsive_spacing( $columns_padding, 'left', 'mobile' ),
+						'--padding-bottom' => kemet_responsive_spacing( $columns_padding, 'bottom', 'mobile' ),
+						'--padding-right'  => kemet_responsive_spacing( $columns_padding, 'right', 'mobile' ),
 					),
 					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'mobile' ),

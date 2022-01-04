@@ -42,7 +42,10 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 					$selector                     => array(
 						'--lineHeight'      => '1em',
 						'--backgroundColor' => esc_attr( $bg_color ),
-						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
+						'--padding-top'     => kemet_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
+						'--padding-left'    => kemet_responsive_spacing( $menu_spacing, 'left', 'desktop' ),
+						'--padding-bottom'  => kemet_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
+						'--padding-right'   => kemet_responsive_spacing( $menu_spacing, 'right', 'desktop' ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
 						'justify-content'   => 'var(--justifyContent)',
@@ -56,7 +59,10 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 					$selector . ' > li > a'       => array(
 						'font-family'         => 'var(--fontFamily)',
 						'--borderBottomWidth' => kemet_responsive_slider( $link_h_border_width, 'desktop' ),
-						'--padding'           => kemet_responsive_spacing( $menu_link_spacing, 'all', 'desktop' ),
+						'--padding-top'       => kemet_responsive_spacing( $menu_link_spacing, 'top', 'desktop' ),
+						'--padding-left'      => kemet_responsive_spacing( $menu_link_spacing, 'left', 'desktop' ),
+						'--padding-bottom'    => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'desktop' ),
+						'--padding-right'     => kemet_responsive_spacing( $menu_link_spacing, 'right', 'desktop' ),
 					),
 					$selector . ' > li > a:hover' => array(
 						'border-bottom-color' => 'var(--borderBottomColor, var(--linksHoverColor))',
@@ -69,11 +75,17 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 
 				$tablet = array(
 					$selector               => array(
-						'--padding' => kemet_responsive_spacing( $menu_spacing, 'all', 'tablet' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_spacing, 'left', 'tablet' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_spacing, 'bottom', 'tablet' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_spacing, 'right', 'tablet' ),
 					),
 					$selector . ' > li > a' => array(
 						'--borderBottomWidth' => kemet_responsive_slider( $link_h_border_width, 'tablet' ),
-						'--padding'           => kemet_responsive_spacing( $menu_link_spacing, 'all', 'tablet' ),
+						'--padding-top'       => kemet_responsive_spacing( $menu_link_spacing, 'top', 'tablet' ),
+						'--padding-left'      => kemet_responsive_spacing( $menu_link_spacing, 'left', 'tablet' ),
+						'--padding-bottom'    => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'tablet' ),
+						'--padding-right'     => kemet_responsive_spacing( $menu_link_spacing, 'right', 'tablet' ),
 					),
 				);
 
@@ -82,11 +94,17 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 
 				$mobile = array(
 					$selector               => array(
-						'--padding' => kemet_responsive_spacing( $menu_spacing, 'all', 'mobile' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_spacing, 'left', 'mobile' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_spacing, 'bottom', 'mobile' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_spacing, 'right', 'mobile' ),
 					),
 					$selector . ' > li > a' => array(
 						'--borderBottomWidth' => kemet_responsive_slider( $link_h_border_width, 'mobile' ),
-						'--padding'           => kemet_responsive_spacing( $menu_link_spacing, 'all', 'mobile' ),
+						'--padding-top'       => kemet_responsive_spacing( $menu_link_spacing, 'top', 'mobile' ),
+						'--padding-left'      => kemet_responsive_spacing( $menu_link_spacing, 'left', 'mobile' ),
+						'--padding-bottom'    => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'mobile' ),
+						'--padding-right'     => kemet_responsive_spacing( $menu_link_spacing, 'right', 'mobile' ),
 					),
 				);
 

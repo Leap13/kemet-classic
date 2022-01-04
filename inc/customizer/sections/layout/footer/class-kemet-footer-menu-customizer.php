@@ -143,7 +143,6 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => $selector,
 									'property'   => '--padding',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),
@@ -164,7 +163,6 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => $selector . ' li > a',
 									'property'   => '--padding',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),

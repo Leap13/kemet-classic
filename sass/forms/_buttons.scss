@@ -7,11 +7,18 @@ input[type="submit"],
 .wp-block-button__link,
 a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
-  border-width: var(--borderWidth, 0);
+  border-top-width: var(--border-top, 0);
+  border-right-width: var(--border-right, 0);
+  border-bottom-width: var(--border-bottom, 0);
+  border-left-width: var(--border-left, 0);
   border-style: var(--borderStyle, solid);
   border-color: var(--borderColor);
-  border-radius: var(--borderRadius, 0);
-  padding: var(--padding, 0.6em 1em);
+  padding-top: var(--padding-top, 0.6em);
+  padding-right: var(--padding-right, 1em);
+  padding-bottom: var(--padding-bottom, 0.6em);
+  padding-left: var(--padding-left, 1em);
+  border-radius: var(--border-radius-top, 0) var(--border-radius-right, 0)
+    var(--border-radius-bottom, 0) var(--border-radius-left, 0);
   box-shadow: none;
   text-shadow: none;
   display: inline-block;
@@ -61,7 +68,10 @@ a.wp-block-button__link,
   border-color: var(--borderColor);
   border-width: var(--borderWidth);
   border-radius: var(--borderRadius);
-  padding: var(--padding, 0.6em 1em);
+  padding-top: var(--padding-top, 0.6em);
+  padding-left: var(--padding-left, 1em);
+  padding-bottom: var(--padding-bottom, 0.6em);
+  padding-right: var(--padding-right, 1em);
   &:hover {
     color: var(--buttonHoverColor, var(--buttonColor));
     background-color: var(

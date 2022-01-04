@@ -114,8 +114,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				),
 				'preview'        => array(
 					'selector' => $btn_selector,
-					'property' => '--borderWidth',
-					'sides'    => false,
+					'property' => '--border',
 				),
 			),
 			'btn-border-color'    => array(
@@ -146,7 +145,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			'button-radius'       => array(
 				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
-				'responsive'     => true,
+				'responsive'     => false,
 				'label'          => __( 'Border Radius', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -158,9 +157,8 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				),
 				'preview'        => array(
 					'selector'   => $btn_selector,
-					'property'   => '--borderRadius',
-					'sides'      => false,
-					'responsive' => true,
+					'property'   => '--border-radius',
+					'responsive' => false,
 				),
 			),
 			'button-spacing'      => array(
@@ -182,7 +180,6 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'selector'   => $btn_selector,
 					'property'   => '--padding',
 					'responsive' => true,
-					'sides'      => false,
 				),
 			),
 			'kmt-input-color'     => array(
@@ -355,7 +352,6 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'preview'        => array(
 					'selector'   => $input_selector,
 					'property'   => '--padding',
-					'sides'      => false,
 					'responsive' => true,
 				),
 			),

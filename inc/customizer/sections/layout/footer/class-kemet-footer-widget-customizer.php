@@ -136,9 +136,8 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 									),
 									'preview'        => array(
 										'selector'   => $selector,
-										'property'   => '--margin',
+										'property'   => 'margin',
 										'responsive' => true,
-										'sides'      => false,
 									),
 								),
 							),

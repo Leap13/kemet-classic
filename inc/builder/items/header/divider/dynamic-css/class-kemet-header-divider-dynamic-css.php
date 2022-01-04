@@ -27,9 +27,12 @@ if ( ! class_exists( 'Kemet_Header_Divider_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					$selector                         => array(
-						'margin'   => kemet_responsive_spacing( $divider_margin, 'all', 'desktop' ),
-						'--border' => kemet_border( $divider_border ),
-						'--size'   => kemet_responsive_slider( $divider_size, 'desktop' ),
+						'margin-top'    => kemet_responsive_spacing( $divider_margin, 'top', 'desktop' ),
+						'margin-right'  => kemet_responsive_spacing( $divider_margin, 'right', 'desktop' ),
+						'margin-bottom' => kemet_responsive_spacing( $divider_margin, 'bottom', 'desktop' ),
+						'margin-left'   => kemet_responsive_spacing( $divider_margin, 'left', 'desktop' ),
+						'--border'      => kemet_border( $divider_border ),
+						'--size'        => kemet_responsive_slider( $divider_size, 'desktop' ),
 					),
 					$selector . '.divider-vertical'   => array(
 						'border-right' => 'var(--border, 1px solid var(--borderColor))',
@@ -46,8 +49,11 @@ if ( ! class_exists( 'Kemet_Header_Divider_Dynamic_Css' ) ) {
 
 				$tablet = array(
 					$selector => array(
-						'margin' => kemet_responsive_spacing( $divider_margin, 'all', 'tablet' ),
-						'--size' => kemet_responsive_slider( $divider_size, 'tablet' ),
+						'margin-top'    => kemet_responsive_spacing( $divider_margin, 'top', 'tablet' ),
+						'margin-right'  => kemet_responsive_spacing( $divider_margin, 'right', 'tablet' ),
+						'margin-bottom' => kemet_responsive_spacing( $divider_margin, 'bottom', 'tablet' ),
+						'margin-left'   => kemet_responsive_spacing( $divider_margin, 'left', 'tablet' ),
+						'--size'        => kemet_responsive_slider( $divider_size, 'tablet' ),
 					),
 				);
 
@@ -56,8 +62,11 @@ if ( ! class_exists( 'Kemet_Header_Divider_Dynamic_Css' ) ) {
 
 				$mobile = array(
 					$selector => array(
-						'margin' => kemet_responsive_spacing( $divider_margin, 'all', 'mobile' ),
-						'--size' => kemet_responsive_slider( $divider_size, 'mobile' ),
+						'margin-top'    => kemet_responsive_spacing( $divider_margin, 'top', 'mobile' ),
+						'margin-right'  => kemet_responsive_spacing( $divider_margin, 'right', 'mobile' ),
+						'margin-bottom' => kemet_responsive_spacing( $divider_margin, 'bottom', 'mobile' ),
+						'margin-left'   => kemet_responsive_spacing( $divider_margin, 'left', 'mobile' ),
+						'--size'        => kemet_responsive_slider( $divider_size, 'mobile' ),
 					),
 				);
 

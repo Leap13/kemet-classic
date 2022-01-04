@@ -3707,7 +3707,10 @@ body:not(.kmt-separate-container) {
         align-items: flex-end;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0.95);
-        padding: var(--padding, 10px 10px 20px 10px);
+        padding-top: var(--padding-top, 10px);
+        padding-left: var(--padding-left, 10px);
+        padding-bottom: var(--padding-bottom, 20px);
+        padding-right: var(--padding-right, 10px);
         transition: opacity 0.3s ease-out;
         opacity: 0;
         .kmt-loop-product__link {
@@ -3780,7 +3783,10 @@ body:not(.kmt-separate-container) {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: var(--padding, 10px);
+            padding-top: var(--padding-top, 10px);
+            padding-left: var(--padding-left, 10px);
+            padding-bottom: var(--padding-bottom, 20px);
+            padding-right: var(--padding-right, 10px);
             margin: var(--margin, 0 5px);
           }
           .added {
@@ -3817,7 +3823,10 @@ body:not(.kmt-separate-container) {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: var(--padding, 10px);
+            padding-top: var(--padding-top, 10px);
+            padding-left: var(--padding-left, 10px);
+            padding-bottom: var(--padding-bottom, 10px);
+            padding-right: var(--padding-right, 10px);
             background-color: var(--iconsBackgroundColor);
             &:hover {
               background-color: var(--iconsBackgroundHoverColor);

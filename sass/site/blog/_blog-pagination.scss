@@ -16,7 +16,10 @@
 .kmt-pagination {
   display: inline-block;
   width: 100%;
-  padding: var(--padding, 2em 0 2em 0);
+  padding-top: var(--padding-top, 0.2em);
+  padding-left: var(--padding-left);
+  padding-bottom: var(--padding-bottom, 2em);
+  padding-right: var(--padding-right);
   @media (max-width: $mx-col-md) {
     padding-top: 1.5em;
   }

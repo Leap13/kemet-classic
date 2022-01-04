@@ -52,8 +52,14 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 					),
 					/* Site Identity Spacing */
 					'.kmt-site-identity'             => array(
-						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'desktop' ),
-						'--margin'  => kemet_responsive_spacing( $site_identity_margin, 'all', 'desktop' ),
+						'--padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
+						'--padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'desktop' ),
+						'--padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'desktop' ),
+						'--padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
+						'--margin-top'     => kemet_responsive_spacing( $site_identity_margin, 'top', 'desktop' ),
+						'--margin-left'    => kemet_responsive_spacing( $site_identity_margin, 'left', 'desktop' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $site_identity_margin, 'bottom', 'desktop' ),
+						'--margin-right'   => kemet_responsive_spacing( $site_identity_margin, 'right', 'desktop' ),
 					),
 					'.site-header .site-description' => array(
 						'font-family' => 'var(--fontFamily)',
@@ -74,8 +80,14 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 					),
 					/* Site Identity Spacing */
 					'.kmt-site-identity'             => array(
-						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'tablet' ),
-						'--margin'  => kemet_responsive_spacing( $site_identity_margin, 'all', 'tablet' ),
+						'--padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'tablet' ),
+						'--padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'tablet' ),
+						'--padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'tablet' ),
+						'--padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'tablet' ),
+						'--margin-top'     => kemet_responsive_spacing( $site_identity_margin, 'top', 'tablet' ),
+						'--margin-left'    => kemet_responsive_spacing( $site_identity_margin, 'left', 'tablet' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $site_identity_margin, 'bottom', 'tablet' ),
+						'--margin-right'   => kemet_responsive_spacing( $site_identity_margin, 'right', 'tablet' ),
 					),
 					'.site-header .site-description' => array(
 						'color' => esc_attr( $tagline_color ),
@@ -94,8 +106,14 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 					),
 					/* Site Identity Spacing */
 					'.kmt-site-identity'             => array(
-						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'mobile' ),
-						'--margin'  => kemet_responsive_spacing( $site_identity_margin, 'all', 'mobile' ),
+						'--padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'mobile' ),
+						'--padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'mobile' ),
+						'--padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'mobile' ),
+						'--padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'mobile' ),
+						'--margin-top'     => kemet_responsive_spacing( $site_identity_margin, 'top', 'mobile' ),
+						'--margin-left'    => kemet_responsive_spacing( $site_identity_margin, 'left', 'mobile' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $site_identity_margin, 'bottom', 'mobile' ),
+						'--margin-right'   => kemet_responsive_spacing( $site_identity_margin, 'right', 'mobile' ),
 					),
 					'.site-header .site-description' => array(
 						'color' => esc_attr( $tagline_color ),

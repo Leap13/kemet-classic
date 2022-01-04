@@ -68,7 +68,10 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 					'--borderStyle'      => 'solid',
 					'--borderColor'      => esc_attr( $btn_border_color ),
 					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
-					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
+					'--padding-top'      => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
+					'--padding-left'     => kemet_responsive_spacing( $btn_padding, 'left', 'desktop' ),
+					'--padding-bottom'   => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
+					'--padding-right'    => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
 					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
 				),
 				'.elementor-button-wrapper .elementor-button:hover' => array(
@@ -90,8 +93,11 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 			$tablet = array(
 				'.elementor-button-wrapper .elementor-button' => array(
-					'--borderRadius' => kemet_responsive_spacing( $btn_border_radius, 'all', 'tablet' ),
-					'--padding'      => kemet_responsive_spacing( $btn_padding, 'all', 'tablet' ),
+					'--borderRadius'   => kemet_responsive_spacing( $btn_border_radius, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'tablet' ),
 				),
 			);
 
@@ -100,8 +106,11 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 			$mobile = array(
 				'.elementor-button-wrapper .elementor-button' => array(
-					'--borderRadius' => kemet_responsive_spacing( $btn_border_radius, 'all', 'mobile' ),
-					'--padding'      => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
+					'--borderRadius'   => kemet_responsive_spacing( $btn_border_radius, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'mobile' ),
 				),
 			);
 

@@ -798,27 +798,18 @@ var applySpacingValue = function applySpacingValue(value) {
   if (value) {
     var _data = data,
         selector = _data.selector,
-        property = _data.property,
-        sides = _data.sides;
+        property = _data.property;
     var newValue = value.value,
         _value$unit = value.unit,
         unit = _value$unit === void 0 ? 'px' : _value$unit;
     var dynamicStyle = '';
-
-    if (sides) {
-      Object.keys(newValue).map(function (side) {
-        if (newValue[side]) {
-          dynamicStyle += "".concat(selector, "{").concat(property + side, ": ").concat(newValue[side] + unit, "}");
-        }
-      });
-    } else {
-      if (!allEmpty(Object.values(newValue))) {
-        dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(Object.values(newValue).map(function (value) {
-          return !value ? 0 : value + unit;
-        }).join(" "), "}");
+    dynamicStyle += "".concat(selector, "{");
+    Object.keys(newValue).map(function (side) {
+      if (newValue[side] !== '') {
+        dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(newValue[side] + unit, ";");
       }
-    }
-
+    });
+    dynamicStyle += '}';
     Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, control);
   }
 };
@@ -834,54 +825,33 @@ var applyResponsiveValue = function applyResponsiveValue(value) {
         mobileUnit = value['mobile-unit'];
     var _data2 = data,
         selector = _data2.selector,
-        property = _data2.property,
-        sides = _data2.sides;
+        property = _data2.property;
     var dynamicStyle = '';
 
-    if (sides) {
-      if (desktop && !allEmpty(Object.values(desktop))) {
-        dynamicStyle += "".concat(selector, "{");
-        Object.keys(desktop).map(function (side) {
-          if (desktop[side]) {
-            dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(desktop[side] + (desktopUnit || defaultUnit), ";");
-          }
-        });
-        dynamicStyle += '}';
-      }
+    if (desktop && !allEmpty(Object.values(desktop))) {
+      dynamicStyle += "".concat(selector, "{");
+      Object.keys(desktop).map(function (side) {
+        if (desktop[side] !== '') {
+          dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(desktop[side] + (desktopUnit || defaultUnit), ";");
+        }
+      });
+      dynamicStyle += '}';
+    }
 
-      if (tablet && !allEmpty(Object.values(tablet))) {
-        dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{").concat(Object.keys(tablet).map(function (side) {
-          if (tablet[side]) {
-            dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(tablet[side] + (tabletUnit || defaultUnit), ";");
-          }
-        }), "} }");
-      }
+    if (tablet && !allEmpty(Object.values(tablet))) {
+      dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{").concat(Object.keys(tablet).map(function (side) {
+        if (tablet[side] !== '') {
+          dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(tablet[side] + (tabletUnit || defaultUnit), ";");
+        }
+      }), "} }");
+    }
 
-      if (mobile && !allEmpty(Object.values(mobile))) {
-        dynamicStyle += "@media (max-width: 544px) {".concat(selector, "{ ").concat(Object.keys(mobile).map(function (side) {
-          if (mobile[side]) {
-            dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(mobile[side] + (mobileUnit || defaultUnit), ";");
-          }
-        }), "} }");
-      }
-    } else {
-      if (desktop && !allEmpty(Object.values(desktop))) {
-        dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(Object.values(desktop).map(function (value) {
-          return !value ? 0 : value + (desktopUnit || defaultUnit);
-        }).join(" "), "}");
-      }
-
-      if (tablet && !allEmpty(Object.values(tablet))) {
-        dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{").concat(property, ": ").concat(Object.values(tablet).map(function (value) {
-          return !value ? 0 : value + (tabletUnit || defaultUnit);
-        }).join(" "), "} }");
-      }
-
-      if (mobile && !allEmpty(Object.values(mobile))) {
-        dynamicStyle += "@media (max-width: 544px) { ".concat(selector, "{").concat(property, ": ").concat(Object.values(mobile).map(function (value) {
-          return !value ? 0 : value + (mobileUnit || defaultUnit);
-        }).join(" "), "} }");
-      }
+    if (mobile && !allEmpty(Object.values(mobile))) {
+      dynamicStyle += "@media (max-width: 544px) {".concat(selector, "{ ").concat(Object.keys(mobile).map(function (side) {
+        if (mobile[side] !== '') {
+          dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(mobile[side] + (mobileUnit || defaultUnit), ";");
+        }
+      }), "} }");
     }
 
     Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, control);
@@ -1550,10 +1520,6 @@ if (previewData.preview) {
     switch (type) {
       case "kmt-slider":
         Object(_controls_preivew_slider__WEBPACK_IMPORTED_MODULE_0__["default"])(control, data);
-        break;
-
-      case "kmt-spacing":
-        Object(_controls_preivew_spacing__WEBPACK_IMPORTED_MODULE_1__["default"])(control, data);
         break;
 
       case "kmt-spacing":

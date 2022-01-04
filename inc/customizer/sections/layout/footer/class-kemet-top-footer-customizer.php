@@ -111,7 +111,6 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
 									'property'   => '--padding',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),
@@ -130,7 +129,6 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => $selector,
 									'property'   => '--padding',
-									'sides'      => true,
 									'responsive' => true,
 								),
 							),

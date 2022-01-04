@@ -53,7 +53,10 @@
   .site-footer-section {
     display: flex;
     position: relative;
-    padding: var(--padding);
+    padding-top: var(--padding-top);
+    padding-right: var(--padding-right);
+    padding-bottom: var(--padding-bottom);
+    padding-left: var(--padding-left);
     flex-direction: var(--flexDirection);
     &:not(:last-child):after {
       content: "";
@@ -98,7 +101,10 @@
     ul {
       background-color: var(--backgroundColor);
       li > a {
-        --padding: 5px;
+        padding-top: var(--padding-top, 5px);
+        padding-left: var(--padding-left, 5px);
+        padding-bottom: var(--padding-bottom, 5px);
+        padding-right: var(--padding-right, 5px);
       }
     }
   }

@@ -35,7 +35,10 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					$parent_selector           => array(
-						'--margin' => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+						'margin-top'    => kemet_responsive_spacing( $margin, 'top', 'desktop' ),
+						'margin-right'  => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
+						'margin-bottom' => kemet_responsive_spacing( $margin, 'bottom', 'desktop' ),
+						'margin-left'   => kemet_responsive_spacing( $margin, 'left', 'desktop' ),
 					),
 					$parent_selector . ' form' => array(
 						'background-color' => kemet_responsive_color( $bg_color, 'initial', 'desktop' ),
@@ -62,7 +65,10 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 
 				$tablet = array(
 					$parent_selector           => array(
-						'--margin' => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
+						'margin-top'    => kemet_responsive_spacing( $margin, 'top', 'tablet' ),
+						'margin-right'  => kemet_responsive_spacing( $margin, 'right', 'tablet' ),
+						'margin-bottom' => kemet_responsive_spacing( $margin, 'bottom', 'tablet' ),
+						'margin-left'   => kemet_responsive_spacing( $margin, 'left', 'tablet' ),
 					),
 					$parent_selector . ' form' => array(
 						'background-color' => kemet_responsive_color( $bg_color, 'initial', 'tablet' ),
@@ -86,7 +92,10 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 
 				$mobile = array(
 					$parent_selector           => array(
-						'--margin' => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
+						'margin-top'    => kemet_responsive_spacing( $margin, 'top', 'mobile' ),
+						'margin-right'  => kemet_responsive_spacing( $margin, 'right', 'mobile' ),
+						'margin-bottom' => kemet_responsive_spacing( $margin, 'bottom', 'mobile' ),
+						'margin-left'   => kemet_responsive_spacing( $margin, 'left', 'mobile' ),
 					),
 					$parent_selector . ' form' => array(
 						'background-color' => kemet_responsive_color( $bg_color, 'initial', 'mobile' ),

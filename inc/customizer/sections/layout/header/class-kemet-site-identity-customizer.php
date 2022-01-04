@@ -159,7 +159,6 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'preview'        => array(
 					'selector'   => '.kmt-site-identity',
 					'property'   => '--padding',
-					'sides'      => false,
 					'responsive' => true,
 				),
 			),
@@ -180,7 +179,6 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'preview'        => array(
 					'selector'   => '.kmt-site-identity',
 					'property'   => '--margin',
-					'sides'      => false,
 					'responsive' => true,
 				),
 			),

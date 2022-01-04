@@ -50,23 +50,35 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$css_output = array(
 					$selector                             => array(
 						'--backgroundColor' => esc_attr( $bg_color ),
-						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
-						'--margin'          => kemet_responsive_spacing( $menu_margin, 'all', 'desktop' ),
+						'--padding-top'     => kemet_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
+						'--padding-left'    => kemet_responsive_spacing( $menu_spacing, 'left', 'desktop' ),
+						'--padding-bottom'  => kemet_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
+						'--padding-right'   => kemet_responsive_spacing( $menu_spacing, 'right', 'desktop' ),
+						'--margin-top'      => kemet_responsive_spacing( $menu_margin, 'top', 'desktop' ),
+						'--margin-right'    => kemet_responsive_spacing( $menu_margin, 'right', 'desktop' ),
+						'--margin-bottom'   => kemet_responsive_spacing( $menu_margin, 'bottom', 'desktop' ),
+						'--margin-left'     => kemet_responsive_spacing( $menu_margin, 'left', 'desktop' ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
 					),
 					$selector . ' > li > a'               => array(
-						'font-family'    => 'var(--fontFamily)',
-						'--effectBorder' => kemet_border(
+						'font-family'      => 'var(--fontFamily)',
+						'--effectBorder'   => kemet_border(
 							$link_h_border,
 							array(
 								'color' => 'var(--linksHoverColor)',
 							)
 						),
-						'--padding'      => kemet_responsive_spacing( $menu_link_spacing, 'all', 'desktop' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'desktop' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'desktop' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'desktop' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'desktop' ),
 					),
 					$selector . '[data-effect=background]>.menu-item>a:hover::after, ' . $selector . '[data-effect=background]>.page_item>a:hover::after' => array(
-						'--padding' => kemet_responsive_spacing( $menu_link_spacing, 'all', 'desktop' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'desktop' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'desktop' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'desktop' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'desktop' ),
 					),
 					$selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a' => array(
 						'--linksColor'      => esc_attr( $link_active_color ),
@@ -78,7 +90,10 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'width'            => kemet_slider( $submenu_width ),
 						'--borderTopWidth' => kemet_slider( $submenu_border_top_width ),
 						'--borderTopColor' => esc_attr( $submenu_top_border_color ),
-						'--padding'        => '0',
+						'--padding-top'    => '0',
+						'--padding-left'   => '0',
+						'--padding-bottom' => '0',
+						'--padding-right'  => '0',
 					),
 					$selector . ' > li ul > li > a'       => array(
 						'font-family'       => 'var(--fontFamily)',
@@ -104,11 +119,26 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 
 				$tablet = array(
 					$selector               => array(
-						'--padding' => kemet_responsive_spacing( $menu_spacing, 'all', 'tablet' ),
-						'--margin'  => kemet_responsive_spacing( $menu_margin, 'all', 'tablet' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_spacing, 'left', 'tablet' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_spacing, 'bottom', 'tablet' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_spacing, 'right', 'tablet' ),
+						'--margin-top'     => kemet_responsive_spacing( $menu_margin, 'top', 'tablet' ),
+						'--margin-right'   => kemet_responsive_spacing( $menu_margin, 'right', 'tablet' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $menu_margin, 'bottom', 'tablet' ),
+						'--margin-left'    => kemet_responsive_spacing( $menu_margin, 'left', 'tablet' ),
 					),
 					$selector . ' > li > a' => array(
-						'--padding' => kemet_responsive_spacing( $menu_link_spacing, 'all', 'tablet' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'tablet' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'tablet' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'tablet' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'tablet' ),
+					),
+					$selector . '[data-effect=background]>.menu-item>a:hover::after, ' . $selector . '[data-effect=background]>.page_item>a:hover::after' => array(
+						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'tablet' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'tablet' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'tablet' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'tablet' ),
 					),
 					$selector . ' > .current-menu-item > a, ' . $selector . ' .current-menu-ancestor > a, ' . $selector . ' .current_page_item > a' => array(
 						'border-radius' => kemet_responsive_slider( $link_active_border_radius, 'tablet' ),
@@ -120,11 +150,26 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 
 				$mobile = array(
 					$selector               => array(
-						'--padding' => kemet_responsive_spacing( $menu_spacing, 'all', 'mobile' ),
-						'--margin'  => kemet_responsive_spacing( $menu_margin, 'all', 'mobile' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_spacing, 'left', 'mobile' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_spacing, 'bottom', 'mobile' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_spacing, 'right', 'mobile' ),
+						'--margin-top'     => kemet_responsive_spacing( $menu_margin, 'top', 'mobile' ),
+						'--margin-right'   => kemet_responsive_spacing( $menu_margin, 'right', 'mobile' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $menu_margin, 'bottom', 'mobile' ),
+						'--margin-left'    => kemet_responsive_spacing( $menu_margin, 'left', 'mobile' ),
 					),
 					$selector . ' > li > a' => array(
-						'--padding' => kemet_responsive_spacing( $menu_link_spacing, 'all', 'mobile' ),
+						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'mobile' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'mobile' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'mobile' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'mobile' ),
+					),
+					$selector . '[data-effect=background]>.menu-item>a:hover::after, ' . $selector . '[data-effect=background]>.page_item>a:hover::after' => array(
+						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'mobile' ),
+						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'mobile' ),
+						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'mobile' ),
+						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'mobile' ),
 					),
 					$selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a' => array(
 						'border-radius' => kemet_responsive_slider( $link_active_border_radius, 'mobile' ),

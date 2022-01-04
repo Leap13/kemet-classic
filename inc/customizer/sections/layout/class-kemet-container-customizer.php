@@ -106,7 +106,6 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 									'selector'   => '.site-content #primary',
 									'property'   => 'padding',
 									'responsive' => true,
-									'sides'      => true,
 								),
 							),
 							'container-inner-spacing' => array(
@@ -126,7 +125,6 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li',
 									'property'   => 'padding',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),

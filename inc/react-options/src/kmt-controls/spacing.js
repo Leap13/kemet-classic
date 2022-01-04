@@ -118,7 +118,7 @@ const SpacingComponent = (props) => {
                     >
                         <input type="number"
                             className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
-                            onChange={({ target: { value } }) => onSpacingChange(Number(value), choiceID)}
+                            onChange={({ target: { value } }) => onSpacingChange(value !== '' ? Number(value) : value, choiceID)}
                             value={inputValue}
                             data-id={choiceID}
                             data-element-connect={id}

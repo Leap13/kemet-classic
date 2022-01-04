@@ -10,6 +10,10 @@
   display: flex;
   justify-content: var(--justifyContnet, center);
   align-items: var(--alignItems, center);
+  margin-top: var(--margin-top);
+  margin-right: var(--margin-right);
+  margin-bottom: var(--margin-bottom);
+  margin-left: var(--margin-left);
   a {
     margin: 0 5px;
   }

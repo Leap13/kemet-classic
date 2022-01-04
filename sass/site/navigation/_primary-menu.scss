@@ -26,8 +26,14 @@
   --lineHeight: 80px;
   ul {
     list-style: none;
-    margin: var(--margin, 0);
-    padding: var(--padding, 0);
+    margin-top: var(--margin-top, 0);
+    margin-right: var(--margin-right, 0);
+    margin-bottom: var(--margin-bottom, 0);
+    margin-left: var(--margin-left, 0);
+    padding-top: var(--padding-top);
+    padding-left: var(--padding-left);
+    padding-bottom: var(--padding-bottom);
+    padding-right: var(--padding-right);
     position: relative;
     background-color: var(--backgroundColor);
   }
@@ -35,7 +41,8 @@
 
 .main-header-menu {
   li > a {
-    --padding: 0 1em;
+    --padding-left: 1em;
+    --padding-right: 1em;
     display: inline-block;
     @include kmt-transition();
   }
@@ -175,7 +182,10 @@
     ul {
       > li > a,
       > li > .kmt-menu-item-wrap {
-        --padding: 5px 0;
+        --padding-top: 5px;
+        --padding-left: 0;
+        --padding-bottom: 5px;
+        --padding-right: 0;
         display: inline-block;
         width: 100%;
       }

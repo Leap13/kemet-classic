@@ -39,18 +39,18 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'label' => __( 'Menu Settings', 'kemet' ),
 				),
 				$prefix . '-items-hover-effect'        => array(
-					'type'      => 'kmt-select',
-					'default'   => 'none',
-					'label'     => __( 'Hover Effect', 'kemet' ),
-					'choices'   => array(
-						'none'   => __( 'None', 'kemet' ),
+					'type'    => 'kmt-select',
+					'default' => 'none',
+					'label'   => __( 'Hover Effect', 'kemet' ),
+					'choices' => array(
+						'none'             => __( 'None', 'kemet' ),
 						'underline-stroke' => __( 'Underline Stroke', 'kemet' ),
-						'underline-fill' => __( 'Underline Fill', 'kemet' ),
-						'underline-dots' => __( 'Underline Dots', 'kemet' ),
-						'textcolor-fill' => __( 'Text Color Fill', 'kemet' ),
-						'drawing-circle' => __( 'Top Bottom Lines', 'kemet' ),
+						'underline-fill'   => __( 'Underline Fill', 'kemet' ),
+						'underline-dots'   => __( 'Underline Dots', 'kemet' ),
+						'textcolor-fill'   => __( 'Text Color Fill', 'kemet' ),
+						'drawing-circle'   => __( 'Top Bottom Lines', 'kemet' ),
 					),
-					'preview'   => array(
+					'preview' => array(
 						'selector' => $selector,
 						'attr'     => 'data-effect',
 					),
@@ -182,7 +182,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'preview'        => array(
 						'selector'   => $selector,
 						'property'   => '--padding',
-						'sides'      => false,
 						'responsive' => true,
 					),
 				),
@@ -203,7 +202,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'preview'        => array(
 						'selector'   => $selector . ' li > a',
 						'property'   => '--padding',
-						'sides'      => false,
 						'responsive' => true,
 					),
 				),
@@ -224,7 +222,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'preview'        => array(
 						'selector'   => $selector,
 						'property'   => '--margin',
-						'sides'      => false,
 						'responsive' => true,
 					),
 				),

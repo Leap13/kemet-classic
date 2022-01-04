@@ -321,7 +321,6 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'preview'        => array(
 									'selector' => $selector . '[data-style="outline"],' . $selector . '[data-style="solid"]',
 									'property' => 'padding',
-									'sides'    => false,
 								),
 								'context'        => array(
 									array(
@@ -346,8 +345,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 								'preview'        => array(
 									'selector' => $selector,
-									'property' => '--margin',
-									'sides'    => false,
+									'property' => 'margin',
 								),
 							),
 						),

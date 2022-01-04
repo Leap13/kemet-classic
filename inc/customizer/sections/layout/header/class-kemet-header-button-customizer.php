@@ -156,7 +156,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									),
 									'preview'        => array(
 										'selector' => $selector,
-										'property' => '--borderWidth',
+										'property' => '--border',
 										'sides'    => false,
 									),
 								),
@@ -199,7 +199,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									),
 									'preview'        => array(
 										'selector' => $selector,
-										'property' => '--borderRadius',
+										'property' => '--border-radius',
 										'sides'    => false,
 									),
 								),
@@ -219,7 +219,6 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									'preview'        => array(
 										'selector' => $selector,
 										'property' => '--padding',
-										'sides'    => false,
 									),
 								),
 								$prefix . '-margin'       => array(
@@ -236,8 +235,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									),
 									'preview'        => array(
 										'selector' => $selector,
-										'property' => '--margin',
-										'sides'    => false,
+										'property' => 'margin',
 									),
 								),
 							),

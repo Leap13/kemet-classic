@@ -229,7 +229,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'        => array(
 									'selector'   => $selector,
-									'property'   => '--borderRadius',
+									'property'   => '--border-radius',
 									'responsive' => true,
 									'sides'      => false,
 								),
@@ -250,8 +250,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'        => array(
 									'selector'   => $parent_selector,
-									'property'   => '--margin',
-									'sides'      => false,
+									'property'   => 'margin',
 									'responsive' => true,
 								),
 							),

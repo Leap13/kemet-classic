@@ -120,7 +120,6 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'preview'        => array(
 					'selector'   => $selector . ' li > a, ' . $selector . ' li > .kmt-menu-item-wrap',
 					'property'   => '--padding',
-					'sides'      => false,
 					'responsive' => true,
 				),
 			),

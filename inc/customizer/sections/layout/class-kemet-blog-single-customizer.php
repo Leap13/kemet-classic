@@ -197,7 +197,6 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => '.comments-area .form-submit input[type="submit"]',
 									'property'   => '--margin',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),

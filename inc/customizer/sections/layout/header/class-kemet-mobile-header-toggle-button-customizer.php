@@ -335,7 +335,6 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 								'preview'        => array(
 									'selector' => $selector . '[data-style="outline"],' . $selector . '[data-style="solid"]',
 									'property' => 'padding',
-									'sides'    => false,
 								),
 								'context'        => array(
 									array(
@@ -360,8 +359,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 								),
 								'preview'        => array(
 									'selector' => $selector,
-									'property' => '--margin',
-									'sides'    => false,
+									'property' => 'margin',
 								),
 							),
 						),

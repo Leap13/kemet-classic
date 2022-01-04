@@ -38,6 +38,12 @@
   a {
     display: inline-block;
   }
+  .button {
+    margin-top: var(--margin-top);
+    margin-left: var(--margin-left);
+    margin-bottom: var(--margin-bottom);
+    margin-right: var(--margin-right);
+  }
 }
 
 .kmt-no-thumb {

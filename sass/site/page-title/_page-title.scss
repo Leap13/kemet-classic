@@ -1,5 +1,8 @@
 .kmt-page-title-content {
-  padding: var(--padding, 50px 0px);
+  padding-top: var(--padding-top, 50px);
+  padding-left: var(--padding-left);
+  padding-bottom: var(--padding-bottom, 50px);
+  padding-right: var(--padding-right);
 }
 .page-title-layout-1 {
   .kemet-page-sub-title {
@@ -12,7 +15,10 @@
   }
 }
 .kemet-breadcrumb-trail {
-  padding: var(--padding);
+  padding-top: var(--padding-top);
+  padding-left: var(--padding-left);
+  padding-bottom: var(--padding-bottom);
+  padding-right: var(--padding-right);
   color: var(--textColor);
   .trail-items,
   li {

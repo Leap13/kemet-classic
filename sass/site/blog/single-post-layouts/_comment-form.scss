@@ -142,6 +142,12 @@
 
   .form-submit {
     margin-bottom: 30px;
+    input[type="submit"] {
+      margin-top: var(--margin-top, 0.6em);
+      margin-left: var(--margin-left, 1em);
+      margin-bottom: var(--margin-bottom, 0.6em);
+      margin-right: var(--margin-right, 1em);
+    }
   }
 
   /*  2 - Input Fields Styles */

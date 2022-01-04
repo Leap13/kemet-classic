@@ -87,7 +87,6 @@ class Kemet_Header_Divider_Customizer extends Kemet_Customizer_Register {
 				'preview'        => array(
 					'selector'   => $selector,
 					'property'   => 'margin',
-					'sides'      => false,
 					'responsive' => true,
 				),
 			),

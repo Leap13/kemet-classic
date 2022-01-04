@@ -54,7 +54,10 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 
 			$css_content = array(
 				$selector . ', .header-transparent ' . $selector . ',.merged-header-transparent ' . $selector => array(
-					'--padding' => kemet_responsive_spacing( $page_title_space, 'all', 'desktop' ),
+					'--padding-top'    => kemet_responsive_spacing( $page_title_space, 'top', 'desktop' ),
+					'--padding-left'   => kemet_responsive_spacing( $page_title_space, 'left', 'desktop' ),
+					'--padding-bottom' => kemet_responsive_spacing( $page_title_space, 'bottom', 'desktop' ),
+					'--padding-right'  => kemet_responsive_spacing( $page_title_space, 'right', 'desktop' ),
 				),
 				'.kemet-page-title'                   => array(
 					'font-family'    => 'var(--fontFamily)',
@@ -76,7 +79,10 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 				),
 				'.kemet-breadcrumb-trail'             => array(
 					'font-family'       => 'var(--fontFamily)',
-					'--padding'         => kemet_responsive_spacing( $breadcrumbs_spacing, 'all', 'desktop' ),
+					'--padding-top'     => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'desktop' ),
+					'--padding-left'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'desktop' ),
+					'--padding-bottom'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'desktop' ),
+					'--padding-right'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'desktop' ),
 					'--linksColor'      => esc_attr( $breadcrumbs_link_color ),
 					'--linksHoverColor' => esc_attr( $breadcrumbs_link_h_color ),
 					'--textColor'       => esc_attr( $breadcrumbs_color ),
@@ -92,10 +98,16 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 
 			$tablet = array(
 				$selector . ', .header-transparent ' . $selector . ',.merged-header-transparent ' . $selector => array(
-					'--padding' => kemet_responsive_spacing( $page_title_space, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $page_title_space, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $page_title_space, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $page_title_space, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $page_title_space, 'right', 'tablet' ),
 				),
 				'.kemet-breadcrumb-trail' => array(
-					'--padding' => kemet_responsive_spacing( $breadcrumbs_spacing, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'tablet' ),
 				),
 			);
 
@@ -104,10 +116,16 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 
 			$mobile = array(
 				$selector . ', .header-transparent ' . $selector . ',.merged-header-transparent ' . $selector => array(
-					'--padding' => kemet_responsive_spacing( $page_title_space, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $page_title_space, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $page_title_space, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $page_title_space, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $page_title_space, 'right', 'mobile' ),
 				),
 				'.kemet-breadcrumb-trail' => array(
-					'--padding' => kemet_responsive_spacing( $breadcrumbs_spacing, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'mobile' ),
 				),
 			);
 

@@ -41,7 +41,6 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => '.sidebar-main .widget',
 									'property'   => 'padding',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),
@@ -61,7 +60,6 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => '.sidebar-main .widget .widget-content',
 									'property'   => 'padding',
-									'sides'      => false,
 									'responsive' => true,
 								),
 							),

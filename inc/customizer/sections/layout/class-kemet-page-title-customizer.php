@@ -229,7 +229,6 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'preview'        => array(
 									'selector'   => $selector . ', .header-transparent ' . $selector . ',.merged-header-transparent ' . $selector,
 									'responsive' => true,
-									'sides'      => false,
 									'property'   => '--padding',
 								),
 							),

@@ -30,14 +30,16 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					$selector        => array(
-						'margin'            => 'var(--margin)',
 						'color'             => 'var(--textColor)',
 						'--textColor'       => esc_attr( $color ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_hover_color ),
 						'--justifyContnet'  => kemet_get_sub_option( $prefix . '-horizontal-align', 'desktop' ),
 						'--alignItems'      => kemet_get_sub_option( $prefix . '-vertical-align', 'desktop' ),
-						'--margin'          => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+						'--margin-top'      => kemet_responsive_spacing( $margin, 'top', 'desktop' ),
+						'--margin-left'     => kemet_responsive_spacing( $margin, 'left', 'desktop' ),
+						'--margin-bottom'   => kemet_responsive_spacing( $margin, 'bottom', 'desktop' ),
+						'--margin-right'    => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
 					),
 					$selector . ' p' => array(
 						'--marginBottom' => 0,
@@ -51,7 +53,10 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 					$selector => array(
 						'--justifyContnet' => kemet_get_sub_option( $prefix . '-horizontal-align', 'tablet' ),
 						'--alignItems'     => kemet_get_sub_option( $prefix . '-vertical-align', 'tablet' ),
-						'--margin'         => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
+						'--margin-top'     => kemet_responsive_spacing( $margin, 'top', 'tablet' ),
+						'--margin-left'    => kemet_responsive_spacing( $margin, 'left', 'tablet' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $margin, 'bottom', 'tablet' ),
+						'--margin-right'   => kemet_responsive_spacing( $margin, 'right', 'tablet' ),
 					),
 				);
 
@@ -62,7 +67,10 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 					$selector => array(
 						'--justifyContnet' => kemet_get_sub_option( $prefix . '-horizontal-align', 'mobile' ),
 						'--alignItems'     => kemet_get_sub_option( $prefix . '-vertical-align', 'mobile' ),
-						'--margin'         => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
+						'--margin-top'     => kemet_responsive_spacing( $margin, 'top', 'mobile' ),
+						'--margin-left'    => kemet_responsive_spacing( $margin, 'left', 'mobile' ),
+						'--margin-bottom'  => kemet_responsive_spacing( $margin, 'bottom', 'mobile' ),
+						'--margin-right'   => kemet_responsive_spacing( $margin, 'right', 'mobile' ),
 					),
 				);
 

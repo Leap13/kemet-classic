@@ -453,7 +453,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--textColor'  => 'var(--linksColor)',
 				),
 				'.comments-area .form-submit input[type="submit"]' => array(
-					'--margin' => kemet_responsive_spacing( $comment_button_spacing, 'all', 'desktop' ),
+					'--margin-top'    => kemet_responsive_spacing( $comment_button_spacing, 'top', 'desktop' ),
+					'--margin-left'   => kemet_responsive_spacing( $comment_button_spacing, 'left', 'desktop' ),
+					'--margin-bottom' => kemet_responsive_spacing( $comment_button_spacing, 'bottom', 'desktop' ),
+					'--margin-right'  => kemet_responsive_spacing( $comment_button_spacing, 'right', 'desktop' ),
 				),
 				// Global CSS.
 				'::selection'                             => array(
@@ -465,14 +468,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Input.
 				'input[type="text"], input[type="email"], input[type=number], input[type="tel"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
-					'padding'          => 'var(--padding, 0.75em)',
+					'padding-top'      => 'var(--padding-top, 0.75em)',
+					'padding-left'     => 'var(--padding-left, 0.75em)',
+					'padding-bottom'   => 'var(--padding-bottom, 0.75em)',
+					'padding-right'    => 'var(--padding-right, 0.75em)',
 					'color'            => 'var(--inputColor)',
 					'background-color' => 'var(--inputBackgroundColor)',
 					'border-color'     => 'var(--inputBorderColor)',
 					'border-radius'    => 'var(--inputBorderRadius)',
 					'border-width'     => 'var(--inputBorderWidth, 1px)',
 					'border-style'     => 'var(--inputBorderStyle, solid)',
-					'--padding'        => kemet_responsive_spacing( $input_spacing, 'all', 'desktop' ),
+					'--padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'desktop' ),
+					'--padding-left'   => kemet_responsive_spacing( $input_spacing, 'left', 'desktop' ),
+					'--padding-bottom' => kemet_responsive_spacing( $input_spacing, 'bottom', 'desktop' ),
+					'--padding-right'  => kemet_responsive_spacing( $input_spacing, 'right', 'desktop' ),
 					'--fontSize'       => kemet_responsive_slider( $input_font_size, 'desktop' ),
 					'--fontFamily'     => kemet_get_font_family( $input_font_family ),
 					'--fontWeight'     => esc_attr( $input_font_weight ),
@@ -509,7 +518,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-color' => 'var(--linksColor)',
 				),
 				'.kmt-footer-copyright .kmt-footer-copyright-content' => array(
-					'--padding' => kemet_responsive_spacing( $footer_bar_spacing, 'all', 'desktop' ),
+					'--padding-top'    => kemet_responsive_spacing( $footer_bar_spacing, 'top', 'desktop' ),
+					'--padding-left'   => kemet_responsive_spacing( $footer_bar_spacing, 'left', 'desktop' ),
+					'--padding-bottom' => kemet_responsive_spacing( $footer_bar_spacing, 'bottom', 'desktop' ),
+					'--padding-right'  => kemet_responsive_spacing( $footer_bar_spacing, 'right', 'desktop' ),
 				),
 
 				'.site-footer .post-date'                 => array(
@@ -520,8 +532,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--buttonColor'                => esc_attr( $footer_button_color ),
 					'--buttonBackgroundColor'      => esc_attr( $footer_button_bg_color ),
 					'--borderColor'                => esc_attr( $footer_button_border_color ),
-					'--borderRadius'               => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'desktop' ),
-					'--borderWidth'                => kemet_spacing( $footer_button_border_width, 'all' ),
+					'--border-radius-top'          => kemet_spacing( $footer_button_border_radius, 'top' ),
+					'--border-radius-left'         => kemet_spacing( $footer_button_border_radius, 'left' ),
+					'--border-radius-bottom'       => kemet_spacing( $footer_button_border_radius, 'bottom' ),
+					'--border-radius-right'        => kemet_spacing( $footer_button_border_radius, 'right' ),
+					'--border-top'                 => kemet_spacing( $footer_button_border_width, 'top' ),
+					'--border-right'               => kemet_spacing( $footer_button_border_width, 'right' ),
+					'--border-bottom'              => kemet_spacing( $footer_button_border_width, 'bottom' ),
+					'--border-left'                => kemet_spacing( $footer_button_border_width, 'left' ),
 					'--buttonHoverColor'           => esc_attr( $footer_button_hover_color ),
 					'--buttonBackgroundHoverColor' => esc_attr( $footer_button_bg_h_color ),
 					'--borderHoverColor'           => esc_attr( $footer_button_border_h_color ),
@@ -536,7 +554,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--inputBorderColor'          => esc_attr( $footer_input_border_color ),
 					'--inputBorderWidth'          => kemet_responsive_slider( $footer_input_border_size, 'desktop' ),
 					'--inputBorderRadius'         => kemet_responsive_slider( $footer_input_border_radius, 'desktop' ),
-					'--padding'                   => kemet_responsive_spacing( $footer_input_padding, 'all', 'desktop' ),
+					'--padding-top'               => kemet_responsive_spacing( $footer_input_padding, 'top', 'desktop' ),
+					'--padding-left'              => kemet_responsive_spacing( $footer_input_padding, 'left', 'desktop' ),
+					'--padding-bottom'            => kemet_responsive_spacing( $footer_input_padding, 'bottom', 'desktop' ),
+					'--padding-right'             => kemet_responsive_spacing( $footer_input_padding, 'right', 'desktop' ),
 					'--inputFocusColor'           => '',
 					'--inputFocusBackgroundColor' => '',
 					'--inputFocusBorderColor'     => '',
@@ -552,21 +573,30 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Button Typography.
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
-					'color'              => 'var(--buttonColor)',
-					'background-color'   => 'var(--buttonBackgroundColor)',
-					'box-shadow'         => 'var(--buttonShadow)',
-					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
-					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
-					'--borderStyle'      => 'solid',
-					'--borderColor'      => esc_attr( $btn_border_color ),
-					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
-					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
-					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
+					'color'                  => 'var(--buttonColor)',
+					'background-color'       => 'var(--buttonBackgroundColor)',
+					'box-shadow'             => 'var(--buttonShadow)',
+					'--borderHoverColor'     => esc_attr( $btn_border_h_color ),
+					'--border-radius-top'    => kemet_spacing( $btn_border_radius, 'top' ),
+					'--border-radius-left'   => kemet_spacing( $btn_border_radius, 'left' ),
+					'--border-radius-bottom' => kemet_spacing( $btn_border_radius, 'bottom' ),
+					'--border-radius-right'  => kemet_spacing( $btn_border_radius, 'right' ),
+					'--borderStyle'          => 'solid',
+					'--borderColor'          => esc_attr( $btn_border_color ),
+					'--border-top'           => kemet_spacing( $btn_border_size, 'top' ),
+					'--border-left'          => kemet_spacing( $btn_border_size, 'left' ),
+					'--border-bottom'        => kemet_spacing( $btn_border_size, 'bottom' ),
+					'--border-right'         => kemet_spacing( $btn_border_size, 'right' ),
+					'--padding-top'          => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
+					'--padding-left'         => kemet_responsive_spacing( $btn_padding, 'left', 'desktop' ),
+					'--padding-bottom'       => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
+					'--padding-right'        => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
+					'--buttonShadow'         => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
 				),
 				'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
 					'color'            => 'var(--buttonHoverColor, var(--buttonColor))',
 					'background-color' => 'var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor))',
-					'border-color'     => 'var(--borderHoverColor)',
+					'border-color'     => 'var(--borderHoverColor, var(--borderColor))',
 					'box-shadow'       => 'var(--buttonShadow)',
 					'--buttonShadow'   => $btn_hover_effect ? '2px 2px 10px -3px var(--buttonBackgroundHoverColor,var(--buttonBackgroundColor))' : 'none',
 				),
@@ -607,7 +637,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--linksHoverColor' => esc_attr( $theme_color ),
 				),
 				'div.sidebar-main'                        => array(
-					'padding' => kemet_responsive_spacing( $sidebar_padding, 'all', 'desktop' ),
+					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'desktop' ),
+					'padding-right'  => kemet_responsive_spacing( $sidebar_padding, 'right', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'desktop' ),
+					'padding-left'   => kemet_responsive_spacing( $sidebar_padding, 'left', 'desktop' ),
 				),
 				'.sidebar-main'                           => array(
 					'--textColor' => esc_attr( $sidebar_text_color ),
@@ -633,11 +666,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Widget Spacing.
 				'.sidebar-main .widget'                   => array(
-					'margin-bottom' => kemet_slider( $widget_margin_bottom ),
-					'padding'       => kemet_responsive_spacing( $space_widget, 'all', 'desktop' ),
+					'margin-bottom'  => kemet_slider( $widget_margin_bottom ),
+					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'desktop' ),
+					'padding-right'  => kemet_responsive_spacing( $space_widget, 'right', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'desktop' ),
+					'padding-left'   => kemet_responsive_spacing( $space_widget, 'left', 'desktop' ),
 				),
 				'.sidebar-main .widget .widget-content'   => array(
-					'padding' => kemet_responsive_spacing( $widget_content_padding, 'all', 'desktop' ),
+					'padding-top'    => kemet_responsive_spacing( $widget_content_padding, 'top', 'desktop' ),
+					'padding-right'  => kemet_responsive_spacing( $widget_content_padding, 'right', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $widget_content_padding, 'bottom', 'desktop' ),
+					'padding-left'   => kemet_responsive_spacing( $widget_content_padding, 'left', 'desktop' ),
 				),
 				// Blockquote Text Color.
 				'blockquote p , blockquote em'            => array(
@@ -680,7 +719,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--linksHoverColor' => esc_attr( $theme_color ),
 				),
 				'.site-content .kmt-pagination'           => array(
-					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'desktop' ),
+					'--padding-top'    => kemet_responsive_spacing( $pagination_padding, 'top', 'desktop' ),
+					'--padding-left'   => kemet_responsive_spacing( $pagination_padding, 'left', 'desktop' ),
+					'--padding-bottom' => kemet_responsive_spacing( $pagination_padding, 'bottom', 'desktop' ),
+					'--padding-right'  => kemet_responsive_spacing( $pagination_padding, 'right', 'desktop' ),
 				),
 				'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
 					'border-color' => esc_attr( $single_content_separator_color ),
@@ -698,7 +740,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				 * Content Spacing Desktop
 				 */
 				'.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li' => array(
-					'padding' => kemet_responsive_spacing( $container_inner_spacing, 'all', 'desktop' ),
+					'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'desktop' ),
+					'padding-right'  => kemet_responsive_spacing( $container_inner_spacing, 'right', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
+					'padding-left'   => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
 				),
 				'.site-content #primary'                  => array(
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'desktop' ),
@@ -717,8 +762,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Blog Layouts
 				'.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post' => array(
-					'--borderWidth' => kemet_responsive_spacing( $blog_layout2_border_width, 'all', 'desktop' ),
-					'border-color'  => kemet_get_sub_option( 'blog-posts-border-color', 'initial', $global_border_color ),
+					'--border-top'    => kemet_responsive_spacing( $blog_layout2_border_width, 'top', 'desktop' ),
+					'--border-left'   => kemet_responsive_spacing( $blog_layout2_border_width, 'left', 'desktop' ),
+					'--border-bottom' => kemet_responsive_spacing( $blog_layout2_border_width, 'bottom', 'desktop' ),
+					'--border-right'  => kemet_responsive_spacing( $blog_layout2_border_width, 'right', 'desktop' ),
+					'border-color'    => kemet_get_sub_option( 'blog-posts-border-color', 'initial', $global_border_color ),
 				),
 				'.squares .overlay-image .overlay-color .section-1:before ,.squares .overlay-image .overlay-color .section-1:after ,.squares .overlay-image .overlay-color .section-2:before ,.squares .overlay-image .overlay-color .section-2:after , .bordered .overlay-color ,.framed .overlay-color' => array(
 					'background-color' => 'var(--overlayColor)',
@@ -797,13 +845,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--buttonColor'                => esc_attr( $readmore_text_color ),
 					'--buttonBackgroundColor'      => esc_attr( $readmore_bg_color ),
 					'--borderColor'                => esc_attr( $readmore_border_color ),
-					'--borderRadius'               => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
-					'--borderWidth'                => kemet_responsive_slider( $readmore_border_size, 'desktop' ),
+					'border-radius'                => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
+					'border-width'                 => kemet_responsive_slider( $readmore_border_size, 'desktop' ),
+					'--borderHoverColor'           => esc_attr( $btn_border_h_color ),
 					'--buttonHoverColor'           => esc_attr( $readmore_text_h_color ),
 					'--buttonBackgroundHoverColor' => esc_attr( $readmore_bg_h_color ),
 					'--borderHoverColor'           => esc_attr( $readmore_border_h_color ),
-					'--padding'                    => kemet_responsive_spacing( $readmore_padding, 'all', 'desktop' ),
-					'--margin'                     => kemet_responsive_spacing( $readmore_margin, 'all', 'desktop' ),
+					'--padding-top'                => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
+					'--padding-left'               => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
+					'--padding-bottom'             => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
+					'--padding-right'              => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
+					'--margin-top'                 => kemet_responsive_spacing( $readmore_margin, 'top', 'desktop' ),
+					'--margin-left'                => kemet_responsive_spacing( $readmore_margin, 'left', 'desktop' ),
+					'--margin-bottom'              => kemet_responsive_spacing( $readmore_margin, 'bottom', 'desktop' ),
+					'--margin-right'               => kemet_responsive_spacing( $readmore_margin, 'right', 'desktop' ),
 				),
 				'.content-area .read-more[data-align]' => array(
 					'display'         => 'flex',
@@ -874,19 +929,28 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-width'  => kemet_responsive_slider( $readmore_border_size, 'tablet' ),
 				),
 				'.kmt-footer-copyright .kmt-footer-copyright-content' => array(
-					'--padding' => kemet_responsive_spacing( $footer_bar_spacing, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $footer_bar_spacing, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $footer_bar_spacing, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $footer_bar_spacing, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $footer_bar_spacing, 'right', 'tablet' ),
 				),
 				'.site-footer input,.site-footer input[type="text"],.site-footer input[type="email"],.site-footer input[type="url"],.site-footer input[type="password"],.site-footer input[type="reset"],.site-footer input[type="search"],.site-footer textarea' => array(
 					'--inputBorderWidth'  => kemet_responsive_slider( $footer_input_border_size, 'tablet' ),
 					'--inputBorderRadius' => kemet_responsive_slider( $footer_input_border_radius, 'tablet' ),
-					'--padding'           => kemet_responsive_spacing( $footer_input_padding, 'top', 'tablet' ),
+					'--padding-top'       => kemet_responsive_spacing( $footer_input_padding, 'top', 'tablet' ),
+					'--padding-left'      => kemet_responsive_spacing( $footer_input_padding, 'left', 'tablet' ),
+					'--padding-bottom'    => kemet_responsive_spacing( $footer_input_padding, 'bottom', 'tablet' ),
+					'--padding-right'     => kemet_responsive_spacing( $footer_input_padding, 'right', 'tablet' ),
 				),
 				// Input.
 				'input[type="text"], input[type="email"], input[type=number], input[type="url"], input[type="tel"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
-					'--padding'       => kemet_responsive_spacing( $input_spacing, 'all', 'tablet' ),
-					'--fontSize'      => kemet_responsive_slider( $input_font_size, 'tablet' ),
-					'--lineHeight'    => kemet_responsive_slider( $input_line_height, 'tablet' ),
-					'--letterSpacing' => kemet_responsive_slider( $input_letter_spacing, 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $input_spacing, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $input_spacing, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $input_spacing, 'right', 'tablet' ),
+					'--fontSize'       => kemet_responsive_slider( $input_font_size, 'tablet' ),
+					'--lineHeight'     => kemet_responsive_slider( $input_line_height, 'tablet' ),
+					'--letterSpacing'  => kemet_responsive_slider( $input_letter_spacing, 'tablet' ),
 				),
 				// Sidebar input style.
 				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select' => array(
@@ -897,24 +961,42 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Button Typography.
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
-					'--padding' => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'tablet' ),
 				),
 				// Sidebar Spacing.
 				'.sidebar-main'                         => array(
-					'--padding' => kemet_responsive_spacing( $sidebar_padding, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $sidebar_padding, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $sidebar_padding, 'right', 'tablet' ),
 				),
 
 				// Widget Spacing.
 				'.sidebar-main .widget'                 => array(
-					'padding' => kemet_responsive_spacing( $space_widget, 'all', 'tablet' ),
+					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'tablet' ),
+					'padding-right'  => kemet_responsive_spacing( $space_widget, 'right', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'tablet' ),
+					'padding-left'   => kemet_responsive_spacing( $space_widget, 'left', 'tablet' ),
 				),
 				'.sidebar-main .widget .widget-content' => array(
-					'padding' => kemet_responsive_spacing( $widget_content_padding, 'all', 'tablet' ),
+					'padding-top'    => kemet_responsive_spacing( $widget_content_padding, 'top', 'tablet' ),
+					'padding-right'  => kemet_responsive_spacing( $widget_content_padding, 'right', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $widget_content_padding, 'bottom', 'tablet' ),
+					'padding-left'   => kemet_responsive_spacing( $widget_content_padding, 'left', 'tablet' ),
 				),
 				// post readmore spacing.
 				'.content-area p.read-more a'           => array(
-					'--padding' => kemet_responsive_spacing( $readmore_padding, 'all', 'tablet' ),
-					'--margin'  => kemet_responsive_spacing( $readmore_margin, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $readmore_padding, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $readmore_padding, 'right', 'tablet' ),
+					'--margin-top'     => kemet_responsive_spacing( $readmore_margin, 'top', 'tablet' ),
+					'--margin-left'    => kemet_responsive_spacing( $readmore_margin, 'left', 'tablet' ),
+					'--margin-bottom'  => kemet_responsive_spacing( $readmore_margin, 'bottom', 'tablet' ),
+					'--margin-right'   => kemet_responsive_spacing( $readmore_margin, 'right', 'tablet' ),
 				),
 				'.kmt-single-post entry-header .entry-title, .page-title' => array(
 					'--fontSize'      => kemet_responsive_slider( $single_post_title_font_size, 'tablet' ),
@@ -924,25 +1006,34 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				 * Content Spacing Tablet
 				 */
 				'.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li ' => array(
-					'padding' => kemet_responsive_spacing( $container_inner_spacing, 'all', 'tablet' ),
+					'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'tablet' ),
+					'padding-right'  => kemet_responsive_spacing( $container_inner_spacing, 'right', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'tablet' ),
+					'padding-left'   => kemet_responsive_spacing( $container_inner_spacing, 'left', 'tablet' ),
+
 				),
 				'.comments-area .form-submit input[type="submit"]' => array(
-					'--margin' => kemet_responsive_spacing( $comment_button_spacing, 'all', 'tablet' ),
+					'--margin-top'    => kemet_responsive_spacing( $comment_button_spacing, 'top', 'tablet' ),
+					'--margin-left'   => kemet_responsive_spacing( $comment_button_spacing, 'left', 'tablet' ),
+					'--margin-bottom' => kemet_responsive_spacing( $comment_button_spacing, 'bottom', 'tablet' ),
+					'--margin-right'  => kemet_responsive_spacing( $comment_button_spacing, 'right', 'tablet' ),
 				),
 				'.site-content #primary'                => array(
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'tablet' ),
 				),
-				// Main Footer.
-				'.site-footer button, .site-footer .button, .site-footer a.button, .site-footer a.button:hover, .site-footer .kmt-button,.site-footer .button, .site-footer .button, .site-footer input#submit, .site-footer input[type=button], .site-footer input[type=submit], .site-footer input[type=reset]' => array(
-					'--buttonBorderRadius' => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'tablet' ),
-				),
 				'.site-content .kmt-pagination'         => array(
-					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'tablet' ),
+					'--padding-top'    => kemet_responsive_spacing( $pagination_padding, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $pagination_padding, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $pagination_padding, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $pagination_padding, 'right', 'tablet' ),
 				),
 				// Blog Layouts
 				'.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post' => array(
-					'--borderWidth' => kemet_responsive_spacing( $blog_layout2_border_width, 'all', 'tablet' ),
+					'--border-top'    => kemet_responsive_spacing( $blog_layout2_border_width, 'top', 'tablet' ),
+					'--border-left'   => kemet_responsive_spacing( $blog_layout2_border_width, 'left', 'tablet' ),
+					'--border-bottom' => kemet_responsive_spacing( $blog_layout2_border_width, 'bottom', 'tablet' ),
+					'--border-right'  => kemet_responsive_spacing( $blog_layout2_border_width, 'right', 'tablet' ),
 				),
 				'.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li' => array(
 					'padding' => kemet_responsive_spacing( $padding_inside_container, 'all', 'tablet' ),
@@ -983,14 +1074,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-footer input,.site-footer input[type="text"],.site-footer input[type="email"],.site-footer input[type="url"],.site-footer input[type="password"],.site-footer input[type="reset"],.site-footer input[type="search"],.site-footer textarea' => array(
 					'--inputBorderWidth'  => kemet_responsive_slider( $footer_input_border_size, 'mobile' ),
 					'--inputBorderRadius' => kemet_responsive_slider( $footer_input_border_radius, 'mobile' ),
-					'--padding'           => kemet_responsive_spacing( $footer_input_padding, 'top', 'mobile' ),
+					'--padding-top'       => kemet_responsive_spacing( $footer_input_padding, 'top', 'mobile' ),
+					'--padding-left'      => kemet_responsive_spacing( $footer_input_padding, 'left', 'mobile' ),
+					'--padding-bottom'    => kemet_responsive_spacing( $footer_input_padding, 'bottom', 'mobile' ),
+					'--padding-right'     => kemet_responsive_spacing( $footer_input_padding, 'right', 'mobile' ),
 				),
 				// Input.
 				'input[type="text"], input[type="email"], input[type=number], input[type="url"], input[type="tel"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
-					'--padding'       => kemet_responsive_spacing( $input_spacing, 'all', 'mobile' ),
-					'--fontSize'      => kemet_responsive_slider( $input_font_size, 'mobile' ),
-					'--lineHeight'    => kemet_responsive_slider( $input_line_height, 'mobile' ),
-					'--letterSpacing' => kemet_responsive_slider( $input_letter_spacing, 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $input_spacing, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $input_spacing, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $input_spacing, 'right', 'mobile' ),
+					'--fontSize'       => kemet_responsive_slider( $input_font_size, 'mobile' ),
+					'--lineHeight'     => kemet_responsive_slider( $input_line_height, 'mobile' ),
+					'--letterSpacing'  => kemet_responsive_slider( $input_letter_spacing, 'mobile' ),
 				),
 				// Sidebar input style.
 				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select' => array(
@@ -1002,40 +1099,60 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Widget Spacing.
 				'.sidebar-main .widget'                 => array(
-					'padding' => kemet_responsive_spacing( $space_widget, 'all', 'mobile' ),
+					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'mobile' ),
+					'padding-right'  => kemet_responsive_spacing( $space_widget, 'right', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'mobile' ),
+					'padding-left'   => kemet_responsive_spacing( $space_widget, 'left', 'mobile' ),
 				),
 				'.sidebar-main .widget .widget-content' => array(
-					'padding' => kemet_responsive_spacing( $widget_content_padding, 'all', 'mobile' ),
+					'padding-top'    => kemet_responsive_spacing( $widget_content_padding, 'top', 'mobile' ),
+					'padding-right'  => kemet_responsive_spacing( $widget_content_padding, 'right', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $widget_content_padding, 'bottom', 'mobile' ),
+					'padding-left'   => kemet_responsive_spacing( $widget_content_padding, 'left', 'mobile' ),
 				),
 				// Button Typography.
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
-					'--padding' => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'mobile' ),
 				),
 				// post readmore spacing.
 				'.content-area p.read-more a'           => array(
-					'--padding' => kemet_responsive_spacing( $readmore_padding, 'all', 'mobile' ),
-					'--margin'  => kemet_responsive_spacing( $readmore_margin, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $readmore_padding, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $readmore_padding, 'right', 'mobile' ),
+					'--margin-top'     => kemet_responsive_spacing( $readmore_margin, 'top', 'mobile' ),
+					'--margin-left'    => kemet_responsive_spacing( $readmore_margin, 'left', 'mobile' ),
+					'--margin-bottom'  => kemet_responsive_spacing( $readmore_margin, 'bottom', 'mobile' ),
+					'--margin-right'   => kemet_responsive_spacing( $readmore_margin, 'right', 'mobile' ),
 				),
 
-				// Main Footer.
-				'.site-footer button, .site-footer .button, .site-footer a.button, .site-footer a.button:hover, .site-footer .kmt-button,.site-footer .button, .site-footer .button, .site-footer input#submit, .site-footer input[type=button], .site-footer input[type=submit], .site-footer input[type=reset]' => array(
-					'--buttonBorderRadius' => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'mobile' ),
-				),
 				'.kmt-single-post entry-header .entry-title, .page-title' => array(
 					'--fontSize'      => kemet_responsive_slider( $single_post_title_font_size, 'mobile' ),
 					'--letterSpacing' => kemet_responsive_slider( $single_post_title_letter_spacing, 'mobile' ),
 				),
 				'.kmt-footer-copyright .kmt-footer-copyright-content' => array(
-					'--padding' => kemet_responsive_spacing( $footer_bar_spacing, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $footer_bar_spacing, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $footer_bar_spacing, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $footer_bar_spacing, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $footer_bar_spacing, 'right', 'mobile' ),
 				),
 				/**
 				 * Content Spacing Mobile
 				 */
 				'.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li' => array(
-					'padding' => kemet_responsive_spacing( $container_inner_spacing, 'all', 'mobile' ),
+					'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'mobile' ),
+					'padding-right'  => kemet_responsive_spacing( $container_inner_spacing, 'right', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'mobile' ),
+					'padding-left'   => kemet_responsive_spacing( $container_inner_spacing, 'left', 'mobile' ),
 				),
 				'.comments-area .form-submit input[type="submit"]' => array(
-					'--margin' => kemet_responsive_spacing( $comment_button_spacing, 'all', 'mobile' ),
+					'--margin-top'    => kemet_responsive_spacing( $comment_button_spacing, 'top', 'mobile' ),
+					'--margin-left'   => kemet_responsive_spacing( $comment_button_spacing, 'left', 'mobile' ),
+					'--margin-bottom' => kemet_responsive_spacing( $comment_button_spacing, 'bottom', 'mobile' ),
+					'--margin-right'  => kemet_responsive_spacing( $comment_button_spacing, 'right', 'mobile' ),
 				),
 				'.site-content #primary'                => array(
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'mobile' ),
@@ -1043,7 +1160,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Sidebar Spacing.
 				'div.sidebar-main'                      => array(
-					'--padding' => kemet_responsive_spacing( $sidebar_padding, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $sidebar_padding, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $sidebar_padding, 'right', 'mobile' ),
 				),
 				'#secondary .sidebar-main'              => array(
 					'--fontSize' => kemet_responsive_slider( $sidebar_content_font_size, 'mobile' ),
@@ -1051,11 +1171,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Footer Widget.
 				'.site-content .kmt-pagination'         => array(
-					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'mobile' ),
+					'--padding-top'    => kemet_responsive_spacing( $pagination_padding, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $pagination_padding, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $pagination_padding, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $pagination_padding, 'right', 'mobile' ),
 				),
 				// Blog Layouts
 				'.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post' => array(
-					'--borderWidth' => kemet_responsive_spacing( $blog_layout2_border_width, 'all', 'mobile' ),
+					'--border-top'    => kemet_responsive_spacing( $blog_layout2_border_width, 'top', 'mobile' ),
+					'--border-left'   => kemet_responsive_spacing( $blog_layout2_border_width, 'left', 'mobile' ),
+					'--border-bottom' => kemet_responsive_spacing( $blog_layout2_border_width, 'bottom', 'mobile' ),
+					'--border-right'  => kemet_responsive_spacing( $blog_layout2_border_width, 'right', 'mobile' ),
 				),
 				'.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li' => array(
 					'padding' => kemet_responsive_spacing( $padding_inside_container, 'all', 'tablet' ),
