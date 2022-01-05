@@ -18,7 +18,7 @@ import TypographyModal from "./typography/typo-modal";
 
 
 
-const Typography = ({ value, onChange, params, params: { label, default: optionDefault } }) => {
+const Typography = ({ value, onChange, params, params: { label, default: optionDefault, has_options = true } }) => {
 
     let defaultValue = {
         family: "Default",
@@ -51,6 +51,14 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
         "text-transform": "none",
         "text-decoration": "none",
     };
+
+    const defaultFamilyValue = {
+        family: "Default",
+        variation: 'n4',
+    };
+
+    defaultValue = !has_options ? defaultFamilyValue : defaultValue;
+
     useEffect(() => {
         getInitialDevice();
     }, []);
@@ -111,7 +119,8 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
 
 
     const updateValues = (obj) => {
-        onChange(obj);
+        console.log(obj);
+        // onChange(obj);
     };
 
     return (
@@ -162,8 +171,7 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
                                     : familyToDisplay(value.family)}
                             </span>
                         </span>
-
-                        <span
+                        {has_options && <span
                             className={classnames('kmt-size', {
                                 active: currentView === "options",
                             })}
@@ -188,8 +196,7 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
                                     } `
                                 }
                             </span>
-                        </span>
-
+                        </span>}
                         <span
                             ref={fontWeightRef}
                             className={classnames('kmt-weight', {

@@ -40,6 +40,20 @@ if ( ! class_exists( 'Kemet_Panel_Plugins_Data' ) ) {
 			add_action( 'wp_ajax_kemet-plugins-status', array( $this, 'get_plugins_status' ) );
 		}
 
+		/**
+		 * get_plugins
+		 *
+		 * @return array
+		 */
+		public static function get_recommended_plugins() {
+			$plugins = array(
+				'elementor',
+				'premium-addons-for-elementor',
+				'premium-blocks-for-gutenberg',
+			);
+
+			return $plugins;
+		}
 
 		/**
 		 * get_plugins

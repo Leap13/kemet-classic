@@ -17521,11 +17521,13 @@ var BackgroundComponent = function BackgroundComponent(props) {
     },
     "background-repeat": "",
     "background-size": "",
-    "background-type": "color",
+    "background-type": "",
     "background-gradient": ""
   };
   var ResDefaultParam = {
-    desktop: _objectSpread({}, defaultValue),
+    desktop: _objectSpread(_objectSpread({}, defaultValue), {}, {
+      "background-type": "color"
+    }),
     tablet: _objectSpread({}, defaultValue),
     mobile: _objectSpread({}, defaultValue)
   };
@@ -17544,6 +17546,13 @@ var BackgroundComponent = function BackgroundComponent(props) {
       setDevice = _useState4[1];
 
   var updateValue = function updateValue(obj) {
+    if (responsive) {
+      if (device === 'tablet') {
+        obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+        obj.mobile = overwriteValues(obj.mobile, obj.tablet);
+      }
+    }
+
     setPropsValue(obj);
     props.onChange(_objectSpread(_objectSpread({}, obj), {}, {
       flag: !value.flag
@@ -17588,8 +17597,31 @@ var BackgroundComponent = function BackgroundComponent(props) {
     updateValue(obj);
   };
 
+  var overwriteValues = function overwriteValues(obj1, obj2) {
+    var obj3 = {};
+    obj3['background-attachment'] = obj1['background-attachment'] ? obj1['background-attachment'] : obj2['background-attachment'];
+    obj3['background-color'] = obj1['background-color'] ? obj1['background-color'] : obj2['background-color'];
+    obj3['background-image'] = obj1['background-image'] ? obj1['background-image'] : obj2['background-image'];
+    obj3['background-media'] = obj1['background-media'] ? obj1['background-media'] : obj2['background-media'];
+    obj3['background-position'] = obj1['background-position'] ? obj1['background-position'] : obj2['background-position'];
+    obj3['background-repeat'] = obj1['background-repeat'] ? obj1['background-repeat'] : obj2['background-repeat'];
+    obj3['background-size'] = obj1['background-size'] ? obj1['background-size'] : obj2['background-size'];
+    obj3['background-type'] = obj1['background-type'] ? obj1['background-type'] : obj2['background-type'];
+    obj3['background-gradient'] = obj1['background-gradient'] ? obj1['background-gradient'] : obj2['background-gradient'];
+    return obj3;
+  };
+
   var renderSettings = function renderSettings() {
-    var renderBackground = responsive ? props_value[device] : props_value;
+    var value = _objectSpread({}, props_value);
+
+    if (responsive) {
+      if (device === 'tablet') {
+        value.tablet = overwriteValues(value.tablet, value.desktop);
+        value.mobile = overwriteValues(value.mobile, value.tablet);
+      }
+    }
+
+    var renderBackground = responsive ? value[device] : value;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_kmt_background__WEBPACK_IMPORTED_MODULE_5__["default"], {
       text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Background", "kemet"),
       onSelect: function onSelect(type) {
@@ -21486,7 +21518,9 @@ var Typography = function Typography(_ref) {
       params = _ref.params,
       _ref$params = _ref.params,
       label = _ref$params.label,
-      optionDefault = _ref$params.default;
+      optionDefault = _ref$params.default,
+      _ref$params$has_optio = _ref$params.has_options,
+      has_options = _ref$params$has_optio === void 0 ? true : _ref$params$has_optio;
   var defaultValue = {
     family: "Default",
     variation: 'n4',
@@ -21517,6 +21551,11 @@ var Typography = function Typography(_ref) {
     "text-transform": "none",
     "text-decoration": "none"
   };
+  var defaultFamilyValue = {
+    family: "Default",
+    variation: 'n4'
+  };
+  defaultValue = !has_options ? defaultFamilyValue : defaultValue;
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     getInitialDevice();
   }, []);
@@ -21602,7 +21641,7 @@ var Typography = function Typography(_ref) {
   var fontWeightRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
 
   var updateValues = function updateValues(obj) {
-    onChange(obj);
+    console.log(obj); // onChange(obj);
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -21644,7 +21683,7 @@ var Typography = function Typography(_ref) {
       setCurrentViewCache("fonts:_");
       setIsOpen("fonts");
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === "Default" ? Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Default Family", "kemet") : Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["familyToDisplay"])(value.family))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === "Default" ? Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Default Family", "kemet") : Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["familyToDisplay"])(value.family))), has_options && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-size', {
       active: currentView === "options"
     }),

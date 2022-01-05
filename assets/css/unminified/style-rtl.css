@@ -4704,11 +4704,6 @@ h4.widget-title {
 	}
 }
 
-.site-bottom-footer-wrap {
-	padding-top: var(--padding-top);
-	padding-bottom: var(--padding-bottom);
-}
-
 [class*="-footer-wrap"] {
 	background-color: var(--footerBackgroundColor);
 }

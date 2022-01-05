@@ -104,11 +104,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'label' => __( 'Headings Style', 'kemet' ),
 			),
 			'headings-typography'       => array(
-				'type'      => 'kmt-typography',
-				'isDefault' => true,
-				'transport' => 'postMessage',
-				'label'     => __( 'Headings Typography', 'kemet' ),
-				'preview'   => array(
+				'type'        => 'kmt-typography',
+				'isDefault'   => true,
+				'has_options' => false,
+				'transport'   => 'postMessage',
+				'label'       => __( 'Headings Typography', 'kemet' ),
+				'preview'     => array(
 					'selector' => $global_headings,
 				),
 			),

@@ -257,6 +257,7 @@ if ( ! class_exists( 'Kemet_Panel' ) ) {
 					'images_url'           => KEMET_ADDONS_PANEL_URL . 'assets/images/',
 					'addons_plugin'        => esc_html( 'kemet-addons' ),
 					'sites_plugin'         => esc_html( 'kemet-sites' ),
+					'recommended_plugins'  => Kemet_Panel_Plugins_Data::get_instance()->get_recommended_plugins(),
 					'kemet_redirect'       => isset( $_GET['tab'] ) ? $_GET['tab'] : '',
 				)
 			);

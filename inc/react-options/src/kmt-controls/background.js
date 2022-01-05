@@ -15,12 +15,12 @@ const BackgroundComponent = (props) => {
         "background-position": { x: "", y: "" },
         "background-repeat": "",
         "background-size": "",
-        "background-type": "color",
+        "background-type": "",
         "background-gradient": "",
     };
 
     let ResDefaultParam = {
-        desktop: { ...defaultValue },
+        desktop: { ...defaultValue, "background-type": "color" },
         tablet: { ...defaultValue },
         mobile: { ...defaultValue },
     };
@@ -36,6 +36,12 @@ const BackgroundComponent = (props) => {
     const [device, setDevice] = useState("desktop");
 
     const updateValue = (obj) => {
+        if (responsive) {
+            if (device === 'tablet') {
+                obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+                obj.mobile = overwriteValues(obj.mobile, obj.tablet);
+            }
+        }
         setPropsValue(obj);
         props.onChange({ ...obj, flag: !value.flag });
     };
@@ -83,8 +89,29 @@ const BackgroundComponent = (props) => {
         updateValue(obj);
     };
 
+    const overwriteValues = (obj1, obj2) => {
+        const obj3 = {};
+        obj3['background-attachment'] = obj1['background-attachment'] ? obj1['background-attachment'] : obj2['background-attachment'];
+        obj3['background-color'] = obj1['background-color'] ? obj1['background-color'] : obj2['background-color'];
+        obj3['background-image'] = obj1['background-image'] ? obj1['background-image'] : obj2['background-image'];
+        obj3['background-media'] = obj1['background-media'] ? obj1['background-media'] : obj2['background-media'];
+        obj3['background-position'] = obj1['background-position'] ? obj1['background-position'] : obj2['background-position'];
+        obj3['background-repeat'] = obj1['background-repeat'] ? obj1['background-repeat'] : obj2['background-repeat'];
+        obj3['background-size'] = obj1['background-size'] ? obj1['background-size'] : obj2['background-size'];
+        obj3['background-type'] = obj1['background-type'] ? obj1['background-type'] : obj2['background-type'];
+        obj3['background-gradient'] = obj1['background-gradient'] ? obj1['background-gradient'] : obj2['background-gradient'];
+
+        return obj3;
+    }
     const renderSettings = () => {
-        let renderBackground = responsive ? props_value[device] : props_value;
+        let value = { ...props_value };
+        if (responsive) {
+            if (device === 'tablet') {
+                value.tablet = overwriteValues(value.tablet, value.desktop);
+                value.mobile = overwriteValues(value.mobile, value.tablet);
+            }
+        }
+        let renderBackground = responsive ? value[device] : value;
 
         return (
             <>

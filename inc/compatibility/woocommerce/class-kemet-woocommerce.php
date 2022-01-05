@@ -1479,16 +1479,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			global $woocommerce;
 
 			$view_shopping_cart = apply_filters( 'kemet_woo_view_shopping_cart_title', __( 'View your shopping cart', 'kemet' ) );
-			$cart_icon          = kemet_get_option( 'shop-cart-icon' );
-			$icon               = '';
-			switch ( $cart_icon ) {
-				case 'cart':
-					$icon = Kemet_Svg_Icons::get_icons( 'cart' );
-					break;
-				case 'bag':
-					$icon = Kemet_Svg_Icons::get_icons( 'bag' );
-					break;
-			}
+			$cart_icon          = kemet_get_option( 'shop-cart-icon', 'cart' );
+			$icon               = Kemet_Svg_Icons::get_icons( $cart_icon );
 			?>
 			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 

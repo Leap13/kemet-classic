@@ -5,14 +5,14 @@ import Container from "../common/Container";
 import PanelContext from "../store/panel-store";
 
 const Plugins = () => {
-    const { plugins } = useContext(PanelContext);
+    const { plugins, recommendedPlugins } = useContext(PanelContext);
 
     return (
         <Container>
             {Object.keys(plugins).length > 0 && (
                 <Fragment>
                     <div className="kmt-plugins-list">
-                        {Object.keys(plugins).map((plugin) => {
+                        {recommendedPlugins.map((plugin) => {
                             return <SinglePlugin slug={plugin} />
                         })}
                     </div>

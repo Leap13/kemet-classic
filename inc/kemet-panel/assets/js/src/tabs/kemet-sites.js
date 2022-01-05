@@ -22,18 +22,14 @@ const KemetSites = () => {
     }
 
     const { title: btnTitle, action, class: btnClass } = actions[status];
-
+    const loadingClass = isLoading ? ' loading' : '';
     return <Container>
-        <div className='kmt-sites-tab'>
-            <h1>{__('Kemet Sites', 'kemet')}</h1>
-            <p className="description">
-                {__('Kemet Sites plugin…', 'kemet')}
-            </p>
-            <img src={KemetPanelData.images_url + 'kemet-addons-banner.png'} alt='kemet-sites' />
-            <div className="actions">
+        <div className='kmt-addons-tab'>
+            <img src={KemetPanelData.images_url + 'kemet-addons-screenshot.jpg'} alt='kemet-sites' />
+            <div className="overlay-actions">
                 <a
                     onClick={() => updatePluginStatus(action)}
-                    className={`kmt-button ${btnClass}`}>
+                    className={`kmt-button ${btnClass}${loadingClass}`}>
                     {btnTitle}
                 </a>
             </div>

@@ -22,18 +22,14 @@ const KemetAddons = () => {
     }
 
     const { title: btnTitle, action, class: btnClass } = actions[status];
-
+    const loadingClass = isLoading ? ' loading' : '';
     return <Container>
         <div className='kmt-addons-tab'>
-            <h1>{__('Kemet Addons', 'kemet')}</h1>
-            <p className="description">
-                {__('Kemet Addons plugin adds more features to Kemet WordPress Theme like metaboxes, activate/deactivate the customizer…', 'kemet')}
-            </p>
-            <img src={KemetPanelData.images_url + 'kemet-addons-banner.png'} alt='kemet-addons' />
-            <div className="actions">
+            <img src={KemetPanelData.images_url + 'kemet-addons-screenshot.jpg'} alt='kemet-addons' />
+            <div className="overlay-actions">
                 <a
                     onClick={() => updatePluginStatus(action)}
-                    className={`kmt-button ${btnClass}`}>
+                    className={`kmt-button ${btnClass}${loadingClass}`}>
                     {btnTitle}
                 </a>
             </div>

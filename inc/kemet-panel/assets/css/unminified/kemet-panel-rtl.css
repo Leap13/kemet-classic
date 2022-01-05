@@ -46,6 +46,18 @@
   --buttonBorderColor: #e0e1e4;
 }
 
+.kmt-button.loading::after {
+  content: "\f463";
+  display: inline-block;
+  font: normal 20px/1 dashicons;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  animation: spin 2s infinite linear;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+
 .toplevel_page_kemet_panel {
   background-color: #fff;
 }
@@ -67,6 +79,17 @@
   font-size: 14px;
   min-height: 100%;
   margin-bottom: 25px;
+}
+
+#kmt-dashboard .overlay-actions {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(200, 200, 200, 0.8);
 }
 
 #kmt-dashboard .kmt-support .kmt-card {
@@ -100,6 +123,10 @@
 #kmt-dashboard .options-section.customize-site-options .option-actions > a {
   border: 1px solid #dcdddf;
   margin-right: 0 !important;
+}
+
+#kmt-dashboard .options-section.advanced-options .customize-control-description {
+  height: 75px;
 }
 
 #kmt-dashboard .options-section h2 {
@@ -402,5 +429,22 @@
   }
   #kmt-dashboard .kmt-plugins-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }

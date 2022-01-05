@@ -5,6 +5,7 @@ const PanelContext = React.createContext({
     tabs: [],
     plugins: {},
     pluginsStatus: {},
+    recommendedPlugins: [],
     doAction: (action, plugin) => { }
 })
 
@@ -14,6 +15,7 @@ export const PanelProvider = (props) => {
     const plugins = KemetPanelData.plugins_data;
     const pluginsCache = KemetPanelData.plugins_cache;
     const [pluginsStatus, setPluginStatus] = useState(pluginsCache || []);
+    const recommendedPlugins = KemetPanelData.recommended_plugins;
 
     const updatePluginsStatus = async () => {
         const body = new FormData()
@@ -86,6 +88,7 @@ export const PanelProvider = (props) => {
         plugins,
         pluginsStatus,
         pluginActions,
+        recommendedPlugins,
         doAction: doAction,
     };
     return <PanelContext.Provider value={pluginsContext}>
