@@ -17615,10 +17615,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
     var value = _objectSpread({}, props_value);
 
     if (responsive) {
-      if (device === 'tablet') {
-        value.tablet = overwriteValues(value.tablet, value.desktop);
-        value.mobile = overwriteValues(value.mobile, value.tablet);
-      }
+      value.tablet = overwriteValues(value.tablet, value.desktop);
+      value.mobile = overwriteValues(value.mobile, value.tablet);
     }
 
     var renderBackground = responsive ? value[device] : value;

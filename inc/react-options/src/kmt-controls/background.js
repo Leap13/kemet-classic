@@ -106,10 +106,8 @@ const BackgroundComponent = (props) => {
     const renderSettings = () => {
         let value = { ...props_value };
         if (responsive) {
-            if (device === 'tablet') {
-                value.tablet = overwriteValues(value.tablet, value.desktop);
-                value.mobile = overwriteValues(value.mobile, value.tablet);
-            }
+            value.tablet = overwriteValues(value.tablet, value.desktop);
+            value.mobile = overwriteValues(value.mobile, value.tablet);
         }
         let renderBackground = responsive ? value[device] : value;
 
