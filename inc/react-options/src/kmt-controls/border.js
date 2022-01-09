@@ -18,11 +18,29 @@ const Border = ({ value, onChange, params }) => {
         color: "",
         secondColor: "",
     };
+    const defaultEmptyValue = {
+        secondColor: "",
+        style: "",
+        width: "",
+        color: "",
+        secondColor: null,
+    };
     let ResDefaultParam = {
         desktop: { ...defaultValue },
-        tablet: { ...defaultValue },
-        mobile: { ...defaultValue },
+        tablet: { ...defaultEmptyValue },
+        mobile: { ...defaultEmptyValue },
     };
+
+    const overwriteValues = (obj1, obj2) => {
+        const obj3 = {};
+        obj3['secondColor'] = obj1['secondColor'] ? obj1['secondColor'] : obj2['secondColor'];
+        obj3['style'] = obj1['style'] ? obj1['style'] : obj2['style'];
+        obj3['width'] = obj1['width'] ? obj1['width'] : obj2['width'];
+        obj3['color'] = obj1['color'] ? obj1['color'] : obj2['color'];
+        obj3['secondColor'] = obj1['secondColor'] ? obj1['secondColor'] : obj2['secondColor'];
+
+        return obj3;
+    }
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
@@ -32,9 +50,24 @@ const Border = ({ value, onChange, params }) => {
 
     value = value ? value : defaultVals;
 
-
     const [state, setState] = useState(value);
-    let borderValue = responsive ? state[device] : state;
+
+    const getDeviceValue = (device) => {
+        const largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+        const currentValue = overwriteValues(state[device], state[largerDevice]);
+
+        return currentValue;
+    };
+
+    function checkProperties(obj) {
+        for (var key in obj) {
+            if (obj[key] !== null && obj[key] != "")
+                return true;
+        }
+        return false;
+    }
+
+    let borderValue = responsive ? getDeviceValue(device) : state;
 
     const handleChangeComplete = (color, id) => {
         let obj = { ...state };
@@ -50,12 +83,28 @@ const Border = ({ value, onChange, params }) => {
                 :
                 colorValue[id] = color.hex
 
+        if (responsive) {
+            if (device === 'tablet') {
+                obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+            }
+            if (device === 'mobile') {
+                obj.mobile = overwriteValues(obj.mobile, obj.tablet);
+            }
+        }
         setState(obj);
         onChange({ ...obj, flag: !value.flag });
     };
     const updateStyle = (style, name) => {
         let obj = { ...state };
         responsive ? obj[device][name] = style : obj[name] = style;
+        if (responsive) {
+            if (device === 'tablet') {
+                obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+            }
+            if (device === 'mobile') {
+                obj.mobile = overwriteValues(obj.mobile, obj.tablet);
+            }
+        }
         setState(obj);
         onChange({ ...obj, flag: !value.flag })
     }

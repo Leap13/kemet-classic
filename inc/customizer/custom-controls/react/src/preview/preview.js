@@ -7,6 +7,7 @@ import borderPreview from "./controls-preivew/border";
 import backgroundPreview from "./controls-preivew/background";
 import editorPreview from "./controls-preivew/editor";
 import typographyPreview from "./controls-preivew/typography";
+import boxShadowPreview from "./controls-preivew/box-shadow";
 import './extra-preview';
 
 if (previewData.preview) {
@@ -42,6 +43,9 @@ if (previewData.preview) {
                 break;
             case 'kmt-typography':
                 typographyPreview(control, data);
+                break;
+            case 'kmt-box-shadow':
+                boxShadowPreview(control, data);
                 break;
         }
     })

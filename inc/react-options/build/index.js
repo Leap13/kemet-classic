@@ -17549,6 +17549,9 @@ var BackgroundComponent = function BackgroundComponent(props) {
     if (responsive) {
       if (device === 'tablet') {
         obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+      }
+
+      if (device === 'mobile') {
         obj.mobile = overwriteValues(obj.mobile, obj.tablet);
       }
     }
@@ -17784,11 +17787,29 @@ var Border = function Border(_ref) {
     color: ""
   }, "secondColor", "");
 
+  var defaultEmptyValue = _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({
+    secondColor: "",
+    style: "",
+    width: "",
+    color: ""
+  }, "secondColor", null);
+
   var ResDefaultParam = {
     desktop: _objectSpread({}, defaultValue),
-    tablet: _objectSpread({}, defaultValue),
-    mobile: _objectSpread({}, defaultValue)
+    tablet: _objectSpread({}, defaultEmptyValue),
+    mobile: _objectSpread({}, defaultEmptyValue)
   };
+
+  var overwriteValues = function overwriteValues(obj1, obj2) {
+    var obj3 = {};
+    obj3['secondColor'] = obj1['secondColor'] ? obj1['secondColor'] : obj2['secondColor'];
+    obj3['style'] = obj1['style'] ? obj1['style'] : obj2['style'];
+    obj3['width'] = obj1['width'] ? obj1['width'] : obj2['width'];
+    obj3['color'] = obj1['color'] ? obj1['color'] : obj2['color'];
+    obj3['secondColor'] = obj1['secondColor'] ? obj1['secondColor'] : obj2['secondColor'];
+    return obj3;
+  };
+
   var defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = params.default ? params.default : defaultValues;
   value = value ? value : defaultVals;
@@ -17798,13 +17819,38 @@ var Border = function Border(_ref) {
       state = _useState6[0],
       setState = _useState6[1];
 
-  var borderValue = responsive ? state[device] : state;
+  var getDeviceValue = function getDeviceValue(device) {
+    var largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+    var currentValue = overwriteValues(state[device], state[largerDevice]);
+    return currentValue;
+  };
+
+  function checkProperties(obj) {
+    for (var key in obj) {
+      if (obj[key] !== null && obj[key] != "") return true;
+    }
+
+    return false;
+  }
+
+  var borderValue = responsive ? getDeviceValue(device) : state;
 
   var handleChangeComplete = function handleChangeComplete(color, id) {
     var obj = _objectSpread({}, state);
 
     var colorValue = responsive ? obj[device] : obj;
     typeof color === "string" ? colorValue[id] = color : undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ? colorValue[id] = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")") : colorValue[id] = color.hex;
+
+    if (responsive) {
+      if (device === 'tablet') {
+        obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+      }
+
+      if (device === 'mobile') {
+        obj.mobile = overwriteValues(obj.mobile, obj.tablet);
+      }
+    }
+
     setState(obj);
     onChange(_objectSpread(_objectSpread({}, obj), {}, {
       flag: !value.flag
@@ -17815,6 +17861,17 @@ var Border = function Border(_ref) {
     var obj = _objectSpread({}, state);
 
     responsive ? obj[device][name] = style : obj[name] = style;
+
+    if (responsive) {
+      if (device === 'tablet') {
+        obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+      }
+
+      if (device === 'mobile') {
+        obj.mobile = overwriteValues(obj.mobile, obj.tablet);
+      }
+    }
+
     setState(obj);
     onChange(_objectSpread(_objectSpread({}, obj), {}, {
       flag: !value.flag
@@ -17913,6 +17970,383 @@ var Border = function Border(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Border);
+
+/***/ }),
+
+/***/ "./src/kmt-controls/box-shadow.js":
+/*!****************************************!*\
+  !*** ./src/kmt-controls/box-shadow.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color */ "./src/kmt-controls/color.js");
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
+/* harmony import */ var _boxshadow_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./boxshadow/modal */ "./src/kmt-controls/boxshadow/modal.js");
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+
+var __ = wp.i18n.__;
+
+var BoxShadow = function BoxShadow(_ref) {
+  var value = _ref.value,
+      onChange = _ref.onChange,
+      params = _ref.params;
+  var label = params.label,
+      responsive = params.responsive;
+
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
+    isPicking: null,
+    isTransitioning: null
+  }),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      _useState2$ = _useState2[0],
+      isPicking = _useState2$.isPicking,
+      isTransitioning = _useState2$.isTransitioning,
+      setAnimationState = _useState2[1];
+
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(wp.customize && wp.customize.previewedDevice() ? wp.customize.previewedDevice() : 'desktop'),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      device = _useState4[0],
+      setDevice = _useState4[1];
+
+  var defaultValue = {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    offsetX: "",
+    offsetY: "",
+    blur: "",
+    spread: "",
+    color: ""
+  };
+  var ResDefaultParam = {
+    desktop: _objectSpread({}, defaultValue),
+    tablet: _objectSpread({}, defaultValue),
+    mobile: _objectSpread({}, defaultValue)
+  };
+  var defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = params.default ? params.default : defaultValues;
+  value = value ? value : defaultVals;
+
+  var _useState5 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(value),
+      _useState6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState5, 2),
+      state = _useState6[0],
+      setState = _useState6[1];
+
+  var shadowValue = responsive ? state[device] : state;
+
+  var handleChangeComplete = function handleChangeComplete(color, id) {
+    var obj = _objectSpread({}, state);
+
+    var colorValue = responsive ? obj[device] : obj;
+    typeof color === "string" ? colorValue[id] = color : undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ? colorValue[id] = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")") : colorValue[id] = color.hex;
+    setState(obj);
+    onChange(_objectSpread(_objectSpread({}, obj), {}, {
+      flag: !value.flag
+    }));
+  };
+
+  var colorPicker = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+  var el = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-shadow-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onChange: function onChange(currentDevice) {
+      return setDevice(currentDevice);
+    },
+    label: label
+  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "customize-control-title kmt-control-title"
+  }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-shadow__wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()("kmt-option-shadow")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    innerRef: colorPicker,
+    onChangeComplete: function onChangeComplete(colorValue) {
+      return handleChangeComplete(colorValue, 'color');
+    },
+    picker: {
+      id: "default",
+      title: __("Initial", "kemet")
+    },
+    value: {
+      default: shadowValue.color
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    useCapture: false,
+    disabled: !isPicking,
+    onOutsideClick: function onOutsideClick(e) {
+      if (!isPicking) {
+        return;
+      }
+
+      setAnimationState({
+        isTransitioning: isPicking.split(':')[0],
+        isPicking: null
+      });
+    },
+    className: "kmt-box-shadow-values",
+    additionalRefs: [],
+    wrapperProps: {
+      onClick: function onClick(e) {
+        e.preventDefault();
+        var futureIsPicking = isPicking ? isPicking.split(":")[0] === "obj" ? null : "obj:".concat(isPicking.split(":")[0]) : "obj";
+        setAnimationState({
+          isTransitioning: "obj",
+          isPicking: futureIsPicking
+        });
+      }
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, __('Adjust', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_boxshadow_modal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    el: el,
+    value: value,
+    onChange: onChange,
+    isPicking: isPicking,
+    isTransitioning: isTransitioning,
+    picker: {
+      id: 'obj'
+    },
+    onPickingChange: function onPickingChange(isPicking) {
+      setAnimationState({
+        isTransitioning: "obj",
+        isPicking: isPicking
+      });
+    },
+    stopTransitioning: function stopTransitioning() {
+      return setAnimationState({
+        isPicking: isPicking,
+        isTransitioning: false
+      });
+    }
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BoxShadow);
+
+/***/ }),
+
+/***/ "./src/kmt-controls/boxshadow/modal.js":
+/*!*********************************************!*\
+  !*** ./src/kmt-controls/boxshadow/modal.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/popover-component */ "./src/common/popover-component.js");
+/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bezier-easing */ "./node_modules/bezier-easing/src/index.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(bezier_easing__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../slider */ "./src/kmt-controls/slider.js");
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+var __ = wp.i18n.__;
+
+var BoxShadowModal = function BoxShadowModal(_ref) {
+  var value = _ref.value,
+      _onChange = _ref.onChange,
+      picker = _ref.picker,
+      stopTransitioning = _ref.stopTransitioning,
+      el = _ref.el,
+      isTransitioning = _ref.isTransitioning,
+      isPicking = _ref.isPicking;
+
+  var _PopoverComponent = Object(_common_popover_component__WEBPACK_IMPORTED_MODULE_3__["default"])({
+    ref: el,
+    defaultHeight: 400,
+    shouldCalculate: false
+  }),
+      styles = _PopoverComponent.styles,
+      popoverProps = _PopoverComponent.popoverProps;
+
+  return (isTransitioning === picker.id || (isPicking || "").split("")[0] === picker.id) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_4__["Transition"], {
+    items: isPicking,
+    onRest: function onRest(isOpen) {
+      stopTransitioning();
+    },
+    config: {
+      delay: 50,
+      duration: 100,
+      easing: bezier_easing__WEBPACK_IMPORTED_MODULE_5___default()(0.25, 0.1, 0.25, 1.0)
+    },
+    from: (isPicking || "").indexOf("") === -1 ? {
+      transform: 'scale3d(0.95, 0.95, 1)',
+      opacity: 0
+    } : {
+      opacity: 1
+    },
+    enter: (isPicking || "").indexOf("") === -1 ? {
+      transform: 'scale3d(1, 1, 1)',
+      opacity: 1
+    } : {
+      opacity: 1
+    },
+    leave: (isPicking || "").indexOf("") === -1 ? {
+      transform: 'scale3d(0.95, 0.95, 1)',
+      opacity: 0
+    } : {
+      opacity: 1
+    }
+  }, function () {
+    var _ref2, _ref3, _ref4;
+
+    return isPicking && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+      style: styles
+    }, popoverProps, {
+      className: "kmt-option-modal kmt-box-shadow-modal",
+      onClick: function onClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      },
+      onMouseDownCapture: function onMouseDownCapture(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.nativeEvent.stopPropagation();
+      },
+      onMouseUpCapture: function onMouseUpCapture(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.nativeEvent.stopPropagation();
+      }
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "shadow-sliders"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      key: "offsetX",
+      className: "customize-control-kmt-slider"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      value: value.offsetX,
+      values: value,
+      id: "offsetX",
+      params: {
+        id: 'offsetX',
+        label: __('OffsetX', 'kemet'),
+        value: 0,
+        responsive: true,
+        unit_choices: {
+          'px': {
+            min: -100,
+            max: 100,
+            step: 1
+          }
+        }
+      },
+      onChange: function onChange(newValue) {
+        return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+          offsetX: newValue
+        }));
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      key: "offsetY",
+      className: "customize-control-kmt-slider"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      value: value.offsetY,
+      values: value,
+      id: "offsetY",
+      params: (_ref2 = {
+        id: 'offsetY',
+        label: __('OffsetY', 'kemet'),
+        value: 0
+      }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref2, "value", 10), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref2, "responsive", true), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref2, "unit_choices", {
+        'px': {
+          min: -100,
+          max: 100,
+          step: 1
+        }
+      }), _ref2),
+      onChange: function onChange(newValue) {
+        return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+          offsetY: newValue
+        }));
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      key: "blur",
+      className: "customize-control-kmt-slider"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      value: value.blur,
+      values: value,
+      id: "blur",
+      params: (_ref3 = {
+        id: 'blur',
+        label: __('Blur', 'kemet'),
+        value: 0
+      }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, "value", 10), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, "responsive", true), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, "unit_choices", {
+        'px': {
+          min: -100,
+          max: 100,
+          step: 1
+        }
+      }), _ref3),
+      onChange: function onChange(newValue) {
+        return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+          blur: newValue
+        }));
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      key: "spread",
+      className: "customize-control-kmt-slider"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      value: value.offsetY,
+      values: value,
+      id: "spread",
+      params: (_ref4 = {
+        id: 'spread',
+        label: __('Spread', 'kemet'),
+        value: 0
+      }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref4, "value", 10), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref4, "responsive", true), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref4, "unit_choices", {
+        'px': {
+          min: -100,
+          max: 100,
+          step: 1
+        }
+      }), _ref4),
+      onChange: function onChange(newValue) {
+        return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+          spread: newValue
+        }));
+      }
+    }))));
+  }), document.body);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BoxShadowModal);
 
 /***/ }),
 
@@ -19866,6 +20300,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _border__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./border */ "./src/kmt-controls/border.js");
 /* harmony import */ var _readymade_headers__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./readymade-headers */ "./src/kmt-controls/readymade-headers.js");
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./tabs */ "./src/kmt-controls/tabs.js");
+/* harmony import */ var _box_shadow__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./box-shadow */ "./src/kmt-controls/box-shadow.js");
+
 
 
 
@@ -19974,6 +20410,10 @@ var OptionComponent = function OptionComponent(type) {
 
     case "kmt-readymade-headers":
       OptionComponent = _readymade_headers__WEBPACK_IMPORTED_MODULE_19__["default"];
+      break;
+
+    case "kmt-box-shadow":
+      OptionComponent = _box_shadow__WEBPACK_IMPORTED_MODULE_21__["default"];
       break;
   }
 

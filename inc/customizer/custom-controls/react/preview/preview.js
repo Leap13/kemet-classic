@@ -421,6 +421,72 @@ var applyResponsiveValue = function applyResponsiveValue(value) {
 
 /***/ }),
 
+/***/ "./src/preview/controls-preivew/box-shadow.js":
+/*!****************************************************!*\
+  !*** ./src/preview/controls-preivew/box-shadow.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./src/preview/helpers.js");
+
+var control = '';
+var data = {};
+
+var boxShadowPreview = function boxShadowPreview(controlId, controlData) {
+  wp.customize(controlId, function (valueData) {
+    valueData.bind(function (value) {
+      data = controlData;
+      control = controlId;
+      applyboxShadowValue(value);
+    });
+  });
+};
+
+var applyboxShadowValue = function applyboxShadowValue(value) {
+  if (value) {
+    var offsetX = value.offsetX,
+        offsetY = value.offsetY,
+        blur = value.blur,
+        spread = value.spread,
+        color = value.color;
+    var dynamicStyle = '';
+
+    if (color && (offsetX || offsetY || blur || spread)) {
+      var _data = data,
+          selector = _data.selector,
+          property = _data.property;
+      dynamicStyle += "".concat(selector, "{").concat(property, ":").concat(getShadowSliderValues(value, 'desktop'), " ").concat(color, "}");
+      dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{").concat(property, ":").concat(getShadowSliderValues(value, 'tablet'), " ").concat(color, "} }");
+      dynamicStyle += "@media (max-width: 544px) { ".concat(selector, "{").concat(property, ":").concat(getShadowSliderValues(value, 'mobile'), " ").concat(color, "} }");
+    }
+
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, control);
+  }
+};
+
+var getShadowSliderValues = function getShadowSliderValues(value, device) {
+  var offsetX = value.offsetX,
+      offsetY = value.offsetY,
+      blur = value.blur,
+      spread = value.spread;
+  return "".concat(getSliderValue(offsetX, device), " ").concat(getSliderValue(offsetY, device), " ").concat(getSliderValue(blur, device), " ").concat(getSliderValue(spread, device));
+};
+
+var getSliderValue = function getSliderValue(value, device) {
+  if (value && value[device]) {
+    return "".concat(value[device]).concat(value["".concat(device, "-unit")]);
+  }
+
+  return '0px';
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (boxShadowPreview);
+
+/***/ }),
+
 /***/ "./src/preview/controls-preivew/changeAttr.js":
 /*!****************************************************!*\
   !*** ./src/preview/controls-preivew/changeAttr.js ***!
@@ -1500,7 +1566,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controls_preivew_background__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controls-preivew/background */ "./src/preview/controls-preivew/background.js");
 /* harmony import */ var _controls_preivew_editor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controls-preivew/editor */ "./src/preview/controls-preivew/editor.js");
 /* harmony import */ var _controls_preivew_typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controls-preivew/typography */ "./src/preview/controls-preivew/typography.js");
-/* harmony import */ var _extra_preview__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./extra-preview */ "./src/preview/extra-preview.js");
+/* harmony import */ var _controls_preivew_box_shadow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controls-preivew/box-shadow */ "./src/preview/controls-preivew/box-shadow.js");
+/* harmony import */ var _extra_preview__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./extra-preview */ "./src/preview/extra-preview.js");
+
 
 
 
@@ -1554,6 +1622,10 @@ if (previewData.preview) {
 
       case 'kmt-typography':
         Object(_controls_preivew_typography__WEBPACK_IMPORTED_MODULE_8__["default"])(control, data);
+        break;
+
+      case 'kmt-box-shadow':
+        Object(_controls_preivew_box_shadow__WEBPACK_IMPORTED_MODULE_9__["default"])(control, data);
         break;
     }
   });

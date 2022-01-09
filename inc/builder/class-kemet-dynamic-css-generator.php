@@ -704,6 +704,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$selector . ' .row-layout-tablet-center-forty' => array(
 					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-forty' ) ),
 				),
+				$selector . ' .row-layout-tablet-two-grid' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'two-grid' ) ),
+				),
 				$selector . ' .row-layout-tablet-left-forty' => array(
 					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-forty' ) ),
 				),
@@ -769,6 +772,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				),
 				$selector . ' .row-layout-mobile-left-half' => array(
 					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-half' ) ),
+				),
+				$selector . ' .row-layout-mobile-two-grid' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'two-grid' ) ),
 				),
 				$selector . ' .row-layout-mobile-right-forty' => array(
 					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-forty' ) ),
@@ -867,6 +873,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					break;
 				case 'row':
 					$grid_template_columns = 'minmax(0, 1fr)';
+					break;
+				case 'two-grid':
+					$grid_template_columns = 'repeat(2, 1fr)';
 					break;
 				case 'first-row':
 				case 'last-row':

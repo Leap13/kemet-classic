@@ -39,6 +39,8 @@ const BackgroundComponent = (props) => {
         if (responsive) {
             if (device === 'tablet') {
                 obj.tablet = overwriteValues(obj.tablet, obj.desktop);
+            }
+            if (device === 'mobile') {
                 obj.mobile = overwriteValues(obj.mobile, obj.tablet);
             }
         }

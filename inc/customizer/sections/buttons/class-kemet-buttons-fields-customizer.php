@@ -29,14 +29,22 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'priority' => 1,
 			),
 			'button-effect'       => array(
-				'type'      => 'kmt-switcher',
+				'type'      => 'kmt-box-shadow',
 				'transport' => 'postMessage',
 				'label'     => __( 'Button Shadow', 'kemet' ),
+				'preview'   => array(
+					'selector' => $btn_selector,
+					'property' => '--buttonShadow',
+				),
 			),
 			'button-hover-effect' => array(
-				'type'      => 'kmt-switcher',
+				'type'      => 'kmt-box-shadow',
 				'transport' => 'postMessage',
 				'label'     => __( 'Button Hover Shadow', 'kemet' ),
+				'preview'   => array(
+					'selector' => $btn_hover_selector,
+					'property' => '--buttonShadow',
+				),
 			),
 			'buttons-typography'  => array(
 				'type'      => 'kmt-typography',

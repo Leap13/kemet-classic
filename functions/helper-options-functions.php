@@ -172,6 +172,36 @@ if ( ! function_exists( 'kemet_spacing' ) ) {
 	}
 }
 
+/**
+ * Get Box Shadow
+ */
+if ( ! function_exists( 'kemet_box_shadow' ) ) {
+
+	/**
+	 * Get Box Shadow value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_box_shadow( $option, $device = 'desktop', $default = '' ) {
+		if ( ! is_array( $option ) ) {
+			return '';
+		}
+		$box_shadow = '';
+		if ( $option['color'] && ( $option['offsetX'] || $option['offsetY'] || $option['blur'] || $option['spread'] ) ) {
+			$offset_x   = kemet_responsive_slider( $option['offsetX'], $device ) ? kemet_responsive_slider( $option['offsetX'], $device ) : '0px';
+			$offset_y   = kemet_responsive_slider( $option['offsetY'], $device ) ? kemet_responsive_slider( $option['offsetY'], $device ) : '0px';
+			$blur       = kemet_responsive_slider( $option['blur'], $device ) ? kemet_responsive_slider( $option['blur'], $device ) : '0px';
+			$spread     = kemet_responsive_slider( $option['spread'], $device ) ? kemet_responsive_slider( $option['spread'], $device ) : '0px';
+			$color      = $option['color'];
+			$box_shadow = "$offset_x $offset_y $blur $spread $color";
+		}
+		return $box_shadow;
+	}
+}
+
 if ( ! function_exists( 'kemet_responsive_color' ) ) {
 
 	/**
@@ -310,7 +340,7 @@ if ( ! function_exists( 'kemet_responsive_border' ) ) {
 	 * @return mixed
 	 */
 	function kemet_responsive_border( $option, $device = 'desktop', $default = array() ) {
-		if ( ! is_array( $option ) || ( '' == $option && empty( $default ) ) || ! isset( $option[ $device ] ) ) {
+		if ( ! is_array( $option ) || ( '' == $option && empty( $default ) ) || ! isset( $option[ $device ] ) || ( is_array( $option[ $device ] ) && ! $option[ $device ]['style'] ) ) {
 			return '';
 		}
 

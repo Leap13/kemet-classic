@@ -627,7 +627,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.single .entry-header'                   => array(
 					'text-align' => esc_attr( $title_meta_poistion ),
-					
+
 				),
 				'.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li' => array(
 					'padding' => kemet_responsive_spacing( $padding_inside_container, 'all', 'desktop' ),
