@@ -19,9 +19,9 @@ class ResponsiveSliderComponent extends Component {
             "desktop": defaultValue.value,
             "desktop-unit": defaultValue.unit,
             'tablet': defaultValue.value,
-            'tablet-unit': defaultValue.unit,
+            'tablet-unit': '',
             'mobile': defaultValue.value,
-            'mobile-unit': defaultValue.unit
+            'mobile-unit': ''
         }
 
         let defaultValues = this.responsive ? ResDefaultParam : defaultValue;
@@ -50,20 +50,38 @@ class ResponsiveSliderComponent extends Component {
         this.updateValues = this.updateValues.bind(this)
 
         this.handleUnitChange = this.handleUnitChange.bind(this)
+
+        this.getCurrentDeviceValue = this.getCurrentDeviceValue.bind(this)
     }
 
     updateValues = (value) => {
-        let updateState = { ...this.state.initialState };
+        let updateState = this.getCurrentDeviceValue();
         (this.responsive) ? updateState[this.state.currentDevice] = value : updateState[`value`] = value;
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
 
     handleUnitChange = (device, value) => {
-        let updateState = { ...this.state.initialState };
+        let updateState = this.getCurrentDeviceValue();
         this.responsive ? updateState[`${device}-unit`] = value : updateState[`unit`] = value;
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
+    }
+
+    getCurrentDeviceValue = () => {
+        let initialState = { ...this.state.initialState };
+
+        if (this.responsive) {
+            const largerDevice = this.state.currentDevice === 'mobile' ? this.state.initialState['tablet'] ? 'tablet' : 'desktop' : 'desktop';
+            if (!initialState[this.state.currentDevice]) {
+                initialState[this.state.currentDevice] = initialState[largerDevice]
+            }
+            if (!initialState[`${this.state.currentDevice}-unit`]) {
+                initialState[`${this.state.currentDevice}-unit`] = initialState[`${largerDevice}-unit`];
+            }
+        }
+
+        return initialState;
     }
 
     render() {
@@ -72,16 +90,17 @@ class ResponsiveSliderComponent extends Component {
         let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
         let dataAttributes = ''
         let units = [];
+        let initialState = this.getCurrentDeviceValue();
 
         if (this.unit_choices) {
             for (const [key, value] of Object.entries(this.unit_choices)) {
                 units.push(key)
                 if (this.responsive) {
-                    if (key == this.state.initialState[`${this.state.currentDevice}-unit`]) {
+                    if (key == initialState[`${this.state.currentDevice}-unit`]) {
                         dataAttributes = { min: value.min, max: value.max, step: value.step };
                     }
                 } else {
-                    if (key == this.state.initialState[`unit`]) {
+                    if (key == initialState[`unit`]) {
                         dataAttributes = { min: value.min, max: value.max, step: value.step };
                     }
                 }
@@ -97,11 +116,11 @@ class ResponsiveSliderComponent extends Component {
         let unitHTML = units.map((unit) => {
             let unit_class;
             if (this.responsive) {
-                (this.state.initialState[`${this.state.currentDevice}-unit`] === unit) ?
+                (initialState[`${this.state.currentDevice}-unit`] === unit) ?
                     unit_class = 'active' : unit_class = ""
 
             } else {
-                (this.state.initialState[`unit`] === unit) ?
+                (initialState[`unit`] === unit) ?
                     unit_class = 'active' : unit_class = ""
 
             }
@@ -111,7 +130,8 @@ class ResponsiveSliderComponent extends Component {
             </li>)
 
         })
-        let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
+
+        let sliderValue = this.responsive ? initialState[this.state.currentDevice] : initialState[`value`]
         return (
             <Fragment>
                 <header>
@@ -146,7 +166,7 @@ class ResponsiveSliderComponent extends Component {
 
                     </div>
 
-                    <button className="kmt-slider-reset" disabled={JSON.stringify(this.state.initialState) === JSON.stringify(this.state.defaultVal)} onClick={e => {
+                    <button className="kmt-slider-reset" disabled={JSON.stringify(initialState) === JSON.stringify(this.state.defaultVal)} onClick={e => {
                         e.preventDefault()
                         this.props.onChange({ ...this.state.defaultVal });
                         this.setState({ initialState: { ...this.state.defaultVal } });

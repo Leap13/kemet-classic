@@ -3,6 +3,7 @@ import ColorComponent from './color';
 import { useEffect, useState } from 'react';
 import Responsive from '../common/responsive'
 import { isObject } from 'underscore';
+import { checkProperties } from "../common/helpers";
 const { __ } = wp.i18n;
 
 const KemetColorComponent = props => {
@@ -52,8 +53,8 @@ const KemetColorComponent = props => {
     };
 
     const handleChangeComplete = (color, id) => {
-
-        let colorValue = responsive ? state[device] : state;
+        let currentValue = getCurrentDeviceValue();
+        let colorValue = responsive ? currentValue[device] : state;
         if (typeof color === 'string') {
             colorValue[`${id}`] = color;
         } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
@@ -61,28 +62,49 @@ const KemetColorComponent = props => {
         } else {
             colorValue[`${id}`] = color.hex;
         }
-        setState({ ...value, ...colorValue })
-        props.onChange({ ...value, ...colorValue, flag: props.value ? !props.value.flag : !props.value });
+
+        if (responsive) {
+            currentValue[device] = colorValue;
+        } else {
+            currentValue = colorValue;
+        }
+
+        setState({ ...value, ...currentValue })
+        props.onChange({ ...value, ...currentValue, flag: props.value ? !props.value.flag : !props.value });
     };
 
 
+    const getCurrentDeviceValue = () => {
+        let currentValue = { ...state }
+
+        if (responsive) {
+            const largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+            if (!checkProperties(state[device])) {
+                currentValue[device] = currentValue[largerDevice];
+            }
+        }
+
+        return currentValue;
+    }
 
     let responsiveHtml = responsive ? <Responsive
         onChange={(currentDevice) => setDevice(currentDevice)}
     /> : null;
 
-    const renderInputHtml = (device) => Object.entries(pickers).map(([key, picker]) =>
-        responsive ? <ColorComponent
-            value={state[device]}
+    const renderInputHtml = (device) => Object.entries(pickers).map(([key, picker]) => {
+        const currentValue = getCurrentDeviceValue();
+
+        return responsive ? <ColorComponent
+            value={currentValue[device]}
             picker={picker}
             predefined={predefined}
             onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])} />
             : <ColorComponent
-                value={state}
+                value={currentValue}
                 picker={picker}
                 onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
             />
-    );
+    });
     let optionsHtml = responsive ? <>{renderInputHtml(device, 'active')} </> :
         <>
             {renderInputHtml('')}

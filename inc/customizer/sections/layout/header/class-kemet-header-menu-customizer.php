@@ -48,7 +48,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						'underline-fill'   => __( 'Underline Fill', 'kemet' ),
 						'underline-dots'   => __( 'Underline Dots', 'kemet' ),
 						'textcolor-fill'   => __( 'Text Color Fill', 'kemet' ),
-						'drawing-circle'   => __( 'Top Bottom Lines', 'kemet' ),
+						'topbottom-lines'  => __( 'Top Bottom Lines', 'kemet' ),
 					),
 					'preview' => array(
 						'selector' => $selector,

@@ -2916,10 +2916,12 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	line-height: normal;
 }
 
+.main-header-menu > li > a {
+	--lineHeight: 80px;
+}
+
 .main-navigation {
 	display: inline-block;
-
-	--lineHeight: 80px;
 }
 
 .main-navigation ul {

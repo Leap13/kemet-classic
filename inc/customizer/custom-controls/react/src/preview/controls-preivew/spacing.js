@@ -54,19 +54,24 @@ const applyResponsiveValue = (value) => {
             })
             dynamicStyle += '}';
         }
+        console.log(allEmpty(Object.values(tablet)), 'tablet');
         if (tablet && !allEmpty(Object.values(tablet))) {
-            dynamicStyle += `@media (max-width: 768px) { ${selector}{${Object.keys(tablet).map(side => {
+            dynamicStyle += `@media (max-width: 768px) { ${selector}{`;
+            Object.keys(tablet).map(side => {
                 if (tablet[side] !== '') {
                     dynamicStyle += `${property}-${side}: ${tablet[side] + (tabletUnit || defaultUnit)};`;
                 }
-            })}} }`;
+            })
+            dynamicStyle += '} }';
         }
         if (mobile && !allEmpty(Object.values(mobile))) {
-            dynamicStyle += `@media (max-width: 544px) {${selector}{ ${Object.keys(mobile).map(side => {
+            dynamicStyle += `@media (max-width: 544px) { ${selector}{`;
+            Object.keys(mobile).map(side => {
                 if (mobile[side] !== '') {
                     dynamicStyle += `${property}-${side}: ${mobile[side] + (mobileUnit || defaultUnit)};`;
                 }
-            })}} }`;
+            })
+            dynamicStyle += '} }';
         }
 
 

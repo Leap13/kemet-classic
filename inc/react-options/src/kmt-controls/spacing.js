@@ -3,6 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "react";
 import { Fragment } from "react";
 import Responsive from "../common/responsive";
+import { checkProperties } from "../common/helpers";
 
 const SpacingComponent = (props) => {
     let value = props.value;
@@ -41,6 +42,20 @@ const SpacingComponent = (props) => {
         : defaultVals;
     const [state, setState] = useState(value);
 
+    const getCurrentDeviceValue = () => {
+        let currentValue = { ...state };
+
+        if (responsive) {
+            const largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+            if (!checkProperties(currentValue[device])) {
+                currentValue[device] = currentValue[largerDevice];
+                currentValue[`${device}-unit`] = currentValue[`${largerDevice}-unit`];
+            }
+        }
+
+        return currentValue;
+    }
+
     useEffect(() => {
         if (state !== value) {
             setState(value);
@@ -62,9 +77,7 @@ const SpacingComponent = (props) => {
 
     const onSpacingChange = (v, choiceID) => {
         const { choices } = props.params;
-        let updateState = {
-            ...state,
-        };
+        let updateState = getCurrentDeviceValue();
         let deviceUpdateState = responsive
             ? {
                 ...updateState[device],
@@ -88,9 +101,7 @@ const SpacingComponent = (props) => {
     };
 
     const onUnitChange = (device, unitKey = "") => {
-        let updateState = {
-            ...state,
-        };
+        let updateState = getCurrentDeviceValue();;
         responsive
             ? (updateState[`${device}-unit`] = unitKey)
             : (updateState[`unit`] = unitKey);
@@ -104,12 +115,13 @@ const SpacingComponent = (props) => {
 
         let connectedClass = false === connected ? "" : "connected";
         let disconnectedClass = false === connected ? "" : "disconnected";
+        const currentValue = getCurrentDeviceValue();
         let htmlChoices = null;
         if (choices) {
             htmlChoices = Object.keys(choices).map((choiceID) => {
                 let inputValue = responsive
-                    ? state[device][choiceID]
-                    : state[`value`][choiceID];
+                    ? currentValue[device][choiceID]
+                    : currentValue[`value`][choiceID];
                 let html = (
                     <li
                         key={choiceID}
@@ -170,16 +182,17 @@ const SpacingComponent = (props) => {
 
     let responsiveUnit = null;
     const renderUnit = () => {
+        const currentValue = getCurrentDeviceValue();
         const { unit_choices } = props.params;
         if (unit_choices) {
             responsiveUnit = Object.values(unit_choices).map((unitKey) => {
                 let unitClass;
                 if (responsive) {
-                    state[`${device}-unit`] === unitKey
+                    currentValue[`${device}-unit`] === unitKey
                         ? (unitClass = "active")
                         : (unitClass = "");
                 } else {
-                    state[`unit`] === unitKey
+                    currentValue[`unit`] === unitKey
                         ? (unitClass = "active")
                         : (unitClass = "");
                 }

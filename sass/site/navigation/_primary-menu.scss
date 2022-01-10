@@ -21,9 +21,13 @@
 #site-navigation {
   line-height: normal;
 }
+.main-header-menu {
+  > li > a {
+    --lineHeight: 80px;
+  }
+}
 .main-navigation {
   display: inline-block;
-  --lineHeight: 80px;
   ul {
     list-style: none;
     margin-top: var(--margin-top, 0);

@@ -22,10 +22,7 @@ const RadioComponent = (props) => {
             kmtEvents.trigger("KemetUpdateFooterColumns", row);
         }
 
-        setState((prevState) => ({
-            ...prevState,
-            value,
-        }));
+        setState(value);
     };
 
     const {
@@ -43,21 +40,31 @@ const RadioComponent = (props) => {
     } : '';
     defaultVal = defaultValue ? defaultValue : defaultVal;
     value = value ? value : defaultVal;
-    const [state, setState] = useState({
-        value
-    });
+    const [state, setState] = useState(value);
 
+    const getCurrentDeviceValue = () => {
+        let currentValue = { ...state }
+        if (responsive) {
+            const largerDevice = device === 'mobile' ? state['tablet'] ? 'tablet' : 'desktop' : 'desktop';
+            if (!currentValue[device]) {
+                currentValue[device] = currentValue[largerDevice];
+            }
+        }
+
+        return currentValue;
+    }
     const renderButtons = () => {
         let currentChoices = choices
+        const currentVal = getCurrentDeviceValue();
 
         return <Fragment>
             {Object.keys(currentChoices).map((choice) => {
-                const currentValue = responsive ? state.value[device] : state.value
+                const currentValue = responsive ? currentVal[device] : currentVal
                 return <Button
                     isTertiary
-                    className={choice === currentValue ? 'active-radio' : ''}
+                    className={choice == currentValue ? 'active-radio' : ''}
                     onClick={() => {
-                        let newValue = state.value
+                        let newValue = { ...state }
                         if (responsive) {
                             newValue[device] = choice;
                         } else {

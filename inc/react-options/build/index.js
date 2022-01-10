@@ -16040,6 +16040,26 @@ var kmtEvents = {
 
 /***/ }),
 
+/***/ "./src/common/helpers.js":
+/*!*******************************!*\
+  !*** ./src/common/helpers.js ***!
+  \*******************************/
+/*! exports provided: checkProperties */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkProperties", function() { return checkProperties; });
+var checkProperties = function checkProperties(obj) {
+  for (var key in obj) {
+    if (obj[key] !== null && obj[key] != "") return true;
+  }
+
+  return false;
+};
+
+/***/ }),
+
 /***/ "./src/common/iconList.js":
 /*!********************************!*\
   !*** ./src/common/iconList.js ***!
@@ -17739,6 +17759,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
+/* harmony import */ var _common_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/helpers */ "./src/common/helpers.js");
 
 
 
@@ -17747,6 +17768,7 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -17820,18 +17842,10 @@ var Border = function Border(_ref) {
       setState = _useState6[1];
 
   var getDeviceValue = function getDeviceValue(device) {
-    var largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+    var largerDevice = device === 'mobile' ? Object(_common_helpers__WEBPACK_IMPORTED_MODULE_9__["checkProperties"])(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
     var currentValue = overwriteValues(state[device], state[largerDevice]);
     return currentValue;
   };
-
-  function checkProperties(obj) {
-    for (var key in obj) {
-      if (obj[key] !== null && obj[key] != "") return true;
-    }
-
-    return false;
-  }
 
   var borderValue = responsive ? getDeviceValue(device) : state;
 
@@ -20046,6 +20060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var _common_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/helpers */ "./src/common/helpers.js");
 
 
 
@@ -20053,6 +20068,7 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -20121,7 +20137,8 @@ var KemetColorComponent = function KemetColorComponent(props) {
   };
 
   var handleChangeComplete = function handleChangeComplete(color, id) {
-    var colorValue = responsive ? state[device] : state;
+    var currentValue = getCurrentDeviceValue();
+    var colorValue = responsive ? currentValue[device] : state;
 
     if (typeof color === 'string') {
       colorValue["".concat(id)] = color;
@@ -20131,10 +20148,30 @@ var KemetColorComponent = function KemetColorComponent(props) {
       colorValue["".concat(id)] = color.hex;
     }
 
-    setState(_objectSpread(_objectSpread({}, value), colorValue));
-    props.onChange(_objectSpread(_objectSpread(_objectSpread({}, value), colorValue), {}, {
+    if (responsive) {
+      currentValue[device] = colorValue;
+    } else {
+      currentValue = colorValue;
+    }
+
+    setState(_objectSpread(_objectSpread({}, value), currentValue));
+    props.onChange(_objectSpread(_objectSpread(_objectSpread({}, value), currentValue), {}, {
       flag: props.value ? !props.value.flag : !props.value
     }));
+  };
+
+  var getCurrentDeviceValue = function getCurrentDeviceValue() {
+    var currentValue = _objectSpread({}, state);
+
+    if (responsive) {
+      var largerDevice = device === 'mobile' ? Object(_common_helpers__WEBPACK_IMPORTED_MODULE_8__["checkProperties"])(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+
+      if (!Object(_common_helpers__WEBPACK_IMPORTED_MODULE_8__["checkProperties"])(state[device])) {
+        currentValue[device] = currentValue[largerDevice];
+      }
+    }
+
+    return currentValue;
   };
 
   var responsiveHtml = responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -20149,15 +20186,16 @@ var KemetColorComponent = function KemetColorComponent(props) {
           key = _ref3[0],
           picker = _ref3[1];
 
+      var currentValue = getCurrentDeviceValue();
       return responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        value: state[device],
+        value: currentValue[device],
         picker: picker,
         predefined: predefined,
         onChangeComplete: function onChangeComplete(color) {
           return handleChangeComplete(color, picker["id"]);
         }
       }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        value: state,
+        value: currentValue,
         picker: picker,
         onChangeComplete: function onChangeComplete(color) {
           return handleChangeComplete(color, picker["id"]);
@@ -20593,11 +20631,7 @@ var RadioComponent = function RadioComponent(props) {
       _common_events__WEBPACK_IMPORTED_MODULE_6__["default"].trigger("KemetUpdateFooterColumns", row);
     }
 
-    setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        value: value
-      });
-    });
+    setState(value);
   };
 
   var _props$params = props.params,
@@ -20614,22 +20648,35 @@ var RadioComponent = function RadioComponent(props) {
   defaultVal = defaultValue ? defaultValue : defaultVal;
   value = value ? value : defaultVal;
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
-    value: value
-  }),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
       _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
       state = _useState4[0],
       setState = _useState4[1];
 
+  var getCurrentDeviceValue = function getCurrentDeviceValue() {
+    var currentValue = _objectSpread({}, state);
+
+    if (responsive) {
+      var largerDevice = device === 'mobile' ? state['tablet'] ? 'tablet' : 'desktop' : 'desktop';
+
+      if (!currentValue[device]) {
+        currentValue[device] = currentValue[largerDevice];
+      }
+    }
+
+    return currentValue;
+  };
+
   var renderButtons = function renderButtons() {
     var currentChoices = choices;
+    var currentVal = getCurrentDeviceValue();
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, Object.keys(currentChoices).map(function (choice) {
-      var currentValue = responsive ? state.value[device] : state.value;
+      var currentValue = responsive ? currentVal[device] : currentVal;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
         isTertiary: true,
-        className: choice === currentValue ? 'active-radio' : '',
+        className: choice == currentValue ? 'active-radio' : '',
         onClick: function onClick() {
-          var newValue = state.value;
+          var newValue = _objectSpread({}, state);
 
           if (responsive) {
             newValue[device] = choice;
@@ -21076,7 +21123,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _this = _super.apply(this, arguments);
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "updateValues", function (value) {
-      var updateState = _objectSpread({}, _this.state.initialState);
+      var updateState = _this.getCurrentDeviceValue();
 
       _this.responsive ? updateState[_this.state.currentDevice] = value : updateState["value"] = value;
 
@@ -21088,7 +21135,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
-      var updateState = _objectSpread({}, _this.state.initialState);
+      var updateState = _this.getCurrentDeviceValue();
 
       _this.responsive ? updateState["".concat(device, "-unit")] = value : updateState["unit"] = value;
 
@@ -21097,6 +21144,24 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       _this.setState({
         initialState: updateState
       });
+    });
+
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "getCurrentDeviceValue", function () {
+      var initialState = _objectSpread({}, _this.state.initialState);
+
+      if (_this.responsive) {
+        var largerDevice = _this.state.currentDevice === 'mobile' ? _this.state.initialState['tablet'] ? 'tablet' : 'desktop' : 'desktop';
+
+        if (!initialState[_this.state.currentDevice]) {
+          initialState[_this.state.currentDevice] = initialState[largerDevice];
+        }
+
+        if (!initialState["".concat(_this.state.currentDevice, "-unit")]) {
+          initialState["".concat(_this.state.currentDevice, "-unit")] = initialState["".concat(largerDevice, "-unit")];
+        }
+      }
+
+      return initialState;
     });
 
     _this.unit_choices = _this.props.params.unit_choices;
@@ -21112,9 +21177,9 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       "desktop": defaultValue.value,
       "desktop-unit": defaultValue.unit,
       'tablet': defaultValue.value,
-      'tablet-unit': defaultValue.unit,
+      'tablet-unit': '',
       'mobile': defaultValue.value,
-      'mobile-unit': defaultValue.unit
+      'mobile-unit': ''
     };
     var defaultValues = _this.responsive ? ResDefaultParam : defaultValue;
     var defaultVals = _this.props.params.default ? _objectSpread(_objectSpread({}, defaultValues), _this.props.params.default) : defaultValues;
@@ -21126,6 +21191,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     };
     _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.handleUnitChange = _this.handleUnitChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    _this.getCurrentDeviceValue = _this.getCurrentDeviceValue.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     return _this;
   }
 
@@ -21146,6 +21212,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       }, description) : null;
       var dataAttributes = '';
       var units = [];
+      var initialState = this.getCurrentDeviceValue();
 
       if (this.unit_choices) {
         for (var _i = 0, _Object$entries = Object.entries(this.unit_choices); _i < _Object$entries.length; _i++) {
@@ -21156,7 +21223,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           units.push(key);
 
           if (this.responsive) {
-            if (key == this.state.initialState["".concat(this.state.currentDevice, "-unit")]) {
+            if (key == initialState["".concat(this.state.currentDevice, "-unit")]) {
               dataAttributes = {
                 min: value.min,
                 max: value.max,
@@ -21164,7 +21231,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
               };
             }
           } else {
-            if (key == this.state.initialState["unit"]) {
+            if (key == initialState["unit"]) {
               dataAttributes = {
                 min: value.min,
                 max: value.max,
@@ -21189,9 +21256,9 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         var unit_class;
 
         if (_this2.responsive) {
-          _this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit ? unit_class = 'active' : unit_class = "";
+          initialState["".concat(_this2.state.currentDevice, "-unit")] === unit ? unit_class = 'active' : unit_class = "";
         } else {
-          _this2.state.initialState["unit"] === unit ? unit_class = 'active' : unit_class = "";
+          initialState["unit"] === unit ? unit_class = 'active' : unit_class = "";
         }
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("li", {
@@ -21204,7 +21271,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           }
         }, "".concat(unit)));
       });
-      var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
+      var sliderValue = this.responsive ? initialState[this.state.currentDevice] : initialState["value"];
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "kmt-slider-title-wrap"
       }, labelContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
@@ -21237,7 +21304,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         }
       }), suffixContent)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
         className: "kmt-slider-reset",
-        disabled: JSON.stringify(this.state.initialState) === JSON.stringify(this.state.defaultVal),
+        disabled: JSON.stringify(initialState) === JSON.stringify(this.state.defaultVal),
         onClick: function onClick(e) {
           e.preventDefault();
 
@@ -21438,6 +21505,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
+/* harmony import */ var _common_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/helpers */ "./src/common/helpers.js");
 
 
 
@@ -21446,6 +21514,7 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -21488,6 +21557,21 @@ var SpacingComponent = function SpacingComponent(props) {
       state = _useState4[0],
       setState = _useState4[1];
 
+  var getCurrentDeviceValue = function getCurrentDeviceValue() {
+    var currentValue = _objectSpread({}, state);
+
+    if (responsive) {
+      var largerDevice = device === 'mobile' ? Object(_common_helpers__WEBPACK_IMPORTED_MODULE_8__["checkProperties"])(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+
+      if (!Object(_common_helpers__WEBPACK_IMPORTED_MODULE_8__["checkProperties"])(currentValue[device])) {
+        currentValue[device] = currentValue[largerDevice];
+        currentValue["".concat(device, "-unit")] = currentValue["".concat(largerDevice, "-unit")];
+      }
+    }
+
+    return currentValue;
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
     if (state !== value) {
       setState(value);
@@ -21509,9 +21593,7 @@ var SpacingComponent = function SpacingComponent(props) {
 
   var onSpacingChange = function onSpacingChange(v, choiceID) {
     var choices = props.params.choices;
-
-    var updateState = _objectSpread({}, state);
-
+    var updateState = getCurrentDeviceValue();
     var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
 
     if (!event.target.classList.contains("connected")) {
@@ -21529,9 +21611,8 @@ var SpacingComponent = function SpacingComponent(props) {
 
   var onUnitChange = function onUnitChange(device) {
     var unitKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-
-    var updateState = _objectSpread({}, state);
-
+    var updateState = getCurrentDeviceValue();
+    ;
     responsive ? updateState["".concat(device, "-unit")] = unitKey : updateState["unit"] = unitKey;
     props.onChange(updateState);
     setState(updateState);
@@ -21548,11 +21629,12 @@ var SpacingComponent = function SpacingComponent(props) {
         connected = _props$params.connected;
     var connectedClass = false === connected ? "" : "connected";
     var disconnectedClass = false === connected ? "" : "disconnected";
+    var currentValue = getCurrentDeviceValue();
     var htmlChoices = null;
 
     if (choices) {
       htmlChoices = Object.keys(choices).map(function (choiceID) {
-        var inputValue = responsive ? state[device][choiceID] : state["value"][choiceID];
+        var inputValue = responsive ? currentValue[device][choiceID] : currentValue["value"][choiceID];
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
           key: choiceID
         }, inputAttrs, {
@@ -21601,6 +21683,7 @@ var SpacingComponent = function SpacingComponent(props) {
   var responsiveUnit = null;
 
   var renderUnit = function renderUnit() {
+    var currentValue = getCurrentDeviceValue();
     var unit_choices = props.params.unit_choices;
 
     if (unit_choices) {
@@ -21608,9 +21691,9 @@ var SpacingComponent = function SpacingComponent(props) {
         var unitClass;
 
         if (responsive) {
-          state["".concat(device, "-unit")] === unitKey ? unitClass = "active" : unitClass = "";
+          currentValue["".concat(device, "-unit")] === unitKey ? unitClass = "active" : unitClass = "";
         } else {
-          state["unit"] === unitKey ? unitClass = "active" : unitClass = "";
+          currentValue["unit"] === unitKey ? unitClass = "active" : unitClass = "";
         }
 
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {

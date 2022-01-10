@@ -904,20 +904,26 @@ var applyResponsiveValue = function applyResponsiveValue(value) {
       dynamicStyle += '}';
     }
 
+    console.log(allEmpty(Object.values(tablet)), 'tablet');
+
     if (tablet && !allEmpty(Object.values(tablet))) {
-      dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{").concat(Object.keys(tablet).map(function (side) {
+      dynamicStyle += "@media (max-width: 768px) { ".concat(selector, "{");
+      Object.keys(tablet).map(function (side) {
         if (tablet[side] !== '') {
           dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(tablet[side] + (tabletUnit || defaultUnit), ";");
         }
-      }), "} }");
+      });
+      dynamicStyle += '} }';
     }
 
     if (mobile && !allEmpty(Object.values(mobile))) {
-      dynamicStyle += "@media (max-width: 544px) {".concat(selector, "{ ").concat(Object.keys(mobile).map(function (side) {
+      dynamicStyle += "@media (max-width: 544px) { ".concat(selector, "{");
+      Object.keys(mobile).map(function (side) {
         if (mobile[side] !== '') {
           dynamicStyle += "".concat(property, "-").concat(side, ": ").concat(mobile[side] + (mobileUnit || defaultUnit), ";");
         }
-      }), "} }");
+      });
+      dynamicStyle += '} }';
     }
 
     Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, control);

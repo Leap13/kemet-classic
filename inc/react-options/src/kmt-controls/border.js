@@ -4,6 +4,7 @@ import classnames from "classnames";
 import ColorComponent from "./color";
 import { Fragment } from "react";
 import Responsive from '../common/responsive';
+import { checkProperties } from "../common/helpers";
 const { __ } = wp.i18n;
 const convert = (min, max, value) => Math.max(min, Math.min(max, value))
 
@@ -58,14 +59,6 @@ const Border = ({ value, onChange, params }) => {
 
         return currentValue;
     };
-
-    function checkProperties(obj) {
-        for (var key in obj) {
-            if (obj[key] !== null && obj[key] != "")
-                return true;
-        }
-        return false;
-    }
 
     let borderValue = responsive ? getDeviceValue(device) : state;
 
