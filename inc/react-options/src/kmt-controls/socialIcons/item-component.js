@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const { __ } = wp.i18n;
-const { Dashicon, Tooltip, TextControl, Button } = wp.components;
+const { Dashicon, TextControl, Button } = wp.components;
 import IconSelector from './IconSelector';
 import getIcons from './Icons';
 
@@ -49,7 +49,7 @@ const ItemComponent = props => {
             }} />
             <p className="kmt-social-icon-picker-label">{__("Icon")}</p>
             <IconSelector
-                value={value}
+                value={props.item.icon}
                 onIconChoice={(newData) => props.onChangeIcon(value, props.index)}
                 icons={getIcons}
             />

@@ -32,6 +32,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@wordpress/e2e-test-utils": "^5.4.10",
     "@wordpress/scripts": "^19.2.2"
   },
   "scripts": {
