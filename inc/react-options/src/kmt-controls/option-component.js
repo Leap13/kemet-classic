@@ -19,6 +19,7 @@ import IconPicker from "./icon";
 import Border from "./border";
 import ReadymadeHeaders from './readymade-headers'
 import TabsComponent from './tabs'
+import SocialIcons from './socialIcons'
 
 const OptionComponent = (type) => {
     let OptionComponent;
@@ -85,6 +86,9 @@ const OptionComponent = (type) => {
             break;
         case "kmt-readymade-headers":
             OptionComponent = ReadymadeHeaders;
+            break;
+        case "kmt-social-icons":
+            OptionComponent = SocialIcons;
             break;
     }
 

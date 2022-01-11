@@ -2505,32 +2505,27 @@ span.kmt-color-description {
 }
 
 .customize-control-kmt-readymade-headers label {
-	width: 100%;
+	box-sizing: border-box;
 }
 
 .customize-control-kmt-readymade-headers label.active img {
 	border: 1px solid #0085ba;
 	background-color: #0085ba;
-	-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
-	box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
 }
 
 .customize-control-kmt-readymade-headers label:focus img {
 	border: 1px solid #0085ba;
 	background-color: #0085ba;
-	-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
-	box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
 }
 
 .customize-control-kmt-readymade-headers label:checked img {
 	border: 1px solid #0085ba;
 	background-color: #0085ba;
-	-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
-	box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
 }
 
 .customize-control-kmt-readymade-headers label img {
-	max-width: 100%;
+	width: 100%;
+	max-width: none;
 	border: 1px solid #f1f1f1;
 	background-color: #ccc;
 }

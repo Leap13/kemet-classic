@@ -12,7 +12,7 @@ const ReadymadeHeaders = props => {
     const headers = {
         header1: {
             title: __('1-Default Main Header', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-01.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-01.svg',
             value: {
                 main: {
                     main_left: ['logo'],
@@ -22,7 +22,7 @@ const ReadymadeHeaders = props => {
         },
         header2: {
             title: __('2-Main Header', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-02.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-02.svg',
             value: {
                 main: {
                     main_left: ['logo'],
@@ -33,7 +33,7 @@ const ReadymadeHeaders = props => {
         },
         header3: {
             title: __('3-Main Header', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-03.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-03.svg',
             value: {
                 main: {
                     main_left: ['logo', 'divider', 'primary-menu'],
@@ -43,7 +43,7 @@ const ReadymadeHeaders = props => {
         },
         header4: {
             title: __('4-Top Main Bottom', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-04.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-04.svg',
             value: {
                 top: {
                     top_left: ['header-widget-1'],
@@ -59,7 +59,7 @@ const ReadymadeHeaders = props => {
         },
         header5: {
             title: __('5-Top Main Bottom', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-05.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-05.svg',
             value: {
                 top: {
                     top_left: ['header-html-1'],
@@ -80,7 +80,7 @@ const ReadymadeHeaders = props => {
         },
         header6: {
             title: __('6-Top Main', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-06.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-06.svg',
             value: {
                 top: {
                     top_left: ['header-html-1'],
@@ -95,7 +95,7 @@ const ReadymadeHeaders = props => {
         },
         header7: {
             title: __('7-Top Main', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-07.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-07.svg',
             value: {
                 top: {
                     top_left: ['header-html-1'],
@@ -109,7 +109,7 @@ const ReadymadeHeaders = props => {
         },
         header8: {
             title: __('8-Top Main', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-08.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-08.svg',
             value: {
                 main: {
                     main_left: ['header-widget-1'],
@@ -123,7 +123,7 @@ const ReadymadeHeaders = props => {
         },
         header9: {
             title: __('9-Main Bottom', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-09.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-09.svg',
             value: {
                 main: {
                     main_left: ['logo'],
@@ -137,7 +137,7 @@ const ReadymadeHeaders = props => {
         },
         header10: {
             title: __('10-Main Bottom', 'kemet'),
-            image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-10.svg',
+            image: kemetReactControls.theme_url + 'assets/images/headers/header-10.svg',
             value: {
                 main: {
                     main_left: ['logo'],
