@@ -3,9 +3,9 @@ import { addCss } from "../helpers";
 let control = '';
 let data = {};
 const sliderPreview = (controlId, controlData) => {
+    const { responsive } = controlData;
     wp.customize(controlId, function (valueData) {
         valueData.bind(function (value) {
-            const { responsive } = controlData;
             data = controlData;
             control = controlId;
             if (responsive) {

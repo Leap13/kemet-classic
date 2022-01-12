@@ -3,9 +3,9 @@ import { addCss } from "../helpers";
 let control = '';
 let data = {};
 const colorPreview = (controlId, controlData) => {
+    const { responsive } = controlData;
     wp.customize(controlId, function (valueData) {
         valueData.bind(function (value) {
-            const { responsive } = controlData;
             data = controlData;
             control = controlId;
             if (responsive) {
@@ -41,20 +41,30 @@ const applyResponsiveValue = (value) => {
         if (desktop) {
             Object.keys(controlData).map(colorId => {
                 const { property, selector } = controlData[colorId];
-                dynamicStyle += `${selector}{${property}: ${desktop[colorId]}}`;
+                if (desktop[colorId]) {
+                    dynamicStyle += `${selector}{${property}: ${desktop[colorId]}}`;
+                }
             })
         }
         if (tablet) {
-            dynamicStyle += `@media (max-width: 768px) { ${Object.keys(controlData).map(colorId => {
+            dynamicStyle += `@media (max-width: 768px) {`
+            Object.keys(controlData).map(colorId => {
                 const { property, selector } = controlData[colorId];
-                dynamicStyle += `${selector}{${property}: ${tablet[colorId]}}`;
-            })} }`;
+                if (tablet[colorId]) {
+                    dynamicStyle += `${selector}{${property}: ${tablet[colorId]}}`;
+                }
+            })
+            dynamicStyle += '}';
         }
         if (mobile) {
-            dynamicStyle += `@media (max-width: 544px) { ${Object.keys(controlData).map(colorId => {
+            dynamicStyle += `@media (max-width: 544px) {`
+            Object.keys(controlData).map(colorId => {
                 const { property, selector } = controlData[colorId];
-                dynamicStyle += `${selector}{${property}: ${mobile[colorId]}}`;
-            })} }`;
+                if (mobile[colorId]) {
+                    dynamicStyle += `${selector}{${property}: ${mobile[colorId]}}`;
+                }
+            })
+            dynamicStyle += '}';
         }
 
         addCss(dynamicStyle, control);

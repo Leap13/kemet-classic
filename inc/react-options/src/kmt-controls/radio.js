@@ -43,8 +43,9 @@ const RadioComponent = (props) => {
     const [state, setState] = useState(value);
 
     const getCurrentDeviceValue = () => {
-        let currentValue = { ...state }
+        let currentValue = state;
         if (responsive) {
+            currentValue = { ...state };
             const largerDevice = device === 'mobile' ? state['tablet'] ? 'tablet' : 'desktop' : 'desktop';
             if (!currentValue[device]) {
                 currentValue[device] = currentValue[largerDevice];

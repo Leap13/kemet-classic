@@ -20165,10 +20165,11 @@ var KemetColorComponent = function KemetColorComponent(props) {
 
     if (responsive) {
       var largerDevice = device === 'mobile' ? Object(_common_helpers__WEBPACK_IMPORTED_MODULE_8__["checkProperties"])(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
-
-      if (!Object(_common_helpers__WEBPACK_IMPORTED_MODULE_8__["checkProperties"])(state[device])) {
-        currentValue[device] = currentValue[largerDevice];
-      }
+      Object.keys(currentValue[device]).map(function (id) {
+        if (!currentValue[device][id]) {
+          currentValue[device][id] = currentValue[largerDevice][id];
+        }
+      });
     }
 
     return currentValue;
@@ -20654,9 +20655,10 @@ var RadioComponent = function RadioComponent(props) {
       setState = _useState4[1];
 
   var getCurrentDeviceValue = function getCurrentDeviceValue() {
-    var currentValue = _objectSpread({}, state);
+    var currentValue = state;
 
     if (responsive) {
+      currentValue = _objectSpread({}, state);
       var largerDevice = device === 'mobile' ? state['tablet'] ? 'tablet' : 'desktop' : 'desktop';
 
       if (!currentValue[device]) {

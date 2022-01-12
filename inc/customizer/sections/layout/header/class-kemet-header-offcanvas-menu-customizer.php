@@ -38,7 +38,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'transport' => 'postMessage',
 				'label'     => __( 'Typography', 'kemet' ),
 				'preview'   => array(
-					'selector' => $selector,
+					'selector' => $selector . ' > li > a',
 				),
 			),
 			self::$prefix . '-link-bg-color'             => array(

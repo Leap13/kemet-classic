@@ -23,7 +23,9 @@ const typographyPreview = (controlId, controlData) => {
                 }
                 if (family === 'Default') {
                     const element = document.querySelector(selector);
-                    element.style.removeProperty('--fontFamily');
+                    if (element) {
+                        element.style.removeProperty('--fontFamily');
+                    }
                 } else {
                     dynamicStyle += `--fontFamily: ${family};`;
                 }

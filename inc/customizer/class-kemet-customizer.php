@@ -664,6 +664,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-offcanvas-menu-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-social-icons-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-widget-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header//class-kemet-mobile-header-html-customizer.php';

@@ -70,6 +70,15 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_filter( 'customizer_widgets_section_args', array( $this, 'customizer_custom_widget_areas' ), 10, 3 );
 			add_filter( 'get_search_form', array( $this, 'add_search_icon' ), 99 );
 			add_filter( 'get_product_search_form', array( $this, 'add_search_icon' ), 99 );
+			add_action( 'kemet_header_social_icons', array( $this, 'social_icons_markup' ) );
+		}
+
+		/**
+		 * Social Icons
+		 */
+		public function social_icons_markup() { ?>
+				<p>Social icons</p>
+			<?php
 		}
 
 		/**
@@ -425,7 +434,8 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		/**
 		 * Site Title / Logo
 		 */
-		public function site_identity_markup() { ?>
+		public function site_identity_markup() {
+			?>
 			<div class="site-branding">
 				<div class="kmt-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
 						<?php kemet_logo(); ?>

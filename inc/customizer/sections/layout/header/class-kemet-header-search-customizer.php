@@ -116,6 +116,44 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							self::$prefix . '-sticky-icon-color' => array(
+								'transport'  => 'postMessage',
+								'responsive' => true,
+								'type'       => 'kmt-color',
+								'label'      => __( 'Icon Colors on Sticky', 'kemet' ),
+								'pickers'    => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'    => array(
+									'responsive' => true,
+									'initial'    => array(
+										'selector' => '.kmt-is-sticky ' . $parent_selector . ' .kemet-search-icon',
+										'property' => '--linksColor',
+									),
+									'hover'      => array(
+										'selector' => '.kmt-is-sticky ' . $parent_selector . ' .kemet-search-icon',
+										'property' => '--linksHoverColor',
+									),
+								),
+								'context'    => array(
+									array(
+										'setting' => 'enable-sticky-main',
+										'value'   => true,
+									),
+									array(
+										'setting' => 'enable-sticky-mobile-main',
+										'value'   => true,
+									),
+									'relation' => 'OR',
+								),
+							),
 							self::$prefix . '-form-bg-color' => array(
 								'transport'  => 'postMessage',
 								'type'       => 'kmt-color',

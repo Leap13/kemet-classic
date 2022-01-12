@@ -5,9 +5,9 @@ let control = '';
 let data = {};
 
 const radioPreview = (controlId, controlData) => {
+    const { responsive, attr } = controlData;
     wp.customize(controlId, function (valueData) {
         valueData.bind(function (value) {
-            const { responsive, attr } = controlData;
             data = controlData;
             control = controlId;
             if (attr) {

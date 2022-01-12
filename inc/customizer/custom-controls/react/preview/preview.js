@@ -220,9 +220,9 @@ var control = '';
 var data = {};
 
 var backgroundPreview = function backgroundPreview(controlId, controlData) {
+  var responsive = controlData.responsive;
   wp.customize(controlId, function (valueData) {
     valueData.bind(function (value) {
-      var responsive = controlData.responsive;
       data = controlData;
       control = controlId;
 
@@ -529,9 +529,9 @@ var control = '';
 var data = {};
 
 var colorPreview = function colorPreview(controlId, controlData) {
+  var responsive = controlData.responsive;
   wp.customize(controlId, function (valueData) {
     valueData.bind(function (value) {
-      var responsive = controlData.responsive;
       data = controlData;
       control = controlId;
 
@@ -574,26 +574,39 @@ var applyResponsiveValue = function applyResponsiveValue(value) {
         var _controlData$colorId2 = controlData[colorId],
             property = _controlData$colorId2.property,
             selector = _controlData$colorId2.selector;
-        dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(desktop[colorId], "}");
+
+        if (desktop[colorId]) {
+          dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(desktop[colorId], "}");
+        }
       });
     }
 
     if (tablet) {
-      dynamicStyle += "@media (max-width: 768px) { ".concat(Object.keys(controlData).map(function (colorId) {
+      dynamicStyle += "@media (max-width: 768px) {";
+      Object.keys(controlData).map(function (colorId) {
         var _controlData$colorId3 = controlData[colorId],
             property = _controlData$colorId3.property,
             selector = _controlData$colorId3.selector;
-        dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(tablet[colorId], "}");
-      }), " }");
+
+        if (tablet[colorId]) {
+          dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(tablet[colorId], "}");
+        }
+      });
+      dynamicStyle += '}';
     }
 
     if (mobile) {
-      dynamicStyle += "@media (max-width: 544px) { ".concat(Object.keys(controlData).map(function (colorId) {
+      dynamicStyle += "@media (max-width: 544px) {";
+      Object.keys(controlData).map(function (colorId) {
         var _controlData$colorId4 = controlData[colorId],
             property = _controlData$colorId4.property,
             selector = _controlData$colorId4.selector;
-        dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(mobile[colorId], "}");
-      }), " }");
+
+        if (mobile[colorId]) {
+          dynamicStyle += "".concat(selector, "{").concat(property, ": ").concat(mobile[colorId], "}");
+        }
+      });
+      dynamicStyle += '}';
     }
 
     Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, control);
@@ -723,10 +736,10 @@ var control = '';
 var data = {};
 
 var radioPreview = function radioPreview(controlId, controlData) {
+  var responsive = controlData.responsive,
+      attr = controlData.attr;
   wp.customize(controlId, function (valueData) {
     valueData.bind(function (value) {
-      var responsive = controlData.responsive,
-          attr = controlData.attr;
       data = controlData;
       control = controlId;
 
@@ -763,9 +776,9 @@ var control = '';
 var data = {};
 
 var sliderPreview = function sliderPreview(controlId, controlData) {
+  var responsive = controlData.responsive;
   wp.customize(controlId, function (valueData) {
     valueData.bind(function (value) {
-      var responsive = controlData.responsive;
       data = controlData;
       control = controlId;
 
@@ -839,9 +852,9 @@ var control = '';
 var data = {};
 
 var spacingPreview = function spacingPreview(controlId, controlData) {
+  var responsive = controlData.responsive;
   wp.customize(controlId, function (valueData) {
     valueData.bind(function (value) {
-      var responsive = controlData.responsive;
       data = controlData;
       control = controlId;
 
@@ -979,7 +992,10 @@ var typographyPreview = function typographyPreview(controlId, controlData) {
 
         if (family === 'Default') {
           var element = document.querySelector(selector);
-          element.style.removeProperty('--fontFamily');
+
+          if (element) {
+            element.style.removeProperty('--fontFamily');
+          }
         } else {
           dynamicStyle += "--fontFamily: ".concat(family, ";");
         }

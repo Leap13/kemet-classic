@@ -147,7 +147,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $mobile, '', '544' );
 
-				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix, $selector );
+				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix, $selector . ' > li > a' );
 				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix . '-submenu', $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap' );
 
 				$dynamic_css .= $parse_css;

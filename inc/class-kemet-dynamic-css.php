@@ -621,6 +621,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.entry-meta, .entry-meta *'              => array(
 					'--textColor' => esc_attr( kemet_color_brightness( $text_meta_color, 0.7, 'light' ) ),
 					'font-size'   => 'var(--fontSize)',
+					'font-family' => 'var(--fontFamily)',
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
 					'--linksHoverColor' => esc_attr( $meta_hover_color ),

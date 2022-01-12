@@ -33,7 +33,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$link_active_bg_color         = kemet_get_sub_option( $prefix . '-link-active-bg-color', 'initial' );
 				$link_active_color            = kemet_get_sub_option( $prefix . '-link-color', 'active' );
 				$link_active_border_radius    = kemet_get_option( $prefix . '-link-active-border-radius' );
-				$link_h_border                = kemet_get_option( $prefix . '-link-border-hover' );
 				$menu_spacing                 = kemet_get_option( $prefix . '-spacing' );
 				$menu_margin                  = kemet_get_option( $prefix . '-margin' );
 				$menu_link_spacing            = kemet_get_option( $prefix . '-item-spacing' );
@@ -63,12 +62,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					),
 					$selector . ' > li > a'               => array(
 						'font-family'      => 'var(--fontFamily)',
-						'--effectBorder'   => kemet_border(
-							$link_h_border,
-							array(
-								'color' => 'var(--linksHoverColor)',
-							)
-						),
 						'--padding-top'    => kemet_responsive_spacing( $menu_link_spacing, 'top', 'desktop' ),
 						'--padding-left'   => kemet_responsive_spacing( $menu_link_spacing, 'left', 'desktop' ),
 						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'desktop' ),

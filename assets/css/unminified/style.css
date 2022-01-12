@@ -2916,6 +2916,10 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	line-height: normal;
 }
 
+#offcanvas-menu > li > a {
+	--lineHeight: inherit;
+}
+
 .main-header-menu > li > a {
 	--lineHeight: 80px;
 }

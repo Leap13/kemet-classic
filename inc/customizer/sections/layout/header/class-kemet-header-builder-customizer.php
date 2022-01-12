@@ -101,6 +101,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'wordpress-alt',
 							'section' => 'sidebar-widgets-header-widget-2',
 						),
+						'social-icons'    => array(
+							'name'    => __( 'Social Icons', 'kemet' ),
+							'icon'    => 'share',
+							'section' => 'section-header-social-icons',
+						),
 					)
 				),
 				'input_attrs' => array(

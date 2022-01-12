@@ -79,9 +79,11 @@ const KemetColorComponent = props => {
 
         if (responsive) {
             const largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
-            if (!checkProperties(state[device])) {
-                currentValue[device] = currentValue[largerDevice];
-            }
+            Object.keys(currentValue[device]).map(id => {
+                if (!currentValue[device][id]) {
+                    currentValue[device][id] = currentValue[largerDevice][id]
+                }
+            })
         }
 
         return currentValue;
