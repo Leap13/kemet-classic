@@ -76,6 +76,11 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 									'price-desc' => __( 'Sort by price (desc)', 'kemet' ),
 								),
 							),
+							self::$prefix . '-kemet-addons-notification' => array(
+								'type'     => 'kmt-notification',
+								'content'  => __( 'Please install and activate Kemet Addons plugin to get the ability to change the WooCommerce product listing styles.', 'kemet' ),
+								'priority' => 5,
+							),
 							self::$prefix . '-product-structure' => array(
 								'type'     => 'kmt-sortable',
 								'priority' => 10,

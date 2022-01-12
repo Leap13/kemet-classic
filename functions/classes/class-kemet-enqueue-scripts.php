@@ -270,8 +270,8 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
 			WP_Filesystem();
 			$wp_filesystem->mkdir( $dir );
-			file_put_contents( $dir . 'kemet-dynamic-css.css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_output() ) );
-			file_put_contents( $dir . 'kemet-dynamic-css.css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_meta_output( true ) ), FILE_APPEND | LOCK_EX );
+			$wp_filesystem->put_contents( $dir . 'kemet-dynamic-css.css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_output() ) );
+			$wp_filesystem->put_contents( $dir . 'kemet-dynamic-css.css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_meta_output( true ) ), FILE_APPEND | LOCK_EX );
 			$wp_upload_dir = $upload_dir['baseurl'] . '/' . 'kemet/';
 			$file          = $wp_upload_dir . 'kemet-dynamic-css.css';
 

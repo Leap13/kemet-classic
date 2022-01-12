@@ -120,6 +120,41 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			add_filter( 'yith_wcwl_positions', array( $this, 'kemet_wishlist_position' ) );
 			add_filter( 'woocommerce_single_product_summary', array( $this, 'kemet_single_wishlist' ), 31 );
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_filter( 'woocommerce_product_add_to_cart_text', array( $this, 'wh_archive_custom_cart_button_text' ) );   // 2.1 +
+			add_filter( 'woocommerce_product_single_add_to_cart_text', array( $this, 'wc_custom_single_addtocart_text' ), 10, 2 );
+		}
+
+
+		/**
+		 * Change the "Add to Cart" text listing.
+		 *
+		 * @param string $text
+		 * @param object $product
+		 * @return string
+		 */
+		function wh_archive_custom_cart_button_text( $text ) {
+
+			if ( 'add to cart' === strtolower( $text ) ) {
+				$text = __( 'Add to Cart', 'kemet' );
+			}
+
+			return $text;
+		}
+
+		/**
+		 * Change the "Add to Cart" text on the single product page.
+		 *
+		 * @param string $text
+		 * @param object $product
+		 * @return string
+		 */
+		function wc_custom_single_addtocart_text( $text, $product ) {
+
+			if ( 'add to cart' === strtolower( $text ) ) {
+				$text = __( 'Add to Cart', 'kemet' );
+			}
+
+			return $text;
 		}
 
 		/**
@@ -133,6 +168,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			Kemet_Fonts::add_font_form_typography( $typography );
 
 			$typography = kemet_get_option( 'woo-shop-product-price-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+
+			$typography = kemet_get_option( 'woo-single-add-to-cart-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );
 		}
 
@@ -243,7 +281,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return string
 		 */
 		public function kemet_added_to_wishlist( $default ) {
-			$default = '';
+			if ( ! is_product() ) {
+				$default = '';
+			}
 			return $default;
 		}
 
@@ -1017,6 +1057,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			// categories.
 			$category_link_color   = kemet_get_sub_option( 'woo-shop-categories-link-color', 'initial' );
 			$category_link_h_color = kemet_get_sub_option( 'woo-shop-categories-link-color', 'hover' );
+			// Button Styling.
+			$btn_border_radius = kemet_get_option( 'button-radius' );
+			$btn_padding       = kemet_get_option( 'button-spacing' );
 
 			$css_output = array(
 				'.woocommerce ul.products li.product.product-category .woocommerce-loop-category__title, .woocommerce-page ul.products li.product.product-category .woocommerce-loop-category__title' => array(
@@ -1135,8 +1178,22 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
 					'background-color' => 'var(--globalBackgroundColor)',
 				),
-				'.single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-icon, .single-product div.product .entry-summary .compare:before' => array(
-					'background-color' => esc_attr( kemet_color_brightness( $global_bg_color, 0.8, 'dark' ) ),
+				'.single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .add_to_wishlist, .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse, .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse, .single-product div.product .entry-summary .compare' => array(
+					'background-color'       => 'var(--borderColor)',
+					'--padding-top'          => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
+					'--padding-left'         => kemet_responsive_spacing( $btn_padding, 'left', 'desktop' ),
+					'--padding-bottom'       => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
+					'--padding-right'        => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
+					'--border-radius-top'    => kemet_spacing( $btn_border_radius, 'top' ),
+					'--border-radius-left'   => kemet_spacing( $btn_border_radius, 'left' ),
+					'--border-radius-bottom' => kemet_spacing( $btn_border_radius, 'bottom' ),
+					'--border-radius-right'  => kemet_spacing( $btn_border_radius, 'right' ),
+				),
+				'.single-product div.product .summary .yith-wcwl-wishlistexistsbrowse, .single-product .product .summary .yith-wcwl-wishlistaddedbrowse' => array(
+					'color' => 'var(--linksColor)',
+				),
+				'.single-product div.product .summary .yith-wcwl-wishlistexistsbrowse:hover, .single-product .product .summary .yith-wcwl-wishlistaddedbrowse:hover' => array(
+					'color' => 'var(--linksHoverColor)',
 				),
 				'.single-product div.product .entry-summary .compare' => array(
 					'border' => 'none',
@@ -1246,6 +1303,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$css_output .= Kemet_Dynamic_Css_Generator::typography_css( 'woo-shop-product-title', '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' );
 			$css_output .= Kemet_Dynamic_Css_Generator::typography_css( 'woo-shop-product-content', '.woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description' );
 			$css_output .= Kemet_Dynamic_Css_Generator::typography_css( 'woo-shop-product-price', '.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins' );
+			$css_output .= Kemet_Dynamic_Css_Generator::typography_css( 'woo-single-add-to-cart', '.woocommerce div.product form.cart .button.single_add_to_cart_button, .woocommerce-page div.product form.cart .button.single_add_to_cart_button' );
 
 			$tablet_typography = array(
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
@@ -1267,6 +1325,12 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'margin-left'   => kemet_responsive_spacing( $product_rating_spacing, 'left', 'tablet' ),
 					'margin-bottom' => kemet_responsive_spacing( $product_rating_spacing, 'bottom', 'tablet' ),
 					'margin-right'  => kemet_responsive_spacing( $product_rating_spacing, 'right', 'tablet' ),
+				),
+				'.single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .add_to_wishlist, .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse, .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse, .single-product div.product .entry-summary .compare' => array(
+					'--padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'tablet' ),
+					'--padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'tablet' ),
+					'--padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'tablet' ),
+					'--padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'tablet' ),
 				),
 			);
 			/* Parse CSS from array()*/
@@ -1291,6 +1355,12 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'margin-left'   => kemet_responsive_spacing( $product_rating_spacing, 'left', 'mobile' ),
 					'margin-bottom' => kemet_responsive_spacing( $product_rating_spacing, 'bottom', 'mobile' ),
 					'margin-right'  => kemet_responsive_spacing( $product_rating_spacing, 'right', 'mobile' ),
+				),
+				'.single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .add_to_wishlist, .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse, .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse, .single-product div.product .entry-summary .compare' => array(
+					'--padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'mobile' ),
+					'--padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'mobile' ),
+					'--padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'mobile' ),
+					'--padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'mobile' ),
 				),
 			);
 			/* Parse CSS from array()*/

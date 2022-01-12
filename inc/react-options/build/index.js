@@ -16262,43 +16262,57 @@ var Icons = {
     }))
   },
   "kmt-cart": Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
-    id: "Outline",
+    id: "Layer_1",
+    "data-name": "Layer 1",
     xmlns: "http://www.w3.org/2000/svg",
-    width: "20",
-    height: "20",
-    viewBox: "0 0 23.41 24"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "cart-outline"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
-    d: "M22.71,4.08A3,3,0,0,0,20.41,3H4.24l0-.35A3,3,0,0,0,1.22,0H1A1,1,0,0,0,1,2h.22a1,1,0,0,1,1,.88l1.38,11.7a5,5,0,0,0,5,4.42H19a1,1,0,0,0,0-2H8.56a3,3,0,0,1-2.82-2H17.66a5,5,0,0,0,4.92-4.11l.78-4.36A3,3,0,0,0,22.71,4.08ZM21.4,6.18l-.79,4.35A3,3,0,0,1,17.66,13H5.42L4.48,5H20.41a1,1,0,0,1,1,1A1.11,1.11,0,0,1,21.4,6.18Z"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("circle", {
-    cx: "7",
-    cy: "22",
-    r: "2"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("circle", {
-    cx: "17",
-    cy: "22",
-    r: "2"
-  })),
+    width: "24",
+    height: "24",
+    viewBox: "0 0 18.36 17.94"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "shopping-cart"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("g", {
+    id: "Shopping_Cart",
+    "data-name": "Shopping Cart"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    d: "M8,16.82A2.39,2.39,0,0,1,5.6,14.63L4.77,4.75,3.44,4.52A.75.75,0,0,1,3.7,3l1.89.33a.74.74,0,0,1,.62.68l.21,2.49c13,0,13,0,13.07,0a2,2,0,0,1,1.67,2.23l-.87,6a2.39,2.39,0,0,1-2.36,2.05H8ZM6.55,8l.54,6.46a.9.9,0,0,0,.89.82h10a.89.89,0,0,0,.88-.76l.86-6a.47.47,0,0,0-.4-.54c-.19,0-8,0-12.72,0",
+    transform: "translate(-2.82 -3.03)"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    class: "cls-1",
+    d: "M16.46,11.41H13.94a.75.75,0,0,1,0-1.5h2.52a.75.75,0,0,1,0,1.5",
+    transform: "translate(-2.82 -3.03)"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    class: "cls-1",
+    d: "M8.83,19.72A1.25,1.25,0,0,1,7.58,21a1.27,1.27,0,0,1-.88-.36,1.32,1.32,0,0,1-.37-.88,1.25,1.25,0,0,1,2.5,0Z",
+    transform: "translate(-2.82 -3.03)"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    class: "cls-1",
+    d: "M19.11,19.72A1.26,1.26,0,0,1,17.86,21a1.25,1.25,0,1,1,1.25-1.25Z",
+    transform: "translate(-2.82 -3.03)"
+  }))),
   "kmt-bag": Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
-    id: "Outline",
+    id: "Layer_1",
+    "data-name": "Layer 1",
     xmlns: "http://www.w3.org/2000/svg",
-    width: "20",
-    height: "20",
-    viewBox: "0 0 24 24"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "bag-outline"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
-    d: "M21,6H18A6,6,0,0,0,6,6H3A3,3,0,0,0,0,9V19a5,5,0,0,0,5,5H19a5,5,0,0,0,5-5V9A3,3,0,0,0,21,6ZM12,2a4,4,0,0,1,4,4H8A4,4,0,0,1,12,2ZM22,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V9A1,1,0,0,1,3,8H6v2a1,1,0,0,0,2,0V8h8v2a1,1,0,0,0,2,0V8h3a1,1,0,0,1,1,1Z"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 17.5 19.5"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "modern-bag-outline"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    id: "Modern_Bag_Outline",
+    "data-name": "Modern Bag Outline",
+    d: "M18.42,9.25,18.34,9a5.52,5.52,0,0,0-4.13-3.89,4.58,4.58,0,0,0-.05-1.69A4,4,0,0,0,10.88.33l-.11,0a5,5,0,0,0-1.54,0l-.11,0A4,4,0,0,0,5.84,3.39a4.58,4.58,0,0,0,0,1.69A5.52,5.52,0,0,0,1.66,9l-.08.28A9.47,9.47,0,0,0,2,15.33l.09.23A6.52,6.52,0,0,0,7.1,19.47l.75.11a13.48,13.48,0,0,0,4.3,0l.75-.11a6.52,6.52,0,0,0,5-3.91l.09-.23A9.47,9.47,0,0,0,18.42,9.25ZM7.31,3.71a2.52,2.52,0,0,1,2.06-1.9l.12,0a3.49,3.49,0,0,1,1,0l.12,0a2.52,2.52,0,0,1,2.06,1.9,3.25,3.25,0,0,1,.05,1.12,20.11,20.11,0,0,0-5.48,0A3.25,3.25,0,0,1,7.31,3.71Zm9.34,11.05-.09.23a5,5,0,0,1-3.89,3l-.75.11a12.36,12.36,0,0,1-3.84,0L7.33,18a5,5,0,0,1-3.89-3l-.09-.23A8,8,0,0,1,3,9.64l.08-.28A4,4,0,0,1,6.22,6.52h0l.12.29a.76.76,0,0,0,1,.39.75.75,0,0,0,.41-.91,17.83,17.83,0,0,1,4.5,0,.75.75,0,0,0,.41.91.76.76,0,0,0,1-.39l.12-.29h0a4,4,0,0,1,3.11,2.84l.08.28A8,8,0,0,1,16.65,14.76Z",
+    transform: "translate(-1.25 -0.25)"
   })),
   "kmt-dcart": Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
-    id: "Outline",
+    id: "Layer_1",
+    "data-name": "Layer 1",
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 20 20"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("rect", {
-    x: "0",
-    fill: "none",
-    width: "20",
-    height: "20"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("g", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
-    d: "M6 13h9c.55 0 1 .45 1 1s-.45 1-1 1H5c-.55 0-1-.45-1-1V4H2c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1v2h13l-4 7H6v1zm-.5 3c.83 0 1.5.67 1.5 1.5S6.33 19 5.5 19 4 18.33 4 17.5 4.67 16 5.5 16zm9 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"
-  })))
+    width: "24",
+    height: "24",
+    viewBox: "0 0 18.14 18.13"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("title", null, "shopping-cart-filled"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+    id: "Shopping_Cart_Filled",
+    "data-name": "Shopping Cart Filled",
+    d: "M16.67,19.67a1.37,1.37,0,1,1,2.74,0,1.37,1.37,0,1,1-2.74,0m-10.2,0a1.38,1.38,0,1,1,1.38,1.4,1.4,1.4,0,0,1-1.38-1.4M8,16.8a2.27,2.27,0,0,1-1.57-.62,2.42,2.42,0,0,1-.74-1.55L4.86,4.55,3.49,4.31a.7.7,0,0,1,.13-1.38h.11l2.16.33a.69.69,0,0,1,.56.63L6.62,6a.56.56,0,0,0,.55.52H19.41a1.56,1.56,0,0,1,1.28.62A2,2,0,0,1,21,8.7l-.86,6.07a2.34,2.34,0,0,1-2.29,2Zm5.24-6.19a.7.7,0,0,0,.68.7h2.51a.7.7,0,0,0,.68-.7.67.67,0,0,0-.67-.69H13.92a.67.67,0,0,0-.68.68Z",
+    transform: "translate(-2.93 -2.93)"
+  }))
 };
 /* harmony default export */ __webpack_exports__["default"] = (Icons);
 
@@ -20231,6 +20245,31 @@ _color__WEBPACK_IMPORTED_MODULE_4__["default"].propTypes = {
 
 /***/ }),
 
+/***/ "./src/kmt-controls/notification.js":
+/*!******************************************!*\
+  !*** ./src/kmt-controls/notification.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var NotificationComponent = function NotificationComponent(_ref) {
+  var params = _ref.params;
+  var content = params.content;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-notification"
+  }, content);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NotificationComponent);
+
+/***/ }),
+
 /***/ "./src/kmt-controls/number.js":
 /*!************************************!*\
   !*** ./src/kmt-controls/number.js ***!
@@ -20340,6 +20379,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _readymade_headers__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./readymade-headers */ "./src/kmt-controls/readymade-headers.js");
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./tabs */ "./src/kmt-controls/tabs.js");
 /* harmony import */ var _box_shadow__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./box-shadow */ "./src/kmt-controls/box-shadow.js");
+/* harmony import */ var _notification__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./notification */ "./src/kmt-controls/notification.js");
+
 
 
 
@@ -20453,6 +20494,10 @@ var OptionComponent = function OptionComponent(type) {
 
     case "kmt-box-shadow":
       OptionComponent = _box_shadow__WEBPACK_IMPORTED_MODULE_21__["default"];
+      break;
+
+    case "kmt-notification":
+      OptionComponent = _notification__WEBPACK_IMPORTED_MODULE_22__["default"];
       break;
   }
 
