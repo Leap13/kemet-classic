@@ -4,24 +4,27 @@ import {
 	Spinner,
 	Icon,
 	Popover,
+	ButtonGroup,
 } from '@wordpress/components';
 import { useState, lazy, Suspense } from '@wordpress/element';
+import IconsContent from './IconsContent';
 
-const IconsContent = lazy(() => import('./IconsContent'));
+//const IconsContent = lazy(() => import('./IconsContent'));
 
 const IconSelector = ({ value, onIconChoice, icons }) => {
 	const [visible, setVisible] = useState(false);
 
 	return (
-		<div className="kemet-control-header icon-control">
-			
+		<div className="kmt-control-header icon-control">
 			{icons[value] && (
+				<ButtonGroup className="icon-setter">
 					<Button
 						className="repeater-icon-preview"
 						onClick={() => setVisible(!visible)}
 					>
 						{icons[value]}
 					</Button>
+				</ButtonGroup>
 			)}
 			{!icons[value] && (
 				<Button

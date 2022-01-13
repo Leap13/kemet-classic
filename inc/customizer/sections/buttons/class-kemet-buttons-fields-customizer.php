@@ -28,6 +28,11 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'    => __( 'Buttons Style', 'kemet' ),
 				'priority' => 1,
 			),
+			'button-effect-social'       => array(
+				'type'      => 'kmt-social-icons',
+				'transport' => 'postMessage',
+				'label'     => __( 'Button Shadow', 'kemet' ),
+			),
 			'button-effect'       => array(
 				'type'      => 'kmt-switcher',
 				'transport' => 'postMessage',

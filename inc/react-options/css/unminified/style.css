@@ -2225,6 +2225,19 @@ span.kmt-color-description {
 	color: #fff;
 }
 
+.kmt-control-header .icon-button {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+
+	justify-content: center;
+}
+
+.kmt-control-header svg {
+	width: 16px;
+	height: 16px;
+}
+
 .customize-control-kmt-icon-select .icon-select {
 	display: -webkit-box;
 	display: -ms-flexbox;

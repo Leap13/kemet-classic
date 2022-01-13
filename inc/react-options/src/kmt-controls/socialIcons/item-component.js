@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const { __ } = wp.i18n;
 const { Dashicon, TextControl, Button } = wp.components;
@@ -12,6 +12,19 @@ const ItemComponent = props => {
         open: false,
     });
 
+    const Icons = window.getIcons;
+    const icon = props.item.id.replace(/[\d_]+$/g, '');
+
+    const [selectedIcon, setSelectedIcon] = useState(
+        props.item.icon
+    )
+
+    
+
+    useEffect(() => {
+        setSelectedIcon(Icons[props.item.icon]);
+    }, []);
+
 
 
     return <div className="kmt-sorter-item" data-id={props.item.id} key={props.item.id}>
@@ -21,7 +34,7 @@ const ItemComponent = props => {
                 open: state.open ? false : true
             })))
         }}>
-
+            <span>{selectedIcon}</span>
             <span className="kmt-sorter-title">
                 {undefined !== props.item.label && '' !== props.item.label ? props.item.label : __('Social Item', 'kemet')}
             </span>
@@ -50,8 +63,11 @@ const ItemComponent = props => {
             <p className="kmt-social-icon-picker-label">{__("Icon")}</p>
             <IconSelector
                 value={props.item.icon}
-                onIconChoice={(newData) => props.onChangeIcon(value, props.index)}
-                icons={getIcons}
+                onIconChoice={ value=> {
+                props.onChangeIcon(value, props.index);
+                setSelectedIcon( Icons[value] );
+            }}
+                icons={getIcons()}
             />
 
         </div>}

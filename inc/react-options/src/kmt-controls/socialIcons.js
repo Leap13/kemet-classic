@@ -17,6 +17,15 @@ const SocialIcons = props => {
                 'background': 'transparent',
                 'icon': 'facebook',
                 'label': 'Facebook',
+            },
+            {
+                'id': 'twitter',
+                'enabled': true,
+                'url': '',
+                'color': '#557dbc',
+                'background': 'transparent',
+                'icon': 'twitter',
+                'label': 'Twitter',
             }
         ],
     };
@@ -32,6 +41,7 @@ const SocialIcons = props => {
         'options': [
             { value: 'facebook', label: __('Facebook', 'kemet'), color: '#557dbc', background: 'transparent' },
             { value: 'twitter', label: __('Twitter', 'kemet'), color: '#7acdee', background: 'transparent' },
+            { value: 'linkedin', label: __('Linkedin', 'kemet'), color: '#7acdee', background: 'transparent' },
         ].sort((a, b) => {
             if (a.value < b.value) {
                 return -1;
@@ -42,6 +52,7 @@ const SocialIcons = props => {
             return 0;
         })
     };
+    //console.log(a.b);
 
     let controlParams = props.params.input_attrs ? {
         ...defaultParams,
@@ -64,8 +75,10 @@ const SocialIcons = props => {
         icon: ''
     });
 
-    const updateValues = () => {
-        setPropsValue(!props_value);
+
+    const updateValues = (obj) => {
+        setPropsValue(obj);
+        props.onChange({ ...obj, flag: !value.flag });
     };
 
     const onDragStop = () => {

@@ -86,3 +86,16 @@
 .components-button.is-pressed .kmt-sidebar-icon {
   color: #fff;
 }
+
+.kmt-control-header {
+  .icon-button {
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
