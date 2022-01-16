@@ -638,7 +638,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Register Sections & Panels
 			 */
 
-			//  Preformance
+			//  Performance
 			require KEMET_THEME_DIR . 'inc/customizer/sections/performance/class-kemet-performance-customizer.php';
 			/**
 			 * Sections

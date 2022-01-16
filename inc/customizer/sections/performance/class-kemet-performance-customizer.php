@@ -9,7 +9,7 @@
  * @since       Kemet 1.0.0
  */
 
-class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
+class Kemet_Performance_Customizer extends Kemet_Customizer_Register {
 
 	/**
 	 * Register Customizer Options
@@ -70,8 +70,8 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 		$register_options = array(
-			'preformance-options' => array(
-				'section' => 'section-preformance',
+			'performance-options' => array(
+				'section' => 'section-performance',
 				'type'    => 'kmt-options',
 				'data'    => array(
 					'options' => $register_options,
@@ -89,9 +89,9 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_sections( $sections ) {
 		$register_sections = array(
-			'section-preformance' => array(
+			'section-performance' => array(
 				'priority' => 65,
-				'title'    => __( 'Preformance', 'kemet' ),
+				'title'    => __( 'Performance', 'kemet' ),
 				'infoLink' => esc_url( 'https://kemet.io/docs/performance/' ),
 			),
 		);
@@ -100,4 +100,4 @@ class Kemet_Preformance_Customizer extends Kemet_Customizer_Register {
 	}
 }
 
-new Kemet_Preformance_Customizer();
+new Kemet_Performance_Customizer();

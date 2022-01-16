@@ -3420,7 +3420,7 @@ msgid ""
 msgstr ""
 
 #: inc/customizer/sections/performance/class-kemet-performance-customizer.php:50
-msgid "Preformance"
+msgid "Performance"
 msgstr ""
 
 #: inc/meta/classes/class-kemet-meta-settings.php:73

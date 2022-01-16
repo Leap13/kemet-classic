@@ -1,6 +1,6 @@
 <?php
 /**
- * Kemet_Preformance
+ * Kemet_Performance
  *
  * @package     Kemet
  * @author      Kemet
@@ -8,12 +8,12 @@
  * @link        https://kemet.io/
  */
 
-if ( ! class_exists( 'Kemet_Preformance' ) ) {
+if ( ! class_exists( 'Kemet_Performance' ) ) {
 
 	/**
-	 * Kemet_Preformance initial setup
+	 * Kemet_Performance initial setup
 	 */
-	class Kemet_Preformance {
+	class Kemet_Performance {
 
 		/**
 		 * Instance
@@ -95,4 +95,4 @@ if ( ! class_exists( 'Kemet_Preformance' ) ) {
 	}
 }
 
-Kemet_Preformance::get_instance();
+Kemet_Performance::get_instance();
