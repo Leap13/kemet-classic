@@ -122,8 +122,31 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_filter( 'woocommerce_product_add_to_cart_text', array( $this, 'wh_archive_custom_cart_button_text' ) );   // 2.1 +
 			add_filter( 'woocommerce_product_single_add_to_cart_text', array( $this, 'wc_custom_single_addtocart_text' ), 10, 2 );
+			add_action( 'woocommerce_before_main_content', array( $this, 'woocommerce_remove_breadcrumb' ) );
+			add_action( 'woocommerce_single_product_summary', array( $this, 'woocommerce_custom_breadcrumb' ), 1 );
 		}
 
+		/**
+		 * woocommerce_remove_breadcrumb
+		 *
+		 * @return void
+		 */
+		function woocommerce_remove_breadcrumb() {
+			if ( is_product() ) {
+				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+			}
+		}
+
+		/**
+		 * woocommerce_custom_breadcrumb
+		 *
+		 * @return void
+		 */
+		function woocommerce_custom_breadcrumb() {
+			if ( is_product() ) {
+				woocommerce_breadcrumb();
+			}
+		}
 
 		/**
 		 * Change the "Add to Cart" text listing.

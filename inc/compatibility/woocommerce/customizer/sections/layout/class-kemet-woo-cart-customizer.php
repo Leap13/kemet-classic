@@ -36,14 +36,17 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 								'transport' => 'postMessage',
 								'label'     => __( 'Icon Display', 'kemet' ),
 								'choices'   => array(
-									'cart'  => array(
+									'cart'     => array(
 										'icon' => 'kmt-cart',
 									),
-									'bag'   => array(
+									'bag'      => array(
 										'icon' => 'kmt-bag',
 									),
-									'dcart' => array(
+									'dcart'    => array(
 										'icon' => 'kmt-dcart',
+									),
+									'bag-fill' => array(
+										'icon' => 'kmt-bag-fill',
 									),
 								),
 							),
