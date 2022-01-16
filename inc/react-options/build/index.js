@@ -20394,6 +20394,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./tabs */ "./src/kmt-controls/tabs.js");
 /* harmony import */ var _box_shadow__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./box-shadow */ "./src/kmt-controls/box-shadow.js");
 /* harmony import */ var _notification__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./notification */ "./src/kmt-controls/notification.js");
+/* harmony import */ var _common_events__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../common/events */ "./src/common/events.js");
+
 
 
 
@@ -20419,102 +20421,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var OptionComponent = function OptionComponent(type) {
-  var OptionComponent;
-
-  switch (type) {
-    case 'kmt-tabs':
-      OptionComponent = _tabs__WEBPACK_IMPORTED_MODULE_20__["default"];
-      break;
-
-    case 'kmt-color':
-      OptionComponent = _kmt_color__WEBPACK_IMPORTED_MODULE_0__["default"];
-      break;
-
-    case 'kmt-slider':
-      OptionComponent = _slider__WEBPACK_IMPORTED_MODULE_1__["default"];
-      break;
-
-    case 'kmt-spacing':
-      OptionComponent = _spacing__WEBPACK_IMPORTED_MODULE_2__["default"];
-      break;
-
-    case 'kmt-select':
-      OptionComponent = _select__WEBPACK_IMPORTED_MODULE_3__["default"];
-      break;
-
-    case 'kmt-title':
-      OptionComponent = _title__WEBPACK_IMPORTED_MODULE_4__["default"];
-      break;
-
-    case 'kmt-switcher':
-      OptionComponent = _toggle__WEBPACK_IMPORTED_MODULE_5__["default"];
-      break;
-
-    case 'kmt-text':
-      OptionComponent = _text__WEBPACK_IMPORTED_MODULE_6__["default"];
-      break;
-
-    case 'kmt-editor':
-      OptionComponent = _editor__WEBPACK_IMPORTED_MODULE_7__["default"];
-      break;
-
-    case 'kmt-sortable':
-      OptionComponent = _sortable__WEBPACK_IMPORTED_MODULE_8__["default"];
-      break;
-
-    case 'kmt-radio':
-      OptionComponent = _radio__WEBPACK_IMPORTED_MODULE_9__["default"];
-      break;
-
-    case 'kmt-background':
-      OptionComponent = _background__WEBPACK_IMPORTED_MODULE_10__["default"];
-      break;
-
-    case 'kmt-radio-image':
-      OptionComponent = _radio_image__WEBPACK_IMPORTED_MODULE_12__["default"];
-      break;
-
-    case 'kmt-icon-select':
-      OptionComponent = _icon_select__WEBPACK_IMPORTED_MODULE_11__["default"];
-      break;
-
-    case 'kmt-typography':
-      OptionComponent = _typography__WEBPACK_IMPORTED_MODULE_13__["default"];
-      break;
-
-    case 'kmt-color-palettes':
-      OptionComponent = _color_pallet__WEBPACK_IMPORTED_MODULE_14__["default"];
-      break;
-
-    case 'kmt-number':
-      OptionComponent = _number__WEBPACK_IMPORTED_MODULE_15__["default"];
-      break;
-
-    case "kmt-visibility":
-      OptionComponent = _visibility__WEBPACK_IMPORTED_MODULE_16__["default"];
-      break;
-
-    case "icon-picker":
-      OptionComponent = _icon__WEBPACK_IMPORTED_MODULE_17__["default"];
-      break;
-
-    case "kmt-border":
-      OptionComponent = _border__WEBPACK_IMPORTED_MODULE_18__["default"];
-      break;
-
-    case "kmt-readymade-headers":
-      OptionComponent = _readymade_headers__WEBPACK_IMPORTED_MODULE_19__["default"];
-      break;
-
-    case "kmt-box-shadow":
-      OptionComponent = _box_shadow__WEBPACK_IMPORTED_MODULE_21__["default"];
-      break;
-
-    case "kmt-notification":
-      OptionComponent = _notification__WEBPACK_IMPORTED_MODULE_22__["default"];
-      break;
-  }
-
+  var options = {
+    'kmt-tabs': _tabs__WEBPACK_IMPORTED_MODULE_20__["default"],
+    'kmt-color': _kmt_color__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'kmt-slider': _slider__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'kmt-spacing': _spacing__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'kmt-select': _select__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'kmt-title': _title__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'kmt-switcher': _toggle__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'kmt-text': _text__WEBPACK_IMPORTED_MODULE_6__["default"],
+    'kmt-editor': _editor__WEBPACK_IMPORTED_MODULE_7__["default"],
+    'kmt-sortable': _sortable__WEBPACK_IMPORTED_MODULE_8__["default"],
+    'kmt-radio': _radio__WEBPACK_IMPORTED_MODULE_9__["default"],
+    'kmt-background': _background__WEBPACK_IMPORTED_MODULE_10__["default"],
+    'kmt-radio-image': _radio_image__WEBPACK_IMPORTED_MODULE_12__["default"],
+    'kmt-icon-select': _icon_select__WEBPACK_IMPORTED_MODULE_11__["default"],
+    'kmt-number': _number__WEBPACK_IMPORTED_MODULE_15__["default"],
+    'kmt-typography': _typography__WEBPACK_IMPORTED_MODULE_13__["default"],
+    'kmt-color-palettes': _color_pallet__WEBPACK_IMPORTED_MODULE_14__["default"],
+    'kmt-visibility': _visibility__WEBPACK_IMPORTED_MODULE_16__["default"],
+    'kmt-icon-picker': _icon__WEBPACK_IMPORTED_MODULE_17__["default"],
+    'kmt-border': _border__WEBPACK_IMPORTED_MODULE_18__["default"],
+    'kmt-readymade-headers': _readymade_headers__WEBPACK_IMPORTED_MODULE_19__["default"],
+    'kmt-box-shadow': _box_shadow__WEBPACK_IMPORTED_MODULE_21__["default"],
+    'kmt-notification': _notification__WEBPACK_IMPORTED_MODULE_22__["default"]
+  };
+  _common_events__WEBPACK_IMPORTED_MODULE_23__["default"].trigger('kmt:options', options);
+  var OptionComponent = options[type];
   return OptionComponent;
 };
 

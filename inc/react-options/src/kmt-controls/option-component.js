@@ -21,80 +21,36 @@ import ReadymadeHeaders from './readymade-headers'
 import TabsComponent from './tabs'
 import BoxShadow from './box-shadow';
 import NotificationComponent from './notification'
+import kmtEvents from '../common/events'
 
 const OptionComponent = (type) => {
-    let OptionComponent;
-    switch (type) {
-        case 'kmt-tabs':
-            OptionComponent = TabsComponent;
-            break;
-        case 'kmt-color':
-            OptionComponent = KemetColorComponent;
-            break;
-        case 'kmt-slider':
-            OptionComponent = SliderComponent;
-            break;
-        case 'kmt-spacing':
-            OptionComponent = SpacingComponent;
-            break;
-        case 'kmt-select':
-            OptionComponent = SelectComponent;
-            break;
-        case 'kmt-title':
-            OptionComponent = TitleComponent;
-            break;
-        case 'kmt-switcher':
-            OptionComponent = ToggleControlComponent;
-            break;
-        case 'kmt-text':
-            OptionComponent = TextComponent;
-            break;
-        case 'kmt-editor':
-            OptionComponent = EditorComponent;
-            break;
-        case 'kmt-sortable':
-            OptionComponent = SortableComponent;
-            break;
-        case 'kmt-radio':
-            OptionComponent = RadioComponent;
-            break;
-        case 'kmt-background':
-            OptionComponent = BackgroundComponent;
-            break;
-        case 'kmt-radio-image':
-            OptionComponent = RadioImageComponent;
-            break;
-        case 'kmt-icon-select':
-            OptionComponent = IconSelectComponent;
-            break;
-        case 'kmt-typography':
-            OptionComponent = Typography;
-            break;
-        case 'kmt-color-palettes':
-            OptionComponent = ColorPalettes;
-            break;
-        case 'kmt-number':
-            OptionComponent = NumberComponent;
-            break;
-        case "kmt-visibility":
-            OptionComponent = Visibility;
-            break;
-        case "icon-picker":
-            OptionComponent = IconPicker;
-            break;
-        case "kmt-border":
-            OptionComponent = Border;
-            break;
-        case "kmt-readymade-headers":
-            OptionComponent = ReadymadeHeaders;
-            break;
-        case "kmt-box-shadow":
-            OptionComponent = BoxShadow;
-            break;
-        case "kmt-notification":
-            OptionComponent = NotificationComponent;
-            break;
-    }
+    const options = {
+        'kmt-tabs': TabsComponent,
+        'kmt-color': KemetColorComponent,
+        'kmt-slider': SliderComponent,
+        'kmt-spacing': SpacingComponent,
+        'kmt-select': SelectComponent,
+        'kmt-title': TitleComponent,
+        'kmt-switcher': ToggleControlComponent,
+        'kmt-text': TextComponent,
+        'kmt-editor': EditorComponent,
+        'kmt-sortable': SortableComponent,
+        'kmt-radio': RadioComponent,
+        'kmt-background': BackgroundComponent,
+        'kmt-radio-image': RadioImageComponent,
+        'kmt-icon-select': IconSelectComponent,
+        'kmt-number': NumberComponent,
+        'kmt-typography': Typography,
+        'kmt-color-palettes': ColorPalettes,
+        'kmt-visibility': Visibility,
+        'kmt-icon-picker': IconPicker,
+        'kmt-border': Border,
+        'kmt-readymade-headers': ReadymadeHeaders,
+        'kmt-box-shadow': BoxShadow,
+        'kmt-notification': NotificationComponent,
+    };
+    kmtEvents.trigger('kmt:options', options);
+    const OptionComponent = options[type];
 
     return OptionComponent;
 }

@@ -94,6 +94,10 @@
   }
 }
 
+.customize-partial-edit-shortcut:not(.kmt-custom-partial-edit):not(.kmt-custom-partial-edit-shortcut) {
+  display: none !important;
+}
+
 .site-footer {
   position: relative;
   overflow: hidden;

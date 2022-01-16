@@ -168,25 +168,6 @@ class Kemet_Header_Html_Customizer extends Kemet_Customizer_Register {
 		return array_merge( $sections, $register_sections );
 	}
 
-	/**
-	 * Add Partials
-	 *
-	 * @param array $partials partials.
-	 * @return array
-	 */
-	// public function add_partials( $partials ) {
-	// foreach ( self::$html_items as $html ) {
-	// $prefix                        = $html;
-	// $num                           = explode( 'header-html-', $prefix )[1];
-	// $partials[ $prefix . '-text' ] = array(
-	// 'selector'            => '.kmt-' . $prefix,
-	// 'container_inclusive' => false,
-	// 'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_' . $num ),
-	// );
-	// }
-
-	// return $partials;
-	// }
 }
 
 

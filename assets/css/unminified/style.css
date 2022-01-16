@@ -4776,6 +4776,10 @@ h4.widget-title {
 	left: 0;
 }
 
+.customize-partial-edit-shortcut:not(.kmt-custom-partial-edit):not(.kmt-custom-partial-edit-shortcut) {
+	display: none !important;
+}
+
 .site-footer {
 	overflow: hidden;
 	position: relative;
