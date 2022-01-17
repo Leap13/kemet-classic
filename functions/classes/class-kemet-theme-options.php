@@ -458,20 +458,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'mobile-unit'  => '',
 					),
 					'body-typography'                      => array(
-						'family'      => 'System Default',
-						'size'        => array(
+						'family' => 'System Default',
+						'size'   => array(
 							'desktop'      => 15,
 							'tablet'       => '',
 							'mobile'       => '',
 							'desktop-unit' => 'px',
-							'tablet-unit'  => '',
-							'mobile-unit'  => '',
-						),
-						'line-height' => array(
-							'desktop'      => 1.85714285714286,
-							'tablet'       => '',
-							'mobile'       => '',
-							'desktop-unit' => 'em',
 							'tablet-unit'  => '',
 							'mobile-unit'  => '',
 						),

@@ -396,7 +396,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-weight'     => 'var(--fontWeight)',
 					'font-size'       => 'var(--fontSize)',
 					'letter-spacing'  => 'var(--letterSpacing)',
-					'line-height'     => 'var(--lineHeight)',
+					'line-height'     => 'var(--lineHeight, 1.8571428571429)',
 					'text-transform'  => 'var(--textTransform)',
 					'font-style'      => 'var(--fontStyle)',
 					'text-decoration' => 'var(--textDecoration)',
