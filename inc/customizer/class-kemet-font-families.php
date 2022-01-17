@@ -54,7 +54,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 						),
 					),
 					'System Default' => array(
-						'fallback' => 'Verdana, Arial, sans-serif',
+						'fallback' => '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif',
 						'variants' => array(
 							'300',
 							'400',

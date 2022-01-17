@@ -443,7 +443,11 @@ if ( ! function_exists( 'kemet_get_font_family' ) ) {
 	function kemet_get_font_family( $value = '' ) {
 		$system_fonts = Kemet_Font_Families::get_system_fonts();
 		if ( isset( $system_fonts[ $value ] ) && isset( $system_fonts[ $value ]['fallback'] ) ) {
-			$value .= ',' . $system_fonts[ $value ]['fallback'];
+			if ( 'System Default' === $value ) {
+				$value = $system_fonts[ $value ]['fallback'];
+			} else {
+				$value .= ',' . $system_fonts[ $value ]['fallback'];
+			}
 		}
 
 		return $value;

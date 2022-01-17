@@ -30,80 +30,82 @@
 # Normalize
 --------------------------------------------------------------*/
 
-html,
 body,
-applet,
-object,
-iframe,
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
 em,
-font,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
 ol,
 ul,
 li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
 tr,
 th,
-td {
+td,
+dl,
+img,
+ins,
+sub,
+sup,
+big,
+cite,
+code,
+form,
+small,
+label,
+table,
+figure,
+button,
+legend,
+strike,
+address,
+caption,
+fieldset,
+blockquote {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	outline: 0;
-	font-family: var(--fontFamily);
-	font-size: var(--fontSize);
-	font-weight: var(--fontWeight);
-	font-style: var(--fontStyle);
-	line-height: var(--lineHeight);
+	font-size: inherit;
+	line-height: inherit;
+	text-align: inherit;
 	vertical-align: baseline;
-	text-decoration: var(--textDecoration);
-	letter-spacing: var(--letterSpacing);
-	text-transform: var(--textTransform);
-
-	-webkit-text-decoration: var(--textDecoration);
 }
 
-div[class*="kmt"],
-span[class*="kmt"] {
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+kbd,
+code,
+samp,
+label,
+figcaption,
+blockquote,
+blockquote p,
+.price,
+.main-navigation a,
+.site-title,
+.entry-meta,
+.widget-title,
+.contact-info,
+.entry-excerpt,
+.kemet-breadcrumb-trail,
+.site-description,
+.page-description,
+.comment-reply-title,
+.kmt-footer-copyright,
+.entry-summary .price,
+.woocommerce-tabs .tabs,
+.widget > *,
+.kmt-custom-html {
 	font-family: var(--fontFamily);
 	font-size: var(--fontSize);
 	font-weight: var(--fontWeight);

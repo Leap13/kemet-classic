@@ -6,12 +6,13 @@ const typographyPreview = (controlId, controlData) => {
             const { selector } = controlData;
             let dynamicStyle = '';
             const { family, variation, size, "letter-spacing": letterSpacing, "line-height": lineHeight, "text-transform": textTransform, "text-decoration": textDecoration } = value;
-            if (family) {
+
+            if (family && family !== 'System Default') {
                 let fontName = family;
                 let weight = '';
                 let style = '';
                 if (variation) {
-                    weight = `${variation[1]}00`;
+                    weight = variation[0] === 'regular' ? '400' : `${variation[1]}00`;
                     style = 'i' === variation[0] ? 'italic' : 'normal';
                     if (fontName in previewData.googleFonts) {
                         fontName = fontName.split(" ").join("+");
@@ -22,10 +23,7 @@ const typographyPreview = (controlId, controlData) => {
                     }
                 }
                 if (family === 'Default') {
-                    const element = document.querySelector(selector);
-                    if (element) {
-                        element.style.removeProperty('--fontFamily');
-                    }
+                    wp.customize.preview.send("refresh");
                 } else {
                     dynamicStyle += `--fontFamily: ${family};`;
                 }
@@ -39,7 +37,6 @@ const typographyPreview = (controlId, controlData) => {
                 dynamicStyle += `--textDecoration: ${textDecoration};`;
             }
             dynamicStyle = `${selector}{ ${dynamicStyle} }`;
-            console.log(dynamicStyle);
             if (size) {
                 dynamicStyle += applyResponsiveValue(selector, '--fontSize', size);
             }

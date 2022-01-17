@@ -1,75 +1,79 @@
-html,
 body,
-applet,
-object,
-iframe,
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
 em,
-font,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
 ol,
 ul,
 li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
 tr,
 th,
-td {
+td,
+dl,
+img,
+ins,
+sub,
+sup,
+big,
+cite,
+code,
+form,
+small,
+label,
+table,
+figure,
+button,
+legend,
+strike,
+address,
+caption,
+fieldset,
+blockquote {
   border: 0;
-  font-size: var(--fontSize);
-  font-style: var(--fontStyle);
-  font-family: var(--fontFamily);
-  font-weight: var(--fontWeight);
   margin: 0;
   outline: 0;
   padding: 0;
   vertical-align: baseline;
-  letter-spacing: var(--letterSpacing);
-  line-height: var(--lineHeight);
-  text-transform: var(--textTransform);
-  text-decoration: var(--textDecoration);
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
 }
 
-div[class*="kmt"],
-span[class*="kmt"] {
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+kbd,
+code,
+samp,
+label,
+figcaption,
+blockquote,
+blockquote p,
+.price,
+.main-navigation a,
+.site-title,
+.entry-meta,
+.widget-title,
+.contact-info,
+.entry-excerpt,
+.kemet-breadcrumb-trail,
+.site-description,
+.page-description,
+.comment-reply-title,
+.kmt-footer-copyright,
+.entry-summary .price,
+.woocommerce-tabs .tabs,
+.widget > *,
+.kmt-custom-html {
   font-size: var(--fontSize);
   font-style: var(--fontStyle);
   font-family: var(--fontFamily);

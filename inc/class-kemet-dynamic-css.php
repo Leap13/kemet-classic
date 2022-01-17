@@ -820,7 +820,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			}
 
 			// Typography.
-			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'body', ':root' );
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'body', 'body, button, input, select, textarea, .button, a.wp-block-button__link' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'headings', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'h1', 'h1, .entry-content h1, .entry-content h1 a' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'h2', 'h2, .entry-content h2, .entry-content h2 a' );

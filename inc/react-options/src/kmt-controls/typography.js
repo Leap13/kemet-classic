@@ -119,8 +119,7 @@ const Typography = ({ value, onChange, params, params: { label, default: optionD
 
 
     const updateValues = (obj) => {
-        console.log(obj);
-        // onChange(obj);
+        onChange(obj);
     };
 
     return (

@@ -458,6 +458,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'mobile-unit'  => '',
 					),
 					'body-typography'                      => array(
+						'family'      => 'System Default',
 						'size'        => array(
 							'desktop'      => 15,
 							'tablet'       => '',
@@ -474,6 +475,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => '',
 							'mobile-unit'  => '',
 						),
+					),
+					'headings-typography'                  => array(
+						'family' => 'System Default',
 					),
 					'h1-typography'                        => array(
 						'family'      => 'Default',
