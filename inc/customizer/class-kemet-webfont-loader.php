@@ -282,7 +282,7 @@ if ( ! class_exists( 'Kemet_WebFont_Loader' ) ) {
 		public function get_local_files_from_css() {
 			$font_files = $this->get_remote_files_from_css();
 			$stored     = get_site_option( 'kemet_downloaded_font_files', array() );
-			// var_dump( 'get_local_files_from_css' . wp_json_encode( $stored ) );
+
 			$change = false; // If in the end this is true, we need to update the cache option.
 
 			if ( ! defined( 'FS_CHMOD_DIR' ) ) {

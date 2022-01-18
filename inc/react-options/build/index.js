@@ -22633,7 +22633,7 @@ var FontsList = function FontsList(_ref4) {
       onPickFamily: onPickFamily,
       value: value
     });
-  })), customFonts.length > 1 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  })), customFonts.length > 0 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-fonts-source"
   }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Custom Fonts', "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", null, customFonts.map(function (family) {
     return SingleFont({

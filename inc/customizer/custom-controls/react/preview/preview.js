@@ -1012,14 +1012,20 @@ var typographyPreview = function typographyPreview(controlId, controlData) {
 
       if (size) {
         dynamicStyle += applyResponsiveValue(selector, '--fontSize', size);
+      } else if (!size || size && !size.desktop && !size.tablet && !size.mobile) {
+        wp.customize.preview.send("refresh");
       }
 
       if (letterSpacing) {
         dynamicStyle += applyResponsiveValue(selector, '--letterSpacing', letterSpacing);
+      } else if (!letterSpacing || letterSpacing && !letterSpacing.desktop && !letterSpacing.tablet && !letterSpacing.mobile) {
+        wp.customize.preview.send("refresh");
       }
 
       if (lineHeight) {
         dynamicStyle += applyResponsiveValue(selector, '--lineHeight', lineHeight);
+      } else if (!lineHeight || lineHeight && !lineHeight.desktop && !lineHeight.tablet && !lineHeight.mobile) {
+        wp.customize.preview.send("refresh");
       }
 
       Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, controlId);

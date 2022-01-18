@@ -110,7 +110,7 @@ const FontsList = ({
 				<ul>
 					{systemFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
 				</ul>
-				{customFonts.length > 1 && (<><div className={`kmt-fonts-source`}>{__('Custom Fonts', "kemet")}</div>
+				{customFonts.length > 0 && (<><div className={`kmt-fonts-source`}>{__('Custom Fonts', "kemet")}</div>
 					<ul>
 						{customFonts.map((family) => SingleFont({ family, onPickFamily, value }))}
 					</ul></>)}

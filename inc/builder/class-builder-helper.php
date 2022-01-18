@@ -136,9 +136,6 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			return false || is_customize_preview();
 		}
 
-		public function merge_array( $array ) {
-			var_dump( $array );
-		}
 		/**
 		 * Get Widget
 		 *
