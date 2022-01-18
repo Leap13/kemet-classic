@@ -73,7 +73,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--padding-bottom' => kemet_responsive_spacing( $menu_link_spacing, 'bottom', 'desktop' ),
 						'--padding-right'  => kemet_responsive_spacing( $menu_link_spacing, 'right', 'desktop' ),
 					),
-					$selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a' => array(
+					$selector . ':not(.textcolor-fill) > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a' => array(
 						'--linksColor'      => esc_attr( $link_active_color ),
 						'--backgroundColor' => esc_attr( $link_active_bg_color ),
 						'background-color'  => 'var(--backgroundColor)',
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--backgroundColor' => esc_attr( $submenu_bg_color ),
 						'--linksColor'      => esc_attr( $submenu_link_color ),
 						'--borderBottom'    => kemet_border( $submenu_items_border ),
-						'padding'           => '0.5em 1.6em',
+						'padding'           => '0.9em 1em',
 						'--linksHoverColor' => esc_attr( $submenu_link_h_color ),
 					),
 					$selector . ' > li ul > li > a:hover' => array(

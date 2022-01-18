@@ -28,11 +28,11 @@
 .kmt-site-identity {
   padding-top: var(--padding-top, 24px);
   padding-left: var(--padding-left);
-  padding-bottom: var(--padding-bottom, 24px);
+  padding-bottom: var(--padding-bottom, 0px);
   padding-right: var(--padding-right);
   margin-top: var(--margin-top, 24px);
   margin-left: var(--margin-left);
-  margin-bottom: var(--margin-bottom, 24px);
+  margin-bottom: var(--margin-bottom, 0px);
   margin-right: var(--margin-right);
 }
 
@@ -257,7 +257,7 @@
           color: transparent;
           content: "•";
           text-shadow: transparent 0px 0px;
-          font-size: 1.2em;
+          font-size: 1em;
           transform: translateX(-50%);
           pointer-events: none;
           transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
@@ -288,8 +288,18 @@
         color: transparent;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        transition: 2s;
+        transition: 1.3s;
       }
+    }
+    .kmt-svg-icon{
+      svg {
+        fill: var(--linksColor);
+      }
+    }
+    > .current-menu-item, > .current-menu-ancestor, > .current_page_item {
+    > a {
+      background-color: var(--linksColor) !important;
+    }
     }
     > .menu-item:hover {
       > a {

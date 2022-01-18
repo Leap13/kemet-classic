@@ -3438,11 +3438,11 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 .kmt-site-identity {
 	margin-top: var(--margin-top, 24px);
 	margin-right: var(--margin-left);
-	margin-bottom: var(--margin-bottom, 24px);
+	margin-bottom: var(--margin-bottom, 0px);
 	margin-left: var(--margin-right);
 	padding-top: var(--padding-top, 24px);
 	padding-right: var(--padding-left);
-	padding-bottom: var(--padding-bottom, 24px);
+	padding-bottom: var(--padding-bottom, 0px);
 	padding-left: var(--padding-right);
 }
 
@@ -3673,7 +3673,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	right: 50%;
 	color: transparent;
 	text-shadow: transparent 0 0;
-	font-size: 1.2em;
+	font-size: 1em;
 	content: "•";
 	transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
 	transform: translateX(50%);
@@ -3692,9 +3692,19 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	-webkit-background-clip: text;
 	background-clip: text;
 	background-size: 0 100%;
-	transition: 2s;
+	transition: 1.3s;
 
 	-webkit-text-fill-color: transparent;
+}
+
+.main-header-menu[data-effect="textcolor-fill"] .kmt-svg-icon svg {
+	fill: var(--linksColor);
+}
+
+.main-header-menu[data-effect="textcolor-fill"] > .current-menu-item > a,
+.main-header-menu[data-effect="textcolor-fill"] > .current-menu-ancestor > a,
+.main-header-menu[data-effect="textcolor-fill"] > .current_page_item > a {
+	background-color: var(--linksColor) !important;
 }
 
 .main-header-menu[data-effect="textcolor-fill"] > .menu-item:hover > a {
