@@ -131,6 +131,13 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'property' => '--backgroundColor',
 						),
 					),
+					'context'      => array(
+						array(
+							'setting'  => $prefix . '-items-hover-effect',
+							'operator' => '!=',
+							'value'    => 'textcolor-fill',
+						),
+					),
 				),
 				$prefix . '-link-active-border-radius' => array(
 					'type'         => 'kmt-slider',
