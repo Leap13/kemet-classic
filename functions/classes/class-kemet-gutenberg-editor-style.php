@@ -41,9 +41,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$body_line_height     = kemet_get_option(
 				'body-line-height',
 				array(
-					'desktop'      => esc_attr( '1.85714285714286' ),
-					'tablet'       => esc_attr( '1.85714285714286' ),
-					'mobile'       => esc_attr( '1.85714285714286' ),
+					'desktop'      => esc_attr( '1.6' ),
+					'tablet'       => esc_attr( '1.6' ),
+					'mobile'       => esc_attr( '1.6' ),
 					'desktop-unit' => 'em',
 					'tablet-unit'  => 'em',
 					'mobile-unit'  => 'em',

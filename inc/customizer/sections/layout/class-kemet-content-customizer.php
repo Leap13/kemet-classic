@@ -30,7 +30,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'transport' => 'postMessage',
 				'label'     => __( 'Typography', 'kemet' ),
 				'preview'   => array(
-					'selector' => ':root',
+					'selector' => 'body',
 				),
 			),
 			'content-text-color'        => array(
