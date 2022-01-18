@@ -3438,11 +3438,11 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 .kmt-site-identity {
 	margin-top: var(--margin-top, 24px);
 	margin-right: var(--margin-left);
-	margin-bottom: var(--margin-bottom, 24px);
+	margin-bottom: var(--margin-bottom, 0px);
 	margin-left: var(--margin-right);
 	padding-top: var(--padding-top, 24px);
 	padding-right: var(--padding-left);
-	padding-bottom: var(--padding-bottom, 24px);
+	padding-bottom: var(--padding-bottom, 0px);
 	padding-left: var(--padding-right);
 }
 
