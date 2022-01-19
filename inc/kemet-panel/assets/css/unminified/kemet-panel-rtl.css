@@ -101,6 +101,26 @@
   text-transform: capitalize;
 }
 
+#kmt-dashboard h2.kmt-section-title {
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+#kmt-dashboard h2.kmt-section-title .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #2d3747;
+  margin-left: 10px;
+}
+
 #kmt-dashboard .kmt-addons-tab,
 #kmt-dashboard .kmt-sites-tab {
   text-align: center;
@@ -127,26 +147,6 @@
 
 #kmt-dashboard .options-section.advanced-options .customize-control-description {
   height: 75px;
-}
-
-#kmt-dashboard .options-section h2 {
-  font-size: 19px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-  margin-top: 0;
-}
-
-#kmt-dashboard .options-section h2 .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #2d3747;
-  margin-left: 10px;
 }
 
 #kmt-dashboard .kmt-panel-header {

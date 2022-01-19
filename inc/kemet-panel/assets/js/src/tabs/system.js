@@ -1,11 +1,13 @@
 import { Fragment } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import Container from "../common/Container";
+const { Dashicon } = wp.components;
 
 const System = () => {
     const { system_info } = KemetPanelData;
 
     return <Container>
+        <h2 className="kmt-section-title"><span className='icon'><Dashicon icon="edit" /></span>{__('Useful Information', 'kemet-addons')}</h2>
         <div id='system-info'>
             <table className="widefat" cellspacing="0">
                 <thead>

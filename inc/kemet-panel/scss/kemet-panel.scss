@@ -91,6 +91,24 @@
       }
     }
   }
+  h2.kmt-section-title {
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 0;
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #2d3747;
+      margin-right: 10px;
+    }
+  }
   .kmt-addons-tab,
   .kmt-sites-tab {
     text-align: center;
@@ -116,24 +134,6 @@
     &.advanced-options {
       .customize-control-description {
         height: 75px;
-      }
-    }
-    h2 {
-      font-size: 19px;
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-      margin-top: 0;
-      .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #2d3747;
-        margin-right: 10px;
       }
     }
   }

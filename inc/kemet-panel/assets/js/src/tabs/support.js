@@ -4,9 +4,11 @@ import {
     __experimentalGrid as Grid,
 } from '@wordpress/components';
 const { __ } = wp.i18n;
+const { Dashicon } = wp.components;
 
 const Support = () => {
     return <Container>
+        <h2 className="kmt-section-title"><span className='icon'><Dashicon icon="sos" /></span>{__('Have a Question?', 'kemet-addons')}</h2>
         <Grid columns={3} gap={8} className='kmt-support'>
             <Card>
                 <div className='kmt-card-title'>
