@@ -96,9 +96,29 @@
   text-align: right;
 }
 
+#kmt-dashboard .kmt-support .kmt-card .kmt-card-title .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f9bb32;
+  margin-bottom: 20px;
+}
+
+#kmt-dashboard .kmt-support .kmt-card .kmt-card-title .icon svg {
+  fill: currentColor;
+}
+
 #kmt-dashboard .kmt-support .kmt-card .kmt-card-title h2 {
   margin: 0;
   text-transform: capitalize;
+}
+
+#kmt-dashboard .kmt-support .kmt-card .kmt-card-body p {
+  margin: 0;
 }
 
 #kmt-dashboard h2.kmt-section-title {
