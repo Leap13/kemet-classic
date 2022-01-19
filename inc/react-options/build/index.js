@@ -21841,7 +21841,8 @@ var TextComponent = function TextComponent(_ref) {
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
-  var label = params.label;
+  var label = params.label,
+      description = params.description;
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label) : null;
@@ -21856,7 +21857,9 @@ var TextComponent = function TextComponent(_ref) {
 
       _onChange(input);
     }
-  })));
+  }), description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
+    className: "description customize-control-description"
+  }, description)));
 };
 
 TextComponent.propTypes = {
@@ -22773,7 +22776,7 @@ var getDefaultFonts = function getDefaultFonts(_ref) {
       family: family[0],
       variations: [],
       source: "custom",
-      all_variations: family[1].weights
+      all_variations: family[1].variations
     };
   });
   return {

@@ -26,11 +26,11 @@
 }
 
 .kmt-site-identity {
-  padding-top: var(--padding-top, 24px);
+  padding-top: var(--padding-top);
   padding-left: var(--padding-left);
   padding-bottom: var(--padding-bottom, 0px);
   padding-right: var(--padding-right);
-  margin-top: var(--margin-top, 24px);
+  margin-top: var(--margin-top);
   margin-left: var(--margin-left);
   margin-bottom: var(--margin-bottom, 0px);
   margin-right: var(--margin-right);
@@ -291,15 +291,17 @@
         transition: 1.3s;
       }
     }
-    .kmt-svg-icon{
+    .kmt-svg-icon {
       svg {
         fill: var(--linksColor);
       }
     }
-    > .current-menu-item, > .current-menu-ancestor, > .current_page_item {
-    > a {
-      background-color: var(--linksColor) !important;
-    }
+    > .current-menu-item,
+    > .current-menu-ancestor,
+    > .current_page_item {
+      > a {
+        background-color: var(--linksColor) !important;
+      }
     }
     > .menu-item:hover {
       > a {

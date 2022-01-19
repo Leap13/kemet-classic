@@ -4,7 +4,7 @@ import { useState } from 'react';
 const TextComponent = ({ onChange, value, params }) => {
 
     const [props_value, setPropsValue] = useState(value);
-    const { label } = params;
+    const { label, description } = params;
 
     let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
@@ -16,6 +16,7 @@ const TextComponent = ({ onChange, value, params }) => {
                 onChange(input);
             }}
             />
+            {description && <p className="description customize-control-description" >{description}</p>}
         </div>
     </>;
 

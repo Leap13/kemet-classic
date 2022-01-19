@@ -3436,11 +3436,11 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 }
 
 .kmt-site-identity {
-	margin-top: var(--margin-top, 24px);
+	margin-top: var(--margin-top);
 	margin-right: var(--margin-right);
 	margin-bottom: var(--margin-bottom, 0px);
 	margin-left: var(--margin-left);
-	padding-top: var(--padding-top, 24px);
+	padding-top: var(--padding-top);
 	padding-right: var(--padding-right);
 	padding-bottom: var(--padding-bottom, 0px);
 	padding-left: var(--padding-left);
@@ -7267,7 +7267,7 @@ Hide From Devices
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,	visibility 0.3s ease;
 	transition: all 0.5s ease-in-out;
 	transform: translate3d(0, 15px, 0);
 

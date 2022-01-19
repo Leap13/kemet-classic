@@ -1300,7 +1300,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
       &:not(.is-secondary) {
         &:not(.is-primary) {
           &:not(.is-tertiary) {
-            &:not(.is-link) {
+            &:not(.is-link):not(.is-destructive) {
               &:not(.components-color-picker__saturation-pointer) {
                 &:hover {
                   color: #777777;
