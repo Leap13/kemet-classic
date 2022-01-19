@@ -3436,13 +3436,13 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 }
 
 .kmt-site-identity {
-	margin-top: var(--margin-top, 24px);
+	margin-top: var(--margin-top, 0px);
 	margin-right: var(--margin-right);
 	margin-bottom: var(--margin-bottom, 0px);
 	margin-left: var(--margin-left);
 	padding-top: var(--padding-top, 24px);
 	padding-right: var(--padding-right);
-	padding-bottom: var(--padding-bottom, 0px);
+	padding-bottom: var(--padding-bottom, 24px);
 	padding-left: var(--padding-left);
 }
 
@@ -3456,7 +3456,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	--buttonShadow: none !important;
 }
 
-.kmt-menu-toggle:focus,
+grunt .kmt-menu-toggle:focus,
 .kmt-menu-toggle:hover {
 	border-color: inherit;
 	color: inherit;
@@ -6669,11 +6669,11 @@ body:not(.kmt-separate-container) .kmt-article-post:last-child > div {
 	background-image: none;
 }
 
-.kemet-page-title {
+.kmt-page-title:not(.page-title-layout-3) .kemet-page-title {
 	display: inline-block;
 }
 
-.kemet-page-title::after {
+.kmt-page-title:not(.page-title-layout-3) .kemet-page-title::after {
 	display: block;
 	margin: 10px auto 10px;
 	content: "";
