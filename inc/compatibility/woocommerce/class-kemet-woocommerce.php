@@ -1038,8 +1038,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$kemet_footer_widget_bg_color = kemet_get_sub_option( 'footer-wgt-bg-color', 'initial' );
 
 			$site_content_width         = kemet_get_option( 'site-content-width' );
-			$woo_shop_archive_width     = kemet_get_option( 'shop-archive-width' );
-			$woo_shop_archive_max_width = kemet_get_option( 'shop-archive-max-width' );
+			$woo_shop_archive_width     = kemet_get_option( 'woo-shop-archive-width' );
+			$woo_shop_archive_max_width = kemet_get_option( 'woo-shop-archive-max-width' );
 			$product_title_font_color   = kemet_get_sub_option( 'woo-shop-product-title-color', 'initial' );
 			$product_title_font_h_color = kemet_get_sub_option( 'woo-shop-product-title-color', 'hover' );
 			$product_content_font_color = kemet_get_sub_option( 'woo-shop-product-content-color', 'initial' );

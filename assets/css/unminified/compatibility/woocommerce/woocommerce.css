@@ -1039,6 +1039,7 @@ p.demo_store a,
 .woocommerce div.product form.cart .button,
 .woocommerce-page div.product form.cart .button {
 	float: left;
+	text-align: center;
 	vertical-align: middle;
 
 	flex: 1;

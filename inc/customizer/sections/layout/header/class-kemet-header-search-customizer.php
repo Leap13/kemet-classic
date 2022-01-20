@@ -52,8 +52,8 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector'   => $parent_selector . ' .kemet-search-icon',
-									'property'   => '--fontSize',
+									'selector'   => $parent_selector . ' .kemet-search-icon svg',
+									'property'   => 'width',
 									'responsive' => true,
 								),
 							),
@@ -242,7 +242,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector'   => $parent_selector,
+									'selector'   => '.site-header-section div' . $parent_selector,
 									'property'   => 'margin',
 									'responsive' => true,
 								),

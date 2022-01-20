@@ -1175,6 +1175,12 @@ var toggleClass = function (el, className) {
     }
   };
   setSubmenuPosition();
+  document.addEventListener(
+    "kmtPartialContentRendered",
+    function () {
+      setSubmenuPosition();
+    }
+  );
   var initKemetPopup = {
     header: "",
     init: function () {

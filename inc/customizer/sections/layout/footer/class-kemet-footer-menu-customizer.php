@@ -50,24 +50,51 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-items-align' => array(
-								'type'      => 'kmt-icon-select',
-								'transport' => 'postMessage',
-								'default'   => 'flex-start',
-								'label'     => __( 'Horizontal Alignment', 'kemet' ),
-								'choices'   => array(
+								'type'       => 'kmt-icon-select',
+								'transport'  => 'postMessage',
+								'default'    => array(
+									'desktop' => 'flex-start',
+								),
+								'responsive' => true,
+								'label'      => __( 'Horizontal Alignment', 'kemet' ),
+								'choices'    => array(
 									'flex-start' => array(
-										'icon' => 'dashicons-editor-alignleft',
+										'icon' => 'dashicons-align-left',
 									),
 									'center'     => array(
-										'icon' => 'dashicons-editor-aligncenter',
+										'icon' => 'dashicons-align-center',
 									),
 									'flex-end'   => array(
-										'icon' => 'dashicons-editor-alignright',
+										'icon' => 'dashicons-align-right',
 									),
 								),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--justifyContent',
+								'preview'    => array(
+									'selector'   => $selector,
+									'responsive' => true,
+									'property'   => '--justifyContent',
+								),
+							),
+							self::$prefix . '-vertical-align' => array(
+								'transport'  => 'postMessage',
+								'type'       => 'kmt-icon-select',
+								'responsive' => true,
+								'divider'    => true,
+								'label'      => __( 'Vertical Alignment', 'kemet' ),
+								'choices'    => array(
+									'flex-start' => array(
+										'icon' => 'dashicons-align-left',
+									),
+									'center'     => array(
+										'icon' => 'dashicons-align-center',
+									),
+									'flex-end'   => array(
+										'icon' => 'dashicons-align-right',
+									),
+								),
+								'preview'    => array(
+									'selector'   => $selector,
+									'property'   => '--alignItems',
+									'responsive' => true,
 								),
 							),
 						),

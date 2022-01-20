@@ -185,26 +185,28 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		public static function toggle_button_css( $toggle_button, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $toggle_button, 'header', $device ) ) {
 				// Toggle Button Css.
-				$btn_selector      = '.' . $toggle_button . '-button';
-				$icon_color        = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'initial', 'var(--linksColor)' );
-				$border_color      = kemet_get_sub_option( $toggle_button . '-button-border-color', 'initial' );
-				$icon_bg_color     = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'initial' );
-				$icon_h_color      = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'hover', 'var(--linksHoverColor)' );
-				$icon_bg_h_color   = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'hover' );
-				$border_h_color    = kemet_get_sub_option( $toggle_button . '-button-border-color', 'hover' );
-				$btn_width         = kemet_get_option( $toggle_button . '-button-width' );
-				$btn_height        = kemet_get_option( $toggle_button . '-button-height' );
-				$btn_radius        = kemet_get_option( $toggle_button . '-button-border-radius' );
-				$toggle_design     = kemet_get_option( $toggle_button . '-toggle-button-design' );
-				$toggle_size       = kemet_get_option( $toggle_button . '-button-size' );
-				$float_position    = kemet_get_option( $toggle_button . '-button-float-position' );
-				$float_vposition   = strpos( $float_position, 'top' ) !== false ? 'top' : 'bottom';
-				$float_hposition   = strpos( $float_position, 'left' ) !== false ? 'left' : 'right';
-				$vertical_offset   = kemet_get_option( $toggle_button . '-button-vertical-offset' );
-				$horizontal_offset = kemet_get_option( $toggle_button . '-button-horizontal-offset' );
-				$z_index           = kemet_get_option( $toggle_button . '-button-z-index' );
-				$padding           = kemet_get_option( $toggle_button . '-button-padding' );
-				$margin            = kemet_get_option( $toggle_button . '-button-margin' );
+				$btn_selector        = '.' . $toggle_button . '-button';
+				$icon_color          = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'initial', 'var(--linksColor)' );
+				$icon_color_sticky   = kemet_get_sub_option( $toggle_button . '-button-icon-color-sticky', 'initial' );
+				$border_color        = kemet_get_sub_option( $toggle_button . '-button-border-color', 'initial' );
+				$icon_bg_color       = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'initial' );
+				$icon_h_color        = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'hover', 'var(--linksHoverColor)' );
+				$icon_h_color_sticky = kemet_get_sub_option( $toggle_button . '-button-icon-color-sticky', 'hover' );
+				$icon_bg_h_color     = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'hover' );
+				$border_h_color      = kemet_get_sub_option( $toggle_button . '-button-border-color', 'hover' );
+				$btn_width           = kemet_get_option( $toggle_button . '-button-width' );
+				$btn_height          = kemet_get_option( $toggle_button . '-button-height' );
+				$btn_radius          = kemet_get_option( $toggle_button . '-button-border-radius' );
+				$toggle_design       = kemet_get_option( $toggle_button . '-toggle-button-design' );
+				$toggle_size         = kemet_get_option( $toggle_button . '-button-size' );
+				$float_position      = kemet_get_option( $toggle_button . '-button-float-position' );
+				$float_vposition     = strpos( $float_position, 'top' ) !== false ? 'top' : 'bottom';
+				$float_hposition     = strpos( $float_position, 'left' ) !== false ? 'left' : 'right';
+				$vertical_offset     = kemet_get_option( $toggle_button . '-button-vertical-offset' );
+				$horizontal_offset   = kemet_get_option( $toggle_button . '-button-horizontal-offset' );
+				$z_index             = kemet_get_option( $toggle_button . '-button-z-index' );
+				$padding             = kemet_get_option( $toggle_button . '-button-padding' );
+				$margin              = kemet_get_option( $toggle_button . '-button-margin' );
 
 				$btn_css_output = array(
 					$btn_selector . '.toggle-button-fixed' => array(
@@ -214,6 +216,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$btn_selector . '.toggle-button-fixed.float-' . $float_position => array(
 						$float_vposition => kemet_slider( $vertical_offset ),
 						$float_hposition => kemet_slider( $horizontal_offset ),
+					),
+					'.kmt-is-sticky ' . $btn_selector      => array(
+						'--color'      => esc_attr( $icon_color_sticky ),
+						'--hoverColor' => esc_attr( $icon_h_color_sticky ),
 					),
 					$btn_selector                          => array(
 						'display'          => 'flex',

@@ -2235,6 +2235,17 @@ span.kmt-color-description {
 	flex-wrap: wrap;
 }
 
+.customize-control-kmt-icon-select .icon-select[id*="vertical-align"] .dashicons {
+	display: inline-flex;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.customize-control-kmt-icon-select .icon-select[id*="vertical-align"] .dashicons::before {
+	transform: rotate(90deg);
+}
+
 .customize-control-kmt-icon-select .icon-select label {
 	display: -webkit-box;
 	display: -ms-flexbox;

@@ -1,4 +1,14 @@
 .customize-control-kmt-icon-select .icon-select {
+  &[id*="vertical-align"] {
+    .dashicons {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
+  }
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

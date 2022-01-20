@@ -42,14 +42,20 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-horizontal-align' => array(
 								'transport'  => 'postMessage',
-								'type'       => 'kmt-radio',
+								'type'       => 'kmt-icon-select',
 								'responsive' => true,
 								'divider'    => true,
 								'label'      => __( 'Horizontal Alignment', 'kemet' ),
 								'choices'    => array(
-									'flex-start' => __( 'Left', 'kemet' ),
-									'center'     => __( 'Center', 'kemet' ),
-									'flex-end'   => __( 'Right', 'kemet' ),
+									'flex-start' => array(
+										'icon' => 'dashicons-align-left',
+									),
+									'center'     => array(
+										'icon' => 'dashicons-align-center',
+									),
+									'flex-end'   => array(
+										'icon' => 'dashicons-align-right',
+									),
 								),
 								'preview'    => array(
 									'selector'   => $selector,
@@ -59,14 +65,20 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-vertical-align' => array(
 								'transport'  => 'postMessage',
-								'type'       => 'kmt-radio',
+								'type'       => 'kmt-icon-select',
 								'responsive' => true,
 								'divider'    => true,
 								'label'      => __( 'Vertical Alignment', 'kemet' ),
 								'choices'    => array(
-									'flex-start' => __( 'Top', 'kemet' ),
-									'center'     => __( 'Center', 'kemet' ),
-									'flex-end'   => __( 'Bottom', 'kemet' ),
+									'flex-start' => array(
+										'icon' => 'dashicons-align-left',
+									),
+									'center'     => array(
+										'icon' => 'dashicons-align-center',
+									),
+									'flex-end'   => array(
+										'icon' => 'dashicons-align-right',
+									),
 								),
 								'preview'    => array(
 									'selector'   => $selector,

@@ -31,13 +31,14 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 				$menu_link_spacing   = kemet_get_option( $prefix . '-item-spacing' );
 				$line_height         = kemet_get_option( $prefix . '-line-height' );
 				$items_width         = kemet_get_option( $prefix . '-items-direction' );
-				$align               = kemet_get_option( $prefix . '-items-align' );
 
 				$css_output = array(
 					'.kmt-footer-item-menu'       => array(
 						'display'          => 'flex',
-						'--justifyContent' => esc_attr( $align ),
+						'--justifyContent' => kemet_get_sub_option( $prefix . '-items-align', 'desktop' ),
+						'--alignItems'     => kemet_get_sub_option( $prefix . '-vertical-align', 'desktop' ),
 						'justify-content'  => 'var(--justifyContent)',
+						'align-items'      => 'var(--alignItems)',
 					),
 					$selector                     => array(
 						'--lineHeight'      => '1em',
@@ -49,6 +50,7 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_h_color ),
 						'justify-content'   => 'var(--justifyContent)',
+						'align-items'       => 'var(--alignItems)',
 					),
 					$selector . ' > li'           => array(
 						'display'         => 'inline-flex',
@@ -74,6 +76,10 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 				$parse_css = kemet_parse_css( $css_output );
 
 				$tablet = array(
+					'.kmt-footer-item-menu' => array(
+						'--justifyContent' => kemet_get_sub_option( $prefix . '-items-align', 'tablet' ),
+						'--alignItems'     => kemet_get_sub_option( $prefix . '-vertical-align', 'tablet' ),
+					),
 					$selector               => array(
 						'--padding-top'    => kemet_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
 						'--padding-left'   => kemet_responsive_spacing( $menu_spacing, 'left', 'tablet' ),
@@ -93,6 +99,10 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 				$parse_css .= kemet_parse_css( $tablet, '', '768' );
 
 				$mobile = array(
+					'.kmt-footer-item-menu' => array(
+						'--justifyContent' => kemet_get_sub_option( $prefix . '-items-align', 'mobile' ),
+						'--alignItems'     => kemet_get_sub_option( $prefix . '-vertical-align', 'mobile' ),
+					),
 					$selector               => array(
 						'--padding-top'    => kemet_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
 						'--padding-left'   => kemet_responsive_spacing( $menu_spacing, 'left', 'mobile' ),

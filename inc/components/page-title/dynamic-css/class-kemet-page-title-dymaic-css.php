@@ -79,10 +79,10 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 				),
 				'.kemet-breadcrumb-trail'             => array(
 					'font-family'       => 'var(--fontFamily)',
-					'--padding-top'     => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'desktop' ),
-					'--padding-left'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'desktop' ),
-					'--padding-bottom'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'desktop' ),
-					'--padding-right'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'desktop' ),
+					'padding-top'       => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'desktop' ),
+					'padding-left'      => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'desktop' ),
+					'padding-bottom'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'desktop' ),
+					'padding-right'     => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'desktop' ),
 					'--linksColor'      => esc_attr( $breadcrumbs_link_color ),
 					'--linksHoverColor' => esc_attr( $breadcrumbs_link_h_color ),
 					'--textColor'       => esc_attr( $breadcrumbs_color ),
@@ -104,10 +104,10 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 					'--padding-right'  => kemet_responsive_spacing( $page_title_space, 'right', 'tablet' ),
 				),
 				'.kemet-breadcrumb-trail' => array(
-					'--padding-top'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'tablet' ),
-					'--padding-left'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'tablet' ),
-					'--padding-bottom' => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'tablet' ),
-					'--padding-right'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'tablet' ),
+					'padding-top'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'tablet' ),
+					'padding-left'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'tablet' ),
+					'padding-right'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'tablet' ),
 				),
 			);
 
@@ -122,10 +122,10 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 					'--padding-right'  => kemet_responsive_spacing( $page_title_space, 'right', 'mobile' ),
 				),
 				'.kemet-breadcrumb-trail' => array(
-					'--padding-top'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'mobile' ),
-					'--padding-left'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'mobile' ),
-					'--padding-bottom' => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'mobile' ),
-					'--padding-right'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'mobile' ),
+					'padding-top'    => kemet_responsive_spacing( $breadcrumbs_spacing, 'top', 'mobile' ),
+					'padding-left'   => kemet_responsive_spacing( $breadcrumbs_spacing, 'left', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $breadcrumbs_spacing, 'bottom', 'mobile' ),
+					'padding-right'  => kemet_responsive_spacing( $breadcrumbs_spacing, 'right', 'mobile' ),
 				),
 			);
 

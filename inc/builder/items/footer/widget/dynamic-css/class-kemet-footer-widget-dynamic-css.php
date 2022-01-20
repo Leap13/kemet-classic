@@ -23,7 +23,7 @@ if ( ! class_exists( 'Kemet_Footer_Widget_Dynamic_Css' ) ) {
 
 			foreach ( $footer_widgets as $widget ) {
 				$prefix   = $widget;
-				$selector = '.kmt-' . $prefix . '-area';
+				$selector = '.kmt-' . $prefix . '-item';
 
 				$css_output = array(
 					$selector => array(

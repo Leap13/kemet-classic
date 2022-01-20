@@ -355,6 +355,26 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'blog-meta-icons-margin'       => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'divider'        => true,
+								'label'          => __( 'Meta Icons Margin', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => '.entry-meta .kmt-svg-icon',
+									'property'   => 'margin',
+									'responsive' => true,
+								),
+							),
 							'pagination-padding'           => array(
 								'transport'      => 'postMessage',
 								'divider'        => true,

@@ -29,10 +29,11 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 		self::$widget_items = apply_filters( 'kemet_footer_widget_items', array( 'footer-widget-1', 'footer-widget-2', 'footer-widget-3', 'footer-widget-4', 'footer-widget-5', 'footer-widget-6' ) );
 		$register_options   = array();
 		foreach ( self::$widget_items as $widget ) {
-			$prefix         = $widget;
-			$selector       = '.kmt-' . $prefix . '-area';
-			$num            = explode( 'footer-widget-', $prefix )[1];
-			$widget_options = array(
+			$prefix          = $widget;
+			$selector        = '.kmt-' . $prefix . '-area';
+			$parent_selector = '.kmt-' . $prefix . '-item';
+			$num             = explode( 'footer-widget-', $prefix )[1];
+			$widget_options  = array(
 				$prefix . '-tabs' => array(
 					'type' => 'kmt-tabs',
 					'tabs' => array(
@@ -40,35 +41,47 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 							'title'   => __( 'General', 'kemet' ),
 							'options' => array(
 								$prefix . '-horizontal-align' => array(
+									'type'       => 'kmt-icon-select',
 									'transport'  => 'postMessage',
-									'type'       => 'kmt-radio',
+									'default'    => 'flex-start',
 									'responsive' => true,
-									'divider'    => true,
 									'label'      => __( 'Horizontal Alignment', 'kemet' ),
 									'choices'    => array(
-										'flex-start' => __( 'Left', 'kemet' ),
-										'center'     => __( 'Center', 'kemet' ),
-										'flex-end'   => __( 'Right', 'kemet' ),
+										'flex-start' => array(
+											'icon' => 'dashicons-align-left',
+										),
+										'center'     => array(
+											'icon' => 'dashicons-align-center',
+										),
+										'flex-end'   => array(
+											'icon' => 'dashicons-align-right',
+										),
 									),
 									'preview'    => array(
-										'selector'   => $selector,
+										'selector'   => $parent_selector,
 										'property'   => '--justifyContnet',
 										'responsive' => true,
 									),
 								),
 								$prefix . '-vertical-align' => array(
 									'transport'  => 'postMessage',
-									'type'       => 'kmt-radio',
+									'type'       => 'kmt-icon-select',
 									'responsive' => true,
 									'divider'    => true,
 									'label'      => __( 'Vertical Alignment', 'kemet' ),
 									'choices'    => array(
-										'flex-start' => __( 'Top', 'kemet' ),
-										'center'     => __( 'Center', 'kemet' ),
-										'flex-end'   => __( 'Bottom', 'kemet' ),
+										'flex-start' => array(
+											'icon' => 'dashicons-align-left',
+										),
+										'center'     => array(
+											'icon' => 'dashicons-align-center',
+										),
+										'flex-end'   => array(
+											'icon' => 'dashicons-align-right',
+										),
 									),
 									'preview'    => array(
-										'selector'   => $selector,
+										'selector'   => $parent_selector,
 										'property'   => '--alignItems',
 										'responsive' => true,
 									),

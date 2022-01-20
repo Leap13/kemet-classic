@@ -178,6 +178,43 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 									),
 								),
 							),
+							self::$prefix . '-icon-color-sticky' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'divider'   => true,
+								'label'     => __( 'Icon Color on Sticky', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-is-sticky ' . $selector,
+										'property' => '--color',
+									),
+									'hover'   => array(
+										'selector' => '.kmt-is-sticky ' . $selector,
+										'property' => '--hoverColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting' => 'enable-sticky-main',
+										'value'   => true,
+									),
+									array(
+										'setting' => 'enable-sticky-mobile-main',
+										'value'   => true,
+									),
+									'relation' => 'OR',
+								),
+							),
 							self::$prefix . '-float'      => array(
 								'type'      => 'kmt-switcher',
 								'transport' => 'postMessage',
