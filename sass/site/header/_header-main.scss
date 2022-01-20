@@ -28,9 +28,9 @@
 .kmt-site-identity {
   padding-top: var(--padding-top);
   padding-left: var(--padding-left);
-  padding-bottom: var(--padding-bottom, 0px);
+  padding-bottom: var(--padding-bottom, 24px);
   padding-right: var(--padding-right);
-  margin-top: var(--margin-top);
+  margin-top: var(--margin-top, 0px);
   margin-left: var(--margin-left);
   margin-bottom: var(--margin-bottom, 0px);
   margin-right: var(--margin-right);
@@ -43,8 +43,7 @@
   border-style: dotted;
   border-color: transparent;
   --buttonShadow: none !important;
-
-  &:focus,
+  grunt &:focus,
   &:hover {
     background: transparent;
     border-color: inherit;

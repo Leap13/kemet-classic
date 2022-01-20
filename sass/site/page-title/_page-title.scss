@@ -54,14 +54,17 @@
     background-image: none;
   }
 }
-
-.kemet-page-title {
-  display: inline-block;
-  &::after {
-    content: "";
-    display: block;
-    margin: 10px auto 10px;
-  }
+ .kmt-page-title {
+  &:not(.page-title-layout-3) {
+    .kemet-page-title {
+      display: inline-block;
+      &::after {
+        content: "";
+        display: block;
+        margin: 10px auto 10px;
+      }
+    }
+ }
 }
 .has-breadcrumb {
   .trail-items {
