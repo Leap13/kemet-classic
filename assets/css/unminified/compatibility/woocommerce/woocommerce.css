@@ -452,9 +452,6 @@ p.demo_store a,
 .woocommerce-page div.product span.price,
 .woocommerce-page div.product p.price {
 	margin: 0 0 0.5em;
-	color: #77a464;
-	font-size: 1.5rem;
-	font-weight: normal;
 }
 
 .woocommerce div.product span.price ins,
@@ -1078,8 +1075,6 @@ p.demo_store a,
 .woocommerce div.product form.cart .group_table td.price,
 .woocommerce-page div.product form.cart .group_table td.price {
 	padding-left: 0.8em;
-	font-size: 0.9rem;
-	font-weight: bold;
 }
 
 .woocommerce div.product form.cart .group_table td.price del,
@@ -1311,9 +1306,6 @@ p.demo_store a,
 .woocommerce-page ul.products li.product .price {
 	display: block;
 	margin-bottom: 0.5em;
-	color: #77a464;
-	font-size: 0.857em;
-	font-weight: normal;
 }
 
 .woocommerce ul.products li.product .price del,

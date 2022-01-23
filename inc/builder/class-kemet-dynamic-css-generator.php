@@ -305,6 +305,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--buttonColor'      => esc_attr( $popup_icon_bg_color ),
 						'--buttonHoverColor' => esc_attr( $popup_icon_bg_h_color ),
 					),
+					$popup_selector . ' .toggle-button-close .kmt-svg-icon' => array(
+						'color' => 'var(--buttonColor)',
+					),
+					$popup_selector . ' .toggle-button-close:hover .kmt-svg-icon' => array(
+						'color' => 'var(--buttonHoverColor)',
+					),
 				);
 
 				/* Parse CSS from array()*/

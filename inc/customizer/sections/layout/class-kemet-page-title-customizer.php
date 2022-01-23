@@ -62,14 +62,20 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-alignment'  => array(
-								'type'      => 'kmt-radio',
+								'type'      => 'kmt-icon-select',
 								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Page Title Alignment', 'kemet' ),
 								'choices'   => array(
-									'left'   => __( 'Left', 'kemet' ),
-									'center' => __( 'Center', 'kemet' ),
-									'right'  => __( 'Right', 'kemet' ),
+									'flex-start' => array(
+										'icon' => 'dashicons-align-left',
+									),
+									'center'     => array(
+										'icon' => 'dashicons-align-center',
+									),
+									'flex-end'   => array(
+										'icon' => 'dashicons-align-right',
+									),
 								),
 								'preview'   => array(
 									'selector' => '.kmt-page-title.page-title-layout-1',
@@ -156,11 +162,11 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									'property'   => '--padding',
 								),
 							),
-							self::$prefix . '-pagetitle-title'             => array(
+							self::$prefix . '-pagetitle-title' => array(
 								'type'  => 'kmt-title',
 								'label' => __( 'Separator', 'kemet' ),
 							),
-							
+
 							self::$prefix . '-bottomline-height' => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
@@ -176,11 +182,11 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									'selector' => '.kemet-page-title::after',
 									'property' => 'height',
 								),
-								'context'   => array(
+								'context'      => array(
 									array(
-										'setting' => self::$prefix . '-layouts',
+										'setting'  => self::$prefix . '-layouts',
 										'operator' => '!=',
-										'value'   => 'page-title-layout-3',
+										'value'    => 'page-title-layout-3',
 									),
 								),
 							),
@@ -199,11 +205,11 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									'selector' => '.kemet-page-title::after',
 									'property' => 'width',
 								),
-								'context'   => array(
+								'context'      => array(
 									array(
-										'setting' => self::$prefix . '-layouts',
+										'setting'  => self::$prefix . '-layouts',
 										'operator' => '!=',
-										'value'   => 'page-title-layout-3',
+										'value'    => 'page-title-layout-3',
 									),
 								),
 							),
@@ -230,7 +236,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							
+
 							self::$prefix . '-bottomline-color' => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
@@ -249,9 +255,9 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								),
 								'context'   => array(
 									array(
-										'setting' => self::$prefix . '-layouts',
+										'setting'  => self::$prefix . '-layouts',
 										'operator' => '!=',
-										'value'   => 'page-title-layout-3',
+										'value'    => 'page-title-layout-3',
 									),
 								),
 							),

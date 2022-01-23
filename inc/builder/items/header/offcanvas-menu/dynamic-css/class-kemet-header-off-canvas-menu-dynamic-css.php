@@ -31,7 +31,9 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				$link_border_width         = kemet_get_option( $prefix . '-border-bottom-width' );
 				$link_border               = kemet_get_option( $prefix . '-border-bottom' );
 				$link_spacing              = kemet_get_option( $prefix . '-item-spacing' );
-				$css_output                = array(
+
+				// var_dump( $link_border );
+				$css_output = array(
 					$selector => array(
 						'--lineHeight'      => 'inherit',
 						'--backgroundColor' => 'transparent',
@@ -67,8 +69,8 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'padding-right'     => 'var(--padding-right)',
 					),
 					$selector . ' li > a:hover, ' . $selector . ' li > .kmt-menu-item-wrap:hover' => array(
-						'--backgroundColor'   => kemet_responsive_color( $link_bg_color, 'hover', 'desktop' ),
-						'border-bottom-color' => kemet_responsive_color( $link_border, 'secondColor', 'desktop' ),
+						'--backgroundColor' => kemet_responsive_color( $link_bg_color, 'hover', 'desktop' ),
+						'--borderBottom'    => kemet_responsive_color( $link_border, 'secondColor', 'desktop' ),
 					),
 					$selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap' => array(
 						'border-bottom-color' => kemet_responsive_color( $submenu_link_border_color, 'initial', 'desktop' ),
@@ -89,6 +91,9 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 					$selector => array(
 						'--linksColor'      => kemet_responsive_color( $link_color, 'initial', 'tablet' ),
 						'--linksHoverColor' => kemet_responsive_color( $link_color, 'hover', 'tablet' ),
+					),
+					$selector . ' li > .kmt-menu-item-wrap, ' . $selector . ' li > a' => array(
+						'--borderBottom' => kemet_responsive_border( $link_border, 'tablet' ),
 					),
 					$selector . ' li > a, ' . $selector . ' li > .kmt-menu-item-wrap' => array(
 						'--padding-top'     => kemet_responsive_spacing( $link_spacing, 'top', 'tablet' ),
@@ -117,6 +122,9 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				$parse_css .= kemet_parse_css( $tablet, '', '768' );
 
 				$mobile = array(
+					$selector . ' li > .kmt-menu-item-wrap, ' . $selector . ' li > a' => array(
+						'--borderBottom' => kemet_responsive_border( $link_border, 'mobile' ),
+					),
 					$selector => array(
 						'--linksColor'      => kemet_responsive_color( $link_color, 'initial', 'mobile' ),
 						'--linksHoverColor' => kemet_responsive_color( $link_color, 'hover', 'mobile' ),
@@ -147,7 +155,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $mobile, '', '544' );
 
-				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix, $selector . ' > li > a' );
+				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix, $selector . ' > li > a, ' . $selector . ' > li > .kmt-menu-item-wrap' );
 				$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( $prefix . '-submenu', $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap' );
 
 				$dynamic_css .= $parse_css;

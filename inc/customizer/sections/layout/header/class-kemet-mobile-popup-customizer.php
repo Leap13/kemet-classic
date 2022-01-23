@@ -138,11 +138,11 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => ' #kmt-desktop-popup .toggle-button-close',
+										'selector' => ' #kmt-mobile-popup .toggle-button-close',
 										'property' => '--buttonColor',
 									),
 									'hover'   => array(
-										'selector' => ' #kmt-desktop-popup .toggle-button-close',
+										'selector' => ' #kmt-mobile-popup .toggle-button-close',
 										'property' => '--buttonHoverColor',
 									),
 								),

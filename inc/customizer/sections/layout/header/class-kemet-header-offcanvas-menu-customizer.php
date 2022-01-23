@@ -98,10 +98,16 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 			),
 			self::$prefix . '-border-bottom'             => array(
 				'type'        => 'kmt-border',
+				'transport'   => 'postMessage',
 				'responsive'  => true,
 				'divider'     => true,
 				'secondColor' => true,
 				'label'       => __( 'Link Bottom Border', 'kemet' ),
+				'preview'     => array(
+					'selector'   => $selector . ' li > .kmt-menu-item-wrap, ' . $selector . ' li > a',
+					'property'   => '--borderBottom',
+					'responsive' => true,
+				),
 			),
 			self::$prefix . '-item-spacing'              => array(
 				'transport'      => 'postMessage',

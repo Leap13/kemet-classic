@@ -315,9 +315,6 @@ p.demo_store,
 
     span.price,
     p.price {
-      color: $highlight;
-      font-size: 1.5rem;
-      font-weight: normal;
       margin: 0 0 0.5em;
 
       ins {
@@ -816,8 +813,6 @@ p.demo_store,
 
         td.price {
           padding-left: 0.8em;
-          font-weight: bold;
-          font-size: 0.9rem;
           del {
             opacity: 0.5;
             text-decoration: revert;
@@ -984,11 +979,8 @@ p.demo_store,
     }
 
     .price {
-      color: $highlight;
       display: block;
-      font-weight: normal;
       margin-bottom: 0.5em;
-      font-size: 0.857em;
 
       del {
         color: inherit;

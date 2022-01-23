@@ -198,6 +198,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'title-meta',
 						'content-readmore',
 					),
+					'enable-page-title-content-area'       => true,
 					'blog-width'                           => 'default',
 					'blog-max-width'                       => 1200,
 					'blog-post-content'                    => 'excerpt',
