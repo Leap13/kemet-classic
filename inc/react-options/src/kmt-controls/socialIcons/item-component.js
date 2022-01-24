@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const { __ } = wp.i18n;
-const { Dashicon, TextControl, Button } = wp.components;
+const { Dashicon, TextControl, Button, Tooltip } = wp.components;
 import IconSelector from './IconSelector';
 import getIcons from './Icons';
 
@@ -34,6 +34,14 @@ const ItemComponent = props => {
                 open: state.open ? false : true
             })))
         }}>
+            <Tooltip text={__('Toggle Item Visibility', 'kemet')}>
+                <Button
+                    className={`kemet-sorter-visiblity ${(props.item.enabled ? 'item-is-visible' : 'item-is-hidden')}`}
+                >
+                    {getIcons[props.item.id]}
+
+                </Button>
+            </Tooltip>
             <span className="kmt-sorter-title">
                 {undefined !== props.item.label && '' !== props.item.label ? props.item.label : __('Social Item', 'kemet')}
             </span>
@@ -66,7 +74,7 @@ const ItemComponent = props => {
                     props.onChangeIcon(value, props.index);
                     //setSelectedIcon(Icons[value]);
                 }}
-                icons={getIcons()}
+                icons={getIcons}
             />
 
         </div>}
