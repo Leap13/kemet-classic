@@ -25,8 +25,7 @@ const BackgroundComponent = (props) => {
         mobile: { ...defaultValue },
     };
 
-    let defaultValues = responsive ? ResDefaultParam : defaultValue;
-
+    let defaultValues = responsive ? ResDefaultParam : { ...defaultValue, "background-type": "color" };
     let defaultVals = props.params.default
         ? props.params.default
         : defaultValues;

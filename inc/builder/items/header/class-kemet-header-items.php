@@ -57,6 +57,7 @@ if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 			require KEMET_HEADER_ITEMS_DIR . 'overlay-header/class-kemet-overlay-header.php';
 			require KEMET_HEADER_ITEMS_DIR . 'sticky-header/class-kemet-sticky-header.php';
 			require KEMET_HEADER_ITEMS_DIR . 'divider/class-kemet-header-divider.php';
+			require KEMET_HEADER_ITEMS_DIR . 'social-icons/class-kemet-header-social-icons-item.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}

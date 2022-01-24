@@ -82,7 +82,31 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'main_left_center'  => array(),
 							'main_center'       => array(),
 							'main_right_center' => array(),
-							'main_right'        => array( 'primary-menu' ),
+							'main_right'        => array( 'primary-menu', 'search' ),
+						),
+						'bottom' => array(
+							'bottom_left'         => array(),
+							'bottom_left_center'  => array(),
+							'bottom_center'       => array(),
+							'bottom_right_center' => array(),
+							'bottom_right'        => array(),
+						),
+					),
+					'readymade-headers-desktop'            => array(
+						'popup'  => array( 'popup_content' => array( 'offcanvas-menu' ) ),
+						'top'    => array(
+							'top_left'         => array(),
+							'top_left_center'  => array(),
+							'top_center'       => array(),
+							'top_right_center' => array(),
+							'top_right'        => array(),
+						),
+						'main'   => array(
+							'main_left'         => array( 'logo' ),
+							'main_left_center'  => array(),
+							'main_center'       => array(),
+							'main_right_center' => array(),
+							'main_right'        => array( 'primary-menu', 'search' ),
 						),
 						'bottom' => array(
 							'bottom_left'         => array(),
@@ -134,6 +158,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-popup-slide-width'             => array(
 						'value' => 90,
 						'unit'  => '%',
+					),
+					'social-icons-label-visibility'        => array(
+						'desktop' => true,
+						'tablet'  => false,
+						'mobile'  => false,
 					),
 					'desktop-toggle-button-label-visibility' => array(
 						'desktop' => true,

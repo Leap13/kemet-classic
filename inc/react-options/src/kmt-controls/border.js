@@ -54,8 +54,9 @@ const Border = ({ value, onChange, params }) => {
     const [state, setState] = useState(value);
 
     const getDeviceValue = (device) => {
-        const largerDevice = device === 'mobile' ? checkProperties(state['tablet']) ? 'tablet' : 'desktop' : 'desktop';
-        const currentValue = overwriteValues(state[device], state[largerDevice]);
+        const currentVal = { ...state };
+        const largerDevice = device === 'mobile' ? checkProperties(currentVal['tablet']) ? 'tablet' : 'desktop' : 'desktop';
+        const currentValue = overwriteValues(currentVal[device], currentVal[largerDevice]);
 
         return currentValue;
     };

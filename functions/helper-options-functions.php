@@ -796,6 +796,30 @@ if ( ! function_exists( 'kemet_get_sub_option' ) ) {
 }
 
 /**
+ * Return device value.
+ */
+if ( ! function_exists( 'kemet_get_sub_responsive_value' ) ) {
+
+	/**
+	 * Return device value.
+	 *
+	 * @param  mixed  $option   Option value.
+	 * @param  string $sub      Sub key.
+	 * @param  string $device   device value.
+	 * @param  mixed  $default  Default value.
+	 * @return Mixed            Return device value.
+	 */
+	function kemet_get_sub_responsive_value( $option, $sub, $device = 'desktop', $default = '' ) {
+		$value = $default;
+		if ( is_array( $option ) && ( isset( $option[ $device ] ) && is_array( $option[ $device ] ) ) ) {
+			$value = isset( $option[ $device ][ $sub ] ) && '' !== $option[ $device ][ $sub ] ? $option[ $device ][ $sub ] : $default;
+		}
+
+		return $value;
+	}
+}
+
+/**
  * Helper function to get the current post id.
  */
 if ( ! function_exists( 'kemet_get_post_id' ) ) {

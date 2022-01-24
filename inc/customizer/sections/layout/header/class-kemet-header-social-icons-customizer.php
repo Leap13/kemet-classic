@@ -34,16 +34,11 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-list'  => array(
+							self::$prefix . '-list'        => array(
 								'type'      => 'kmt-social-icons',
 								'transport' => 'postMessage',
 							),
-							self::$prefix . '-label' => array(
-								'type'      => 'kmt-text',
-								'transport' => 'postMessage',
-								'label'     => __( 'Show Icon Label', 'kemet' ),
-							),
-							self::$prefix . '-style' => array(
+							self::$prefix . '-style'       => array(
 								'type'      => 'kmt-radio',
 								'default'   => 'simple',
 								'transport' => 'postMessage',
@@ -58,14 +53,62 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 									'attr'     => 'data-style',
 								),
 							),
+							self::$prefix . '-color-style' => array(
+								'type'      => 'kmt-radio',
+								'default'   => 'custom',
+								'transport' => 'postMessage',
+								'label'     => __( 'Icons Color', 'kemet' ),
+								'choices'   => array(
+									'custom'   => __( 'Simple', 'kemet' ),
+									'official' => __( 'Official', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'attr'     => 'data-color',
+								),
+							),
+							self::$prefix . '-new-tab'     => array(
+								'label'     => __( 'Open links in new tab', 'kemet' ),
+								'type'      => 'kmt-switcher',
+								'transport' => 'postMessage',
+								'divider'   => true,
+							),
+							self::$prefix . '-nofollow'    => array(
+								'label'     => __( 'Set links to nofollow', 'kemet' ),
+								'type'      => 'kmt-switcher',
+								'transport' => 'postMessage',
+							),
+							self::$prefix . '-enable-label' => array(
+								'label'     => __( 'Enable Icon Label', 'kemet' ),
+								'type'      => 'kmt-switcher',
+								'transport' => 'postMessage',
+								'divider'   => true,
+							),
+							self::$prefix . '-label-visibility' => array(
+								'label'     => __( 'Label Visibility', 'kemet' ),
+								'type'      => 'kmt-visibility',
+								'transport' => 'postMessage',
+								'choices'   => array(
+									'desktop' => __( 'Desktop', 'kemet' ),
+									'tablet'  => __( 'Tablet', 'kemet' ),
+									'mobile'  => __( 'Mobile', 'kemet' ),
+								),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-enable-label',
+										'value'   => true,
+									),
+								),
+							),
 						),
 					),
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-icon-size'  => array(
+							self::$prefix . '-icon-size'   => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
+								'responsive'   => true,
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
@@ -75,16 +118,18 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => 'font-size',
+									'selector'   => $selector . ' .kmt-social-icon',
+									'property'   => '--icon-size',
+									'responsive' => true,
 								),
 							),
-							self::$prefix . '-icon-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'divider'   => true,
-								'label'     => __( 'Icon Colors', 'kemet' ),
-								'pickers'   => array(
+							self::$prefix . '-icon-color'  => array(
+								'transport'  => 'postMessage',
+								'type'       => 'kmt-color',
+								'divider'    => true,
+								'responsive' => true,
+								'label'      => __( 'Icon Colors', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
@@ -94,23 +139,31 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'hover',
 									),
 								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => $selector,
+								'preview'    => array(
+									'initial'    => array(
+										'selector' => $selector . ' .kmt-social-icon',
 										'property' => '--color',
 									),
-									'hover'   => array(
-										'selector' => $selector,
+									'hover'      => array(
+										'selector' => $selector . ' .kmt-social-icon',
 										'property' => '--hover-color',
+									),
+									'responsive' => true,
+								),
+								'context'    => array(
+									array(
+										'setting' => self::$prefix . '-color-style',
+										'value'   => 'custom',
 									),
 								),
 							),
 							self::$prefix . '-bg-icon-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'divider'   => true,
-								'label'     => __( 'Icon Background Color', 'kemet' ),
-								'pickers'   => array(
+								'transport'  => 'postMessage',
+								'type'       => 'kmt-color',
+								'divider'    => true,
+								'responsive' => true,
+								'label'      => __( 'Icon Background Color', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
@@ -120,37 +173,48 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'hover',
 									),
 								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => $selector,
+								'preview'    => array(
+									'initial'    => array(
+										'selector' => $selector . '[data-style="solid"] .kmt-social-icon',
 										'property' => '--bg-color',
 									),
-									'hover'   => array(
-										'selector' => $selector,
+									'hover'      => array(
+										'selector' => $selector . '[data-style="solid"] .kmt-social-icon',
 										'property' => '--bg-hover-color',
 									),
+									'responsive' => true,
 								),
-								'context'   => array(
+								'context'    => array(
 									array(
 										'setting' => self::$prefix . '-style',
 										'value'   => 'solid',
 									),
+									array(
+										'setting' => self::$prefix . '-color-style',
+										'value'   => 'custom',
+									),
 								),
 							),
-							self::$prefix . '-icons-border' => array(
+							self::$prefix . '-icon-border' => array(
 								'transport'   => 'postMessage',
 								'priority'    => 45,
 								'secondColor' => true,
+								'responsive'  => true,
 								'type'        => 'kmt-border',
 								'default'     => array(
-									'style' => 'solid',
-									'width' => 1,
-									'color' => 'var(--borderColor)',
+									'desktop' => array(
+										'style'       => 'solid',
+										'width'       => 1,
+										'color'       => 'var(--borderColor)',
+										'secondColor' => '',
+									),
 								),
 								'label'       => __( 'Border', 'kemet' ),
 								'preview'     => array(
-									'selector' => '',
-									'property' => '--border',
+									'selector'    => $selector . '[data-style="outline"] .kmt-social-icon',
+									'property'    => 'border',
+									'secondColor' => true,
+									'responsive'  => true,
 								),
 								'context'     => array(
 									array(
@@ -162,6 +226,7 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-border-radius' => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
+								'responsive'   => true,
 								'label'        => __( 'Border Radius', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
@@ -176,18 +241,59 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--border-radius',
+									'selector'   => $selector . ' .kmt-social-icon',
+									'property'   => '--border-radius',
+									'responsive' => true,
 								),
-								'context'      => array(
+							),
+							self::$prefix . '-icon-padding' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'divider'        => true,
+								'label'          => __( 'Icons Padding', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector . '[data-style="outline"] .kmt-social-icon, ' . $selector . '[data-style="solid"] .kmt-social-icon',
+									'property'   => 'padding',
+									'responsive' => true,
+								),
+								'context'        => array(
 									array(
 										'setting'  => self::$prefix . '-style',
-										'operator' => '!=',
-										'value'    => 'outline',
+										'operator' => 'in_array',
+										'value'    => array( 'outline', 'solid' ),
 									),
 								),
 							),
-							self::$prefix . '-margin'     => array(
+							self::$prefix . '-icon-margin' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'label'          => __( 'Icons Margin', 'kemet' ),
+								'linked_choices' => true,
+								'divider'        => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector . ' .kmt-social-icon',
+									'property'   => 'margin',
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-margin'      => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
@@ -224,6 +330,24 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 		);
 
 		return array_merge( $options, $social_icons_options );
+	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$new_partials = array_fill_keys(
+			array( self::$prefix . '-list', self::$prefix . '-enable-label', self::$prefix . '-label-visibility', self::$prefix . '-new-tab', self::$prefix . '-nofollow' ),
+			array(
+				'selector'            => '.kmt-social-icons',
+				'container_inclusive' => true,
+				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'social_icons_markup' ),
+			)
+		);
+		return array_merge( $partials, $new_partials );
 	}
 
 	/**

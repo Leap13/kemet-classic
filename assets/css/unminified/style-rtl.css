@@ -95,6 +95,7 @@ blockquote p,
 .price bdi,
 .kmt-woo-shop-product-description,
 .kmt-woo-product-category,
+.kmt-icon-label,
 .main-navigation a,
 .main-navigation .kmt-menu-item-wrap,
 .site-title,
@@ -3483,7 +3484,6 @@ grunt .kmt-menu-toggle:focus,
 .main-header-bar {
 	position: relative;
 	z-index: 4;
-	line-height: 4;
 }
 
 .main-header-bar .main-header-bar-navigation:empty {
@@ -4292,6 +4292,105 @@ grunt .kmt-menu-toggle:focus,
 	width: 18px;
 	transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 	transform-origin: 90% 57%;
+}
+
+.kmt-social-icons {
+	display: flex;
+	margin-top: var(--margin-top);
+	margin-right: var(--margin-left);
+	margin-bottom: var(--margin-bottom);
+	margin-left: var(--margin-right);
+
+	-js-display: flex;
+	align-items: center;
+}
+
+.kmt-social-icons a {
+	display: flex;
+	margin: 0 5px;
+	border: 1px solid var(--borderColor);
+	border-radius: var(--border-radius, 0);
+	color: var(--color, var(--textColor));
+	background-color: var(--bg-color, var(--borderColor));
+	transition: none;
+
+	--color: var(--linksColor);
+	--hover-color: var(--linksHoverColor);
+	-js-display: flex;
+	align-items: center;
+}
+
+.kmt-social-icons a * {
+	transition: none;
+}
+
+.kmt-social-icons a .kmt-svg-icon {
+	display: inline-flex;
+
+	-js-display: inline-flex;
+	align-items: center;
+}
+
+.kmt-social-icons a .kmt-svg-icon svg {
+	width: var(--icon-size, 15px);
+	height: var(--icon-size, 15px);
+}
+
+.kmt-social-icons a .kmt-icon-label {
+	margin-right: 5px;
+
+	--fontSize: 12px;
+	--fontWeight: 600;
+	--textTransform: uppercase;
+}
+
+.kmt-social-icons a:hover,
+.kmt-social-icons a:focus {
+	color: var(--hover-color);
+	background-color: var(--bg-hover-color, var(--bg-color, var(--borderColor)));
+}
+
+.kmt-social-icons[data-style="outline"] a,
+.kmt-social-icons[data-style="solid"] a {
+	padding: 7px;
+}
+
+.kmt-social-icons[data-style="simple"] a {
+	border: none;
+
+	--bg-color: transparent;
+}
+
+.kmt-social-icons[data-style="outline"] a {
+	--bg-color: transparent;
+}
+
+.kmt-social-icons[data-style="solid"] a {
+	border: none;
+}
+
+.kmt-social-icons[data-color="official"] a {
+	--linksColor: var(--official-color);
+	--linksHoverColor: var(--official-color);
+}
+
+.kmt-social-icons[data-color="official"] a .kmt-icon-label {
+	color: var(--official-color);
+}
+
+.kmt-social-icons[data-color="official"][data-style="outline"] a {
+	border-color: var(--official-color);
+}
+
+.kmt-social-icons[data-color="official"][data-style="solid"] a {
+	--bg-color: var(--official-color);
+	--bg-hover-color: var(--official-color);
+	--color: #fff;
+	--hover-color: #fff;
+}
+
+.kmt-social-icons[data-color="official"][data-style="solid"] a .kmt-icon-label {
+	color: #fff;
 }
 
 /* Keyframes */
@@ -7295,7 +7394,7 @@ Hide From Devices
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,	visibility 0.3s ease;
 	transition: all 0.5s ease-in-out;
 	transform: translate3d(0, 15px, 0);
 

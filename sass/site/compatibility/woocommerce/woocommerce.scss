@@ -272,7 +272,11 @@ p.demo_store,
     font-size: 0.857em;
     margin-top: 10px;
   }
-
+  &.kmt-woo-shop-archive {
+    .woocommerce-breadcrumb {
+      margin-bottom: 15px;
+    }
+  }
   .woocommerce-breadcrumb {
     @include clearfix();
     padding: 0;

@@ -64,7 +64,6 @@
 .main-header-bar {
   z-index: 4;
   position: relative;
-  line-height: 4;
   .main-header-bar-navigation {
     &:empty {
       padding: 0;
@@ -900,6 +899,98 @@
   -webkit-transform-origin: 10% 57%;
   -ms-transform-origin: 10% 57%;
   transform-origin: 10% 57%;
+}
+.kmt-social-icons {
+  display: flex;
+  align-items: center;
+  margin-top: var(--margin-top);
+  margin-right: var(--margin-right);
+  margin-bottom: var(--margin-bottom);
+  margin-left: var(--margin-left);
+  a {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    color: var(--color, var(--textColor));
+    background-color: var(--bg-color, var(--borderColor));
+    border: 1px solid var(--borderColor);
+    border-radius: var(--border-radius, 0);
+    transition: none;
+    * {
+      transition: none;
+    }
+    --color: var(--linksColor);
+    --hover-color: var(--linksHoverColor);
+    .kmt-svg-icon {
+      display: inline-flex;
+      align-items: center;
+      svg {
+        width: var(--icon-size, 15px);
+        height: var(--icon-size, 15px);
+      }
+    }
+    .kmt-icon-label {
+      margin-left: 5px;
+      --fontWeight: 600;
+      --textTransform: uppercase;
+      --fontSize: 12px;
+    }
+    &:hover,
+    &:focus {
+      color: var(--hover-color);
+      background-color: var(
+        --bg-hover-color,
+        var(--bg-color, var(--borderColor))
+      );
+    }
+  }
+  &[data-style="outline"],
+  &[data-style="solid"] {
+    a {
+      padding: 7px;
+    }
+  }
+  &[data-style="simple"] {
+    a {
+      --bg-color: transparent;
+      border: none;
+    }
+  }
+  &[data-style="outline"] {
+    a {
+      --bg-color: transparent;
+    }
+  }
+  &[data-style="solid"] {
+    a {
+      border: none;
+    }
+  }
+  &[data-color="official"] {
+    a {
+      --linksColor: var(--official-color);
+      --linksHoverColor: var(--official-color);
+      .kmt-icon-label {
+        color: var(--official-color);
+      }
+    }
+    &[data-style="outline"] {
+      a {
+        border-color: var(--official-color);
+      }
+    }
+    &[data-style="solid"] {
+      a {
+        --color: #fff;
+        --hover-color: #fff;
+        --bg-color: var(--official-color);
+        --bg-hover-color: var(--official-color);
+        .kmt-icon-label {
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 /* Keyframes */
 @keyframes fill {

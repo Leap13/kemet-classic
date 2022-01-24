@@ -299,6 +299,8 @@ var getBackgroundCssValue = function getBackgroundCssValue(value) {
 };
 
 var applyBackgroundValue = function applyBackgroundValue(value) {
+  console.log(value);
+
   if (value) {
     var dynamicStyle = getBackgroundCssValue(value);
     Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["addCss"])(dynamicStyle, control);

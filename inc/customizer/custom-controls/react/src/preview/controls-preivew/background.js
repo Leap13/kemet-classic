@@ -61,6 +61,7 @@ const getBackgroundCssValue = (value) => {
 }
 
 const applyBackgroundValue = (value) => {
+    console.log(value);
     if (value) {
         let dynamicStyle = getBackgroundCssValue(value);
         addCss(dynamicStyle, control);

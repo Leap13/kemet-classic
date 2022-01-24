@@ -1529,6 +1529,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
   bottom: auto;
   .components-popover__content {
     bottom: 0;
+    overflow-x: hidden;
   }
 }
 .kmt-builder-group.kmt-grid-row-layout-3-cwide {
@@ -1748,10 +1749,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
 }
 #social-icons-list {
   svg {
-      max-width: 12px;
-      width: 28px;
-      height: 28px;
-    }
+    max-width: 12px;
+    width: 28px;
+    height: 28px;
+  }
 }
 .kmt-sorter-drop-social_item_group {
   .components-button-group {

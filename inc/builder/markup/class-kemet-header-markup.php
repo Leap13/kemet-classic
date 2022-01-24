@@ -76,9 +76,39 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		/**
 		 * Social Icons
 		 */
-		public function social_icons_markup() { ?>
-				<p>Social icons</p>
-			<?php
+		public function social_icons_markup() {
+			$social_icons      = kemet_get_option( 'social-icons-list' );
+			$icons_style       = kemet_get_option( 'social-icons-style', 'simple' );
+			$icons_color_style = kemet_get_option( 'social-icons-color-style', 'custom' );
+			$enable_label      = kemet_get_option( 'social-icons-enable-label' );
+			$visibility        = kemet_get_option( 'social-icons-label-visibility' );
+			$new_tab           = kemet_get_option( 'social-icons-new-tab' ) ? '_blank' : '_self';
+			$nofollow          = kemet_get_option( 'social-icons-nofollow' ) ? ' nofollow' : '';
+			if ( ! empty( $social_icons ) ) {
+				?>
+				<div class="kmt-social-icons" data-style="<?php echo esc_attr( $icons_style ); ?>" data-color="<?php echo esc_attr( $icons_color_style ); ?>">
+				<?php
+				foreach ( $social_icons['items'] as $icon ) {
+					$id         = $icon['id'];
+					$enabled    = $icon['enabled'] ? '' : ' hidden';
+					$color      = $icon['color'];
+					$background = $icon['background'];
+					$icon_class = $icon['icon'];
+					$icon_label = $icon['label'];
+					$url        = $icon['url'] ? $icon['url'] : '#';
+					?>
+						<a class="kmt-social-icon <?php echo esc_attr( $id ); ?>-icon<?php echo esc_attr( $enabled ); ?>" href="<?php esc_url( $url ); ?>" style="--official-color: <?php echo esc_attr( $color ); ?>;" target="<?php echo esc_attr( $new_tab ); ?>" rel="noopener<?php echo esc_attr( $nofollow ); ?>">
+							<?php echo Kemet_Svg_Icons::get_icons( 'cart' ); ?>
+							<?php if ( $enable_label ) { ?>
+							<span class="kmt-icon-label <?php echo get_visibility_class( $visibility ); ?>"><?php echo esc_attr( $icon_label ); ?></span>
+							<?php } ?>
+						</a>
+					<?php
+				}
+				?>
+				</div>
+				<?php
+			}
 		}
 
 		/**

@@ -4793,7 +4793,7 @@ input[type="checkbox"]:focus {
 	box-shadow: 0 0 0 0 transparent;
 	font-size: 12px !important;
 	line-height: normal;
-	transition: box-shadow 0.1s linear, background 0.1s linear, border-radius 0.1s linear, border-color 0.1s linear;
+	transition: box-shadow 0.1s linear, background 0.1s linear,	border-radius 0.1s linear, border-color 0.1s linear;
 }
 
 .kmt-upload-icon-container {
@@ -6419,6 +6419,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 }
 
 .components-popover.kmt-popover-add-builder .components-popover__content {
+	overflow-x: hidden;
 	bottom: 0;
 }
 
@@ -7413,7 +7414,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	padding: 0;
 	border-radius: 2px;
 	outline: 0 none;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;
@@ -7459,7 +7460,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 	margin-top: -1px;
 	padding: 0;
 	border-radius: 0 1px 4px 4px;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.71429;
 	vertical-align: baseline;

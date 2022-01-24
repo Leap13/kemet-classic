@@ -6,14 +6,15 @@ const { __ } = wp.i18n;
 import kmtEvents from '../common/events';
 
 const ReadymadeHeaders = props => {
-    const value = props.value ? props.value : {};
-    const { label, ref } = props.params;
+    const { label, ref, default: defaultValue = {} } = props.params;
+    const value = props.value ? props.value : defaultValue;
 
     const headers = {
         header1: {
             title: __('1-Default Main Header', 'kemet'),
             image: kemetReactControls.theme_url + 'assets/images/headers/header-layout-01.svg',
             value: {
+                popup: { popup_content: ['offcanvas-menu'] },
                 main: {
                     main_left: ['logo'],
                     main_right: ['primary-menu', 'search']
