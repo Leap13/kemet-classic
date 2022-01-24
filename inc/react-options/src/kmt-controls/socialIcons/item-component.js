@@ -15,15 +15,15 @@ const ItemComponent = props => {
     const Icons = window.getIcons;
     const icon = props.item.id.replace(/[\d_]+$/g, '');
 
-    const [selectedIcon, setSelectedIcon] = useState(
-        props.item.icon
-    )
+    // const [selectedIcon, setSelectedIcon] = useState(
+    //     props.item.icon
+    // )
 
-    
 
-    useEffect(() => {
-        setSelectedIcon(Icons[props.item.icon]);
-    }, []);
+
+    // useEffect(() => {
+    //     setSelectedIcon(Icons[props.item.icon]);
+    // }, []);
 
 
 
@@ -34,7 +34,6 @@ const ItemComponent = props => {
                 open: state.open ? false : true
             })))
         }}>
-            <span>{selectedIcon}</span>
             <span className="kmt-sorter-title">
                 {undefined !== props.item.label && '' !== props.item.label ? props.item.label : __('Social Item', 'kemet')}
             </span>
@@ -63,10 +62,10 @@ const ItemComponent = props => {
             <p className="kmt-social-icon-picker-label">{__("Icon")}</p>
             <IconSelector
                 value={props.item.icon}
-                onIconChoice={ value=> {
-                props.onChangeIcon(value, props.index);
-                setSelectedIcon( Icons[value] );
-            }}
+                onIconChoice={value => {
+                    props.onChangeIcon(value, props.index);
+                    //setSelectedIcon(Icons[value]);
+                }}
                 icons={getIcons()}
             />
 

@@ -42,6 +42,8 @@ const SocialIcons = props => {
             { value: 'facebook', label: __('Facebook', 'kemet'), color: '#557dbc', background: 'transparent' },
             { value: 'twitter', label: __('Twitter', 'kemet'), color: '#7acdee', background: 'transparent' },
             { value: 'linkedin', label: __('Linkedin', 'kemet'), color: '#7acdee', background: 'transparent' },
+            { value: 'instagram', label: __('Instagram', 'kemet'), color: '#7acdee', background: 'transparent' },
+            { value: 'github', label: __('Github', 'kemet'), color: '#7acdee', background: 'transparent' },
         ].sort((a, b) => {
             if (a.value < b.value) {
                 return -1;
