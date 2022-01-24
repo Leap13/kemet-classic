@@ -1746,6 +1746,13 @@ li#customize-control-kemet-settings-footer-desktop-items {
     }
   }
 }
+#social-icons-list {
+  svg {
+      max-width: 12px;
+      width: 28px;
+      height: 28px;
+    }
+}
 .kmt-sorter-drop-social_item_group {
   .components-button-group {
     border: 1px solid #dddddd;
@@ -1786,12 +1793,6 @@ li#customize-control-kemet-settings-footer-desktop-items {
   .kmt-sorter-item-panel-header {
     .kmt-sorter-visiblity {
       border: 0;
-      svg {
-        max-width: 12px;
-        fill: #556068;
-        width: 28px;
-        height: 28px;
-      }
     }
     .kmt-sorter-visiblity.item-is-hidden {
       opacity: 0.2;
