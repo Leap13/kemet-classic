@@ -34,6 +34,10 @@ class Kemet_Header_Social_Icons_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-list'  => array(
+								'type'      => 'kmt-social-icons',
+								'transport' => 'postMessage',
+							),
 							self::$prefix . '-label' => array(
 								'type'      => 'kmt-text',
 								'transport' => 'postMessage',

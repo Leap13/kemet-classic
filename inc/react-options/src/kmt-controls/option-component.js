@@ -22,6 +22,7 @@ import TabsComponent from './tabs'
 import BoxShadow from './box-shadow';
 import NotificationComponent from './notification'
 import kmtEvents from '../common/events'
+import SocialIcons from './socialIcons'
 
 const OptionComponent = (type) => {
     const options = {
@@ -48,6 +49,7 @@ const OptionComponent = (type) => {
         'kmt-readymade-headers': ReadymadeHeaders,
         'kmt-box-shadow': BoxShadow,
         'kmt-notification': NotificationComponent,
+        'kmt-social-icons': SocialIcons
     };
     kmtEvents.trigger('kmt:options', options);
     const OptionComponent = options[type];
