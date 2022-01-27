@@ -162,6 +162,54 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+module.exports = _asyncToGenerator;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
@@ -24155,16 +24203,163 @@ _color__WEBPACK_IMPORTED_MODULE_4__["default"].propTypes = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
+
+
+
+
+
+var __ = wp.i18n.__;
 
 var NotificationComponent = function NotificationComponent(_ref) {
   var params = _ref.params;
-  var content = params.content;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  var content = params.content,
+      action = params.action;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])(false),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      isLoading = _useState2[0],
+      setIsLoading = _useState2[1];
+
+  var actionMarkup;
+
+  var doAction = /*#__PURE__*/function () {
+    var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(action, plugin) {
+      var path, body, response, _yield$response$json, success;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setIsLoading(true);
+              path = kemetReactControls.plugins_data[plugin].path;
+              body = new FormData();
+              body.append('action', action);
+              body.append('nonce', kemetReactControls.plugin_manager_nonce);
+              body.append('path', path);
+              body.append('slug', plugin);
+              _context.prev = 7;
+              _context.next = 10;
+              return fetch(kemetReactControls.ajaxurl, {
+                method: 'POST',
+                body: body
+              });
+
+            case 10:
+              response = _context.sent;
+
+              if (!(response.status === 200)) {
+                _context.next = 21;
+                break;
+              }
+
+              _context.next = 14;
+              return response.json();
+
+            case 14:
+              _yield$response$json = _context.sent;
+              success = _yield$response$json.success;
+
+              if (!success) {
+                _context.next = 21;
+                break;
+              }
+
+              if (!(action === 'kemet-install-plugin')) {
+                _context.next = 20;
+                break;
+              }
+
+              _context.next = 20;
+              return doAction('kemet-activate-plugin', plugin);
+
+            case 20:
+              if (action === 'kemet-activate-plugin') {
+                window.location.replace(kemetReactControls.kemet_addons_url);
+              }
+
+            case 21:
+              _context.next = 26;
+              break;
+
+            case 23:
+              _context.prev = 23;
+              _context.t0 = _context["catch"](7);
+              alert(_context.t0);
+
+            case 26:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[7, 23]]);
+    }));
+
+    return function doAction(_x, _x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var pluginActions = {
+    deactivate: {
+      title: __('Deactivate', 'kemet'),
+      action: 'kemet-deactivate-plugin'
+    },
+    activate: {
+      title: __('Activate', 'kemet'),
+      action: 'kemet-activate-plugin'
+    },
+    install: {
+      title: __('Install and Activate', 'kemet'),
+      action: 'kemet-install-plugin'
+    }
+  };
+
+  if (action) {
+    var buttonClass = isLoading ? ' loading' : '';
+
+    switch (action.type) {
+      case 'plugin':
+        var slug = action.slug;
+        var pluginStatus = kemetReactControls.plugins_status[slug];
+        var pluginData = pluginActions[pluginStatus];
+        actionMarkup = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+          className: "kmt-notification-action".concat(buttonClass),
+          isPrimary: true,
+          onClick: function onClick() {
+            return doAction(pluginData.action, slug);
+          }
+        }, pluginData.title);
+        break;
+
+      case 'link':
+        var title = action.title,
+            url = action.url;
+        actionMarkup = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+          className: "kmt-notification-action".concat(buttonClass),
+          isPrimary: true
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
+          href: url
+        }, title));
+        break;
+    }
+  }
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-notification"
-  }, content);
+  }, content, actionMarkup && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, actionMarkup));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NotificationComponent);
@@ -27888,6 +28083,17 @@ var Visibility = function Visibility(_ref3) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Visibility);
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/*!*************************************!*\
+  !*** external "regeneratorRuntime" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["regeneratorRuntime"]; }());
 
 /***/ }),
 

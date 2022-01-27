@@ -516,6 +516,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					'has_widget_editor' => kemet_has_widget_editor(),
 					'nonce'             => wp_create_nonce( 'kemet-customizer' ),
 					'ajaxurl'           => admin_url( 'admin-ajax.php' ),
+					'plugins_status'    => Kemet_Panel_Plugins_Data::get_instance()->plugins_status(),
 				)
 			);
 

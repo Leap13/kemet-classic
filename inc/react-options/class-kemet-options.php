@@ -84,8 +84,13 @@ if ( ! class_exists( 'Kemet_Options' ) ) {
 				'kemet-react-custom-control-script',
 				'kemetReactControls',
 				array(
-					'theme_url' => KEMET_THEME_URI,
-					'setting'   => KEMET_THEME_SETTINGS . '[setting_name]',
+					'ajaxurl'              => admin_url( 'admin-ajax.php' ),
+					'theme_url'            => KEMET_THEME_URI,
+					'setting'              => KEMET_THEME_SETTINGS . '[setting_name]',
+					'plugin_manager_nonce' => wp_create_nonce( 'kemet-plugins-manager' ),
+					'plugins_status'       => Kemet_Panel_Plugins_Data::get_instance()->plugins_status(),
+					'plugins_data'         => Kemet_Panel_Plugins_Data::get_instance()->get_plugins_data(),
+					'kemet_addons_url'     => admin_url( 'admin.php?page=kemet_panel&tab=kemet-addons' ),
 				)
 			);
 

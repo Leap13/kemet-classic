@@ -11719,6 +11719,7 @@ i.fipicon-angle-left:before {
 }
 
 .kmt-notification {
+	overflow: hidden;
 	position: relative;
 	padding: 15px;
 	border-right: 3px solid #71d7f7;
@@ -11731,4 +11732,46 @@ i.fipicon-angle-left:before {
 	font-style: italic;
 	line-height: 1.5;
 	text-align: right;
+}
+
+.kmt-notification .kmt-notification-action {
+	float: left;
+	height: 30px;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+.kmt-notification .kmt-notification-action.loading::after {
+	display: inline-block;
+	margin-right: 5px;
+	font: normal 20px/1 dashicons;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	vertical-align: middle;
+	vertical-align: sub;
+	content: "\f463";
+	animation: spin 2s infinite linear;
+}
+
+.kmt-notification .kmt-notification-action > a {
+	color: #fff !important;
+	text-decoration: none;
+}
+
+@keyframes spin {
+	from {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(-360deg);
+		-moz-transform: rotate(-360deg);
+		-ms-transform: rotate(-360deg);
+		-o-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+	}
 }

@@ -80,6 +80,33 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 								'type'     => 'kmt-notification',
 								'content'  => __( 'Please install and activate Kemet Addons plugin to get the ability to change the WooCommerce product listing styles.', 'kemet' ),
 								'priority' => 5,
+								'action'   => array(
+									'type' => 'plugin',
+									'slug' => 'kemet-addons',
+								),
+								'context'  => array(
+									array(
+										'setting'  => 'kemet-addons',
+										'operator' => 'in_array',
+										'value'    => array( 'install', 'activate' ),
+									),
+								),
+							),
+							self::$prefix . '-woo-addon-notification' => array(
+								'type'     => 'kmt-notification',
+								'content'  => __( 'Please activate woocommerce addon to get the ability to change the WooCommerce product listing styles.', 'kemet' ),
+								'priority' => 5,
+								'action'   => array(
+									'type'  => 'link',
+									'title' => __( 'Go to addons', 'kemet' ),
+									'url'   => admin_url( 'admin.php?page=kemet_panel&tab=kemet-addons' ),
+								),
+								'context'  => array(
+									array(
+										'setting' => 'kemet-addons',
+										'value'   => 'deactivate',
+									),
+								),
 							),
 							self::$prefix . '-product-structure' => array(
 								'type'     => 'kmt-sortable',

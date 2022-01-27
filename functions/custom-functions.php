@@ -286,6 +286,9 @@ add_action( 'kemet_header', 'kemet_header_markup' );
  * @since 1.2
  */
 function kemet_dropdown_icon_to_menu_link( $title, $item, $args ) {
+	if ( ! is_object( $args ) ) {
+		return $title;
+	}
 	$icon = '';
 	if ( 'footer-menu' === $args->menu ) {
 		return $title;

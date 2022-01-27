@@ -19,7 +19,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		$blog_post_selector = '.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post ';
 		$register_options   = array(
-			'blog-layouts'            => array(
+			'blog-layouts'                   => array(
 				'label'   => __( 'Blog Layouts', 'kemet' ),
 				'type'    => 'kmt-radio-image',
 				'choices' => array(
@@ -45,7 +45,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'blog-controls-tabs'      => array(
+			'blog-controls-tabs'             => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -507,11 +507,11 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'readmore-settings-title' => array(
+			'readmore-settings-title'        => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'Read More', 'kemet' ),
 			),
-			'readmore-tabs'           => array(
+			'readmore-tabs'                  => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -750,6 +750,36 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 						),
+					),
+				),
+			),
+			'blog-kemet-addons-notification' => array(
+				'type'    => 'kmt-notification',
+				'content' => __( 'Install and activate Kemet Addons plugin to adjust the archive/blog pages in more advanced way.', 'kemet' ),
+				'action'  => array(
+					'type' => 'plugin',
+					'slug' => 'kemet-addons',
+				),
+				'context' => array(
+					array(
+						'setting'  => 'kemet-addons',
+						'operator' => 'in_array',
+						'value'    => array( 'install', 'activate' ),
+					),
+				),
+			),
+			'blog-addon-notification'        => array(
+				'type'    => 'kmt-notification',
+				'content' => __( 'Please activate blog addon to adjust the archive/blog pages in more advanced way.', 'kemet' ),
+				'action'  => array(
+					'type'  => 'link',
+					'title' => __( 'Go to addons', 'kemet' ),
+					'url'   => admin_url( 'admin.php?page=kemet_panel&tab=kemet-addons' ),
+				),
+				'context' => array(
+					array(
+						'setting' => 'kemet-addons',
+						'value'   => 'deactivate',
 					),
 				),
 			),

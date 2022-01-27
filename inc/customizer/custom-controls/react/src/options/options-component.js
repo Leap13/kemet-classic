@@ -63,7 +63,6 @@ export const getSetting = (settingName) => {
 };
 
 export const isDisplay = (rules) => {
-    let setting = '';
     var relation = undefined != rules.relation ? rules.relation : "AND",
         isVisible = "AND" === relation ? true : false;
     _.each(rules, function (rule, ruleKey) {
@@ -73,8 +72,8 @@ export const isDisplay = (rules) => {
         var boolean = false,
             operator = undefined != rule.operator ? rule.operator : "=",
             ruleValue = rule.value;
-        setting = getSetting(rule.setting);
-        var settingValue = setting.get();
+
+        var settingValue = rule.setting === 'kemet-addons' ? KemetCustomizerData.plugins_status[rule.setting] : getSetting(rule.setting).get();
         switch (operator) {
             case "in_array":
                 boolean = ruleValue.includes(settingValue);

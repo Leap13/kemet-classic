@@ -7406,7 +7406,6 @@ var kmtEvents = window.KmtOptionComponent.kmtEvents;
 window.addEventListener('load', function () {
   var deviceButtons = document.querySelector('#customize-footer-actions .devices');
   deviceButtons.addEventListener('click', function (e) {
-    console.log(e.target.dataset.device);
     var device = e.target.dataset.device;
     kmtEvents.trigger('KemetChangedRepsonsivePreview', device);
   });
@@ -7568,7 +7567,6 @@ var getSetting = function getSetting(settingName) {
   return setting;
 };
 var isDisplay = function isDisplay(rules) {
-  var setting = '';
   var relation = undefined != rules.relation ? rules.relation : "AND",
       isVisible = "AND" === relation ? true : false;
 
@@ -7580,8 +7578,7 @@ var isDisplay = function isDisplay(rules) {
     var boolean = false,
         operator = undefined != rule.operator ? rule.operator : "=",
         ruleValue = rule.value;
-    setting = getSetting(rule.setting);
-    var settingValue = setting.get();
+    var settingValue = rule.setting === 'kemet-addons' ? KemetCustomizerData.plugins_status[rule.setting] : getSetting(rule.setting).get();
 
     switch (operator) {
       case "in_array":
