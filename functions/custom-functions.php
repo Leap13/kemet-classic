@@ -1035,6 +1035,9 @@ function get_visibility_class( $option ) {
 	if ( empty( $class ) ) {
 		$class[] = 'all-devices';
 	}
+	if ( function_exists( 'phpversion' ) && version_compare( phpversion(), '8.0.0' ) ) {
+		return implode( ' ', $class );
+	}
 	return implode( $class, ' ' );
 }
 
