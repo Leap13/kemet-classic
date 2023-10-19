@@ -442,7 +442,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$attachment_ids = $product->get_gallery_image_ids();
 
 				if ( $attachment_ids ) {
-					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
+					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'woocommerce_thumbnail' );
 
 					echo apply_filters( 'kemet_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
